@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Game.Views.GamePage">
+    <ContentPage.Content>
+        <StackLayout
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="CenterAndExpand"
+            >
+            
+            <Label 
+                Text="Welcome to my Game!"
+                FontSize="Large"
+                />
+
+            <Image
+                Source="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Seattle_Redhawks_logo.svg/914px-Seattle_Redhawks_logo.svg.png"
+                WidthRequest="100"
+                HeightRequest="100"
+                />
+
+            <Button
+                Clicked="GameButton_Clicked"
+                Text="Go RedHawks"
+                />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
