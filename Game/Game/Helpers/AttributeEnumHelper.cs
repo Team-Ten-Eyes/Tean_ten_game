@@ -19,8 +19,7 @@ namespace Game.Helpers
             get
             {
                 var myList = Enum.GetNames(typeof(AttributeEnum)).ToList();
-                var myReturn = myList;
-                return myReturn;
+                return myList;
             }
         }
 
@@ -32,9 +31,8 @@ namespace Game.Helpers
         {
             get
             {
-                var myList = Enum.GetNames(typeof(AttributeEnum)).ToList();
-                var myReturn = myList;
-                return myReturn;
+                var myList = Enum.GetNames(typeof(AttributeEnum)).ToList().Where(m => m.ToString().Equals("Unknown") == false).ToList();
+                return myList;
             }
         }
 
