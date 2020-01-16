@@ -144,4 +144,25 @@
       <Name>Game</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\door.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\gameover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\knight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\troll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\battleboard.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\d12.png" />
+  </ItemGroup>
 </Project>
