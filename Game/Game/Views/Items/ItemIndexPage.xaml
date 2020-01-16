@@ -22,52 +22,61 @@
                     IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                     RefreshCommand="{Binding LoadItemsCommand}"
                     CachingStrategy="RecycleElement"
-                    ItemSelected="OnItemSelected">
+                    ItemSelected="OnItemSelected"
+                    HasUnevenRows="true"
+                    Margin="5,0,0,0"
+                      >
+                
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+                            <Grid ColumnSpacing="5" RowSpacing="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
 
-                            <StackLayout Padding="10"
-                                Style="{DynamicResource StackLayoutList}">
+                                <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                        Source="{Binding ImageURI}"
+                                        Aspect="AspectFit"
+                                        VerticalOptions="CenterAndExpand"
+                                        HorizontalOptions="CenterAndExpand"
+                                        HeightRequest="30" MinimumHeightRequest="30"
+                                        WidthRequest="30" MinimumWidthRequest="30"
+                                        />
 
-                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                                    <StackLayout Orientation="Vertical" VerticalOptions="Center">
-                                        <Image Source="{Binding ImageURI}"
-                                       Style="{DynamicResource ImageList}" 
-                                       HeightRequest="50"
-                                       WidthRequest="50"/>
+                                <Label Grid.Column="1" Grid.Row="0"
+                                       Text="{Binding Name}" 
+                                       FontSize="Small"
+                                       />
 
-                                    </StackLayout>
-                                    <StackLayout Orientation="Vertical" VerticalOptions="Start">
-                                        
+                                <StackLayout Grid.Column="1" Grid.Row="1"
+                                    Orientation="Horizontal">
                                     
-                                
-                                <StackLayout Style="{DynamicResource StackLayoutList}"
-                                    Orientation="Vertical">
+                                    <Label 
+                                       Text="{Binding Attribute}" 
+                                       FontSize="Micro"
+                                       />
 
-                                    <StackLayout 
-                                        Style="{DynamicResource StackLayoutList}">
-
-                                        <Label Text="{Binding Name}" 
-                                           Style="{DynamicResource LabelList}" />
-
-                                                <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding Attribute}" 
-                                           Style="{DynamicResource LabelList}" />
-                                        <Label Text="{Binding Value}" 
-                                           Style="{DynamicResource LabelList}" />
-                                                </StackLayout>
-                                            </StackLayout>
-
-                                    <Label Text="{Binding Description}" 
-                                       FontSize="Micro" 
-                                       Style="{DynamicResource LabelList}" />
-                                </StackLayout>
-                                    </StackLayout>
+                                    <Label Text="{Binding Value}" 
+                                           FontSize="Micro"
+                                           Padding="0"
+                                           Margin="0"
+                                       VerticalTextAlignment="Start"
+                                           />
                                 </StackLayout>
 
-                            </StackLayout>
+                                <Label Grid.Column="1" Grid.Row="2"
+                                       Text="{Binding Description}" 
+                                       FontSize="Micro"
+                                       />
 
+                            </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
