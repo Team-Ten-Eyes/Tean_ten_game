@@ -5821,7 +5821,10 @@ namespace Game.Droid
 			public const int troll = 2131165310;
 			
 			// aapt resource value: 0x7F07007F
-			public const int xamarin_logo = 2131165311;
+			public const int village = 2131165311;
+			
+			// aapt resource value: 0x7F070080
+			public const int xamarin_logo = 2131165312;
 			
 			static Drawable()
 			{
