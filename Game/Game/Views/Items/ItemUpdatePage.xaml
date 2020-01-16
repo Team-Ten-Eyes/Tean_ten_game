@@ -135,7 +135,7 @@
                     </StackLayout>
                     <StackLayout Grid.Row="4" Grid.Column="1">
                         <Picker 
-                            ItemsSource="{x:Static local_helpers:ItemLocationEnumHelper.GetListItem}" 
+                            ItemsSource="{x:Static local_helpers:ItemLocationEnumHelper.GetListCharacter}" 
                             SelectedItem="{Binding Data.Location, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
                             x:Name="LocationPicker" 
                             VerticalOptions="Center"/>
@@ -150,7 +150,7 @@
                     </StackLayout>
                     <StackLayout Grid.Row="5" Grid.Column="1">
                         <Picker 
-                            ItemsSource="{x:Static local_helpers:ItemLocationEnumHelper.GetListItem}" 
+                            ItemsSource="{x:Static local_helpers:AttributeEnumHelper.GetListCharacter}" 
                             SelectedItem="{Binding Data.Attribute, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
                             x:Name="AttributePicker"
                             VerticalOptions="Center"/>
