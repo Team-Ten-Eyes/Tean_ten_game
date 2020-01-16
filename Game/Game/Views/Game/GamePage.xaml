@@ -7,20 +7,51 @@
         <StackLayout
             VerticalOptions="CenterAndExpand"
             HorizontalOptions="CenterAndExpand"
+            Orientation="Horizontal"
             >
 
-            <ImageButton
-                Source="village.jpg"
+            <StackLayout 
+                Orientation="Vertical"
+                HorizontalOptions="Center"
+                HeightRequest="200"
+                WidthRequest="200">
+
+                <ImageButton
+                Source="village.png"
                 HorizontalOptions="Center"
                 Clicked="VillageButton_Clicked"
                 />
 
-            <ImageButton
-                Source="dungeon_door.jpg"
-                HorizontalOptions="Center"
-                Clicked="VillageButton_Clicked"
-                />
+                <Label 
+                    Text="Village"
+                    FontSize="Medium"
+                    TextColor="DarkGray"
+                    FontAttributes="Bold"
+                    HorizontalTextAlignment="Center"
+                    />
 
+            </StackLayout>
+
+            <StackLayout 
+                Orientation="Vertical"
+                HorizontalOptions="Center"
+                HeightRequest="200"
+                WidthRequest="200">
+                
+                <ImageButton
+                    Source="dungeon_door.png"
+                    HorizontalOptions="Center"
+                    Clicked="DungeonButton_Clicked"
+                    />
+
+                <Label 
+                    Text="Dungeon"
+                    FontSize="Medium"
+                    TextColor="DarkGray"
+                    FontAttributes="Bold"
+                    HorizontalTextAlignment="Center"
+                    />
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

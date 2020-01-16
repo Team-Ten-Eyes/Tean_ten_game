@@ -19,14 +19,24 @@ namespace Game.Views
 		}
 
 		/// <summary>
-		/// Example of a Button Click (this one is Sync, if calling Async then needs to be Async)
+		/// Jump to the Dungeon
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-        void GameButton_Clicked(object sender, EventArgs e)
+        void DungeonButton_Clicked(object sender, EventArgs e)
         {
             DisplayAlert("SU", "Go RedHawks", "OK");
         }
 
-    }
+		/// <summary>
+		/// Jump to the Village
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void VillageButton_Clicked(object sender, EventArgs e)
+		{
+			DisplayAlert("SU", "Go RedHawks", "OK");
+		}
+
+	}
 }
