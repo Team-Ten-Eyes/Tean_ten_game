@@ -12,14 +12,17 @@
 
             <StackLayout 
                 Orientation="Vertical"
-                HorizontalOptions="Center"
+                HorizontalOptions="FillAndExpand"
                 HeightRequest="200"
-                WidthRequest="200">
+                WidthRequest="100">
 
                 <ImageButton
                 Source="village.png"
                 HorizontalOptions="Center"
                 Clicked="VillageButton_Clicked"
+                BackgroundColor="Bisque"
+                HeightRequest="100"
+                WidthRequest="100"
                 />
 
                 <Label 
@@ -34,14 +37,17 @@
 
             <StackLayout 
                 Orientation="Vertical"
-                HorizontalOptions="Center"
+                HorizontalOptions="FillAndExpand"
                 HeightRequest="200"
-                WidthRequest="200">
+                WidthRequest="100">
                 
                 <ImageButton
                     Source="dungeon_door.png"
                     HorizontalOptions="Center"
                     Clicked="DungeonButton_Clicked"
+                    BackgroundColor="Bisque"
+                    HeightRequest="100"
+                    WidthRequest="100"
                     />
 
                 <Label 
