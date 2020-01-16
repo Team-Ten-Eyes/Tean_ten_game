@@ -105,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="battleboard.jpg" />
+    <Content Include="cauldren.png" />
     <Content Include="d12.png" />
     <Content Include="door.png" />
     <Content Include="dungeon_door.png" />
@@ -142,6 +143,7 @@
     <Content Include="splashscreen.jpg" />
     <Content Include="troll.png" />
     <Content Include="village.jpg" />
+    <Content Include="village.png" />
     <Content Include="xamarin_logo.png" />
     <Content Include="add.png" />
     <Content Include="save.png" />
