@@ -169,9 +169,6 @@
     <BundleResource Include="Resources\splashscreen.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\dungeon_door.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\village.png" />
   </ItemGroup>
   <ItemGroup>

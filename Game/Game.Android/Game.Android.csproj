@@ -119,9 +119,6 @@
     <AndroidResource Include="Resources\drawable\door.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\dungeon_door.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\village.png" />
   </ItemGroup>
   <ItemGroup>
