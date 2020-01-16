@@ -26,6 +26,12 @@ namespace Game.Views
             InitializeComponent();
 
             BindingContext = this.ViewModel = data;
+
+            this.ViewModel.Title = "Edit " + data.Title;
+
+            //Need to make the SelectedItem a string, so it can select the correct item.
+            LocationPicker.SelectedItem = data.Data.Location.ToString();
+            AttributePicker.SelectedItem = data.Data.Attribute.ToString();
         }
 
         /// <summary>
@@ -35,6 +41,12 @@ namespace Game.Views
         /// <param name="e"></param>
         async void Save_Clicked(object sender, EventArgs e)
         {
+            // If the image in the data box is empty, use the default one..
+            if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
+            {
+                ViewModel.Data.ImageURI = Game.Services.ItemService.DefaultImageURI;
+            }
+
             MessagingCenter.Send(this, "Update", ViewModel.Data);
             Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
             await Navigation.PopAsync();
@@ -50,6 +62,24 @@ namespace Game.Views
             Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
 
             await Navigation.PopAsync();
+        }
+
+        // The stepper function for Range
+        void Range_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            RangeValue.Text = String.Format("{0}", e.NewValue);
+        }
+
+        // The stepper function for Value
+        void Value_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            ValueValue.Text = String.Format("{0}", e.NewValue);
+        }
+
+        // The stepper function for Damage
+        void Damage_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            DamageValue.Text = String.Format("{0}", e.NewValue);
         }
     }
 }
