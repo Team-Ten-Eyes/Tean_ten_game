@@ -1,27 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Game.Views.GamePage">
+             x:Class="Game.Views.GamePage"
+             BackgroundColor="Bisque">
     <ContentPage.Content>
         <StackLayout
             VerticalOptions="CenterAndExpand"
             HorizontalOptions="CenterAndExpand"
             >
-            
-            <Label 
-                Text="Welcome to my Game!"
-                FontSize="Large"
-                />
 
             <Image
-                Source="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Seattle_Redhawks_logo.svg/914px-Seattle_Redhawks_logo.svg.png"
-                WidthRequest="100"
+                Source="splashscreen.jpg"
+                WidthRequest="200"
                 HeightRequest="100"
+                HorizontalOptions="Center"
+                Margin="0,10,0,0"
+                />
+            
+            <Label 
+                Text="In a far away land there was tribe of warrior elves. The elves entered the woods daily to find and eraticate the monsters that threatened their villages."
+                FontSize="Medium"
+                HorizontalOptions="Center"
+                LineBreakMode="WordWrap"
+                MaxLines="5"
+                WidthRequest="300"
+                Padding="10"
                 />
 
             <Button
                 Clicked="GameButton_Clicked"
-                Text="Go RedHawks"
+                Text="Enter"
+                HorizontalOptions="Center"
+                BorderWidth="1"
+                BorderColor="Black"
                 />
 
         </StackLayout>
