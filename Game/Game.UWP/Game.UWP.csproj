@@ -108,6 +108,7 @@
     <Content Include="d12.png" />
     <Content Include="door.png" />
     <Content Include="dungeon_door.jpg" />
+    <Content Include="dungeon_door.png" />
     <Content Include="gameover.png" />
     <Content Include="item.png" />
     <Content Include="knight.png" />
