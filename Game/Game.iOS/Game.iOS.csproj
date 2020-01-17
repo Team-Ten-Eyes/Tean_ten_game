@@ -177,4 +177,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\cauldren.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\grey_door.png" />
+  </ItemGroup>
 </Project>
