@@ -14,17 +14,15 @@
                 WidthRequest="200"
                 HeightRequest="100"
                 HorizontalOptions="Center"
-                Margin="0,10,0,0"
                 />
             
             <Label 
                 Text="In a far away land there was tribe of warrior elves. The elves entered the woods daily to find and eraticate the monsters that threatened their villages."
                 FontSize="Medium"
                 HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
                 LineBreakMode="WordWrap"
-                MaxLines="5"
-                WidthRequest="300"
-                Padding="10"
+                Padding="20,0,20,0"
                 />
 
             <Button
