@@ -9,11 +9,27 @@
     <Application.Resources>
         <ResourceDictionary>
             <!--Global Styles-->
-            <Color x:Key="NavigationPrimary">#2196F3</Color>
+            <Color x:Key="PrimaryNavigationColor">Bisque</Color>
+            <Color x:Key="PrimaryBackgroundColor">Bisque</Color>
+
+            <Color x:Key="PageBackgroundColor">Bisque</Color>
+            <Color x:Key="NavigationBarColor">WhiteSmoke</Color>
+            <Color x:Key="PrimaryColor">Black</Color>
+            <Color x:Key="SecondaryColor">White</Color>
+            <Color x:Key="PrimaryTextColor">Black</Color>
+            <Color x:Key="SecondaryTextColor">White</Color>
+            <Color x:Key="TertiaryTextColor">Gray</Color>
+            <Color x:Key="TransparentColor">Transparent</Color>
+
             <Style TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
-                <Setter Property="BarTextColor" Value="White" />
+                <Setter Property="BarBackgroundColor" Value="Bisque" />
+                <Setter Property="BarTextColor" Value="Black" />
             </Style>
+
+            <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
     
