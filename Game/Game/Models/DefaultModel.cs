@@ -1,4 +1,5 @@
 ﻿using System;
+using SQLite;
 
 namespace Game.Models
 {
@@ -11,6 +12,7 @@ namespace Game.Models
     public class DefaultModel
     {
         // The ID for the item
+        [PrimaryKey]
         public string Id { get; set; } = Guid.NewGuid().ToString();
 
         // The Name of the Item 
