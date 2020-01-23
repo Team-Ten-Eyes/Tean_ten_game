@@ -167,7 +167,7 @@ namespace Game.ViewModels
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public bool Add_Sync(ItemModel data)
+        public bool Create_Sync(ItemModel data)
         {
             Dataset.Add(data);
             SetNeedsRefresh(true);
