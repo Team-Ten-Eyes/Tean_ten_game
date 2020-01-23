@@ -253,7 +253,7 @@ namespace Game.ViewModels
             try
             {
                 Dataset.Clear();
-                var dataset = await DataStore.IndexAsync(true);
+                var dataset = await DataStore.IndexAsync();
 
                 // Example of how to sort the database output using a linq query.
                 // Sort the list

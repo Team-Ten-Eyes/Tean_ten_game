@@ -107,7 +107,7 @@ namespace Game.Services
         /// </summary>
         /// <param name="forceRefresh"></param>
         /// <returns></returns>
-        public async Task<IEnumerable<T>> IndexAsync(bool forceRefresh = false)
+        public async Task<IEnumerable<T>> IndexAsync()
         {
             return await Task.FromResult(datalist);
         }

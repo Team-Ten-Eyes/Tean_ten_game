@@ -13,7 +13,7 @@ namespace Game.Services
         Task<T> ReadAsync(string id);
         Task<bool> UpdateAsync(T Data);
         Task<bool> DeleteAsync(string id);
-        Task<IEnumerable<T>> IndexAsync(bool forceRefresh = false);
+        Task<IEnumerable<T>> IndexAsync();
 
         Task<bool> CreateUpdateAsync(T Data);
     }
