@@ -13,13 +13,22 @@ namespace Game.ViewModels
     /// </summary>
     public class BaseViewModel<T> : INotifyPropertyChanged where T : new()
     {
-        private IDataStore<T> DataStoreMock => DependencyService.Get<IDataStore<T>>() ?? new MockDataStore<T>();
 
+        // The Mock DataStore
+        private IDataStore<T> DataStoreMock => new MockDataStore<T>();
+        
+        // The SQL DataStore
+        private IDataStore<T> DataStoreSQL => new DatabaseService<T>();
+
+        // Which DataStore to use
         public IDataStore<T> DataStore;
 
         public BaseViewModel()
         {
             SetDataStore(DataStoreEnum.Mock);
+            
+            // For testing, startup in sql mode
+            SetDataStore(DataStoreEnum.SQL);
         }
 
         // Establish the type of data store to use
@@ -27,6 +36,10 @@ namespace Game.ViewModels
         {
             switch (data)
             {
+                case DataStoreEnum.SQL:
+                    DataStore = DataStoreSQL;
+                    break;
+
                 default:
                 case DataStoreEnum.Mock:
                     DataStore = DataStoreMock;
