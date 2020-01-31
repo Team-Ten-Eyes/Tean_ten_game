@@ -22,6 +22,8 @@ namespace Game.Views
 
             // Turn off the Debug Frame
             DebugSettingsFrame.IsVisible = false;
+
+            CurrentDateTime.Text = System.DateTime.Now.ToString("MM/dd/yy hh:mm:ss");
         }
 
         private void EnableDebugSettings_OnToggled(object sender, ToggledEventArgs e)

@@ -34,7 +34,7 @@
                 <Image Source="d12.png" HeightRequest="100" />
                 <Label Text="Class Dungeon" HorizontalTextAlignment="Center" FontSize="Large"></Label>
                 <Label Text="Mike Koenig" HorizontalTextAlignment="Center" FontSize="Medium"></Label>
-                <Label Text="1/1/2020 - 2:00pm" HorizontalTextAlignment="Center" FontSize="Medium"></Label>
+                <Label x:Name="CurrentDateTime" HorizontalTextAlignment="Center" FontSize="Medium"></Label>
             </StackLayout>
 
 
