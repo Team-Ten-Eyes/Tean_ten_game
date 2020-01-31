@@ -111,6 +111,11 @@
     <Content Include="dungeon_door.png" />
     <Content Include="gameover.png" />
     <Content Include="grey_door.png" />
+    <Content Include="icon_add.png" />
+    <Content Include="icon_cancel.png" />
+    <Content Include="icon_delete.png" />
+    <Content Include="icon_edit.png" />
+    <Content Include="icon_save.png" />
     <Content Include="item.png" />
     <Content Include="knight.png" />
     <Content Include="Properties\Default.rd.xml" />
