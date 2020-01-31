@@ -52,6 +52,16 @@ namespace Game.Services
         }
 
         /// <summary>
+        /// Wipe Data List
+        /// Drop the tables and create new ones
+        /// </summary>
+        public void WipeDataList()
+        {
+            Database.DropTableAsync<ItemModel>().GetAwaiter().GetResult();
+            Database.CreateTablesAsync(CreateFlags.None, typeof(T)).ConfigureAwait(false).GetAwaiter().GetResult();
+        }
+
+        /// <summary>
         /// Create a new record for the data passed in
         /// </summary>
         /// <param name="data"></param>
@@ -112,35 +122,9 @@ namespace Game.Services
         /// Return all records in the database
         /// </summary>
         /// <returns></returns>
-        public async Task<IEnumerable<T>> IndexAsync()
+        public async Task<List<T>> IndexAsync()
         {
             return await Database.Table<T>().ToListAsync();
-        }
-
-        /// <summary>
-        /// Creates the Data if it does not Exists
-        /// If it does Exist it updates the data
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        public async Task<bool> CreateUpdateAsync(T data)
-        {
-            // Check to see if the data exist
-            var oldData = await ReadAsync(((BaseModel<T>)(object)data).Id);
-            if (oldData == null)
-            {
-                await CreateAsync(data);
-                return true;
-            }
-
-            // Compare it, if different update in the DB
-            var UpdateResult = await UpdateAsync(data);
-            if (UpdateResult)
-            {
-                return true;
-            }
-
-            return false;
         }
     }
 }

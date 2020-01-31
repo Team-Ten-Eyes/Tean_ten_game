@@ -13,6 +13,15 @@ namespace Game.Services
         /// </summary>
         public List<T> datalist = new List<T>();
 
+
+        /// <summary>
+        /// Clear the Dataset
+        /// </summary>
+        public void WipeDataList()
+        {
+            datalist.Clear();
+        }
+
         /// <summary>
         /// Add the data to the list
         /// </summary>
@@ -23,6 +32,19 @@ namespace Game.Services
             datalist.Add(data);
 
             return await Task.FromResult(true);
+        }
+
+        /// <summary>
+        /// Takes the ID and finds it in the data set
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Record if found else null</returns>
+        #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
+        public async Task<T> ReadAsync(string id)
+        #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
+        {
+            T oldData = datalist.Where((T arg) => ((BaseModel<T>)(object)arg).Id.Equals(id)).FirstOrDefault();
+            return oldData;
         }
 
         /// <summary>
@@ -45,32 +67,6 @@ namespace Game.Services
         }
 
         /// <summary>
-        /// Creates the Data if it does not Exists
-        /// If it does Exist it updates the data
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        public async Task<bool> CreateUpdateAsync(T data)
-        {
-            // Check to see if the item exist
-            var oldData = await ReadAsync(((BaseModel<T>)(object)data).Id);
-            if (oldData == null)
-            {
-                await CreateAsync(data);
-                return true;
-            }
-
-            // Compare it, if different update in the DB
-            var UpdateResult = await UpdateAsync(data);
-            if (UpdateResult)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        /// <summary>
         /// Deletes the Data passed in by
         /// Removing it from the list
         /// </summary>
@@ -90,24 +86,11 @@ namespace Game.Services
         }
 
         /// <summary>
-        /// Takes the ID and finds it in the data set
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns>Record if found else null</returns>
-        #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
-        public async Task<T> ReadAsync(string id)
-        #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
-        {
-            T oldData = datalist.Where((T arg) => ((BaseModel<T>)(object)arg).Id.Equals(id)).FirstOrDefault();
-            return oldData;
-        }
-
-        /// <summary>
         /// Get the full list of data
         /// </summary>
         /// <param name="forceRefresh"></param>
         /// <returns></returns>
-        public async Task<IEnumerable<T>> IndexAsync()
+        public async Task<List<T>> IndexAsync()
         {
             return await Task.FromResult(datalist);
         }

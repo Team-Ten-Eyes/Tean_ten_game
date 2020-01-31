@@ -18,17 +18,25 @@ namespace Game.ViewModels
     {
         #region Singleton
         // Make this a singleton so it only exist one time because holds all the data records in memory
-        private static ItemIndexViewModel _instance;
+        private static volatile ItemIndexViewModel instance;
+        private static readonly object syncRoot = new Object();
 
         public static ItemIndexViewModel Instance
         {
             get
             {
-                if (_instance == null)
+                if (instance == null)
                 {
-                    _instance = new ItemIndexViewModel();
+                    lock (syncRoot)
+                    {
+                        if (instance == null)
+                        {
+                            instance = new ItemIndexViewModel();
+                        }
+                    }
                 }
-                return _instance;
+
+                return instance;
             }
         }
 
@@ -38,12 +46,23 @@ namespace Game.ViewModels
         // The Data set of records
         public ObservableCollection<ItemModel> Dataset { get; set; }
 
-        // Command to force a Load of data
-        public Command LoadDatasetCommand { get; set; }
+        private IDataStore<ItemModel> DataSource_Mock => new MockDataStore<ItemModel>();
+        
+        private IDataStore<ItemModel> DataSource_SQL => new DatabaseService<ItemModel>();
 
+        public new IDataStore<ItemModel> DataStore;
+
+        // What is the current data source, SQL, Mock
+        public int CurrentDataSource = 0;
+
+        // track if the system needs refreshing
         private bool _needsRefresh;
 
+        // Track if the system has been initialized
         private static bool IsAlreadyInitialized = false;
+
+        // Command to force a Load of data
+        public Command LoadDatasetCommand { get; set; }
 
         /// <summary>
         /// Constructor
@@ -54,6 +73,8 @@ namespace Game.ViewModels
         {
             Title = "Items";
 
+            SetDataSource(CurrentDataSource);   // Set to Mock to start with
+
             Dataset = new ObservableCollection<ItemModel>();
             LoadDatasetCommand = new Command(async () => await ExecuteLoadDataCommand());
 
@@ -61,40 +82,106 @@ namespace Game.ViewModels
             // Register the Create Message
             MessagingCenter.Subscribe<ItemCreatePage, ItemModel>(this, "Create", async (obj, data) =>
             {
-                await Create(data as ItemModel);
+                await CreateAsync(data as ItemModel);
             });
 
-            MessagingCenter.Subscribe<ItemDeletePage, ItemModel>(this, "Delete", async (obj, data) =>
-            {
-                await Delete(data as ItemModel);
-            });
-
+            // Register the Update Message
             MessagingCenter.Subscribe<ItemUpdatePage, ItemModel>(this, "Update", async (obj, data) =>
             {
-                await Update(data as ItemModel);
+                await UpdateAsync(data as ItemModel);
             });
+
+            // Register the Delete Message
+            MessagingCenter.Subscribe<ItemDeletePage, ItemModel>(this, "Delete", async (obj, data) =>
+            {
+                await DeleteAsync(data as ItemModel);
+            });
+
+            // Register the Set Data Source Message
+            MessagingCenter.Subscribe<AboutPage, int>(this, "SetDataSource", (obj, data) =>
+            {
+                SetDataSource(data);
+            });
+
+            // Register the Wipe Data List Message
+            MessagingCenter.Subscribe<AboutPage, bool>(this, "WipeDataList", (obj, data) =>
+            {
+                WipeDataList();
+            });
+
             #endregion Messages
 
             // Load the data sets
-            Task.Run(() => LoadDefaultData()).Wait();
-            //LoadDefaultData().GetAwaiter().GetResult();
+            LoadDefaultData();
         }
         #endregion Constructor
 
-        #region DataOperations
+        #region DataSourceManagement
+
+        public void LoadDefaultData()
+        {
+            Task.Run(() => LoadDefaultDataAsync()).Wait();
+        }
+
+        /// <summary>
+        /// Wipes the current Data from the Data Store
+        /// </summary>
+        public void WipeDataList()
+        {
+            DataStore.WipeDataList();
+            SetNeedsRefresh(true);
+        }
+
+        /// <summary>
+        /// Sets the DataSource to use (SQL or Mock)
+        /// </summary>
+        /// <param name="isSQL"></param>
+        /// <returns></returns>
+        public bool SetDataSource(int isSQL)
+        {
+            if (isSQL == 1)
+            {
+                DataStore = DataSource_SQL;
+                CurrentDataSource = 1;
+            }
+            else
+            {
+                DataStore = DataSource_Mock;
+                CurrentDataSource = 0;
+            }
+
+            // Set Flag for Refresh
+            SetNeedsRefresh(true);
+
+            return true;
+        }
+        #endregion DataSourceManagement
+
+        #region DataOperations_CRUDi
         /// <summary>
         /// API to add the Data
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public async Task<bool> Create(ItemModel data)
+        public async Task<bool> CreateAsync(ItemModel data)
         {
             Dataset.Add(data);
             var result = await DataStore.CreateAsync(data);
 
-            _needsRefresh = true;
+            SetNeedsRefresh(true);
 
             return result;
+        }
+
+        /// <summary>
+        /// Get the data
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<ItemModel> ReadAsync(string id)
+        {
+            var myData = await DataStore.ReadAsync(id);
+            return myData;
         }
 
         /// <summary>
@@ -102,18 +189,22 @@ namespace Game.ViewModels
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public async Task<bool> Update(ItemModel data)
+        public async Task<bool> UpdateAsync(ItemModel data)
         {
-            var item = await Read(data.Id);
-            if (item == null)
+            // Check that the record exists, if it does not, then exit with false
+            var record = await ReadAsync(data.Id);
+            if (record == null)
             {
                 return false;
             }
 
-            item.Update(data);
-            var result = await DataStore.UpdateAsync(data);
+            // Have the item update itself
+            record.Update(data);
 
-            _needsRefresh = true;
+            // Save the change to the Data Store
+            var result = await DataStore.UpdateAsync(record);
+
+            SetNeedsRefresh(true);
 
             return result;
         }
@@ -123,39 +214,50 @@ namespace Game.ViewModels
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public async Task<bool> Delete(ItemModel data)
+        public async Task<bool> DeleteAsync(ItemModel data)
         {
-            var item = await Read(data.Id);
-            if (item == null)
+            // Check that the record exists, if it does not, then exit with false
+            var record = await ReadAsync(data.Id);
+            if (record == null)
             {
                 return false;
             }
 
-            Dataset.Remove(item);
-            var myReturn = await DataStore.DeleteAsync(item.Id);
+            // remove the record from the current data set in the viewmodel
+            Dataset.Remove(data);
 
-            _needsRefresh = true;
+            // Have the record deleted from the data source
+            var result = await DataStore.DeleteAsync(record.Id);
 
-            return myReturn;
+            SetNeedsRefresh(true);
+
+            return result;
         }
 
         /// <summary>
-        /// Get the data
+        /// Having this at the ViewModel, because it has the DataStore
+        /// That allows the feature to work for both SQL and the Mock datastores...
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="data"></param>
         /// <returns></returns>
-        public async Task<ItemModel> Read(string id)
-        {
-            var myData = await DataStore.ReadAsync(id);
-            return myData;
-        }
-
-        // Having this at the ViewModel, because it has the DataStore
-        // That allows the feature to work for both SQL and the Mock datastores...
         public async Task<bool> CreateUpdateAsync(ItemModel data)
         {
-            var myReturn = await DataStore.CreateUpdateAsync(data);
-            return myReturn;
+            // Check to see if the data exist
+            var oldData = await ReadAsync(data.Id);
+            if (oldData == null)
+            {
+                await CreateAsync(data);
+                return true;
+            }
+
+            // Compare it, if different update in the DB
+            var UpdateResult = await UpdateAsync(data);
+            if (UpdateResult)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         /// <summary>
@@ -173,7 +275,7 @@ namespace Game.ViewModels
             SetNeedsRefresh(true);
             return true;
         }
-        
+
         /// <summary>
         /// Returns the item passed in
         /// </summary>
@@ -196,14 +298,14 @@ namespace Game.ViewModels
 
             return myList;
         }
-        #endregion DataOperations
+        #endregion DataOperations_CRUDi
 
         #region Refresh
         /// <summary>
         ///  Load the DefaultData
         /// </summary>
         /// <returns></returns>
-        public async Task<bool> LoadDefaultData()
+        public async Task<bool> LoadDefaultDataAsync()
         {
             if (IsAlreadyInitialized)
             {
@@ -214,7 +316,7 @@ namespace Game.ViewModels
 
             foreach (var item in DefaultData.LoadItems())
             {
-                await Create(item);
+                await CreateAsync(item);
             }
 
             return true;
@@ -264,7 +366,8 @@ namespace Game.ViewModels
 
                 foreach (var data in dataset)
                 {
-                    Dataset.Add(data);
+                    // Make a Copy of the Item Model to add to the List
+                    Dataset.Add(new ItemModel(data));
                 }
             }
             catch (Exception ex)
