@@ -23,7 +23,7 @@
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
                 LineBreakMode="WordWrap"
-                Padding="20,0,20,0"
+                Padding="40,0,20,0"
                 />
 
             <Button
