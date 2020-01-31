@@ -42,7 +42,7 @@ namespace Game.ViewModels
 
         #endregion Singleton
 
-        #region Constructor
+        #region Attributes
         // The Data set of records
         public ObservableCollection<ItemModel> Dataset { get; set; }
 
@@ -63,7 +63,9 @@ namespace Game.ViewModels
 
         // Command to force a Load of data
         public Command LoadDatasetCommand { get; set; }
+        #endregion Attributes
 
+        #region Constructor
         /// <summary>
         /// Constructor
         /// 
@@ -118,6 +120,9 @@ namespace Game.ViewModels
 
         #region DataSourceManagement
 
+        /// <summary>
+        /// Loads the Default Data set
+        /// </summary>
         public void LoadDefaultData()
         {
             Task.Run(() => LoadDefaultDataAsync()).Wait();
@@ -379,8 +384,7 @@ namespace Game.ViewModels
                 IsBusy = false;
             }
         }
-
-
+        
         /// <summary>
         /// Force data to refresh
         /// </summary>
