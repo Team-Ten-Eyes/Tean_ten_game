@@ -7,11 +7,11 @@
              x:Class="Game.Views.AboutPage"
              xmlns:vm="clr-namespace:Game.ViewModels"
              Title="{Binding Title}">
-    
+
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="Primary">#2196F3</Color>
@@ -20,25 +20,145 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
-                    <Image Source="xamarin_logo.png" VerticalOptions="Center" HeightRequest="64" />
-                </ContentView>
+    <ScrollView
+      VerticalOptions="FillAndExpand"
+      HorizontalOptions="FillAndExpand"
+      Orientation="Vertical">
+
+        <StackLayout
+            VerticalOptions="Start"
+            HorizontalOptions="FillAndExpand"
+            Orientation="Vertical">
+
+            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+                <Image Source="d12.png" HeightRequest="100" />
+                <Label Text="Class Dungeon" HorizontalTextAlignment="Center" FontSize="Large"></Label>
+                <Label Text="Mike Koenig" HorizontalTextAlignment="Center" FontSize="Medium"></Label>
+                <Label Text="1/1/2020 - 2:00pm" HorizontalTextAlignment="Center" FontSize="Medium"></Label>
+            </StackLayout>
+
+
+            <StackLayout>
+                <StackLayout
+                    Orientation="Horizontal"
+                    HorizontalOptions="StartAndExpand">
+
+                    <Label
+                        Text="Debug Settings"
+                        Style="{DynamicResource DebugSwitchLabel}"/>
+
+                    <Switch
+                        x:Name="DebugSettingsSwitch"
+                        HorizontalOptions="EndAndExpand"
+                        Toggled="EnableDebugSettings_OnToggled"
+                        IsToggled="False"/>
+                </StackLayout>
+
+                <StackLayout
+                    HorizontalOptions="CenterAndExpand"
+                    Orientation="Vertical">
+
+                    <StackLayout
+                          x:Name="DebugSettingsFrame"
+                          IsVisible="False"
+                          HorizontalOptions="Start"
+                          VerticalOptions="Start">
+
+                          <StackLayout Margin="50,0,0,0">
+
+                        <!--Database Settings-->
+                        <StackLayout>
+                            <StackLayout
+                              Orientation="Horizontal"
+                              HorizontalOptions="StartAndExpand">
+
+                                <Label
+                            Text="Database Settings"
+                            Style="{DynamicResource DebugSwitchLabel}"/>
+
+                                <Switch
+                            x:Name="DatabaseSettings"
+                            HorizontalOptions="EndAndExpand"
+                            Toggled="EnableDebugSettings_OnToggled"
+                            IsToggled="False"/>
+                            </StackLayout>
+
+                            <StackLayout
+                        x:Name="DatabaseSettingsFrame"
+                        IsVisible="True">
+
+                                <StackLayout
+                          Orientation="Vertical"
+                          Margin="50,0,0,0">
+
+                                    <StackLayout
+                            HorizontalOptions="FillAndExpand"
+                            Orientation="Horizontal">
+
+                                        <Label
+                            Text="Use Mock DataStore"
+                            Style="{DynamicResource DebugSwitchLabel}"/>
+
+                                        <Switch
+                            x:Name="UseMockDataSource"
+                            HorizontalOptions="EndAndExpand"
+                            Toggled="UseMockDataSourceSwitch_OnToggled"
+                            IsToggled="False"/>
+                                    </StackLayout>
+
+                                    <StackLayout
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Vertical">
+
+                                        <StackLayout
+                                  HorizontalOptions="FillAndExpand"
+                                  Orientation="Horizontal">
+
+                                            <Label
+                                        Text="Clear Database"
+                                        HorizontalTextAlignment="Start"
+                                        HorizontalOptions="Start"/>
+
+                                            <Button
+                                        Text="Clear"
+                                        Clicked="ClearDatabase_Command"
+                                        HorizontalOptions="Fill"/>
+                                        </StackLayout>
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <!--Debug Settings-->
+                        <StackLayout
+                      HorizontalOptions="StartAndExpand"
+                      VerticalOptions="Start"
+                      Orientation="Vertical">
+
+                            <StackLayout
+                      HorizontalOptions="FillAndExpand"
+                      VerticalOptions="Start"
+                      Orientation="Horizontal">
+
+                                <Label
+                            FontSize="Small"
+                            Text="Debug Settings"
+                            Style="{DynamicResource DebugSwitchLabel}"/>
+
+                                <Switch
+                            x:Name="EnableDebugSettings"
+                            HorizontalOptions="EndAndExpand"
+                            Toggled="EnableDebugSettings_OnToggled"
+                            IsToggled="False"/>
+                            </StackLayout>
+
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                </StackLayout>
+
             </StackLayout>
         </StackLayout>
-        <ScrollView Grid.Row="1">
-            <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
-                <Label Text="CPSC 4025 WQ20"></Label>
-                <Label Text="Mike Koenig"></Label>
-                <Label Text="1/1/2020 - 2:00pm"></Label>
-            </StackLayout>
-        </ScrollView>
-    </Grid>
-    
+    </ScrollView>
 </ContentPage>
