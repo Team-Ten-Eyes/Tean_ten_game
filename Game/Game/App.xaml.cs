@@ -1,7 +1,6 @@
 ﻿using Xamarin.Forms;
-using Game.Services;
 using Game.Views;
-using Game.Models;
+using Game.ViewModels;
 
 namespace Game
 {
@@ -17,7 +16,8 @@ namespace Game
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore <ItemModel>>();
+            // Add each model here to warm up and load it.
+            ItemIndexViewModel.Instance.GetCurrentDataSource();
 
             // Call the Main Page to open
             MainPage = new MainPage();
