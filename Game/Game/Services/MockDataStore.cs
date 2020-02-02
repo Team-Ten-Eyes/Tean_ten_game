@@ -17,9 +17,10 @@ namespace Game.Services
         /// <summary>
         /// Clear the Dataset
         /// </summary>
-        public void WipeDataList()
+        public async Task<bool> WipeDataListAsync()
         {
             datalist.Clear();
+            return await Task.FromResult(true);
         }
 
         /// <summary>

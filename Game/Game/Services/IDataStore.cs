@@ -15,6 +15,6 @@ namespace Game.Services
         Task<bool> DeleteAsync(string id);
         Task<List<T>> IndexAsync();
 
-        void WipeDataList();
+        Task<bool> WipeDataListAsync();
     }
 }

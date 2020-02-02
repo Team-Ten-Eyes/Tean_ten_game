@@ -55,10 +55,12 @@ namespace Game.Services
         /// Wipe Data List
         /// Drop the tables and create new ones
         /// </summary>
-        public void WipeDataList()
+        public async Task<bool> WipeDataListAsync()
         {
-            Database.DropTableAsync<ItemModel>().GetAwaiter().GetResult();
-            Database.CreateTablesAsync(CreateFlags.None, typeof(T)).ConfigureAwait(false).GetAwaiter().GetResult();
+            await Database.DropTableAsync<ItemModel>();
+            await Database.CreateTablesAsync(CreateFlags.None, typeof(T));
+
+            return await Task.FromResult(true);
         }
 
         /// <summary>
@@ -79,7 +81,17 @@ namespace Game.Services
         /// <returns></returns>
         public async Task<T> ReadAsync(string id)
         {
-            return await Database.Table<T>().Where((T arg) => ((BaseModel<T>)(object)arg).Id.Equals(id)).FirstOrDefaultAsync();
+            T data;
+
+            try
+            {
+                data = await Database.Table<T>().Where((T arg) => ((BaseModel<T>)(object)arg).Id.Equals(id)).FirstOrDefaultAsync();
+            }
+            catch (Exception) {
+                data = default(T);
+            }
+
+            return data;
         }
 
         /// <summary>

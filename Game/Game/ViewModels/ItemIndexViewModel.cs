@@ -106,9 +106,9 @@ namespace Game.ViewModels
             });
 
             // Register the Wipe Data List Message
-            MessagingCenter.Subscribe<AboutPage, bool>(this, "WipeDataList", (obj, data) =>
+            MessagingCenter.Subscribe<AboutPage, bool>(this, "WipeDataList", async (obj, data) =>
             {
-                WipeDataList();
+                await WipeDataListAsync();
             });
 
             #endregion Messages
@@ -131,10 +131,18 @@ namespace Game.ViewModels
         /// <summary>
         /// Wipes the current Data from the Data Store
         /// </summary>
-        public void WipeDataList()
+        public async Task<bool> WipeDataListAsync()
         {
-            DataStore.WipeDataList();
+            await DataStore.WipeDataListAsync();
+
+            IsAlreadyInitialized = false;
+
+            // Load the Sample Data
+            await LoadDefaultDataAsync();
+
             SetNeedsRefresh(true);
+
+            return await Task.FromResult(true);
         }
 
         /// <summary>
@@ -321,7 +329,7 @@ namespace Game.ViewModels
 
             foreach (var item in DefaultData.LoadItems())
             {
-                await CreateAsync(item);
+                await CreateUpdateAsync(item);
             }
 
             return true;
