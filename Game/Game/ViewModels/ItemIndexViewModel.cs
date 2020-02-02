@@ -32,6 +32,7 @@ namespace Game.ViewModels
                         if (instance == null)
                         {
                             instance = new ItemIndexViewModel();
+                            instance.Initialize();
                         }
                     }
                 }
@@ -73,13 +74,6 @@ namespace Game.ViewModels
         /// </summary>
         public ItemIndexViewModel()
         {
-            Title = "Items";
-
-            SetDataSource(CurrentDataSource);   // Set to Mock to start with
-
-            Dataset = new ObservableCollection<ItemModel>();
-            LoadDatasetCommand = new Command(async () => await ExecuteLoadDataCommand());
-
             #region Messages
             // Register the Create Message
             MessagingCenter.Subscribe<ItemCreatePage, ItemModel>(this, "Create", async (obj, data) =>
@@ -112,13 +106,32 @@ namespace Game.ViewModels
             });
 
             #endregion Messages
+        }
+
+        private void Initialize()
+        {
+            Title = "Items";
+
+            Dataset = new ObservableCollection<ItemModel>();
+            LoadDatasetCommand = new Command(async () => await ExecuteLoadDataCommand());
+
+            SetDataSource(CurrentDataSource);   // Set to Mock to start with
 
             // Load the data sets
             LoadDefaultData();
         }
+
         #endregion Constructor
 
         #region DataSourceManagement
+
+        /// <summary>
+        /// Returns the current data source
+        /// </summary>
+        public int GetCurrentDataSource()
+        {
+            return CurrentDataSource;
+        }
 
         /// <summary>
         /// Loads the Default Data set
