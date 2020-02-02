@@ -48,9 +48,9 @@
                         Style="{DynamicResource DebugSwitchLabel}"/>
 
                     <Switch
-                        x:Name="DebugSettingsSwitch"
+                        x:Name="SettingsSwitch"
                         HorizontalOptions="EndAndExpand"
-                        Toggled="EnableDebugSettings_OnToggled"
+                        Toggled="EnableSettingsFrame_OnToggled"
                         IsToggled="False"/>
                 </StackLayout>
 
@@ -59,103 +59,84 @@
                     Orientation="Vertical">
 
                     <StackLayout
-                          x:Name="DebugSettingsFrame"
+                          x:Name="SettingsFrame"
                           IsVisible="False"
                           HorizontalOptions="Start"
                           VerticalOptions="Start">
 
-                          <StackLayout Margin="50,0,0,0">
+                        <StackLayout Margin="50,0,0,0">
 
-                        <!--Database Settings-->
-                        <StackLayout>
-                            <StackLayout
-                              Orientation="Horizontal"
-                              HorizontalOptions="StartAndExpand">
+                            <!--Database Settings-->
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout 
+                                    Orientation="Horizontal" 
+                                    VerticalOptions="Center"
+                                    Padding="50,0,0,0"
+                                    >
 
-                                <Label
-                            Text="Database Settings"
-                            Style="{DynamicResource DebugSwitchLabel}"/>
+                                    <Label 
+                                        HorizontalOptions="Start" 
+                                        VerticalOptions="Center"
+                                        Text="SQL Data Source" 
+                                        />
 
-                                <Switch
-                            x:Name="DatabaseSettings"
-                            HorizontalOptions="EndAndExpand"
-                            Toggled="EnableDebugSettings_OnToggled"
-                            IsToggled="False"/>
-                            </StackLayout>
-
-                            <StackLayout
-                        x:Name="DatabaseSettingsFrame"
-                        IsVisible="True">
-
-                                <StackLayout
-                          Orientation="Vertical"
-                          Margin="50,0,0,0">
-
-                                    <StackLayout
-                            HorizontalOptions="FillAndExpand"
-                            Orientation="Horizontal">
-
-                                        <Label
-                            Text="Use Mock DataStore"
-                            Style="{DynamicResource DebugSwitchLabel}"/>
-
-                                        <Switch
-                            x:Name="UseMockDataSource"
-                            HorizontalOptions="EndAndExpand"
-                            Toggled="UseMockDataSourceSwitch_OnToggled"
-                            IsToggled="False"/>
-                                    </StackLayout>
-
-                                    <StackLayout
-                                HorizontalOptions="FillAndExpand"
-                                Orientation="Vertical">
-
-                                        <StackLayout
-                                  HorizontalOptions="FillAndExpand"
-                                  Orientation="Horizontal">
-
-                                            <Label
-                                        Text="Clear Database"
-                                        HorizontalTextAlignment="Start"
-                                        HorizontalOptions="Start"/>
-
-                                            <Button
-                                        Text="Clear"
-                                        Clicked="ClearDatabase_Command"
-                                        HorizontalOptions="Fill"/>
-                                        </StackLayout>
-                                    </StackLayout>
+                                    <Switch
+                                        HorizontalOptions="Start" 
+                                        VerticalOptions="Center"
+                                        x:Name="DataSourceValue"
+                                        IsToggled="{Binding ItemIndexViewModel.Instance.CurrentDataSource}"
+                                        Toggled="DataSource_Toggled" 
+                                        />
 
                                 </StackLayout>
+
+                                <StackLayout 
+                                    Orientation="Horizontal" 
+                                    VerticalOptions="Center"
+                                    Padding="50,0,0,0"
+                                    >
+
+                                    <Label 
+                                        HorizontalOptions="Start" 
+                                        VerticalOptions="Center"
+                                        Text="Wipe Data List" 
+                                        />
+
+                                    <Button
+                                        HorizontalOptions="Start" 
+                                        VerticalOptions="Center"
+                                        Text="Wipe"
+                                        Clicked="WipeDataList_Clicked"
+                                        />
+                                </StackLayout>
                             </StackLayout>
-                        </StackLayout>
 
-                        <!--Debug Settings-->
-                        <StackLayout
-                      HorizontalOptions="StartAndExpand"
-                      VerticalOptions="Start"
-                      Orientation="Vertical">
-
+                            <!--Debug Settings-->
                             <StackLayout
-                      HorizontalOptions="FillAndExpand"
-                      VerticalOptions="Start"
-                      Orientation="Horizontal">
+                              HorizontalOptions="StartAndExpand"
+                              VerticalOptions="Start"
+                              Orientation="Vertical">
 
-                                <Label
-                            FontSize="Small"
-                            Text="Debug Settings"
-                            Style="{DynamicResource DebugSwitchLabel}"/>
+                                <StackLayout
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="Start"
+                                    Orientation="Horizontal">
 
-                                <Switch
-                            x:Name="EnableDebugSettings"
-                            HorizontalOptions="EndAndExpand"
-                            Toggled="EnableDebugSettings_OnToggled"
-                            IsToggled="False"/>
+                                    <Label
+                                        FontSize="Small"
+                                        Text="Debug Settings"
+                                        Style="{DynamicResource DebugSwitchLabel}"/>
+
+                                    <Switch
+                                        x:Name="DebugSettingsFrame"
+                                        HorizontalOptions="EndAndExpand"
+                                        Toggled="EnableDebugSettings_OnToggled"
+                                        IsToggled="False"/>
+                                </StackLayout>
+
                             </StackLayout>
-
                         </StackLayout>
                     </StackLayout>
-                </StackLayout>
                 </StackLayout>
 
             </StackLayout>

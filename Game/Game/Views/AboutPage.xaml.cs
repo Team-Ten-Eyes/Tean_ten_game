@@ -17,13 +17,20 @@ namespace Game.Views
         {
             InitializeComponent();
 
-            // Turn off Database Settings Frame
-            DatabaseSettingsFrame.IsVisible = false;
+            // Turn off the Settings Frame
+            SettingsFrame.IsVisible = false;
 
-            // Turn off the Debug Frame
+            // Hide the Debug Settings
             DebugSettingsFrame.IsVisible = false;
 
             CurrentDateTime.Text = System.DateTime.Now.ToString("MM/dd/yy hh:mm:ss");
+        }
+
+        private void EnableSettingsFrame_OnToggled(object sender, ToggledEventArgs e)
+        {
+            // This will change out the DataStore to be the Mock Store if toggled on, or the SQL if off.
+
+            SettingsFrame.IsVisible = (e.Value);
         }
 
         private void EnableDebugSettings_OnToggled(object sender, ToggledEventArgs e)
@@ -33,24 +40,26 @@ namespace Game.Views
             DebugSettingsFrame.IsVisible = (e.Value);
         }
 
-        private void DatabaseSettingsSwitch_OnToggled(object sender, ToggledEventArgs e)
+        void DataSource_Toggled(object sender, EventArgs e)
         {
-            DatabaseSettingsFrame.IsVisible = (e.Value);
+            // Flip the settings
+            if (DataSourceValue.IsToggled == true)
+            {
+                MessagingCenter.Send(this, "SetDataSource", 1);
+            }
+            else
+            {
+                MessagingCenter.Send(this, "SetDataSource", 0);
+            }
         }
 
-        private void UseMockDataSourceSwitch_OnToggled(object sender, ToggledEventArgs e)
+        async void WipeDataList_Clicked(object sender, EventArgs e)
         {
-            // This will change out the DataStore to be the Mock Store if toggled on, or the SQL if off.
-            //SetDataSource(e.Value);
-        }
+            bool answer = await DisplayAlert("Delete Data", "Are you sure you want to delete all data?", "Yes", "No");
 
-        async void ClearDatabase_Command(object sender, EventArgs e)
-        {
-            var answer = await DisplayAlert("Delete", "Sure you want to Delete All Data, and start over?", "Yes", "No");
             if (answer)
             {
-                // Call to the SQL DataStore and have it clear the tables.
-               // SQLDataStore.Instance.InitializeDatabaseNewTables();
+                MessagingCenter.Send(this, "WipeDataList", true);
             }
         }
 
