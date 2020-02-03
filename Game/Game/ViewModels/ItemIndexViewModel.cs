@@ -17,6 +17,7 @@ namespace Game.ViewModels
     public class ItemIndexViewModel : BaseViewModel<ItemModel>
     {
         #region Singleton
+
         // Make this a singleton so it only exist one time because holds all the data records in memory
         private static volatile ItemIndexViewModel instance;
         private static readonly object syncRoot = new Object();
@@ -44,19 +45,23 @@ namespace Game.ViewModels
         #endregion Singleton
 
         #region Attributes
+
         // The Data set of records
         public ObservableCollection<ItemModel> Dataset { get; set; }
 
+        // The Mock Data Store
         private IDataStore<ItemModel> DataSource_Mock => new MockDataStore<ItemModel>();
-        
+
+        // The SQL Data Store
         private IDataStore<ItemModel> DataSource_SQL => new DatabaseService<ItemModel>();
 
+        // The DataStore this view will use
         public new IDataStore<ItemModel> DataStore;
 
-        // What is the current data source, SQL, Mock
+        // Tack the current data source, SQL, Mock
         public int CurrentDataSource = 0;
 
-        // track if the system needs refreshing
+        // Track if the system needs refreshing
         private bool _needsRefresh;
 
         // Track if the system has been initialized
@@ -64,9 +69,11 @@ namespace Game.ViewModels
 
         // Command to force a Load of data
         public Command LoadDatasetCommand { get; set; }
+
         #endregion Attributes
 
         #region Constructor
+
         /// <summary>
         /// Constructor
         /// 
@@ -75,6 +82,7 @@ namespace Game.ViewModels
         public ItemIndexViewModel()
         {
             #region Messages
+
             // Register the Create Message
             MessagingCenter.Subscribe<ItemCreatePage, ItemModel>(this, "Create", async (obj, data) =>
             {
@@ -181,9 +189,11 @@ namespace Game.ViewModels
 
             return true;
         }
+
         #endregion DataSourceManagement
 
         #region DataOperations_CRUDi
+
         /// <summary>
         /// API to add the Data
         /// </summary>
@@ -324,15 +334,18 @@ namespace Game.ViewModels
 
             return myList;
         }
+
         #endregion DataOperations_CRUDi
 
         #region Refresh
+
         /// <summary>
         ///  Load the DefaultData
         /// </summary>
         /// <returns></returns>
         public async Task<bool> LoadDefaultDataAsync()
         {
+            // Don't run the data load twice, just once per load
             if (IsAlreadyInitialized)
             {
                 return false;
@@ -340,6 +353,7 @@ namespace Game.ViewModels
 
             IsAlreadyInitialized = true;
 
+            // Take all the items and add them if they don't already exist
             foreach (var item in DefaultData.LoadItems())
             {
                 await CreateUpdateAsync(item);
@@ -348,8 +362,11 @@ namespace Game.ViewModels
             return true;
         }
 
-        // Return True if a refresh is needed
-        // It sets the refresh flag to false
+        /// <summary>
+        /// Return True if a refresh is needed 
+        /// It sets the refresh flag to false
+        /// </summary>
+        /// <returns></returns>
         public bool NeedsRefresh()
         {
             if (_needsRefresh)
@@ -361,13 +378,19 @@ namespace Game.ViewModels
             return false;
         }
 
-        // Sets the need to refresh
+        /// <summary>
+        /// Sets the need to refresh 
+        /// </summary>
+        /// <param name="value"></param>
         public void SetNeedsRefresh(bool value)
         {
             _needsRefresh = value;
         }
 
-        // Command that Loads the Data
+        /// <summary>
+        /// Command that Loads the Data 
+        /// </summary>
+        /// <returns></returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         private async Task ExecuteLoadDataCommand()
         {
@@ -405,7 +428,7 @@ namespace Game.ViewModels
                 IsBusy = false;
             }
         }
-        
+
         /// <summary>
         /// Force data to refresh
         /// </summary>
@@ -416,6 +439,7 @@ namespace Game.ViewModels
             var canExecute = LoadDatasetCommand.CanExecute(null);
             LoadDatasetCommand.Execute(null);
         }
+
         #endregion Refresh
     }
 }
