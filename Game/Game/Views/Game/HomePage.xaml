@@ -18,20 +18,15 @@
                 />
             
             <Label 
-                Text="In a far away land there was tribe of warrior elves. The elves entered the woods daily to find and eraticate the monsters that threatened their villages."
-                FontSize="Medium"
-                HorizontalOptions="Center"
-                HorizontalTextAlignment="Center"
+                Text="In a far away land there was tribe of warrior elves. The elves entered the woods to eraticate the monsters that threatened their villages."
+                Style="{StaticResource CenterMessageStyle}"
                 LineBreakMode="WordWrap"
-                Padding="40,0,20,0"
+                Padding="40,5,40,5"
                 />
 
             <Button
-                Clicked="GameButton_Clicked"
                 Text="Enter"
-                HorizontalOptions="Center"
-                BorderWidth="1"
-                BorderColor="Black"
+                Clicked="GameButton_Clicked"
                 />
 
         </StackLayout>
