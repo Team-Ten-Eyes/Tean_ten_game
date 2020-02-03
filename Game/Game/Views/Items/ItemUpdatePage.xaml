@@ -8,7 +8,7 @@
              xmlns:local="using:Game.Models"
              xmlns:local_helpers="clr-namespace:Game.Helpers"
              xmlns:local_enum="clr-namespace:Game.Models"
-             Title="Update">
+             Title="{Binding Title}">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
@@ -29,7 +29,7 @@
                 Spacing="5"
                 Padding="15">
 
-                <Label Text="Edit Page" Style="{StaticResource HeaderStyle}"/>
+                <Label Text="Update Page" Style="{StaticResource HeaderStyle}"/>
 
                 <Image Source="{Binding Data.ImageURI}"/>
 
@@ -62,7 +62,7 @@
                             Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="1" Grid.Column="1">
-                        <Entry 
+                        <Entry
                             Text="{Binding Data.Description}" 
                             Style="{StaticResource EntryStyle}"/>
                     </StackLayout>
@@ -73,14 +73,7 @@
                             Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
 
-                    <StackLayout Grid.Row="2" Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center">
-                        <Label 
-                            Text="{Binding Data.Range}" 
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
-                            x:Name="RangeValue"
-                            VerticalOptions="Center"/>
-
+                    <StackLayout Grid.Row="2" Grid.Column="1" Style="{StaticResource HorizontalStack}">
                         <Stepper 
                             Value="{Binding Data.Range, Mode=TwoWay}"
                             Minimum="0"
@@ -89,6 +82,11 @@
                             ValueChanged="Range_OnStepperValueChanged"
                             HorizontalOptions="Start"
                             VerticalOptions="Center"/>
+
+                        <Label 
+                            Text="{Binding Data.Range}" 
+                            x:Name="RangeValue"
+                            Style="{StaticResource ValueStyle}"/>
                     </StackLayout>
 
                     <StackLayout Grid.Row="3" Grid.Column="0">
@@ -96,14 +94,8 @@
                             Text="Value"
                             Style="{StaticResource LabelStyle}"/>                    
                     </StackLayout>
-                    <StackLayout Grid.Row="3" Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center">
-                        <Label 
-                            Text="{Binding Data.Value}" 
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
-                            x:Name="ValueValue"
-                            VerticalOptions="Center"/>
 
+                    <StackLayout Grid.Row="3" Grid.Column="1" Style="{StaticResource HorizontalStack}">
                         <Stepper Value="{Binding Data.Value, Mode=TwoWay}"
                             Minimum="0"
                             Maximum="20"
@@ -111,6 +103,11 @@
                             ValueChanged="Value_OnStepperValueChanged"
                             HorizontalOptions="Start"
                             VerticalOptions="Center"/>
+
+                        <Label 
+                            Text="{Binding Data.Value}" 
+                            x:Name="ValueValue"
+                            Style="{StaticResource ValueStyle}"/>
                     </StackLayout>
 
                     <StackLayout Grid.Row="4" Grid.Column="0">
@@ -118,6 +115,7 @@
                             Text="Location" 
                             Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
+                    
                     <StackLayout Grid.Row="4" Grid.Column="1">
                         <Picker 
                             ItemsSource="{x:Static local_helpers:ItemLocationEnumHelper.GetListCharacter}" 
@@ -131,6 +129,7 @@
                             Text="Attribute" 
                             Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
+                    
                     <StackLayout Grid.Row="5" Grid.Column="1">
                         <Picker 
                             ItemsSource="{x:Static local_helpers:AttributeEnumHelper.GetListCharacter}" 
@@ -144,7 +143,8 @@
                             Text="Image" 
                             Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
-                    <StackLayout Grid.Row="6" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                    <StackLayout Grid.Row="6" Grid.Column="1" Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand">
                         <Image 
                             Source="{Binding Data.ImageURI}"
                             Style="{StaticResource ImageSmallStyle}"/>
@@ -159,13 +159,7 @@
                             Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
 
-                    <StackLayout Grid.Row="7" Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center">
-                        <Label 
-                            Text="{Binding Data.Damage}" 
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
-                            x:Name="DamageValue"
-                            VerticalOptions="Center"/>
+                    <StackLayout Grid.Row="7" Grid.Column="1" Style="{StaticResource HorizontalStack}">
 
                         <Stepper 
                             Value="{Binding Data.Damage, Mode=TwoWay}"
@@ -175,6 +169,11 @@
                             ValueChanged="Damage_OnStepperValueChanged"
                             HorizontalOptions="Start"
                             VerticalOptions="Center"/>
+
+                        <Label 
+                            Text="{Binding Data.Damage}" 
+                            x:Name="DamageValue"
+                            Style="{StaticResource ValueStyle}"/>
                     </StackLayout>
                 </Grid>
 
