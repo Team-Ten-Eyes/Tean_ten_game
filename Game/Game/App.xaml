@@ -83,6 +83,30 @@
                     <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
             </Style>
 
+            <!-- Image -->
+            <Style TargetType="Image">
+                <Setter Property="WidthRequest" Value="150" />
+                <Setter Property="HeightRequest" Value="150" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+
+            <!-- Stack Layouts -->
+            <Style TargetType="StackLayout"
+                x:Key="HorizontalStack">
+                <Setter Property="Orientation" Value="Horizontal" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Start" />
+            </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="VerticalStack">
+                <Setter Property="Orientation" Value="Vertical" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Start" />
+            </Style>
+
             <!--
             <Style TargetType="Entry">
                 <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
