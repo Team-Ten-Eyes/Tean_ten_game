@@ -1,15 +1,11 @@
 ﻿using System;
 using System.ComponentModel;
 using Xamarin.Forms;
-
 using Game.Models;
 using Game.ViewModels;
 
 namespace Game.Views
 {
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
-
     /// <summary>
     /// Index Page
     /// </summary>
@@ -18,7 +14,7 @@ namespace Game.Views
     public partial class ItemIndexPage : ContentPage
     {
         // The view model, used for data binding
-        readonly ItemIndexViewModel viewModel;
+        readonly ItemIndexViewModel ViewModel;
 
         /// <summary>
         /// Constructor for Index Page
@@ -29,9 +25,8 @@ namespace Game.Views
         {
             InitializeComponent();
 
-            BindingContext = viewModel = ItemIndexViewModel.Instance;
+            BindingContext = ViewModel = ItemIndexViewModel.Instance;
         }
-
 
         /// <summary>
         /// The row selected from the list
@@ -72,18 +67,19 @@ namespace Game.Views
 
             BindingContext = null;
 
-            // If no data, then reload the data
-            if (viewModel.Dataset.Count == 0)
+            // If no data, then set it for needing refresh
+            if (ViewModel.Dataset.Count == 0)
             {
-                viewModel.LoadDatasetCommand.Execute(null);
+                ViewModel.SetNeedsRefresh(true);
             }
 
-            if (viewModel.NeedsRefresh())
+            // If the needs Refresh flag is set update it
+            if (ViewModel.NeedsRefresh())
             {
-                viewModel.LoadDatasetCommand.Execute(null);
+                ViewModel.LoadDatasetCommand.Execute(null);
             }
 
-            BindingContext = viewModel;
+            BindingContext = ViewModel;
         }
     }
 }
