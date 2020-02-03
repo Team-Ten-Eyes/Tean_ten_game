@@ -393,7 +393,7 @@ namespace Game.ViewModels
                 foreach (var data in dataset)
                 {
                     // Make a Copy of the Item Model to add to the List
-                    Dataset.Add(new ItemModel(data));
+                    Dataset.Add(data);
                 }
             }
             catch (Exception ex)
