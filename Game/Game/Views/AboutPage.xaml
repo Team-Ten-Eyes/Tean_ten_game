@@ -84,7 +84,7 @@
                 <Switch
                     x:Name="DebugSettingsSwitch"
                     HorizontalOptions="EndAndExpand"
-                    Toggled="DeubgSettingsSwitch_OnToggled"
+                    Toggled="DebugSettingsSwitch_OnToggled"
                     IsToggled="False"/>
             </StackLayout>
 

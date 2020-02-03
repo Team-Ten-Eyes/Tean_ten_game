@@ -23,9 +23,15 @@ namespace Game.Views
             // Turn off the Settings Frame
             DebugSettingsFrame.IsVisible = false;
 
+            // Set to the curent date and time
             CurrentDateTime.Text = DateTime.Now.ToString("MM/dd/yy hh:mm:ss");
         }
 
+        /// <summary>
+        /// Show or hide the Database Frame
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DatabaseSettingsSwitch_OnToggled(object sender, ToggledEventArgs e)
         {
             // This will change out the DataStore to be the Mock Store if toggled on, or the SQL if off.
@@ -33,13 +39,23 @@ namespace Game.Views
             DatabaseSettingsFrame.IsVisible = (e.Value);
         }
 
-        private void DeubgSettingsSwitch_OnToggled(object sender, ToggledEventArgs e)
+        /// <summary>
+        /// Sow or hide the Debug Settings
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DebugSettingsSwitch_OnToggled(object sender, ToggledEventArgs e)
         {
             // This will change out the DataStore to be the Mock Store if toggled on, or the SQL if off.
 
             DebugSettingsFrame.IsVisible = (e.Value);
         }
 
+        /// <summary>
+        /// Data Source Toggle
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void DataSource_Toggled(object sender, EventArgs e)
         {
             // Flip the settings
@@ -53,6 +69,11 @@ namespace Game.Views
             }
         }
 
+        /// <summary>
+        /// Button to delete the data store
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void WipeDataList_Clicked(object sender, EventArgs e)
         {
             bool answer = await DisplayAlert("Delete Data", "Are you sure you want to delete all data?", "Yes", "No");
@@ -62,6 +83,5 @@ namespace Game.Views
                 MessagingCenter.Send(this, "WipeDataList", true);
             }
         }
-
     }
 }
