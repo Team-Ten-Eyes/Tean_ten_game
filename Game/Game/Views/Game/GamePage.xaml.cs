@@ -35,8 +35,7 @@ namespace Game.Views
 		/// <param name="e"></param>
 		void VillageButton_Clicked(object sender, EventArgs e)
 		{
-			DisplayAlert("SU", "Go RedHawks", "OK");
+			Navigation.PushAsync(new VillagePage());
 		}
-
 	}
 }
