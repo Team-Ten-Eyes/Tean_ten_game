@@ -44,12 +44,11 @@ namespace Game.Views
             // If the image in the data box is empty, use the default one..
             if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
             {
-                ViewModel.Data.ImageURI = Game.Services.ItemService.DefaultImageURI;
+                ViewModel.Data.ImageURI = Services.ItemService.DefaultImageURI;
             }
 
             MessagingCenter.Send(this, "Update", ViewModel.Data);
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
-            await Navigation.PopAsync();
+            await Navigation.PopModalAsync();
         }
 
         /// <summary>
@@ -59,9 +58,7 @@ namespace Game.Views
         /// <param name="e"></param>
         async void Cancel_Clicked(object sender, EventArgs e)
         {
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
-
-            await Navigation.PopAsync();
+            await Navigation.PopModalAsync();
         }
 
         // The stepper function for Range
