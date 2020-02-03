@@ -14,12 +14,12 @@
 
 
     <ScrollView>
-        <StackLayout Style="{StaticResource VerticalStack}"
-            x:Name="DetailsRoot"
-            Spacing="20"
+        <StackLayout 
+            Style="{StaticResource VerticalStack}"
+            Spacing="5"
             Padding="15">
 
-            <Label Text="Items Detail Page" Style="{StaticResource HeaderStyle}"/>
+            <Label Text="Detail Page" Style="{StaticResource HeaderStyle}"/>
 
             <Image Source="{Binding Data.ImageURI}"/>
 
