@@ -94,7 +94,14 @@
                     BasedOn="{StaticResource HeaderStyle}">
                 <Setter Property="TextColor" Value="{StaticResource TriciaryTextColor}" />
             </Style>
-            
+
+            <Style TargetType="Label"
+                    x:Key="CenterHeaderStyle"
+                    BasedOn="{StaticResource HeaderStyle}">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+
             <!-- Image -->
             <Style TargetType="Image">
                 <Setter Property="WidthRequest" Value="150" />
@@ -113,6 +120,15 @@
                 <Setter Property="Aspect" Value="Fill" />
             </Style>
 
+            <!-- ImageButton -->
+            <Style TargetType="ImageButton">
+                <Setter Property="WidthRequest" Value="150" />
+                <Setter Property="HeightRequest" Value="150" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            
             <!-- Button -->
             <Style TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}" />
@@ -136,7 +152,17 @@
                 <Setter Property="HorizontalOptions" Value="Start" />
                 <Setter Property="VerticalOptions" Value="Start" />
             </Style>
-            
+
+            <Style TargetType="StackLayout"
+                x:Key="CardImageTextBox">
+                <Setter Property="Orientation" Value="Vertical" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="HeightRequest" Value="200" />
+                <Setter Property="WidthRequest" Value="200" />
+            </Style>
+           
+
             <!-- Entry -->
             <Style TargetType="Entry"
                 x:Key="EntryStyle">
