@@ -13,12 +13,12 @@
     </ContentPage.ToolbarItems>
 
     <ScrollView>
-        <StackLayout Style="{StaticResource VerticalStack}"
-            x:Name="DetailsRoot"
+        <StackLayout 
+            Style="{StaticResource VerticalStack}"
             Spacing="20"
             Padding="15">
 
-            <Label Text="Items Delete Page" Style="{StaticResource HeaderStyle}"/>
+            <Label Text="Delete Page" Style="{StaticResource HeaderStyle}"/>
 
             <Image Source="{Binding Data.ImageURI}"/>
 
