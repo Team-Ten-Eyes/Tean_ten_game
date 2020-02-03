@@ -106,8 +106,8 @@
 
             <Style TargetType="Image"
                     x:Key="ImageSmallStyle">
-                <Setter Property="WidthRequest" Value="25" />
-                <Setter Property="HeightRequest" Value="25" />
+                <Setter Property="WidthRequest" Value="30" />
+                <Setter Property="HeightRequest" Value="30" />
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="Aspect" Value="Fill" />
