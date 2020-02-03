@@ -15,7 +15,6 @@
         <ToolbarItem Text="Save" Clicked="Save_Clicked" IconImageSource="icon_save.png"/>
     </ContentPage.ToolbarItems>
 
-
     <ContentPage.Resources>
         <ResourceDictionary>
             <local_helpers:StringEnumConverter x:Key="StringEnum"/>
@@ -25,15 +24,14 @@
     <ContentPage.Content>
 
         <ScrollView>
-            <StackLayout Spacing="20" Padding="15">
+            <StackLayout 
+                Style="{StaticResource VerticalStack}"
+                Spacing="5"
+                Padding="15">
 
-                <Label Text="Item Edit Page" FontSize="Small" />
+                <Label Text="Edit Page" Style="{StaticResource HeaderStyle}"/>
 
-                <Image Source="{Binding Data.ImageURI}"
-                WidthRequest="75"
-                HeightRequest="75" 
-                HorizontalOptions="Center"
-                VerticalOptions="Center"/>
+                <Image Source="{Binding Data.ImageURI}"/>
 
                 <Grid
                     RowSpacing="1"
@@ -50,38 +48,29 @@
                     <StackLayout Grid.Row="0" Grid.Column="0">
                         <Label 
                             Text="Name" 
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"/>
+                            Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="0" Grid.Column="1">
                         <Entry 
                             Text="{Binding Data.Name}" 
-                            FontSize="Small" 
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="Center"/>
+                            Style="{StaticResource EntryStyle}"/>
                     </StackLayout>
 
                     <StackLayout Grid.Row="1" Grid.Column="0">
                         <Label 
                             Text="Description" 
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"/>
+                            Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="1" Grid.Column="1">
                         <Entry 
                             Text="{Binding Data.Description}" 
-                            FontSize="Small" 
-                            Margin="0" 
-                            VerticalOptions="Center"/>
+                            Style="{StaticResource EntryStyle}"/>
                     </StackLayout>
 
                     <StackLayout Grid.Row="2" Grid.Column="0">
                         <Label 
                             Text="Range" 
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"/>
+                            Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
 
                     <StackLayout Grid.Row="2" Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center">
@@ -105,9 +94,7 @@
                     <StackLayout Grid.Row="3" Grid.Column="0">
                         <Label 
                             Text="Value"
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"/>
+                            Style="{StaticResource LabelStyle}"/>                    
                     </StackLayout>
                     <StackLayout Grid.Row="3" Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center">
                         <Label 
@@ -129,9 +116,7 @@
                     <StackLayout Grid.Row="4" Grid.Column="0">
                         <Label 
                             Text="Location" 
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"/>
+                            Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="4" Grid.Column="1">
                         <Picker 
@@ -144,9 +129,7 @@
                     <StackLayout Grid.Row="5" Grid.Column="0">
                         <Label 
                             Text="Attribute" 
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"/>
+                            Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="5" Grid.Column="1">
                         <Picker 
@@ -159,28 +142,21 @@
                     <StackLayout Grid.Row="6" Grid.Column="0">
                         <Label 
                             Text="Image" 
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"/>
+                            Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="6" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                        <Image Source="{Binding Data.ImageURI}"
-                            WidthRequest="25"
-                            HeightRequest="25" 
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"/>
+                        <Image 
+                            Source="{Binding Data.ImageURI}"
+                            Style="{StaticResource ImageSmallStyle}"/>
                         <Entry 
                             Text="{Binding Data.ImageURI}" 
-                            FontSize="Small" 
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="Center"/>
+                            Style="{StaticResource EntryStyle}"/>
                     </StackLayout>
 
                     <StackLayout Grid.Row="7" Grid.Column="0">
                         <Label 
                             Text="Damage" 
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"/>
+                            Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
 
                     <StackLayout Grid.Row="7" Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center">
