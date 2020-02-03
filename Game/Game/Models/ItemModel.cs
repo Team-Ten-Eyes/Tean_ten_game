@@ -34,6 +34,10 @@ namespace Game.Models
 
         // Add Unique attributes for Item
 
+        /// <summary>
+        /// Default ItemModel
+        /// Establish the Default Image Path
+        /// </summary>
         public ItemModel() {
             ImageURI = ItemService.DefaultImageURI;
         }
@@ -51,7 +55,7 @@ namespace Game.Models
         /// Update the Record
         /// </summary>
         /// <param name="newData">The new data</param>
-        public void Update(ItemModel newData)
+        public override void Update(ItemModel newData)
         {
             if (newData == null)
             {

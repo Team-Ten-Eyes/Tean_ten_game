@@ -9,7 +9,7 @@ namespace Game.Services
         /// Load the Default data
         /// </summary>
         /// <returns></returns>
-        public static List<ItemModel> LoadItems()
+        public static List<ItemModel> LoadData()
         {
             var datalist = new List<ItemModel>()
             {
