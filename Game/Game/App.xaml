@@ -96,7 +96,7 @@
             </Style>
 
             <Style TargetType="Label"
-                    x:Key="CenterHeaderStyle"
+                    x:Key="CenterMessageStyle"
                     BasedOn="{StaticResource HeaderStyle}">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
@@ -205,53 +205,7 @@
                 <Setter Property="FontAttributes" Value="None" />
                 <Setter Property="BackgroundColor" Value="{StaticResource LightBackgroundColor}" />
             </Style>
-            
-            <!--
-            <Style TargetType="Entry">
-                <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
-            </Style>
-
-            <Style TargetType="Editor">
-                <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
-            </Style>
-
-            <Style TargetType="Picker">
-                <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
-            </Style>
-
-            <Style TargetType="Button">
-                <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
-            </Style>
-
-            <Style TargetType="ImageButton">
-                <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
-            </Style>
-            -->
-            
-            <!--Modify Styles for Entry Views-->
-
-            <!--<Style x:Name="EntryStyle" TargetType="Entry">
-                <Setter Property="BackgroundColor" Value="{DynamicResource ViewBackgroundColor}" />
-            </Style>-->
-
-            <!--<Style x:Name="EditorStyle" TargetType="Editor">
-                <Setter Property="BackgroundColor" Value="{DynamicResource ViewBackgroundColor}" />
-            </Style>
-
-            <Style x:Name="PickerStyle" TargetType="Picker">
-                --><!--<Setter Property="BackgroundColor" Value="{DynamicResource ViewBackgroundColor}" />--><!--
-                <Setter Property="FontSize" Value="Small"></Setter>
-            </Style>
-
-            <Style x:Name="ButtonStyle" TargetType="Button">
-                <Setter Property="BackgroundColor" Value="{DynamicResource ViewBackgroundColor}" />
-            </Style>
-
-            <Style x:Name="ImageButton" TargetType="ImageButton">
-                <Setter Property="BackgroundColor" Value="{DynamicResource ViewBackgroundColor}" />
-            </Style>-->
 
         </ResourceDictionary>
     </Application.Resources>
-    
 </Application>
