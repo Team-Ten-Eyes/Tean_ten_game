@@ -20,7 +20,7 @@
             Spacing="20"
             Padding="15">
 
-            <Label Text="Items Detail Page" FontSize="Medium" />
+            <Label Text="Items Detail Page" Style="{StaticResource HeaderStyle}"/>
 
             <Image Source="{Binding Data.ImageURI}"
                 WidthRequest="150"
@@ -31,78 +31,78 @@
             <StackLayout
                 Orientation="Horizontal"
                 HorizontalOptions="Start">
-                <Label Text="Name : " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Name}" 
-                    FontSize="Medium" 
-                    HorizontalOptions="Center"/>
+                <Label 
+                   Text="Name : " 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    Text="{Binding Data.Name}" 
+                    Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
             <StackLayout
                 Orientation="Horizontal"
                 HorizontalOptions="Start">
-                <Label Text="Description : " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Description}" 
-                    FontSize="Medium" 
-                    HorizontalOptions="Center"/>
+                <Label 
+                    Text="Description : " 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    Text="{Binding Data.Description}" 
+                    Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
             <StackLayout
                 Orientation="Horizontal"
                 HorizontalOptions="Start">
-                <Label Text="Range : " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Range}" 
-                    FontSize="Medium" 
-                    HorizontalOptions="Center"/>
+                <Label 
+                    Text="Range : " 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    Text="{Binding Data.Range}" 
+                    Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
             <StackLayout
                 Orientation="Horizontal"
                 HorizontalOptions="Start">
-                <Label Text="Damage : " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Damage}" 
-                    FontSize="Medium" 
-                    HorizontalOptions="Center"/>
+                <Label 
+                    Text="Damage : " 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    Text="{Binding Data.Damage}" 
+                    Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
             <StackLayout
                 Orientation="Horizontal"
                 HorizontalOptions="Start">
-                <Label Text="Value : " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Value}" 
-                    FontSize="Medium" 
-                    HorizontalOptions="Center"/>
+                <Label 
+                    Text="Value : " 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    Text="{Binding Data.Value}" 
+                    Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
             <StackLayout
                 Orientation="Horizontal"
                 HorizontalOptions="Start">
-                <Label Text="Location : " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Location}" 
-                    FontSize="Medium" 
-                    HorizontalOptions="Center"/>
+                <Label 
+                    Text="Location : " 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    Text="{Binding Data.Location}" 
+                    Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
             <StackLayout 
                 Orientation="Horizontal" 
                 HorizontalOptions="Start">
-                <Label Text="Attribute : " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Attribute}" 
-                   FontSize="Medium" 
-                   HorizontalOptions="Center"/>
+                <Label 
+                    Text="Attribute : " 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    Text="{Binding Data.Attribute}" 
+                    Style="{StaticResource ValueStyle}"/>
             </StackLayout>
         </StackLayout>
     </ScrollView>
