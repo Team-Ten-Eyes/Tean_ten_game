@@ -9,18 +9,25 @@
     <Application.Resources>
         <ResourceDictionary>
             <!--Global Styles-->
+
+            <!--Colors -->
+
             <Color x:Key="PrimaryNavigationColor">Bisque</Color>
             <Color x:Key="PrimaryBackgroundColor">Bisque</Color>
 
             <Color x:Key="PageBackgroundColor">Bisque</Color>
             <Color x:Key="NavigationBarColor">WhiteSmoke</Color>
+            <Color x:Key="ViewBackgroundColor">Beige</Color>
+
             <Color x:Key="PrimaryColor">Black</Color>
             <Color x:Key="SecondaryColor">White</Color>
             <Color x:Key="PrimaryTextColor">Black</Color>
             <Color x:Key="SecondaryTextColor">White</Color>
             <Color x:Key="TertiaryTextColor">Gray</Color>
+
             <Color x:Key="TransparentColor">Transparent</Color>
 
+            <!-- Pages -->
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="Bisque" />
                 <Setter Property="BarTextColor" Value="Black" />
@@ -29,6 +36,71 @@
             <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
                 <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
             </Style>
+
+
+            <!--Global Styles for Views-->
+
+            <Style 
+                TargetType="Label"
+                ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="HorizontalOptions" Value="Start"></Setter>
+                <Setter Property="HorizontalTextAlignment" Value="Start"></Setter>
+                <Setter Property="VerticalTextAlignment" Value="Center"></Setter>
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+                <Setter Property="FontSize" Value="Small"></Setter>
+                <Setter Property="FontAttributes" Value="None"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}"></Setter>
+            </Style>
+
+            <!--
+            <Style TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
+            </Style>
+
+            <Style TargetType="Editor">
+                <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
+            </Style>
+
+
+            <Style TargetType="Picker">
+                <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
+            </Style>
+
+            <Style TargetType="ImageButton">
+                <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
+            </Style>
+            -->
+            
+            <!--Modify Styles for Entry Views-->
+            <!--<Style x:Name="LabelHeadingStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Header"></Setter>
+            </Style>-->
+
+            <!--<Style x:Name="EntryStyle" TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="{DynamicResource ViewBackgroundColor}" />
+            </Style>-->
+
+            <!--<Style x:Name="EditorStyle" TargetType="Editor">
+                <Setter Property="BackgroundColor" Value="{DynamicResource ViewBackgroundColor}" />
+            </Style>
+
+            <Style x:Name="PickerStyle" TargetType="Picker">
+                --><!--<Setter Property="BackgroundColor" Value="{DynamicResource ViewBackgroundColor}" />--><!--
+                <Setter Property="FontSize" Value="Small"></Setter>
+            </Style>
+
+            <Style x:Name="ButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{DynamicResource ViewBackgroundColor}" />
+            </Style>
+
+            <Style x:Name="ImageButton" TargetType="ImageButton">
+                <Setter Property="BackgroundColor" Value="{DynamicResource ViewBackgroundColor}" />
+            </Style>-->
 
         </ResourceDictionary>
     </Application.Resources>
