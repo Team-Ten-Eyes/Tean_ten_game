@@ -11,46 +11,76 @@
             <!--Global Styles-->
 
             <!--Colors -->
+            
+                <!--
+                Light
+                    #BF895A
+                    #D9C6B0
+                    #733612
+                    #8C3D20
+                    #400D01
+                Dark
+                -->
 
-            <Color x:Key="PrimaryNavigationColor">Bisque</Color>
-            <Color x:Key="PrimaryBackgroundColor">Bisque</Color>
 
-            <Color x:Key="PageBackgroundColor">Bisque</Color>
-            <Color x:Key="NavigationBarColor">WhiteSmoke</Color>
-            <Color x:Key="ViewBackgroundColor">Beige</Color>
+            <Color x:Key="PageBackgroundColor">#D9C6B0</Color>
+            <Color x:Key="ViewBackgroundColor">#BF895A</Color>
+            <Color x:Key="NavigationBarColor">#D9C6B0</Color>
 
-            <Color x:Key="PrimaryColor">Black</Color>
-            <Color x:Key="SecondaryColor">White</Color>
-            <Color x:Key="PrimaryTextColor">Black</Color>
-            <Color x:Key="SecondaryTextColor">White</Color>
-            <Color x:Key="TertiaryTextColor">Gray</Color>
+            <Color x:Key="PrimaryTextColor">#400D01</Color>
+            <Color x:Key="SecondaryTextColor">#8C3D20</Color>
 
             <Color x:Key="TransparentColor">Transparent</Color>
 
             <!-- Pages -->
             <Style TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor" Value="Bisque" />
-                <Setter Property="BarTextColor" Value="Black" />
+                <Setter Property="BarBackgroundColor" Value="{StaticResource ViewBackgroundColor}" />
+                <Setter Property="BarTextColor" Value="{StaticResource SecondaryTextColor}" />
             </Style>
 
             <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
                 <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
             </Style>
 
-
             <!--Global Styles for Views-->
 
-            <Style 
-                TargetType="Label"
-                ApplyToDerivedTypes="True">
+            <!-- Label -->
+
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
+                <Setter Property="FontAttributes" Value="None" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="LineBreakMode" Value="NoWrap" />
                 <Setter Property="BackgroundColor" Value="Transparent" />
-                <Setter Property="HorizontalOptions" Value="Start"></Setter>
-                <Setter Property="HorizontalTextAlignment" Value="Start"></Setter>
-                <Setter Property="VerticalTextAlignment" Value="Center"></Setter>
-                <Setter Property="VerticalOptions" Value="Center"></Setter>
-                <Setter Property="FontSize" Value="Small"></Setter>
-                <Setter Property="FontAttributes" Value="None"></Setter>
-                <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}"></Setter>
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="HorizontalTextAlignment" Value="Start"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+
+            <Style TargetType="Label"
+                    x:Key="ListStyle"
+                    BasedOn="{StaticResource Xamarin.Forms.Label}">
+                    <Setter Property="FontSize" Value="Small" />
+            </Style>
+
+            <Style TargetType="Label"
+                    x:Key="HeaderStyle"
+                    BasedOn="{StaticResource Xamarin.Forms.Label}">
+                    <Setter Property="BackgroundColor" Value="Transparent" />
+                    <Setter Property="FontSize" Value="Large" />
+            </Style>
+
+            <Style TargetType="Label"
+                    x:Key="LabelStyle"
+                    BasedOn="{StaticResource Xamarin.Forms.Label}">
+                    <Setter Property="FontSize" Value="Small" />
+            </Style>
+
+            <Style TargetType="Label"
+                    x:Key="ValueStyle"
+                    BasedOn="{StaticResource LabelStyle}">
+                    <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
             </Style>
 
             <!--
@@ -61,7 +91,6 @@
             <Style TargetType="Editor">
                 <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
             </Style>
-
 
             <Style TargetType="Picker">
                 <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
@@ -77,9 +106,6 @@
             -->
             
             <!--Modify Styles for Entry Views-->
-            <!--<Style x:Name="LabelHeadingStyle" TargetType="Label">
-                <Setter Property="FontSize" Value="Header"></Setter>
-            </Style>-->
 
             <!--<Style x:Name="EntryStyle" TargetType="Entry">
                 <Setter Property="BackgroundColor" Value="{DynamicResource ViewBackgroundColor}" />
