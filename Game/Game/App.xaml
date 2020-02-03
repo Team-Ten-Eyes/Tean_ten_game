@@ -27,6 +27,10 @@
             <Color x:Key="ViewBackgroundColor">#BF895A</Color>
             <Color x:Key="NavigationBarColor">#D9C6B0</Color>
 
+            <Color x:Key="PrimaryBackgroundColor">#D9C6B0</Color>
+            <Color x:Key="SecondaryBackgroundColor">#BF895A</Color>
+            <Color x:Key="TriciaryBackgroundColor">#733612</Color>
+
             <Color x:Key="PrimaryTextColor">#400D01</Color>
             <Color x:Key="SecondaryTextColor">#8C3D20</Color>
             <Color x:Key="TriciaryTextColor">#733612</Color>
@@ -99,6 +103,15 @@
                 <Setter Property="VerticalOptions" Value="Center"/>
             </Style>
 
+            <!-- Button -->
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}" />
+                <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
+                <Setter Property="BorderColor" Value="{StaticResource PrimaryTextColor}"/>
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            
             <!-- Stack Layouts -->
             <Style TargetType="StackLayout"
                 x:Key="HorizontalStack">
