@@ -3,14 +3,12 @@
 namespace Game.ViewModels
 {
     /// <summary>
-    /// About View Model
+    /// Home View Model
     /// </summary>
     public class HomeViewModel : BaseViewModel<DefaultModel>
     {
         /// <summary>
         /// Constructor
-        /// 
-        /// Title is About
         /// </summary>
         public HomeViewModel()
         {
