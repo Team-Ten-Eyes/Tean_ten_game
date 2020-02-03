@@ -1,14 +1,10 @@
 ﻿using System.ComponentModel;
 using Xamarin.Forms;
-
 using Game.ViewModels;
 using System;
 
 namespace Game.Views
 {
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
-
     /// <summary>
     /// The Read Page
     /// </summary>
@@ -45,6 +41,16 @@ namespace Game.Views
         async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
+        }
+
+        /// <summary>
+        /// Trap the Back Button on the Phone
+        /// </summary>
+        /// <returns></returns>
+        protected override bool OnBackButtonPressed()
+        {
+            // Add your code here...
+            return true;
         }
     }
 }

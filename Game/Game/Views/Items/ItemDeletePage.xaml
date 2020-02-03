@@ -11,12 +11,52 @@
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
         <ToolbarItem Text="Delete" Clicked="Delete_Clicked" IconImageSource="icon_delete.png"/>
     </ContentPage.ToolbarItems>
-    
-    <StackLayout Spacing="20" Padding="15">
-        <Label Text="Text:" FontSize="Medium" />
-        <Label Text="{Binding Data.Name}" d:Text="Item name" FontSize="Small"/>
-        <Label Text="Description:" FontSize="Medium" />
-        <Label Text="{Binding Data.Description}" d:Text="Item description" FontSize="Small"/>
-    </StackLayout>
-    
+
+    <ScrollView>
+        <StackLayout Style="{StaticResource VerticalStack}"
+            x:Name="DetailsRoot"
+            Spacing="20"
+            Padding="15">
+
+            <Label Text="Items Delete Page" Style="{StaticResource HeaderStyle}"/>
+
+            <Image Source="{Binding Data.ImageURI}"/>
+
+            <StackLayout Style="{StaticResource HorizontalStack}">
+                <Label 
+                   Text="Name : " 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    Text="{Binding Data.Name}" 
+                    Style="{StaticResource ValueStyle}"/>
+            </StackLayout>
+
+            <StackLayout Style="{StaticResource HorizontalStack}">
+                <Label 
+                    Text="Description : " 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    Text="{Binding Data.Description}" 
+                    Style="{StaticResource ValueStyle}"/>
+            </StackLayout>
+
+
+            <StackLayout 
+            HorizontalOptions="Center" 
+            Padding="20">
+
+                <Label Text="Really delete this?" Style="{StaticResource MessageStyle}"/>
+
+                <Button 
+                Text="Yes" 
+                Clicked="Delete_Clicked" 
+                HorizontalOptions="Center"
+                FontSize="Medium"
+                BorderWidth="1" 
+                BorderColor="black">
+                </Button>
+            </StackLayout>
+            
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
