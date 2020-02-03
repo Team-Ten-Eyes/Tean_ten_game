@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Game.Views.VillagePage"
+             >
+
+    <ContentPage.Content>
+        <StackLayout
+            Style="{StaticResource HorizontalStack}"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="CenterAndExpand"
+            >
+
+            <StackLayout Style="{StaticResource CardImageTextBox}">
+
+                <ImageButton
+                    Source="characters.png"
+                    Clicked="CharactersButton_Clicked"
+                />
+
+                <Label 
+                    Text="Characters"
+                    Style="{StaticResource CenterMessageStyle}"
+                    />
+
+            </StackLayout>
+
+            <StackLayout Style="{StaticResource CardImageTextBox}">
+
+                <ImageButton
+                    Source="monsters.png"
+                    Clicked="MonstersButton_Clicked"
+                    />
+
+                <Label 
+                    Text="Monsters"
+                    Style="{StaticResource CenterMessageStyle}"
+                    />
+                
+            </StackLayout>
+
+            <StackLayout Style="{StaticResource CardImageTextBox}">
+
+                <ImageButton
+                    Source="items.png"
+                    Clicked="ItemsButton_Clicked"
+                    />
+
+                <Label 
+                    Text="Items"
+                    Style="{StaticResource CenterMessageStyle}"
+                    />
+
+            </StackLayout>
+
+            <StackLayout Style="{StaticResource CardImageTextBox}">
+
+                <ImageButton
+                    Source="score.png"
+                    Clicked="ScoresButton_Clicked"
+                    />
+
+                <Label 
+                    Text="Scores"
+                    Style="{StaticResource CenterMessageStyle}"
+                    />
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
