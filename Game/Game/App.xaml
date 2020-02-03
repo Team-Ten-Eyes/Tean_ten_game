@@ -160,7 +160,7 @@
                 <Setter Property="AutoSize" Value="TextChanges" />
             </Style>
 
-            <!-- Stepper-->
+            <!-- Stepper -->
             <Style TargetType="Stepper">
                 <Setter Property="HorizontalOptions" Value="Start" />
                 <Setter Property="VerticalOptions" Value="Center" />
@@ -171,6 +171,15 @@
                 <Setter Property="Increment" Value="1" />
             </Style>
 
+            <!-- Picker -->
+            <Style TargetType="Picker">
+                <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
+                <Setter Property="TitleColor" Value="{StaticResource PrimaryTextColor}" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="FontAttributes" Value="None" />
+                <Setter Property="BackgroundColor" Value="{StaticResource LightBackgroundColor}" />
+            </Style>
+            
             <!--
             <Style TargetType="Entry">
                 <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
