@@ -16,7 +16,7 @@
     <ScrollView>
         <StackLayout 
             Style="{StaticResource VerticalStack}"
-            Spacing="20"
+            Spacing="10"
             Padding="15">
 
             <Label Text="Detail Page" Style="{StaticResource HeaderStyle}"/>
