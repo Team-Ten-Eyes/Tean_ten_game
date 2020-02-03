@@ -91,7 +91,8 @@
                     </StackLayout>
 
                     <StackLayout Grid.Row="3" Grid.Column="1" Style="{StaticResource HorizontalStack}">
-                        <Stepper Value="{Binding Data.Value, Mode=TwoWay}"
+                        <Stepper 
+                            Value="{Binding Data.Value, Mode=TwoWay}"
                             ValueChanged="Value_OnStepperValueChanged"/>
 
                         <Label 
@@ -110,8 +111,7 @@
                         <Picker 
                             ItemsSource="{x:Static local_helpers:ItemLocationEnumHelper.GetListCharacter}" 
                             SelectedItem="{Binding Data.Location, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
-                            x:Name="LocationPicker" 
-                            VerticalOptions="Center"/>
+                            x:Name="LocationPicker"/>
                     </StackLayout>
 
                     <StackLayout Grid.Row="5" Grid.Column="0">
@@ -124,8 +124,7 @@
                         <Picker 
                             ItemsSource="{x:Static local_helpers:AttributeEnumHelper.GetListCharacter}" 
                             SelectedItem="{Binding Data.Attribute, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
-                            x:Name="AttributePicker"
-                            VerticalOptions="Center"/>
+                            x:Name="AttributePicker"/>
                     </StackLayout>
 
                     <StackLayout Grid.Row="6" Grid.Column="0">
@@ -138,6 +137,7 @@
                         <Image 
                             Source="{Binding Data.ImageURI}"
                             Style="{StaticResource ImageSmallStyle}"/>
+
                         <Entry 
                             Text="{Binding Data.ImageURI}" 
                             Style="{StaticResource EntryStyle}"/>
@@ -150,7 +150,6 @@
                     </StackLayout>
 
                     <StackLayout Grid.Row="7" Grid.Column="1" Style="{StaticResource HorizontalStack}">
-
                         <Stepper 
                             Value="{Binding Data.Damage, Mode=TwoWay}"
                             ValueChanged="Damage_OnStepperValueChanged"/>
