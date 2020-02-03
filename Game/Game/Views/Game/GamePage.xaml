@@ -6,58 +6,37 @@
 
     <ContentPage.Content>
         <StackLayout
+            Style="{StaticResource HorizontalStack}"
             VerticalOptions="CenterAndExpand"
             HorizontalOptions="CenterAndExpand"
-            Orientation="Horizontal"
             >
 
-            <StackLayout 
-                Orientation="Vertical"
-                HorizontalOptions="FillAndExpand"
-                HeightRequest="200"
-                WidthRequest="100">
+            <StackLayout Style="{StaticResource CardImageTextBox}">
 
                 <ImageButton
-                Source="village.png"
-                HorizontalOptions="Center"
-                Clicked="VillageButton_Clicked"
-                BackgroundColor="Bisque"
-                HeightRequest="100"
-                WidthRequest="100"
+                    Source="village.png"
+                    Clicked="VillageButton_Clicked"
                 />
 
                 <Label 
                     Text="Village"
-                    FontSize="Medium"
-                    TextColor="DarkGray"
-                    FontAttributes="Bold"
-                    HorizontalTextAlignment="Center"
+                    Style="{StaticResource CenterHeaderStyle}"
                     />
 
             </StackLayout>
 
-            <StackLayout 
-                Orientation="Vertical"
-                HorizontalOptions="FillAndExpand"
-                HeightRequest="200"
-                WidthRequest="100">
-                
+            <StackLayout Style="{StaticResource CardImageTextBox}">
+
                 <ImageButton
                     Source="dungeon_door.png"
-                    HorizontalOptions="Center"
                     Clicked="DungeonButton_Clicked"
-                    BackgroundColor="Bisque"
-                    HeightRequest="100"
-                    WidthRequest="100"
                     />
 
                 <Label 
                     Text="Dungeon"
-                    FontSize="Medium"
-                    TextColor="DarkGray"
-                    FontAttributes="Bold"
-                    HorizontalTextAlignment="Center"
+                    Style="{StaticResource CenterHeaderStyle}"
                     />
+                
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
