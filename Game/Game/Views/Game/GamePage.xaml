@@ -20,7 +20,7 @@
 
                 <Label 
                     Text="Village"
-                    Style="{StaticResource CenterHeaderStyle}"
+                    Style="{StaticResource CenterMessageStyle}"
                     />
 
             </StackLayout>
@@ -34,7 +34,7 @@
 
                 <Label 
                     Text="Dungeon"
-                    Style="{StaticResource CenterHeaderStyle}"
+                    Style="{StaticResource CenterMessageStyle}"
                     />
                 
             </StackLayout>
