@@ -17,23 +17,23 @@ namespace Game.Views
         {
             InitializeComponent();
 
-            // Turn off the Settings Frame
-            SettingsFrame.IsVisible = false;
-
             // Hide the Debug Settings
+            DatabaseSettingsFrame.IsVisible = false;
+
+            // Turn off the Settings Frame
             DebugSettingsFrame.IsVisible = false;
 
-            CurrentDateTime.Text = System.DateTime.Now.ToString("MM/dd/yy hh:mm:ss");
+            CurrentDateTime.Text = DateTime.Now.ToString("MM/dd/yy hh:mm:ss");
         }
 
-        private void EnableSettingsFrame_OnToggled(object sender, ToggledEventArgs e)
+        private void DatabaseSettingsSwitch_OnToggled(object sender, ToggledEventArgs e)
         {
             // This will change out the DataStore to be the Mock Store if toggled on, or the SQL if off.
 
-            SettingsFrame.IsVisible = (e.Value);
+            DatabaseSettingsFrame.IsVisible = (e.Value);
         }
 
-        private void EnableDebugSettings_OnToggled(object sender, ToggledEventArgs e)
+        private void DeubgSettingsSwitch_OnToggled(object sender, ToggledEventArgs e)
         {
             // This will change out the DataStore to be the Mock Store if toggled on, or the SQL if off.
 

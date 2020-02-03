@@ -12,133 +12,92 @@
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
 
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Color x:Key="Primary">#2196F3</Color>
-            <Color x:Key="Accent">#96d1ff</Color>
-            <Color x:Key="LightTextColor">#999999</Color>
-        </ResourceDictionary>
-    </ContentPage.Resources>
-
     <ScrollView
       VerticalOptions="FillAndExpand"
       HorizontalOptions="FillAndExpand"
       Orientation="Vertical">
 
-        <StackLayout
-            VerticalOptions="Start"
-            HorizontalOptions="FillAndExpand"
-            Orientation="Vertical">
+        <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="FillAndExpand">
+            <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand">
 
-            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
-                <Image Source="d12.png" HeightRequest="100" />
-                <Label Text="Class Dungeon" HorizontalTextAlignment="Center" FontSize="Large"></Label>
-                <Label Text="Mike Koenig" HorizontalTextAlignment="Center" FontSize="Medium"></Label>
-                <Label x:Name="CurrentDateTime" HorizontalTextAlignment="Center" FontSize="Medium"></Label>
+                <Image Source="d12.png" />
+                <Label Text="Class Dungeon" Style="{StaticResource HeaderStyle}" HorizontalOptions="CenterAndExpand"  HorizontalTextAlignment="Center" />
+                <Label Text="Mike Koenig" Style="{StaticResource MessageStyle}" HorizontalOptions="CenterAndExpand"  HorizontalTextAlignment="Center" />
+                <Label x:Name="CurrentDateTime" Style="{StaticResource MessageStyle}" HorizontalOptions="CenterAndExpand"  HorizontalTextAlignment="Center" />
+
             </StackLayout>
 
+            <!--Database Settings Frame-->
+            <StackLayout Style="{StaticResource HorizontalStack}">
 
-            <StackLayout>
-                <StackLayout
-                    Orientation="Horizontal"
-                    HorizontalOptions="StartAndExpand">
-
-                    <Label
-                        Text="Debug Settings"
+                <Label
+                        Text="Database Settings"
                         Style="{DynamicResource DebugSwitchLabel}"/>
 
-                    <Switch
-                        x:Name="SettingsSwitch"
+                <Switch
+                        x:Name="DatabaseSettingsSwitch"
                         HorizontalOptions="EndAndExpand"
-                        Toggled="EnableSettingsFrame_OnToggled"
+                        Toggled="DatabaseSettingsSwitch_OnToggled"
                         IsToggled="False"/>
+            </StackLayout>
+
+            <StackLayout Style="{StaticResource VerticalStack}"
+                        x:Name="DatabaseSettingsFrame"
+                        IsVisible="False">
+
+                <!--Database Settings-->
+                <StackLayout Style="{StaticResource HorizontalStack}"
+                                    Padding="50,0,0,0">
+
+                    <Label Text="SQL Data Source" />
+
+                    <Switch
+                        HorizontalOptions="Start" 
+                        VerticalOptions="Center"
+                        x:Name="DataSourceValue"
+                        IsToggled="{Binding ItemIndexViewModel.Instance.CurrentDataSource}"
+                        Toggled="DataSource_Toggled" 
+                        />
+
                 </StackLayout>
 
-                <StackLayout
-                    HorizontalOptions="CenterAndExpand"
-                    Orientation="Vertical">
+                <StackLayout Style="{StaticResource HorizontalStack}"
+                                    Padding="50,0,0,0">
 
-                    <StackLayout
-                          x:Name="SettingsFrame"
-                          IsVisible="False"
-                          HorizontalOptions="Start"
-                          VerticalOptions="Start">
+                    <Label Text="Wipe Data List" />
 
-                        <StackLayout Margin="50,0,0,0">
+                    <Button
+                        Text="Wipe"
+                        Clicked="WipeDataList_Clicked"
+                        />
 
-                            <!--Database Settings-->
-                            <StackLayout Orientation="Vertical">
-                                <StackLayout 
-                                    Orientation="Horizontal" 
-                                    VerticalOptions="Center"
-                                    Padding="50,0,0,0"
-                                    >
-
-                                    <Label 
-                                        HorizontalOptions="Start" 
-                                        VerticalOptions="Center"
-                                        Text="SQL Data Source" 
-                                        />
-
-                                    <Switch
-                                        HorizontalOptions="Start" 
-                                        VerticalOptions="Center"
-                                        x:Name="DataSourceValue"
-                                        IsToggled="{Binding ItemIndexViewModel.Instance.CurrentDataSource}"
-                                        Toggled="DataSource_Toggled" 
-                                        />
-
-                                </StackLayout>
-
-                                <StackLayout 
-                                    Orientation="Horizontal" 
-                                    VerticalOptions="Center"
-                                    Padding="50,0,0,0"
-                                    >
-
-                                    <Label 
-                                        HorizontalOptions="Start" 
-                                        VerticalOptions="Center"
-                                        Text="Wipe Data List" 
-                                        />
-
-                                    <Button
-                                        HorizontalOptions="Start" 
-                                        VerticalOptions="Center"
-                                        Text="Wipe"
-                                        Clicked="WipeDataList_Clicked"
-                                        />
-                                </StackLayout>
-                            </StackLayout>
-
-                            <!--Debug Settings-->
-                            <StackLayout
-                              HorizontalOptions="StartAndExpand"
-                              VerticalOptions="Start"
-                              Orientation="Vertical">
-
-                                <StackLayout
-                                    HorizontalOptions="FillAndExpand"
-                                    VerticalOptions="Start"
-                                    Orientation="Horizontal">
-
-                                    <Label
-                                        FontSize="Small"
-                                        Text="Debug Settings"
-                                        Style="{DynamicResource DebugSwitchLabel}"/>
-
-                                    <Switch
-                                        x:Name="DebugSettingsFrame"
-                                        HorizontalOptions="EndAndExpand"
-                                        Toggled="EnableDebugSettings_OnToggled"
-                                        IsToggled="False"/>
-                                </StackLayout>
-
-                            </StackLayout>
-                        </StackLayout>
-                    </StackLayout>
                 </StackLayout>
+            </StackLayout>
 
+            <!--Debug Settings Frame-->
+            <StackLayout Style="{StaticResource HorizontalStack}">
+
+                <Label
+                    Text="Debug Settings"
+                    Style="{DynamicResource DebugSwitchLabel}"/>
+
+                <Switch
+                    x:Name="DebugSettingsSwitch"
+                    HorizontalOptions="EndAndExpand"
+                    Toggled="DeubgSettingsSwitch_OnToggled"
+                    IsToggled="False"/>
+            </StackLayout>
+
+            <StackLayout Style="{StaticResource VerticalStack}"
+                        x:Name="DebugSettingsFrame"
+                        IsVisible="False">
+
+                <StackLayout Style="{StaticResource HorizontalStack}"
+                                    Padding="50,0,0,0">
+
+                    <Label Text="More Debug Settings to come..." />
+
+                </StackLayout>
             </StackLayout>
         </StackLayout>
     </ScrollView>
