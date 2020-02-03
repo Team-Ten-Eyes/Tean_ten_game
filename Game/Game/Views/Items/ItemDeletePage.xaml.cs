@@ -20,6 +20,8 @@ namespace Game.Views
             InitializeComponent();
 
             BindingContext = this.viewModel = data;
+
+            this.viewModel.Title = "Delete " + data.Title;
         }
 
         /// <summary>
