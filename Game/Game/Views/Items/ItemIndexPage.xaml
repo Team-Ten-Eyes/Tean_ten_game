@@ -15,7 +15,7 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <Label Text="Items List Page"/>
+            <Label Text="Items List Page" Style="{StaticResource HeaderStyle}"/>
 
             <ListView x:Name="ItemsListView" 
                     ItemsSource="{Binding Dataset}"
@@ -24,8 +24,9 @@
                     CachingStrategy="RecycleElement"
                     ItemSelected="OnItemSelected"
                     HasUnevenRows="true"
-                    Margin="5,0,0,0"
-                      >
+                    Margin="5,0,5,0"
+                    RowHeight="80"
+                    >
                 
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -43,38 +44,29 @@
 
                                 <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
                                         Source="{Binding ImageURI}"
-                                        Aspect="AspectFit"
-                                        VerticalOptions="CenterAndExpand"
-                                        HorizontalOptions="CenterAndExpand"
-                                        HeightRequest="30" MinimumHeightRequest="30"
-                                        WidthRequest="30" MinimumWidthRequest="30"
-                                        />
+                                        Style="{StaticResource ImageSmallStyle}"
+                                        VerticalOptions="CenterAndExpand"/>
 
                                 <Label Grid.Column="1" Grid.Row="0"
                                        Text="{Binding Name}" 
-                                       FontSize="Small"
-                                       />
+                                       Style="{StaticResource ListStyle}"/>
 
                                 <StackLayout Grid.Column="1" Grid.Row="1"
                                     Orientation="Horizontal">
                                     
                                     <Label 
                                        Text="{Binding Attribute}" 
-                                       FontSize="Micro"
-                                       />
+                                       Style="{StaticResource ListStyle}"/>
 
                                     <Label Text="{Binding Value}" 
-                                           FontSize="Micro"
-                                           Padding="0"
-                                           Margin="0"
-                                       VerticalTextAlignment="Start"
-                                           />
+                                        Style="{StaticResource ListStyle}"/>
+                                
                                 </StackLayout>
 
                                 <Label Grid.Column="1" Grid.Row="2"
                                        Text="{Binding Description}" 
-                                       FontSize="Micro"
-                                       />
+                                       Style="{StaticResource ListStyle}"
+                                       FontSize="Micro"/>
 
                             </Grid>
                         </ViewCell>
