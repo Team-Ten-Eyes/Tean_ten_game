@@ -74,14 +74,13 @@
                     </StackLayout>
 
                     <StackLayout Grid.Row="2" Grid.Column="1" Style="{StaticResource HorizontalStack}">
-                        <Stepper 
-                            Value="{Binding Data.Range, Mode=TwoWay}"
-                            ValueChanged="Range_OnStepperValueChanged"/>
-
                         <Label 
                             Text="{Binding Data.Range}" 
                             x:Name="RangeValue"
                             Style="{StaticResource ValueStyle}"/>
+                        <Stepper 
+                            Value="{Binding Data.Range, Mode=TwoWay}"
+                            ValueChanged="Range_OnStepperValueChanged"/>
                     </StackLayout>
 
                     <StackLayout Grid.Row="3" Grid.Column="0">
@@ -91,14 +90,13 @@
                     </StackLayout>
 
                     <StackLayout Grid.Row="3" Grid.Column="1" Style="{StaticResource HorizontalStack}">
-                        <Stepper 
-                            Value="{Binding Data.Value, Mode=TwoWay}"
-                            ValueChanged="Value_OnStepperValueChanged"/>
-
                         <Label 
                             Text="{Binding Data.Value}" 
                             x:Name="ValueValue"
                             Style="{StaticResource ValueStyle}"/>
+                        <Stepper 
+                            Value="{Binding Data.Value, Mode=TwoWay}"
+                            ValueChanged="Value_OnStepperValueChanged"/>
                     </StackLayout>
 
                     <StackLayout Grid.Row="4" Grid.Column="0">
@@ -150,14 +148,13 @@
                     </StackLayout>
 
                     <StackLayout Grid.Row="7" Grid.Column="1" Style="{StaticResource HorizontalStack}">
-                        <Stepper 
-                            Value="{Binding Data.Damage, Mode=TwoWay}"
-                            ValueChanged="Damage_OnStepperValueChanged"/>
-
                         <Label 
                             Text="{Binding Data.Damage}" 
                             x:Name="DamageValue"
                             Style="{StaticResource ValueStyle}"/>
+                        <Stepper 
+                            Value="{Binding Data.Damage, Mode=TwoWay}"
+                            ValueChanged="Damage_OnStepperValueChanged"/>
                     </StackLayout>
                 </Grid>
 
