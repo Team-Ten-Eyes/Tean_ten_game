@@ -14,23 +14,16 @@
 
 
     <ScrollView>
-        <StackLayout 
+        <StackLayout Style="{StaticResource VerticalStack}"
             x:Name="DetailsRoot"
-            Orientation="Vertical"
             Spacing="20"
             Padding="15">
 
             <Label Text="Items Detail Page" Style="{StaticResource HeaderStyle}"/>
 
-            <Image Source="{Binding Data.ImageURI}"
-                WidthRequest="150"
-                HeightRequest="150" 
-                HorizontalOptions="Center"
-                VerticalOptions="Center"/>
+            <Image Source="{Binding Data.ImageURI}"/>
 
-            <StackLayout
-                Orientation="Horizontal"
-                HorizontalOptions="Start">
+            <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
                    Text="Name : " 
                     Style="{StaticResource LabelStyle}"/>
@@ -39,9 +32,7 @@
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
-            <StackLayout
-                Orientation="Horizontal"
-                HorizontalOptions="Start">
+            <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
                     Text="Description : " 
                     Style="{StaticResource LabelStyle}"/>
@@ -50,9 +41,7 @@
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
-            <StackLayout
-                Orientation="Horizontal"
-                HorizontalOptions="Start">
+            <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
                     Text="Range : " 
                     Style="{StaticResource LabelStyle}"/>
@@ -61,9 +50,7 @@
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
-            <StackLayout
-                Orientation="Horizontal"
-                HorizontalOptions="Start">
+            <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
                     Text="Damage : " 
                     Style="{StaticResource LabelStyle}"/>
@@ -72,9 +59,7 @@
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
-            <StackLayout
-                Orientation="Horizontal"
-                HorizontalOptions="Start">
+            <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
                     Text="Value : " 
                     Style="{StaticResource LabelStyle}"/>
@@ -83,9 +68,7 @@
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
-            <StackLayout
-                Orientation="Horizontal"
-                HorizontalOptions="Start">
+            <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
                     Text="Location : " 
                     Style="{StaticResource LabelStyle}"/>
@@ -94,9 +77,7 @@
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
-            <StackLayout 
-                Orientation="Horizontal" 
-                HorizontalOptions="Start">
+            <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
                     Text="Attribute : " 
                     Style="{StaticResource LabelStyle}"/>
