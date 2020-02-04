@@ -26,7 +26,7 @@ namespace Game.Views
         /// <param name="e"></param>
         async void CloseButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PopAsync();
+            await Navigation.PopModalAsync();
         }
     }
 }
