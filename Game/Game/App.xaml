@@ -22,7 +22,6 @@
                 Dark
                 -->
 
-
             <Color x:Key="PageBackgroundColor">#D9C6B0</Color>
             <Color x:Key="ViewBackgroundColor">#BF895A</Color>
             <Color x:Key="NavigationBarColor">#D9C6B0</Color>
@@ -168,6 +167,18 @@
                 <Setter Property="WidthRequest" Value="200" />
             </Style>
 
+            <!-- Frame -->
+            <Style TargetType="FlexLayout"
+                   x:Name="FlexBoxStyle">
+                <Setter Property="Wrap" Value="Wrap" />
+                <!--<Setter Property="WidthRequest" Value="350" />
+                <Setter Property="MinimumWidthRequest" Value="350" />
+                <Setter Property="HeightRequest" Value="350" />
+                <Setter Property="MinimumHeightRequest" Value="350" />-->
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="BackgroundColor" Value="{StaticResource TransparentColor}" />
+            </Style>
 
             <!-- Entry -->
             <Style TargetType="Entry"
