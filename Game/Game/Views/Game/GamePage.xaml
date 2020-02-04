@@ -5,41 +5,39 @@
              >
 
     <ContentPage.Content>
-        <StackLayout
-            Style="{StaticResource HorizontalStack}"
-            VerticalOptions="CenterAndExpand"
-            HorizontalOptions="CenterAndExpand"
-            >
 
-            <StackLayout Style="{StaticResource CardImageTextBox}">
+        <ScrollView Orientation="Vertical" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" Padding="10">
 
-                <ImageButton
-                    Source="village.png"
-                    Style="{StaticResource ImageLargeStyle}"
-                    Clicked="VillageButton_Clicked"
-                />
+            <FlexLayout x:Name="flexLayout"
+                        Wrap="Wrap"
+                        JustifyContent="SpaceAround"
+                        AlignContent="SpaceAround"
+                        >
 
-                <Label 
-                    Text="Village"
-                    Style="{StaticResource CenterMessageStyle}"
-                    />
+                <StackLayout Style="{StaticResource CardImageTextBox}">
 
-            </StackLayout>
+                    <ImageButton
+                        Source="village.png"
+                        Style="{StaticResource ImageLargeStyle}"
+                        Clicked="VillageButton_Clicked"/>
 
-            <StackLayout Style="{StaticResource CardImageTextBox}">
+                    <Label 
+                        Text="Village"
+                        Style="{StaticResource CenterMessageStyle}"/>
+                </StackLayout>
 
-                <ImageButton
-                    Source="dungeon_door.png"
-                    Style="{StaticResource ImageLargeStyle}"
-                    Clicked="DungeonButton_Clicked"
-                    />
+                <StackLayout Style="{StaticResource CardImageTextBox}">
 
-                <Label 
-                    Text="Dungeon"
-                    Style="{StaticResource CenterMessageStyle}"
-                    />
+                    <ImageButton
+                        Source="dungeon_door.png"
+                        Style="{StaticResource ImageLargeStyle}"
+                        Clicked="DungeonButton_Clicked"/>
 
-            </StackLayout>
-        </StackLayout>
+                    <Label 
+                        Text="Dungeon"
+                        Style="{StaticResource CenterMessageStyle}"/>
+                </StackLayout>
+            </FlexLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
