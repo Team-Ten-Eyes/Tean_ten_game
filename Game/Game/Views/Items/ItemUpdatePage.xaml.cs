@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using Xamarin.Forms;
 using Game.ViewModels;
+using Game.Models;
 
 namespace Game.Views
 {
@@ -12,12 +13,12 @@ namespace Game.Views
     public partial class ItemUpdatePage : ContentPage
     {
         // View Model for Item
-        readonly ItemViewModel ViewModel;
+        readonly GenericViewModel<ItemModel> ViewModel;
 
         /// <summary>
         /// Constructor that takes and existing data item
         /// </summary>
-        public ItemUpdatePage(ItemViewModel data)
+        public ItemUpdatePage(GenericViewModel<ItemModel> data)
         {
             InitializeComponent();
 
