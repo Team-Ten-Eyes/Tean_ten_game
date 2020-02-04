@@ -23,5 +23,10 @@ namespace Game.ViewModels
             }
             Data = data;
         }
+
+        // Generic Constructor
+        public GenericViewModel()
+        {
+        }
     }
 }
