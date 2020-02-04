@@ -5,30 +5,29 @@
              >
 
     <ContentPage.Content>
-        <StackLayout
-            VerticalOptions="CenterAndExpand"
-            HorizontalOptions="CenterAndExpand"
-            >
+        <ScrollView>
+            <StackLayout
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand">
 
-            <Image
-                Source="splashscreen.jpg"
-                WidthRequest="200"
-                HeightRequest="100"
-                HorizontalOptions="Center"
-                />
-            
-            <Label 
-                Text="In a far away land there was tribe of warrior elves. The elves entered the woods to eraticate the monsters that threatened their villages."
-                Style="{StaticResource CenterMessageStyle}"
-                LineBreakMode="WordWrap"
-                Padding="40,5,40,5"
-                />
+                <Image
+                    Source="splashscreen.jpg"
+                    WidthRequest="200"
+                    HeightRequest="100"
+                    HorizontalOptions="Center"/>
 
-            <Button
-                Text="Enter"
-                Clicked="GameButton_Clicked"
-                />
+                <Label 
+                    Text="In a far away land there was tribe of warrior elves. The elves entered the woods to eraticate the monsters that threatened their villages."
+                    Style="{StaticResource CenterMessageStyle}"
+                    FontSize="Micro"
+                    LineBreakMode="WordWrap"
+                    Padding="40,5,40,5"/>
 
-        </StackLayout>
+                <Button
+                    Text="Enter"
+                    Clicked="GameButton_Clicked"/>
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
