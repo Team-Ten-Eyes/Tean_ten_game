@@ -178,10 +178,6 @@
             <Style TargetType="FlexLayout"
                    x:Name="FlexBoxStyle">
                 <Setter Property="Wrap" Value="Wrap" />
-                <!--<Setter Property="WidthRequest" Value="350" />
-                <Setter Property="MinimumWidthRequest" Value="350" />
-                <Setter Property="HeightRequest" Value="350" />
-                <Setter Property="MinimumHeightRequest" Value="350" />-->
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="BackgroundColor" Value="{StaticResource TransparentColor}" />
