@@ -8,12 +8,12 @@ namespace Game.Views
 	/// The Main Game Page
 	/// </summary>
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class RoundPage: ContentPage
+	public partial class NewRoundPage: ContentPage
 	{
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		public RoundPage ()
+		public NewRoundPage ()
 		{
 			InitializeComponent ();
 		}
@@ -23,7 +23,7 @@ namespace Game.Views
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		async void NextButton_Clicked(object sender, EventArgs e)
+		async void BeginButton_Clicked(object sender, EventArgs e)
 		{
 			await Navigation.PopModalAsync();
 		}

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Game.Views.NewRoundPage">
+
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource VerticalStack}">
+            <Label Text="New Round Page..."></Label>
+
+            <Label Text="Characters..."></Label>
+
+            <StackLayout Style="{StaticResource HorizontalStack}">
+                <Image Source="knight.png" Style="{StaticResource ImageMediumStyle}"></Image>
+                <Image Source="knight.png" Style="{StaticResource ImageMediumStyle}"></Image>
+            </StackLayout>
+            
+            <Label Text="Monsters..."></Label>
+
+            <StackLayout Style="{StaticResource HorizontalStack}">
+                <Image Source="troll.png" Style="{StaticResource ImageMediumStyle}"></Image>
+                <Image Source="troll.png" Style="{StaticResource ImageMediumStyle}"></Image>
+                <Image Source="troll.png" Style="{StaticResource ImageMediumStyle}"></Image>
+                <Image Source="troll.png" Style="{StaticResource ImageMediumStyle}"></Image>
+                <Image Source="troll.png" Style="{StaticResource ImageMediumStyle}"></Image>
+                <Image Source="troll.png" Style="{StaticResource ImageMediumStyle}"></Image>
+            </StackLayout>
+
+            <Button Clicked="BeginButton_Clicked" Text="Begin"></Button>
+
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

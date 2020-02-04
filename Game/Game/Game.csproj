@@ -24,8 +24,8 @@
     <Compile Update="Views\Game\RoundOverPage.xaml.cs">
       <DependentUpon>RoundOverPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Game\RoundPage.xaml.cs">
-      <DependentUpon>RoundPage.xaml</DependentUpon>
+    <Compile Update="Views\Game\NewRoundPage.xaml.cs">
+      <DependentUpon>NewRoundPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Game\ScorePage.xaml.cs">
       <DependentUpon>ScorePage.xaml</DependentUpon>
