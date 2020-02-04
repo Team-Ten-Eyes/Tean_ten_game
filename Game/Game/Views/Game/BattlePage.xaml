@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Game.Views.BattlePage">
+
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource VerticalStack}">
+            <Label Text="Battle Page..."></Label>
+
+            <Image Source="knight.png" Style="{StaticResource ImageMediumStyle}"></Image>
+            <Image Source="knight.png" Style="{StaticResource ImageMediumStyle}"></Image>
+
+            <Button Clicked="AttackButton_Clicked" Text="Attack"></Button>
+            <Button Clicked="QuitButton_Clicked" Text="Quit"></Button>
+
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>
