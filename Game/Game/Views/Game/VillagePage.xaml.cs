@@ -19,23 +19,13 @@ namespace Game.Views
 		}
 
 		/// <summary>
-		/// Jump to the Scores
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-        void ScoresButton_Clicked(object sender, EventArgs e)
-        {
-            DisplayAlert("SU", "Go RedHawks", "OK");
-        }
-
-		/// <summary>
 		/// Jump to the Monsters
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		void MonstersButton_Clicked(object sender, EventArgs e)
+		async void MonstersButton_Clicked(object sender, EventArgs e)
 		{
-			DisplayAlert("SU", "Go RedHawks", "OK");
+			await DisplayAlert("SU", "Go RedHawks", "OK");
 		}
 
 		/// <summary>
@@ -43,9 +33,9 @@ namespace Game.Views
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		void CharactersButton_Clicked(object sender, EventArgs e)
+		async void CharactersButton_Clicked(object sender, EventArgs e)
 		{
-			DisplayAlert("SU", "Go RedHawks", "OK");
+			await DisplayAlert("SU", "Go RedHawks", "OK");
 		}
 
 		/// <summary>
@@ -56,6 +46,16 @@ namespace Game.Views
 		async void ItemsButton_Clicked(object sender, EventArgs e)
 		{
 			await Navigation.PushAsync(new ItemIndexPage());
+		}
+
+		/// <summary>
+		/// Jump to the Scores
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		async void ScoresButton_Clicked(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new ScoreIndexPage());
 		}
 	}
 }
