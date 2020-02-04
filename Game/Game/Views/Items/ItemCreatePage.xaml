@@ -29,7 +29,7 @@
 
                 <Label Text="Update Page" Style="{StaticResource HeaderStyle}"/>
 
-                <Image Source="{Binding Data.ImageURI}"/>
+                <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
 
                 <Grid
                     RowSpacing="1"
