@@ -13,10 +13,8 @@
     </ContentPage.ToolbarItems>
 
     <ScrollView>
-        <StackLayout 
-            Style="{StaticResource VerticalStack}"
-            Spacing="10"
-            Padding="15">
+        <StackLayout Style="{StaticResource OuterBoxStack}"
+                Spacing="10">
 
             <Label Text="Delete Page" Style="{StaticResource HeaderStyle}"/>
 
