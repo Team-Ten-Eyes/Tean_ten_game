@@ -35,6 +35,22 @@ namespace Game.Services
             InitializeAsync().SafeFireAndForget(false);
         }
 
+        #region AlreadyInitialized
+        // Track if the system has been initialized
+        public static bool IsAlreadyInitialized = false;
+
+        public bool SetAlreadyInitialized(bool flag)
+        {
+            IsAlreadyInitialized = flag;
+            return IsAlreadyInitialized;
+        }
+
+        public bool GetAlreadyInitialized()
+        {
+            return IsAlreadyInitialized;
+        }
+        #endregion AlreadyInitialized
+
         /// <summary>
         /// Create the Table if it does not exist
         /// </summary>
@@ -57,8 +73,15 @@ namespace Game.Services
         /// </summary>
         public async Task<bool> WipeDataListAsync()
         {
-            await Database.DropTableAsync<ItemModel>();
-            await Database.CreateTablesAsync(CreateFlags.None, typeof(T));
+            try
+            {
+                await Database.DropTableAsync<T>().ConfigureAwait(false);
+                await Database.CreateTablesAsync(CreateFlags.None, typeof(T));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error WipeData" + e.Message);
+            }
 
             return await Task.FromResult(true);
         }
