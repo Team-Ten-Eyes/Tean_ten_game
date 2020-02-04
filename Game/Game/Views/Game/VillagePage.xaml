@@ -18,6 +18,7 @@
 
                     <ImageButton
                                 Source="knight.png"
+                                Style="{StaticResource ImageLargeStyle}"
                                 Clicked="CharactersButton_Clicked"/>
 
                     <Label 
@@ -30,6 +31,7 @@
 
                     <ImageButton
                                 Source="troll.png"
+                                Style="{StaticResource ImageLargeStyle}"
                                 Clicked="MonstersButton_Clicked"/>
 
                     <Label 
@@ -43,6 +45,7 @@
 
                     <ImageButton
                                 Source="items.png"
+                                Style="{StaticResource ImageLargeStyle}"
                                 Clicked="ItemsButton_Clicked"/>
 
                     <Label 
@@ -55,6 +58,7 @@
 
                     <ImageButton
                                 Source="score.png"
+                                Style="{StaticResource ImageLargeStyle}"
                                 Clicked="ScoresButton_Clicked"/>
 
                     <Label 
