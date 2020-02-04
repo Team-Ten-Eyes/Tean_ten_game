@@ -6,12 +6,12 @@
 
     <ContentPage.Content>
 
-        <ScrollView Orientation="Both" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" Padding="10,10,10,10">
+        <ScrollView Orientation="Vertical" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" Padding="10">
 
             <FlexLayout x:Name="flexLayout"
                         Wrap="Wrap"
                         JustifyContent="SpaceAround"
-                        AlignContent="SpaceEvenly"
+                        AlignContent="SpaceAround"
                         >
 
                 <StackLayout Style="{StaticResource CardImageTextBox}">
