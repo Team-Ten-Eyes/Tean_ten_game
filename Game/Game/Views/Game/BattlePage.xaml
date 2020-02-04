@@ -8,9 +8,18 @@
             <Label Text="Battle Page..."></Label>
 
             <Image Source="knight.png" Style="{StaticResource ImageMediumStyle}"></Image>
-            <Image Source="knight.png" Style="{StaticResource ImageMediumStyle}"></Image>
+            <Image Source="troll.png" Style="{StaticResource ImageMediumStyle}"></Image>
 
             <Button Clicked="AttackButton_Clicked" Text="Attack"></Button>
+
+            <Button Clicked="NewRoundButton_Clicked" Text="New Round"></Button>
+
+            <Button Clicked="RoundOverButton_Clicked" Text="Round Over"></Button>
+            
+            <Button Clicked="BattleOverButton_Clicked" Text="Battle Over"></Button>
+            
+            <Button Clicked="ExitButton_Clicked" Text="Exit"></Button>
+
             <Button Clicked="QuitButton_Clicked" Text="Quit"></Button>
 
         </StackLayout>

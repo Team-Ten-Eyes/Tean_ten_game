@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -26,8 +25,32 @@ namespace Game.Views
 		/// <param name="e"></param>
 		void AttackButton_Clicked(object sender, EventArgs e)
 		{
-			DisplayAlert("SU", "Attck !!!", "OK");
+			DisplayAlert("SU", "Attack !!!", "OK");
 		}
+
+		/// <summary>
+		/// Battle Over
+		/// Battle Over button shows when all characters are dead
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		async void RoundOverButton_Clicked(object sender, EventArgs e)
+		{
+			await Navigation.PushModalAsync(new RoundOverPage());
+		}
+
+
+		/// <summary>
+		/// Battle Over
+		/// Battle Over button shows when all characters are dead
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		async void NewRoundButton_Clicked(object sender, EventArgs e)
+		{
+			await Navigation.PushModalAsync(new NewRoundPage());
+		}
+		
 
 		/// <summary>
 		/// Battle Over
@@ -38,6 +61,17 @@ namespace Game.Views
 		async void BattleOverButton_Clicked(object sender, EventArgs e)
 		{
 			await Navigation.PushModalAsync(new ScorePage());
+		}
+
+		/// <summary>
+		/// Battle Over, so Exit Button
+		/// Need to show this for the user to click on.
+		/// The Quit does a prompt, exit just exits
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		async void ExitButton_Clicked(object sender, EventArgs e)
+		{
 			await Navigation.PopModalAsync();
 		}
 
@@ -54,7 +88,6 @@ namespace Game.Views
 
 			if (answer)
 			{
-				MessagingCenter.Send(this, "Quit", true);
 				await Navigation.PopModalAsync();
 			}
 		}
