@@ -124,7 +124,7 @@ namespace Game.ViewModels
         /// <returns></returns>
         public override List<ItemModel> GetDefaultData() 
         {
-            return DefaultData.LoadData();
+            return DefaultData.LoadData(new ItemModel());
         }
 
         #endregion DataOperations_CRUDi
