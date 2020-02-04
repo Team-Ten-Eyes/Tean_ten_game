@@ -39,8 +39,24 @@
                                     <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
 
-                                <Label Grid.Column="1" Grid.Row="0"
+                                <Label Grid.Column="0" Grid.Row="0"
                                        Text="{Binding Name}" 
+                                       Style="{StaticResource ListStyle}"/>
+
+                                <Label Grid.Column="0" Grid.Row="1"
+                                       Text="Rounds" 
+                                       Style="{StaticResource ListStyle}"/>
+
+                                <Label Grid.Column="1" Grid.Row="1"
+                                       Text="{Binding RoundCount}" 
+                                       Style="{StaticResource ListStyle}"/>
+
+                                <Label Grid.Column="0" Grid.Row="2"
+                                       Text="Score" 
+                                       Style="{StaticResource ListStyle}"/>
+                                
+                                <Label Grid.Column="1" Grid.Row="2"
+                                       Text="{Binding ScoreTotal}" 
                                        Style="{StaticResource ListStyle}"/>
 
                             </Grid>
