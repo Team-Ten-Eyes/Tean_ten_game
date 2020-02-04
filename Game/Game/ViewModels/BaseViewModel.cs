@@ -267,14 +267,6 @@ namespace Game.ViewModels
             return CurrentDataSource;
         }
 
-        /// <summary>
-        /// Loads the Default Data set
-        /// </summary>
-        public void LoadDefaultData()
-        {
-            Task.Run(() => LoadDefaultDataAsync()).Wait();
-        }
-
         #endregion DataSourceManagement
 
         #region DataOperations_CRUDi
