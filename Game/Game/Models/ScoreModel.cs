@@ -15,7 +15,7 @@ namespace Game.Models
     /// When characters or monsters die, they drop items into the Items Pool for the Battle
     /// 
     /// </summary>
-    public class ScoreModel : BaseModel<ItemModel>
+    public class ScoreModel : BaseModel<ScoreModel>
     {
         // This battle number, incremental int from the last int in the database
         public int BattleNumber { get; set; }

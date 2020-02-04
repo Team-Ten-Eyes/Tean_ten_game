@@ -42,5 +42,20 @@
     <Compile Update="Views\Game\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Score\ScoreCreatePage.xaml.cs">
+      <DependentUpon>ScoreCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Score\ScoreDeletePage.xaml.cs">
+      <DependentUpon>ScoreDeletePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Score\ScoreIndexPage.xaml.cs">
+      <DependentUpon>ScoreIndexPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Score\ScoreReadPage.xaml.cs">
+      <DependentUpon>ScoreReadPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Score\ScoreUpdatePage.xaml.cs">
+      <DependentUpon>ScoreUpdatePage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>
