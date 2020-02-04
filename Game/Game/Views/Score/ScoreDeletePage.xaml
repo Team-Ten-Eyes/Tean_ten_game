@@ -18,43 +18,73 @@
 
             <Label Text="Delete Page" Style="{StaticResource HeaderStyle}"/>
 
-            <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
+            <StackLayout>
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label 
+                       Text="Name : " 
+                        Style="{StaticResource LabelStyle}"/>
+                    <Label 
+                        Text="{Binding Data.Name}" 
+                        Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
 
-            <StackLayout Style="{StaticResource HorizontalStack}">
-                <Label 
-                   Text="Name : " 
-                    Style="{StaticResource LabelStyle}"/>
-                <Label 
-                    Text="{Binding Data.Name}" 
-                    Style="{StaticResource ValueStyle}"/>
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label 
+                        Text="Game Date:"
+                        Style="{StaticResource LabelStyle}"/>
+
+                    <Label 
+                        Text="{Binding Data.GameDate}"
+                        Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label 
+                        Text="AutoBattle:"                      
+                        Style="{StaticResource LabelStyle}"/>
+
+                    <Label 
+                        Text="{Binding Data.AutoBattle}"
+                        Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label 
+                        Text="Score:" 
+                        Style="{StaticResource LabelStyle}"/>
+                    <Label 
+                        Text="{Binding Data.ScoreTotal}"
+                        Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label 
+                        Text="Number of Rounds:"                      
+                        Style="{StaticResource LabelStyle}"/>
+
+                    <Label 
+                        Text="{Binding Data.RoundCount}"
+                        Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+   
             </StackLayout>
-
-            <StackLayout Style="{StaticResource HorizontalStack}">
-                <Label 
-                    Text="Description : " 
-                    Style="{StaticResource LabelStyle}"/>
-                <Label 
-                    Text="{Binding Data.Description}" 
-                    Style="{StaticResource ValueStyle}"/>
-            </StackLayout>
-
 
             <StackLayout 
-            HorizontalOptions="Center" 
-            Padding="20">
+                HorizontalOptions="Center" 
+                Padding="20">
 
                 <Label Text="Really delete this?" Style="{StaticResource MessageStyle}"/>
 
                 <Button 
-                Text="Yes" 
-                Clicked="Delete_Clicked" 
-                HorizontalOptions="Center"
-                FontSize="Medium"
-                BorderWidth="1" 
-                BorderColor="black">
+                    Text="Yes" 
+                    Clicked="Delete_Clicked" 
+                    HorizontalOptions="Center"
+                    FontSize="Medium"
+                    BorderWidth="1" 
+                    BorderColor="black">
                 </Button>
+
             </StackLayout>
-            
         </StackLayout>
     </ScrollView>
 </ContentPage>
