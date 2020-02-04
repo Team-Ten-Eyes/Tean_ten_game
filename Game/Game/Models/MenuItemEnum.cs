@@ -5,8 +5,11 @@
     /// </summary>
     public enum MenuItemEnum
     {
+        Battle,
+        Village,
+        Score,
         Items,
-        About,
-        Game
+        Game,
+        About
     }
 }
