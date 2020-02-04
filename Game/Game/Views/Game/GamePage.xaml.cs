@@ -23,19 +23,19 @@ namespace Game.Views
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-        void DungeonButton_Clicked(object sender, EventArgs e)
+        async void DungeonButton_Clicked(object sender, EventArgs e)
         {
-            DisplayAlert("SU", "Go RedHawks", "OK");
-        }
+			await Navigation.PushAsync(new PickCharactersPage());
+		}
 
 		/// <summary>
 		/// Jump to the Village
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		void VillageButton_Clicked(object sender, EventArgs e)
+		async void VillageButton_Clicked(object sender, EventArgs e)
 		{
-			Navigation.PushAsync(new VillagePage());
+			await Navigation.PushAsync(new VillagePage());
 		}
 	}
 }
