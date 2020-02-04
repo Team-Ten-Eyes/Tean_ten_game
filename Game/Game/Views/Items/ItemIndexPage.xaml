@@ -13,7 +13,7 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Style="{StaticResource OuterBoxStack}">
 
             <Label Text="Items List Page" Style="{StaticResource HeaderStyle}"/>
 
