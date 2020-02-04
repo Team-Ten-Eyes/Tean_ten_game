@@ -11,8 +11,7 @@
             <FlexLayout x:Name="flexLayout"
                         Wrap="Wrap"
                         JustifyContent="SpaceAround"
-                        AlignContent="SpaceAround"
-                        >
+                        AlignContent="SpaceAround">
 
                 <StackLayout Style="{StaticResource CardImageTextBox}">
 
