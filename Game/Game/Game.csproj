@@ -21,8 +21,8 @@
     <Compile Update="Views\Game\PickItemsPage.xaml.cs">
       <DependentUpon>PickItemsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Game\RoundOvePage.xaml.cs">
-      <DependentUpon>RoundOvePage.xaml</DependentUpon>
+    <Compile Update="Views\Game\RoundOverPage.xaml.cs">
+      <DependentUpon>RoundOverPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Game\RoundPage.xaml.cs">
       <DependentUpon>RoundPage.xaml</DependentUpon>
