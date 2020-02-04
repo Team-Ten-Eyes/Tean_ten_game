@@ -12,9 +12,7 @@
 
                 <Image
                     Source="splashscreen.jpg"
-                    WidthRequest="200"
-                    HeightRequest="100"
-                    HorizontalOptions="Center"/>
+                    Style="{StaticResource ImageLargeStyle}"/>
 
                 <Label 
                     Text="In a far away land there was tribe of warrior elves. The elves entered the woods to eraticate the monsters that threatened their villages."
