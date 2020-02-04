@@ -44,6 +44,11 @@ namespace Game.Services
         public async Task<T> ReadAsync(string id)
         #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
+            if (!datalist.Any())
+            {
+                return default(T);
+            }
+
             T oldData = datalist.Where((T arg) => ((BaseModel<T>)(object)arg).Id.Equals(id)).FirstOrDefault();
             return oldData;
         }
