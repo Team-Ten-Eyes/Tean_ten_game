@@ -77,9 +77,9 @@ namespace Game.ViewModels
             });
 
             // Register the Set Data Source Message
-            MessagingCenter.Subscribe<AboutPage, int>(this, "SetDataSource", (obj, data) =>
+            MessagingCenter.Subscribe<AboutPage, int>(this, "SetDataSource", async (obj, data) =>
             {
-                SetDataSource(data);
+                await SetDataSource(data);
             });
 
             // Register the Wipe Data List Message
