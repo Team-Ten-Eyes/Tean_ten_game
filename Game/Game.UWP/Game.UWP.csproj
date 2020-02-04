@@ -107,6 +107,7 @@
     <Content Include="battleboard.jpg" />
     <Content Include="cauldren.png" />
     <Content Include="d12.png" />
+    <Content Include="dice_20.png" />
     <Content Include="door.png" />
     <Content Include="dungeon_door.png" />
     <Content Include="gameover.png" />
