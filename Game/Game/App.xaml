@@ -11,8 +11,8 @@
             <!--Global Styles-->
 
             <!--Colors -->
-            
-                <!--
+
+            <!--
                 Light
                     #BF895A
                     #D9C6B0
@@ -65,39 +65,39 @@
             </Style>
 
             <Style TargetType="Label"
-                    x:Key="ListStyle"
-                    BasedOn="{StaticResource Xamarin.Forms.Label}">
-                    <Setter Property="FontSize" Value="Small" />
+                x:Key="ListStyle"
+                BasedOn="{StaticResource Xamarin.Forms.Label}">
+                <Setter Property="FontSize" Value="Small" />
             </Style>
 
             <Style TargetType="Label"
-                    x:Key="HeaderStyle"
-                    BasedOn="{StaticResource Xamarin.Forms.Label}">
-                    <Setter Property="BackgroundColor" Value="Transparent" />
-                    <Setter Property="FontSize" Value="Large" />
+                x:Key="HeaderStyle"
+                BasedOn="{StaticResource Xamarin.Forms.Label}">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="FontSize" Value="Large" />
             </Style>
 
             <Style TargetType="Label"
-                    x:Key="LabelStyle"
-                    BasedOn="{StaticResource Xamarin.Forms.Label}">
-                    <Setter Property="FontSize" Value="Small" />
+                x:Key="LabelStyle"
+                BasedOn="{StaticResource Xamarin.Forms.Label}">
+                <Setter Property="FontSize" Value="Small" />
             </Style>
 
             <Style TargetType="Label"
-                    x:Key="ValueStyle"
-                    BasedOn="{StaticResource LabelStyle}">
-                    <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
+                x:Key="ValueStyle"
+                BasedOn="{StaticResource LabelStyle}">
+                <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
             </Style>
 
             <Style TargetType="Label"
-                    x:Key="MessageStyle"
-                    BasedOn="{StaticResource HeaderStyle}">
+                x:Key="MessageStyle"
+                BasedOn="{StaticResource HeaderStyle}">
                 <Setter Property="TextColor" Value="{StaticResource TriciaryTextColor}" />
             </Style>
 
             <Style TargetType="Label"
-                    x:Key="CenterMessageStyle"
-                    BasedOn="{StaticResource HeaderStyle}">
+                x:Key="CenterMessageStyle"
+                BasedOn="{StaticResource HeaderStyle}">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
             </Style>
@@ -112,7 +112,7 @@
             </Style>
 
             <Style TargetType="Image"
-                    x:Key="ImageSmallStyle">
+                x:Key="ImageSmallStyle">
                 <Setter Property="WidthRequest" Value="30" />
                 <Setter Property="HeightRequest" Value="30" />
                 <Setter Property="HorizontalOptions" Value="Center" />
@@ -128,7 +128,7 @@
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center"/>
             </Style>
-            
+
             <!-- Button -->
             <Style TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}" />
@@ -137,7 +137,7 @@
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center"/>
             </Style>
-            
+
             <!-- Stack Layouts -->
             <Style TargetType="StackLayout"
                 x:Key="HorizontalStack">
@@ -154,6 +154,12 @@
             </Style>
 
             <Style TargetType="StackLayout"
+                x:Key="OuterBoxStack"
+                BasedOn="{StaticResource VerticalStack}">
+                <Setter Property="Padding" Value="10,10,10,10" />
+            </Style>
+
+            <Style TargetType="StackLayout"
                 x:Key="CardImageTextBox">
                 <Setter Property="Orientation" Value="Vertical" />
                 <Setter Property="HorizontalOptions" Value="FillAndExpand" />
@@ -161,7 +167,7 @@
                 <Setter Property="HeightRequest" Value="200" />
                 <Setter Property="WidthRequest" Value="200" />
             </Style>
-           
+
 
             <!-- Entry -->
             <Style TargetType="Entry"
