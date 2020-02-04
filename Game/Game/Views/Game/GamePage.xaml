@@ -37,6 +37,18 @@
                         Text="Dungeon"
                         Style="{StaticResource CenterMessageStyle}"/>
                 </StackLayout>
+
+                <StackLayout Style="{StaticResource CardImageTextBox}">
+
+                    <ImageButton
+                        Source="dungeon_door.png"
+                        Style="{StaticResource ImageLargeStyle}"
+                        Clicked="AutobattleButton_Clicked"/>
+
+                    <Label 
+                        Text="Auto Battle"
+                        Style="{StaticResource CenterMessageStyle}"/>
+                </StackLayout>
             </FlexLayout>
         </ScrollView>
     </ContentPage.Content>

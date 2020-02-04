@@ -37,5 +37,18 @@ namespace Game.Views
 		{
 			await Navigation.PushAsync(new VillagePage());
 		}
+
+		/// <summary>
+		/// Jump to the Dungeon
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		async void AutobattleButton_Clicked(object sender, EventArgs e)
+		{
+			// Run the Autobattle simulation from here
+
+			// Call to the Score Page
+			await Navigation.PushModalAsync(new NavigationPage(new ScorePage()));
+		}
 	}
 }
