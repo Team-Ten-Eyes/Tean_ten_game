@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using Game.ViewModels;
 using System;
+using Game.Models;
 
 namespace Game.Views
 {
@@ -12,7 +13,7 @@ namespace Game.Views
     public partial class ItemReadPage : ContentPage
     {
         // View Model for Item
-        ItemViewModel ViewModel;
+        readonly GenericViewModel<ItemModel> ViewModel;
 
         /// <summary>
         /// Constructor called with a view model
@@ -20,7 +21,7 @@ namespace Game.Views
         /// The viewModel is the data that should be displayed
         /// </summary>
         /// <param name="viewModel"></param>
-        public ItemReadPage(ItemViewModel data)
+        public ItemReadPage(GenericViewModel<ItemModel> data)
         {
             InitializeComponent();
 
@@ -34,7 +35,7 @@ namespace Game.Views
         /// <param name="e"></param>
         async void Update_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new ItemUpdatePage(new ItemViewModel(ViewModel.Data))));
+            await Navigation.PushModalAsync(new NavigationPage(new ItemUpdatePage(new GenericViewModel<ItemModel>(ViewModel.Data))));
             await Navigation.PopAsync();
         }
 
@@ -45,7 +46,7 @@ namespace Game.Views
         /// <param name="e"></param>
         async void Delete_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new ItemDeletePage(new ItemViewModel(ViewModel.Data))));
+            await Navigation.PushModalAsync(new NavigationPage(new ItemDeletePage(new GenericViewModel<ItemModel>(ViewModel.Data))));
             await Navigation.PopAsync();
         }
     }
