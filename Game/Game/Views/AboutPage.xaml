@@ -5,12 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Game.Views.AboutPage"
-             xmlns:vm="clr-namespace:Game.ViewModels"
-             Title="{Binding Title}">
-
-    <ContentPage.BindingContext>
-        <vm:AboutViewModel />
-    </ContentPage.BindingContext>
+             Title="About">
 
     <ScrollView
       Padding="10,10,10,10"
