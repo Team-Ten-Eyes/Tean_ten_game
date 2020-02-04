@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Game.Services
+﻿namespace Game.Services
 {
     static class ItemService
     {
         // Return the Default Image URI for the Local Image for an Item.
-        public static string DefaultImageURI = "Item.png";
+        public static string DefaultImageURI = "icon_new.png";
     }
 }
