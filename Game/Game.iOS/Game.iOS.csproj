@@ -207,4 +207,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\dice_20.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_new.png" />
+  </ItemGroup>
 </Project>
