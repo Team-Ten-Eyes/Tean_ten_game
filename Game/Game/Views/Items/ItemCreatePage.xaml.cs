@@ -13,12 +13,12 @@ namespace Game.Views
     public partial class ItemCreatePage : ContentPage
     {
         // The item to create
-        ItemViewModel ViewModel { get; set; }
+        GenericViewModel<ItemModel> ViewModel { get; set; }
 
         /// <summary>
         /// Constructor for Create makes a new model
         /// </summary>
-        public ItemCreatePage(ItemViewModel data)
+        public ItemCreatePage(GenericViewModel<ItemModel> data)
         {
             InitializeComponent();
 
