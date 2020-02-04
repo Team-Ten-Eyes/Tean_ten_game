@@ -5,67 +5,65 @@
              >
 
     <ContentPage.Content>
-        <StackLayout
-            Style="{StaticResource HorizontalStack}"
-            VerticalOptions="CenterAndExpand"
-            HorizontalOptions="CenterAndExpand"
-            >
 
-            <StackLayout Style="{StaticResource CardImageTextBox}">
+        <ScrollView Orientation="Both" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" Padding="10,10,10,10">
 
-                <ImageButton
-                    Source="knight.png"
-                    Clicked="CharactersButton_Clicked"
-                />
+            <FlexLayout x:Name="flexLayout"
+                        Wrap="Wrap"
+                        JustifyContent="SpaceAround"
+                        AlignContent="SpaceEvenly"
+                        >
 
-                <Label 
-                    Text="Characters"
-                    Style="{StaticResource CenterMessageStyle}"
-                    />
+                <StackLayout Style="{StaticResource CardImageTextBox}">
 
-            </StackLayout>
+                    <ImageButton
+                                Source="knight.png"
+                                Clicked="CharactersButton_Clicked"/>
 
-            <StackLayout Style="{StaticResource CardImageTextBox}">
+                    <Label 
+                                Text="Characters"
+                                Style="{StaticResource CenterMessageStyle}"/>
 
-                <ImageButton
-                    Source="troll.png"
-                    Clicked="MonstersButton_Clicked"
-                    />
+                </StackLayout>
 
-                <Label 
-                    Text="Monsters"
-                    Style="{StaticResource CenterMessageStyle}"
-                    />
-                
-            </StackLayout>
+                <StackLayout Style="{StaticResource CardImageTextBox}">
 
-            <StackLayout Style="{StaticResource CardImageTextBox}">
+                    <ImageButton
+                                Source="troll.png"
+                                Clicked="MonstersButton_Clicked"/>
 
-                <ImageButton
-                    Source="items.png"
-                    Clicked="ItemsButton_Clicked"
-                    />
+                    <Label 
+                                Text="Monsters"
+                                Style="{StaticResource CenterMessageStyle}"/>
 
-                <Label 
-                    Text="Items"
-                    Style="{StaticResource CenterMessageStyle}"
-                    />
+                </StackLayout>
 
-            </StackLayout>
 
-            <StackLayout Style="{StaticResource CardImageTextBox}">
+                <StackLayout Style="{StaticResource CardImageTextBox}">
 
-                <ImageButton
-                    Source="score.png"
-                    Clicked="ScoresButton_Clicked"
-                    />
+                    <ImageButton
+                                Source="items.png"
+                                Clicked="ItemsButton_Clicked"/>
 
-                <Label 
-                    Text="Scores"
-                    Style="{StaticResource CenterMessageStyle}"
-                    />
+                    <Label 
+                                Text="Items"
+                                Style="{StaticResource CenterMessageStyle}"/>
+                </StackLayout>
 
-            </StackLayout>
-        </StackLayout>
+
+                <StackLayout Style="{StaticResource CardImageTextBox}">
+
+                    <ImageButton
+                                Source="score.png"
+                                Clicked="ScoresButton_Clicked"/>
+
+                    <Label 
+                                Text="Scores"
+                                Style="{StaticResource CenterMessageStyle}"/>
+
+                </StackLayout>
+
+            </FlexLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
