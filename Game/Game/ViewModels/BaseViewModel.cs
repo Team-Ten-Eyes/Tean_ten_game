@@ -37,9 +37,6 @@ namespace Game.ViewModels
         // Track if the system needs refreshing
         public bool _needsRefresh;
 
-        // Track if the system has been initialized
-        public static bool IsAlreadyInitialized = false;
-
         // Command to force a Load of data
         public Command LoadDatasetCommand { get; set; }
 
@@ -80,15 +77,12 @@ namespace Game.ViewModels
         /// Sets the Load command
         /// Sets the default data source
         /// </summary>
-        public void Initialize()
+        public async void Initialize()
         {
             Dataset = new ObservableCollection<T>();
             LoadDatasetCommand = new Command(async () => await ExecuteLoadDataCommand());
 
-            SetDataSource(CurrentDataSource);   // Set to Mock to start with
-
-            // Load the data sets
-            LoadDefaultData();
+            await SetDataSource(CurrentDataSource);   // Set to Mock to start with
         }
 
         #endregion Constructor
@@ -99,7 +93,7 @@ namespace Game.ViewModels
         /// </summary>
         /// <param name="isSQL"></param>
         /// <returns></returns>
-        public bool SetDataSource(int isSQL)
+        async public Task<bool> SetDataSource(int isSQL)
         {
             if (isSQL == 1)
             {
@@ -112,10 +106,12 @@ namespace Game.ViewModels
                 CurrentDataSource = 0;
             }
 
+            await LoadDefaultDataAsync();
+
             // Set Flag for Refresh
             SetNeedsRefresh(true);
 
-            return true;
+            return await Task.FromResult(true);
         }
 
         /// <summary>
@@ -125,12 +121,12 @@ namespace Game.ViewModels
         public async Task<bool> LoadDefaultDataAsync()
         {
             // Don't run the data load twice, just once per load
-            if (IsAlreadyInitialized)
+            if (DataStore.GetAlreadyInitialized())
             {
                 return false;
             }
 
-            IsAlreadyInitialized = true;
+            DataStore.SetAlreadyInitialized(true);
 
             // Take all the items and add them if they don't already exist
             foreach (var data in GetDefaultData())
@@ -253,7 +249,7 @@ namespace Game.ViewModels
         {
             await DataStore.WipeDataListAsync();
 
-            IsAlreadyInitialized = false;
+            DataStore.SetAlreadyInitialized(false);
 
             // Load the Sample Data
             await LoadDefaultDataAsync();
