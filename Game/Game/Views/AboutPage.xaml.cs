@@ -46,9 +46,9 @@ namespace Game.Views
         /// <param name="e"></param>
         private void DebugSettingsSwitch_OnToggled(object sender, ToggledEventArgs e)
         {
-            // This will change out the DataStore to be the Mock Store if toggled on, or the SQL if off.
+           // This will change out the DataStore to be the Mock Store if toggled on, or the SQL if off.
 
-            DebugSettingsFrame.IsVisible = (e.Value);
+           DebugSettingsFrame.IsVisible = (e.Value);
         }
 
         /// <summary>
