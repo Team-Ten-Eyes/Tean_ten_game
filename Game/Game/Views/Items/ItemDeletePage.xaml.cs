@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using Game.ViewModels;
 using System;
+using Game.Models;
 
 namespace Game.Views
 {
@@ -12,10 +13,10 @@ namespace Game.Views
     public partial class ItemDeletePage : ContentPage
     {
         // View Model for Item
-        readonly ItemViewModel viewModel;
+        readonly GenericViewModel<ItemModel> viewModel;
 
         // Constructor for Delete takes a view model of what to delete
-        public ItemDeletePage(ItemViewModel data)
+        public ItemDeletePage(GenericViewModel<ItemModel> data)
         {
             InitializeComponent();
 
