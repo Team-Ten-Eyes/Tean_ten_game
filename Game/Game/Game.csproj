@@ -18,6 +18,24 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\Game\PickItemsPage.xaml.cs">
+      <DependentUpon>PickItemsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Game\RoundOvePage.xaml.cs">
+      <DependentUpon>RoundOvePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Game\RoundPage.xaml.cs">
+      <DependentUpon>RoundPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Game\ScorePage.xaml.cs">
+      <DependentUpon>ScorePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Game\PickCharactersPage.xaml.cs">
+      <DependentUpon>PickCharactersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Game\BattlePage.xaml.cs">
+      <DependentUpon>BattlePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Game\VillagePage.xaml.cs">
       <DependentUpon>VillagePage.xaml</DependentUpon>
     </Compile>
