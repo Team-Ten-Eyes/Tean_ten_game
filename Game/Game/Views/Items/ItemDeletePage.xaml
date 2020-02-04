@@ -18,7 +18,7 @@
 
             <Label Text="Delete Page" Style="{StaticResource HeaderStyle}"/>
 
-            <Image Source="{Binding Data.ImageURI}"/>
+            <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
 
             <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
