@@ -67,11 +67,53 @@
 
                     <StackLayout Grid.Row="2" Grid.Column="0">
                         <Label 
+                            Text="Location" 
+                            Style="{StaticResource LabelStyle}"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="2" Grid.Column="1">
+                        <Picker 
+                            ItemsSource="{x:Static local_helpers:ItemLocationEnumHelper.GetListCharacter}" 
+                            SelectedItem="{Binding Data.Location, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
+                            x:Name="LocationPicker"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="3" Grid.Column="0">
+                        <Label 
+                            Text="Attribute" 
+                            Style="{StaticResource LabelStyle}"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="3" Grid.Column="1">
+                        <Picker 
+                            ItemsSource="{x:Static local_helpers:AttributeEnumHelper.GetListCharacter}" 
+                            SelectedItem="{Binding Data.Attribute, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
+                            x:Name="AttributePicker"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="4" Grid.Column="0">
+                        <Label 
+                            Text="Image" 
+                            Style="{StaticResource LabelStyle}"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="4" Grid.Column="1" Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand">
+                        <Image 
+                            Source="{Binding Data.ImageURI}"
+                            Style="{StaticResource ImageSmallStyle}"/>
+
+                        <Entry 
+                            Text="{Binding Data.ImageURI}" 
+                            Style="{StaticResource EntryStyle}"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="5" Grid.Column="0">
+                        <Label 
                             Text="Range" 
                             Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
 
-                    <StackLayout Grid.Row="2" Grid.Column="1" Style="{StaticResource HorizontalStack}">
+                    <StackLayout Grid.Row="5" Grid.Column="1" Style="{StaticResource HorizontalStack}">
                         <Label 
                             Text="{Binding Data.Range}" 
                             x:Name="RangeValue"
@@ -81,13 +123,13 @@
                             ValueChanged="Range_OnStepperValueChanged"/>
                     </StackLayout>
 
-                    <StackLayout Grid.Row="3" Grid.Column="0">
+                    <StackLayout Grid.Row="6" Grid.Column="0">
                         <Label 
                             Text="Value"
                             Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
 
-                    <StackLayout Grid.Row="3" Grid.Column="1" Style="{StaticResource HorizontalStack}">
+                    <StackLayout Grid.Row="6" Grid.Column="1" Style="{StaticResource HorizontalStack}">
                         <Label 
                             Text="{Binding Data.Value}" 
                             x:Name="ValueValue"
@@ -95,48 +137,6 @@
                         <Stepper 
                             Value="{Binding Data.Value, Mode=TwoWay}"
                             ValueChanged="Value_OnStepperValueChanged"/>
-                    </StackLayout>
-
-                    <StackLayout Grid.Row="4" Grid.Column="0">
-                        <Label 
-                            Text="Location" 
-                            Style="{StaticResource LabelStyle}"/>
-                    </StackLayout>
-
-                    <StackLayout Grid.Row="4" Grid.Column="1">
-                        <Picker 
-                            ItemsSource="{x:Static local_helpers:ItemLocationEnumHelper.GetListCharacter}" 
-                            SelectedItem="{Binding Data.Location, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
-                            x:Name="LocationPicker"/>
-                    </StackLayout>
-
-                    <StackLayout Grid.Row="5" Grid.Column="0">
-                        <Label 
-                            Text="Attribute" 
-                            Style="{StaticResource LabelStyle}"/>
-                    </StackLayout>
-
-                    <StackLayout Grid.Row="5" Grid.Column="1">
-                        <Picker 
-                            ItemsSource="{x:Static local_helpers:AttributeEnumHelper.GetListCharacter}" 
-                            SelectedItem="{Binding Data.Attribute, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
-                            x:Name="AttributePicker"/>
-                    </StackLayout>
-
-                    <StackLayout Grid.Row="6" Grid.Column="0">
-                        <Label 
-                            Text="Image" 
-                            Style="{StaticResource LabelStyle}"/>
-                    </StackLayout>
-
-                    <StackLayout Grid.Row="6" Grid.Column="1" Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand">
-                        <Image 
-                            Source="{Binding Data.ImageURI}"
-                            Style="{StaticResource ImageSmallStyle}"/>
-
-                        <Entry 
-                            Text="{Binding Data.ImageURI}" 
-                            Style="{StaticResource EntryStyle}"/>
                     </StackLayout>
 
                     <StackLayout Grid.Row="7" Grid.Column="0">
