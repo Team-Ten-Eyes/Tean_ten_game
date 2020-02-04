@@ -13,21 +13,23 @@
     </ContentPage.BindingContext>
 
     <ScrollView
-      VerticalOptions="FillAndExpand"
+      Padding="10,10,10,10"
+      VerticalOptions="Start"
       HorizontalOptions="FillAndExpand"
       Orientation="Vertical">
 
-        <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="FillAndExpand">
+        <StackLayout>
+
             <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand">
 
-                <Image Source="d12.png" />
-                <Label Text="Class Dungeon" Style="{StaticResource HeaderStyle}" HorizontalOptions="CenterAndExpand"  HorizontalTextAlignment="Center" />
-                <Label Text="Mike Koenig" Style="{StaticResource MessageStyle}" HorizontalOptions="CenterAndExpand"  HorizontalTextAlignment="Center" />
-                <Label x:Name="CurrentDateTime" Style="{StaticResource MessageStyle}" HorizontalOptions="CenterAndExpand"  HorizontalTextAlignment="Center" />
-
+                <Image Source="dice_20.png" Style="{StaticResource ImageMediumStyle}"/>
+                <Label Text="Class Dungeon" Style="{StaticResource HeaderStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
+                <Label Text="Mike Koenig" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
+                <Label x:Name="CurrentDateTime" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
             </StackLayout>
 
             <!--Database Settings Frame-->
+
             <StackLayout Style="{StaticResource HorizontalStack}">
 
                 <Label
