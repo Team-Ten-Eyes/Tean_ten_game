@@ -53,9 +53,9 @@ namespace Game.Views
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		void ItemsButton_Clicked(object sender, EventArgs e)
+		async void ItemsButton_Clicked(object sender, EventArgs e)
 		{
-			Navigation.PushAsync(new ItemIndexPage());
+			await Navigation.PushAsync(new ItemIndexPage());
 		}
 	}
 }
