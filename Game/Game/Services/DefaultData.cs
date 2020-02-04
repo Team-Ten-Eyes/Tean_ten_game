@@ -9,7 +9,7 @@ namespace Game.Services
         /// Load the Default data
         /// </summary>
         /// <returns></returns>
-        public static List<ItemModel> LoadData()
+        public static List<ItemModel> LoadData(ItemModel temp)
         {
             var datalist = new List<ItemModel>()
             {
@@ -42,6 +42,24 @@ namespace Game.Services
                     Value = 10,
                     Location = ItemLocationEnum.Head,
                     Attribute = AttributeEnum.Speed},
+            };
+
+            return datalist;
+        }
+
+        public static List<ScoreModel> LoadData(ScoreModel temp)
+        {
+            var datalist = new List<ScoreModel>()
+            {
+                new ScoreModel {
+                    Name = "First Score",
+                    Description = "Test Data",
+                },
+
+                new ScoreModel {
+                    Name = "Second Score",
+                    Description = "Test Data",
+                }
             };
 
             return datalist;
