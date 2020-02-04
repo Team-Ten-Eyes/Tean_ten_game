@@ -17,6 +17,7 @@ namespace Game
             InitializeComponent();
 
             // Add each model here to warm up and load it.
+            ScoreIndexViewModel.Instance.GetCurrentDataSource();
             ItemIndexViewModel.Instance.GetCurrentDataSource();
 
             // Call the Main Page to open
