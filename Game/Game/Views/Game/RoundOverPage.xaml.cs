@@ -8,12 +8,12 @@ namespace Game.Views
 	/// The Main Game Page
 	/// </summary>
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class RoundPage: ContentPage
+	public partial class RoundOverPage: ContentPage
 	{
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		public RoundPage ()
+		public RoundOverPage()
 		{
 			InitializeComponent ();
 		}
