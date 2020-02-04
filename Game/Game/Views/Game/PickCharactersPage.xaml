@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Game.Views.PickCharactersPage"
+             >
+
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource VerticalStack}">
+            <Label Text="Pick Characters Page..."></Label>
+
+            <Button Clicked="BattleButton_Clicked" Text="Begin Battle"></Button>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>
