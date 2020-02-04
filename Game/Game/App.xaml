@@ -102,21 +102,28 @@
             </Style>
 
             <!-- Image -->
-            <Style TargetType="Image">
+            <Style TargetType="Image"
+                x:Key="ImageLargeStyle">
                 <Setter Property="WidthRequest" Value="150" />
                 <Setter Property="HeightRequest" Value="150" />
                 <Setter Property="BackgroundColor" Value="Transparent" />
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="Aspect" Value="Fill" />
             </Style>
 
             <Style TargetType="Image"
-                x:Key="ImageSmallStyle">
+                x:Key="ImageMediumStyle"
+                BasedOn="{StaticResource ImageLargeStyle}">
+                <Setter Property="WidthRequest" Value="60" />
+                <Setter Property="HeightRequest" Value="60" />
+            </Style>
+
+            <Style TargetType="Image"
+                x:Key="ImageSmallStyle"
+                BasedOn="{StaticResource ImageLargeStyle}">
                 <Setter Property="WidthRequest" Value="30" />
                 <Setter Property="HeightRequest" Value="30" />
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="Aspect" Value="Fill" />
             </Style>
 
             <!-- ImageButton -->
