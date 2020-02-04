@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Game.Views.RoundOverPage">
+
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource VerticalStack}">
+            <Label Text="Round Over Page..."></Label>
+
+            <Label Text="Items Found..."></Label>
+
+            <Image Source="items.png" Style="{StaticResource ImageMediumStyle}"></Image>
+            <Image Source="items.png" Style="{StaticResource ImageMediumStyle}"></Image>
+
+            <Button Clicked="PickItems_Clicked" Text="Pick Items"></Button>
+
+            <Button Clicked="NextButton_Clicked" Text="Next Round"></Button>
+
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>
