@@ -36,7 +36,7 @@
                     Text="Dungeon"
                     Style="{StaticResource CenterMessageStyle}"
                     />
-                
+
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
