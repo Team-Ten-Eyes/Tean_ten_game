@@ -120,13 +120,11 @@ namespace Game.ViewModels
         /// <returns></returns>
         public async Task<bool> LoadDefaultDataAsync()
         {
-            // Don't run the data load twice, just once per load
-            if (DataStore.GetAlreadyInitialized())
+            // If data exists, do not run
+            if (Dataset.Count>0)
             {
                 return false;
             }
-
-            DataStore.SetAlreadyInitialized(true);
 
             // Take all the items and add them if they don't already exist
             foreach (var data in GetDefaultData())
@@ -248,8 +246,6 @@ namespace Game.ViewModels
         public async Task<bool> WipeDataListAsync()
         {
             await DataStore.WipeDataListAsync();
-
-            DataStore.SetAlreadyInitialized(false);
 
             // Load the Sample Data
             await LoadDefaultDataAsync();

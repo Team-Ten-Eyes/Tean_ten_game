@@ -16,7 +16,5 @@ namespace Game.Services
         Task<List<T>> IndexAsync();
 
         Task<bool> WipeDataListAsync();
-        bool SetAlreadyInitialized(bool flag);
-        bool GetAlreadyInitialized();
     }
 }

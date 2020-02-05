@@ -13,22 +13,6 @@ namespace Game.Services
         /// </summary>
         public List<T> datalist = new List<T>();
 
-        #region AlreadyInitialized
-        // Track if the system has been initialized
-        public static bool IsAlreadyInitialized = false;
-
-        public bool SetAlreadyInitialized(bool flag)
-        {
-            IsAlreadyInitialized = flag;
-            return IsAlreadyInitialized;
-        }
-
-        public bool GetAlreadyInitialized()
-        {
-            return IsAlreadyInitialized;
-        }
-        #endregion AlreadyInitialized
-
         /// <summary>
         /// Clear the Dataset
         /// </summary>
