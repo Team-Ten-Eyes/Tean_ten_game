@@ -18,22 +18,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\Game\PickItemsPage.xaml.cs">
+    <Compile Update="Views\Battle\PickItemsPage.xaml.cs">
       <DependentUpon>PickItemsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Game\RoundOverPage.xaml.cs">
+    <Compile Update="Views\Battle\RoundOverPage.xaml.cs">
       <DependentUpon>RoundOverPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Game\NewRoundPage.xaml.cs">
+    <Compile Update="Views\Battle\NewRoundPage.xaml.cs">
       <DependentUpon>NewRoundPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Game\ScorePage.xaml.cs">
+    <Compile Update="Views\Battle\ScorePage.xaml.cs">
       <DependentUpon>ScorePage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Game\PickCharactersPage.xaml.cs">
+    <Compile Update="Views\Battle\PickCharactersPage.xaml.cs">
       <DependentUpon>PickCharactersPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Game\BattlePage.xaml.cs">
+    <Compile Update="Views\Battle\BattlePage.xaml.cs">
       <DependentUpon>BattlePage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Village\VillagePage.xaml.cs">
