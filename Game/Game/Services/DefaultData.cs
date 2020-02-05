@@ -18,8 +18,8 @@ namespace Game.Services
                     Description = "Sword made of Gold, really expensive looking",
                     ImageURI = "http://www.clker.com/cliparts/e/L/A/m/I/c/sword-md.png",
                     Range = 0,
-                    Damage = 10,
-                    Value = 10,
+                    Damage = 9,
+                    Value = 9,
                     Location = ItemLocationEnum.PrimaryHand,
                     Attribute = AttributeEnum.Defense},
 
@@ -29,7 +29,7 @@ namespace Game.Services
                     ImageURI = "http://www.clipartbest.com/cliparts/4T9/LaR/4T9LaReTE.png",
                     Range = 0,
                     Damage = 0,
-                    Value = 10,
+                    Value = 9,
                     Location = ItemLocationEnum.OffHand,
                     Attribute = AttributeEnum.Defense},
 
@@ -39,7 +39,7 @@ namespace Game.Services
                     ImageURI = "http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png",
                     Range = 0,
                     Damage = 0,
-                    Value = 10,
+                    Value = 9,
                     Location = ItemLocationEnum.Head,
                     Attribute = AttributeEnum.Speed},
             };
