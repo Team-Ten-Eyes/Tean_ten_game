@@ -1,22 +1,37 @@
 ﻿using NUnit.Framework;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Game.ViewModels;
+using Xamarin.Forms.Mocks;
+using Xamarin.Forms;
+using Game.Services;
 using System.Threading.Tasks;
 
 namespace UnitTests.ViewModels
 {
-    [TestFixture]
     public class ItemIndexViewModelTests
     {
-        [Test]
-        public void ItemIndexViewModel_Read_Invalid_ID_Bogus_Should_Fail()
+        [SetUp]
+        public void Setup()
         {
-            // TODO: Add your test code here
-            var answer = 42;
-            Assert.That(answer, Is.EqualTo(42), "Some useful error message");
+            // Initilize Xamarin Forms
+            MockForms.Init();
+
+            // Activate the Datastore
+            ScoreIndexViewModel.Instance.GetCurrentDataSource();
+            ItemIndexViewModel.Instance.GetCurrentDataSource();
+        }
+
+        [Test]
+        public async Task ItemIndexViewModel_Read_Invalid_ID_Bogus_Should_Fail()
+        {
+            // Arrange
+
+            // Act
+            var result = await ItemIndexViewModel.Instance.ReadAsync("bogus");
+
+            // Reset
+
+            // Assert
+            Assert.IsNull(result);
         }
     }
 }
