@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Game.Models;
 
 namespace UnitTests.Models
 {
@@ -12,14 +13,17 @@ namespace UnitTests.Models
     public class ItemModelTests
     {
         [Test]
-        public void TestMethod()
+        public void ItemModel_Constructor_Default_Should_Pass()
         {
+            // Arrange
 
-            var test = new Game.Models.ItemModel();
+            // Act
+            var result = new ItemModel();
             
-            // TODO: Add your test code here
-            var answer = 42;
-            Assert.That(answer, Is.EqualTo(42), "Some useful error message");
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
         }
     }
 }
