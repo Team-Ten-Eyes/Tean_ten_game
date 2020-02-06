@@ -86,7 +86,7 @@ namespace Game.Models
         /// Update the score based on the passed in values. 
         /// </summary>
         /// <param name="newData"></param>
-        public void Update(ScoreModel newData)
+        public override void Update(ScoreModel newData)
         {
             if (newData == null)
             {
