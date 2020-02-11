@@ -16,8 +16,11 @@ namespace Game.Models
 
         public string ImageURI { get; set; }
         // The Descirption of the Item
-        public string Description { get; set; } = "Item Description";
+        public string Description { get; set; } = "Character Description";
+
+        public bool Alive { get; set; } = true;
           
+
         public bool update(BaseCharacter charData)
         {
          Name = charData.Name;
