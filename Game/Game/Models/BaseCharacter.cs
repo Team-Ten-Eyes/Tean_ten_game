@@ -15,7 +15,7 @@ namespace Game.Models
             this.Id = data.Id;
             this.ImageURI = data.ImageURI;
             this.Alive = true; //Copy of character should be Alive no matter what
-            this.Attacks = data.Attacks;
+            //this.Attacks = data.Attacks;
             this.Level = data.Level;
             this.Speed = data.Speed;
             this.Attack = data.Attack;
@@ -40,7 +40,7 @@ namespace Game.Models
         // The Descirption of the Item
         public bool Alive { get; set; } = true;
 
-        public List<AttackOption> Attacks { get; set; }
+        //public List<AttackOption> Attacks { get; set; }
 
         public int Level { get; set; } = 1;
         public int Experience { get; set; } = 0;
@@ -62,7 +62,7 @@ namespace Game.Models
             this.Id = data.Id;
             this.ImageURI = data.ImageURI;
             this.Alive = data.Alive; //Copy of character should be Alive no matter what
-            this.Attacks = data.Attacks;
+            //this.Attacks = data.Attacks;
             this.Level = data.Level;
             this.Speed = data.Speed;
             this.Attack = data.Attack;
@@ -86,5 +86,18 @@ namespace Game.Models
             output += this.Level;
             return output;
         }
+        public bool LevelUp()
+        {
+            Level checkAgainst = new Level();
+            bool returnMe = false;
+            if (Experience > checkAgainst.LevelThreshold[Level])
+            {
+                Level++;
+                returnMe = true;
+            }
+            checkAgainst = null;
+            return returnMe;
+        }
+        
     }
 }
