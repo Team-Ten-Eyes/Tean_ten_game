@@ -8,34 +8,9 @@
              Title="Characters">
     <ContentPage.Content>
         <StackLayout>
-            <ListView 
-                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                CharacterSelected ="reading_Char_page"
-                <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Padding="10"
-                                     Style="{DynamicResource StackLayoutList}">
-                            <StackLayout Style="{DynamicResource StackLayoutList}"
-                                         Orientation="Vertical">
-                                <StackLayout
-                                    Style="{DynamicResource StackLayoutList}">
-                                    <StackLayout
-                                            Orientation="Horizontal">
-                                        <Label Text="{Binding Name}"
-                                               Style="{DynamicResource LabelList}"/>
-                                    </StackLayout>
-                                </StackLayout>
-                                
-                                
-                            </StackLayout>
-                        </StackLayout>
-                     
-                            <StackLayout
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-                </ListView.ItemTemplate>
+            <Label Text="Character index"
+                 HorizontalOptions="Center"
+                 VerticalOptions="CenterAndExpand"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
