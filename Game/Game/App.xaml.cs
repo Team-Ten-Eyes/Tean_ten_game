@@ -19,6 +19,13 @@ namespace Game
             // Add each model here to warm up and load it.
             ScoreIndexViewModel.Instance.GetCurrentDataSource();
             ItemIndexViewModel.Instance.GetCurrentDataSource();
+            Device.SetFlags(new[]
+            {
+                "SwipeView_Experimental",
+                "CarouselView_Experimental",
+                "IndicatorView_Experimental"
+
+            });
 
             // Call the Main Page to open
             MainPage = new MainPage();

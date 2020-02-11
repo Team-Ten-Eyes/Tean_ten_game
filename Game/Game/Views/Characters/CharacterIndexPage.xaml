@@ -8,9 +8,27 @@
              Title="Characters">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <SwipeView>
+                <SwipeView.LeftItems>
+                    <SwipeItems Mode="Reveal">
+                        <SwipeItem Text="click me"
+                                   BackgroundColor="yellow"
+                                   Invoked="Delete_Character"
+                                   />
+                    </SwipeItems>
+                </SwipeView.LeftItems>
+                <StackLayout>
+                <Button
+                    Text="click me"
+                    FontSize="Large"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"  
+                    Clicked="Update_Character"
+                    />
+               </StackLayout>
+            </SwipeView>
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -4,13 +4,20 @@ using System.Text;
 
 namespace Game.Models
 {
-    class BaseCharacter
+    class BaseCharacter : DefaultModel
     {
         public BaseCharacter()
         {
 
+            
+
         }
 
-        
+        public bool update(BaseCharacter charData)
+        {
+            Name = charData.Name;
+            return true;
+        }
+
     }
 }

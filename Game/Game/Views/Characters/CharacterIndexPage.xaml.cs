@@ -16,5 +16,20 @@ namespace Game.Views
         {
             InitializeComponent();
         }
+
+        async void Update_Character (object sender, EventArgs e)
+        {
+            await DisplayAlert("SwipeView", "update invoked", "ok");
+        }
+
+        async void Delete_Character(object sender, EventArgs e)
+        {
+            await DisplayAlert("SwipeView", "Delete invoked", "ok");
+        }
+
+        private void SwipeItem_Invoked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
