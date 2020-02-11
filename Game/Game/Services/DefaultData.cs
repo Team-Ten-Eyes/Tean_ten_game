@@ -46,7 +46,7 @@ namespace Game.Services
 
             return datalist;
         }
-
+        
         public static List<ScoreModel> LoadData(ScoreModel temp)
         {
             var datalist = new List<ScoreModel>()
@@ -64,5 +64,8 @@ namespace Game.Services
 
             return datalist;
         }
+
+
+
     }
 }

@@ -13,7 +13,7 @@ namespace Game.Models
 
         public virtual void Update(T newData)
         {
-
+            
         }
     }
 }
