@@ -8,7 +8,7 @@
              Title="Characters">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Character index"
+            <Label Text="Character"
                  HorizontalOptions="Center"
                  VerticalOptions="CenterAndExpand"/>
         </StackLayout>
