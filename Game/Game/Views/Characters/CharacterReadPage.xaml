@@ -6,10 +6,26 @@
              mc:Ignorable="d"
              x:Class="Game.Views.CharacterReadPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Horizontal">
+                <Label Text=""/>
+                <Label Text=""/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height = "Auto" />
+                        <RowDefinition Height = "Auto" />
+                        <RowDefinition Height = "Auto" />
+                        <RowDefinition Height = "Auto" />
+                        <RowDefinition Height = "Auto" />
+                    </Grid.RowDefinition>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width ="Auto">
+                        <ColumnDefinition Width ="Auto">
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
