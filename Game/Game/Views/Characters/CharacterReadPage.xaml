@@ -6,10 +6,44 @@
              mc:Ignorable="d"
              x:Class="Game.Views.CharacterReadPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Horizontal">
+                <Label Text=""/>
+                <Label Text=""/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                
+                //IMAGE HERE
+                <StackLayout Orientation="Vertical">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height = "Auto" />
+                            <RowDefinition Height = "Auto" />
+                            <RowDefinition Height = "Auto" />
+                            <RowDefinition Height = "Auto" />
+                            <RowDefinition Height = "Auto" />
+                            </Grid.RowDefinition>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width ="Auto">
+                            <ColumnDefinition Width ="Auto">
+                        </Grid.ColumnDefinitions>
+                            <Labels text="HP ---"  Grid.Row ="1" Grid.Column="0"/>
+                            <Labels text="ATK ---"  Grid.Row ="2" Grid.Column="0"/>
+                            <Labels text="DEF ---"  Grid.Row ="3" Grid.Column="0"/>
+                            <Labels text="SPD ---"  Grid.Row ="4" Grid.Column="0"/>
+                            <Labels text="XP ---"  Grid.Row ="5" Grid.Column="0"/>
+                            <Labels text="{Binding Data.HP}"  Grid.Row ="1" Grid.Column="1"/>
+                            <Labels text="{Binding Data.ATK}"  Grid.Row ="2" Grid.Column="1"/>
+                            <Labels text="{Binding Data.DEF}"  Grid.Row ="3" Grid.Column="1"/>
+                            <Labels text="{Binding Data.SPD}"  Grid.Row ="4" Grid.Column="1"/>
+                            <Labels text="{Binding Data.XP}"  Grid.Row ="5" Grid.Column="1"/>
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+              
+                    
+                    
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
