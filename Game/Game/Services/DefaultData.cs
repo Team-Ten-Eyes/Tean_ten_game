@@ -64,8 +64,42 @@ namespace Game.Services
 
             return datalist;
         }
+        /*
+        public static List<BaseCharacter> LoadData(BaseCharacter temp)
+        {
+            var datalist = new List<BaseCharacter>()
+            {
+                new BaseCharacter
+                {
+                    Name="Courage",
+                    ImageURI = "knight.png",
+                    Alive=true,
+                    Level=10,
+                    Experience=5,
+                    Speed=3,
+                    Attack=10,
+                    Defense=15,
+                    MaxHealth=30,
+                    CurrentHealth=30
+                },
+                  new BaseCharacter
+                {
+                    Name="sneaky",
+                    ImageURI = "knight.png",
+                    Alive=true,
+                    Level=10,
+                    Experience=5,
+                    Speed=3,
+                    Attack=10,
+                    Defense=15,
+                    MaxHealth=30,
+                    CurrentHealth=30
+                }
 
-
+            };
+            return datalist;
+        }
+        */
 
     }
 }
