@@ -22,7 +22,7 @@ namespace Game.Models
             this.Defense = data.Defense;
             this.MaxHealth = data.MaxHealth;
             this.CurrentHealth = this.MaxHealth; //Should start with max HP
-            this.RightFigner = data.RightFigner;
+            this.RightFinger = data.RightFinger;
             this.LeftFinger = data.LeftFinger;
             this.Head = data.Head;
             this.Feet = data.Feet;
@@ -30,11 +30,13 @@ namespace Game.Models
             this.Necklace = data.Necklace;
         }
 
+
+
         public CharacterTypeEnum CharType { get; set; } = CharacterTypeEnum.Bravery;
         public string Id { get; set; } = Guid.NewGuid().ToString();
 
         // The Name of the Item 
-        public string Name { get; set; } = "This is an Item";
+        public string Name { get; set; } = "Michelle";
 
         public string ImageURI { get; set; }
         // The Descirption of the Item
@@ -54,7 +56,7 @@ namespace Game.Models
         public ItemModel Head { get; set; }
         public ItemModel Feet { get; set; }
         public ItemModel Necklace { get; set; }
-        public ItemModel RightFigner { get; set; }
+        public ItemModel RightFinger { get; set; }
         public ItemModel LeftFinger { get; set; }
         public void Update(BaseCharacter data)
         {
@@ -70,7 +72,7 @@ namespace Game.Models
             this.Experience = data.Experience;
             this.MaxHealth = data.MaxHealth;
             this.CurrentHealth = data.CurrentHealth; //Should start with max HP
-            this.RightFigner = data.RightFigner;
+            this.RightFinger = data.RightFinger;
             this.LeftFinger = data.LeftFinger;
             this.Head = data.Head;
             this.Feet = data.Feet;
@@ -89,6 +91,7 @@ namespace Game.Models
         public bool LevelUp()
         {
             Level checkAgainst = new Level();
+        
             bool returnMe = false;
             if (Experience > checkAgainst.LevelThreshold[Level])
             {
@@ -97,6 +100,38 @@ namespace Game.Models
             }
             checkAgainst = null;
             return returnMe;
+        }
+        public bool AddExperience(int exp)
+        {
+            if(this.Alive)
+            {
+                Experience += exp;
+                return true;
+            }
+            return false;
+        }
+        public bool TakeDamage(int dmg)
+        {
+            bool returnMe = false;
+            if(this.Alive)
+            {
+                CurrentHealth -= dmg;
+                returnMe = true;
+            }
+            if (CurrentHealth <= 0)
+                Alive = false;
+            return returnMe;
+        }
+        public int GetAttack(AttackOption atk)
+        {
+            int attack = atk.AttackBuff;
+            if (LeftFinger.Attribute == AttributeEnum.Attack)
+                attack += LeftFinger.Value;
+            if (RightFinger.Attribute == AttributeEnum.Attack)
+                attack += RightFinger.Value;
+            if (Necklace.Attribute == AttributeEnum.Attack)
+                attack += Necklace.Value;
+
         }
         
     }
