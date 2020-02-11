@@ -16,5 +16,9 @@ namespace Game.Views
         {
             InitializeComponent();
         }
+
+        public async void OnSaveButtonClicked(object sender, EventArgs e)
+        {
+        }
     }
 }
