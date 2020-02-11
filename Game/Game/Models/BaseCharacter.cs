@@ -15,7 +15,7 @@ namespace Game.Models
             this.Id = data.Id;
             this.ImageURI = data.ImageURI;
             this.Alive = true; //Copy of character should be Alive no matter what
-            this.Attacks = data.Attacks;
+            //this.Attacks = data.Attacks;
             this.Level = data.Level;
             this.Speed = data.Speed;
             this.Attack = data.Attack;
@@ -62,7 +62,7 @@ namespace Game.Models
             this.Id = data.Id;
             this.ImageURI = data.ImageURI;
             this.Alive = data.Alive; //Copy of character should be Alive no matter what
-            this.Attacks = data.Attacks;
+            //this.Attacks = data.Attacks;
             this.Level = data.Level;
             this.Speed = data.Speed;
             this.Attack = data.Attack;
