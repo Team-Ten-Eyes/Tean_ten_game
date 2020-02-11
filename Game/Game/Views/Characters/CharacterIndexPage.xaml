@@ -8,27 +8,34 @@
              Title="Characters">
     <ContentPage.Content>
         <StackLayout>
-            <SwipeView>
-                <SwipeView.LeftItems>
-                    <SwipeItems Mode="Reveal">
-                        <SwipeItem Text="click me"
-                                   BackgroundColor="yellow"
-                                   Invoked="Delete_Character"
-                                   />
-                    </SwipeItems>
-                </SwipeView.LeftItems>
-                <StackLayout>
-                <Button
-                    Text="click me"
-                    FontSize="Large"
-                    HorizontalOptions="CenterAndExpand"
-                    VerticalOptions="CenterAndExpand"  
-                    Clicked="Update_Character"
-                    />
-               </StackLayout>
-            </SwipeView>
-
-
+            <ListView 
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                CharacterSelected ="reading_Char_page"
+                <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10"
+                                     Style="{DynamicResource StackLayoutList}">
+                            <StackLayout Style="{DynamicResource StackLayoutList}"
+                                         Orientation="Vertical">
+                                <StackLayout
+                                    Style="{DynamicResource StackLayoutList}">
+                                    <StackLayout
+                                            Orientation="Horizontal">
+                                        <Label Text="{Binding Name}"
+                                               Style="{DynamicResource LabelList}"/>
+                                    </StackLayout>
+                                </StackLayout>
+                                
+                                
+                            </StackLayout>
+                        </StackLayout>
+                     
+                            <StackLayout
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+                </ListView.ItemTemplate>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
