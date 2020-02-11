@@ -131,7 +131,11 @@ namespace Game.Models
                 attack += RightFinger.Value;
             if (Necklace.Attribute == AttributeEnum.Attack)
                 attack += Necklace.Value;
-
+            if (Head.Attribute == AttributeEnum.Attack)
+                attack += Head.Value;
+            if (Feet.Attribute == AttributeEnum.Attack)
+                attack += Feet.Value;
+            return attack;
         }
         
     }
