@@ -40,7 +40,7 @@ namespace Game.Models
         // The Descirption of the Item
         public bool Alive { get; set; } = true;
 
-        public List<AttackOption> Attacks { get; set; }
+        //public List<AttackOption> Attacks { get; set; }
 
         public int Level { get; set; } = 1;
         public int Experience { get; set; } = 0;
@@ -86,5 +86,18 @@ namespace Game.Models
             output += this.Level;
             return output;
         }
+        public bool LevelUp()
+        {
+            Level checkAgainst = new Level();
+            bool returnMe = false;
+            if (Experience > checkAgainst.LevelThreshold[Level])
+            {
+                Level++;
+                returnMe = true;
+            }
+            checkAgainst = null;
+            return returnMe;
+        }
+        
     }
 }
