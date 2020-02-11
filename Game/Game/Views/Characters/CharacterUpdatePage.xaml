@@ -7,9 +7,12 @@
              x:Class="Game.Views.CharacterUpdatePage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+            <Label Text="Update Character"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+            <Button Text="Save Changes"
+                Clicked="OnSaveButtonClicked"
+                HorizontalOptions="CenterAndExpand">
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
