@@ -6,9 +6,9 @@ namespace Game.Models
 {
     class BaseCharacter
     {
-        public BaseCharacter()
-        {
-        }
+        //public BaseCharacter()
+        //{
+        //}
         public BaseCharacter(BaseCharacter data)
         {
             this.CharType = data.CharType;
@@ -137,6 +137,6 @@ namespace Game.Models
                 attack += Feet.Value;
             return attack;
         }
-        
+
     }
 }
