@@ -22,12 +22,12 @@ namespace Game.Models
             this.Defense = data.Defense;
             this.MaxHealth = data.MaxHealth;
             this.CurrentHealth = this.MaxHealth; //Should start with max HP
-            this.RightFinger = data.RightFinger;
-            this.LeftFinger = data.LeftFinger;
-            this.Head = data.Head;
-            this.Feet = data.Feet;
+            //this.RightFinger = data.RightFinger;
+            //this.LeftFinger = data.LeftFinger;
+            //this.Head = data.Head;
+            //this.Feet = data.Feet;
             this.Experience = data.Experience;
-            this.Necklace = data.Necklace;
+            //this.Necklace = data.Necklace;
         }
 
 
@@ -53,11 +53,11 @@ namespace Game.Models
         public int MaxHealth { get; set; } = 1;
         public int CurrentHealth { get; set; } = 1;
 
-        public ItemModel Head { get; set; }
-        public ItemModel Feet { get; set; }
-        public ItemModel Necklace { get; set; }
-        public ItemModel RightFinger { get; set; }
-        public ItemModel LeftFinger { get; set; }
+        //public ItemModel Head { get; set; }
+        //public ItemModel Feet { get; set; }
+        //public ItemModel Necklace { get; set; }
+        //public ItemModel RightFinger { get; set; }
+        //public ItemModel LeftFinger { get; set; }
         public void Update(BaseCharacter data)
         {
             this.CharType = data.CharType;
@@ -72,11 +72,11 @@ namespace Game.Models
             this.Experience = data.Experience;
             this.MaxHealth = data.MaxHealth;
             this.CurrentHealth = data.CurrentHealth; //Should start with max HP
-            this.RightFinger = data.RightFinger;
-            this.LeftFinger = data.LeftFinger;
-            this.Head = data.Head;
-            this.Feet = data.Feet;
-            this.Necklace = data.Necklace;
+            //this.RightFinger = data.RightFinger;
+            //this.LeftFinger = data.LeftFinger;
+            //this.Head = data.Head;
+            //this.Feet = data.Feet;
+            //this.Necklace = data.Necklace;
         }
         public string FormatOutput()
         {
@@ -125,16 +125,16 @@ namespace Game.Models
         public int GetAttack(AttackOption atk)
         {
             int attack = atk.AttackBuff;
-            if (LeftFinger.Attribute == AttributeEnum.Attack)
-                attack += LeftFinger.Value;
-            if (RightFinger.Attribute == AttributeEnum.Attack)
-                attack += RightFinger.Value;
-            if (Necklace.Attribute == AttributeEnum.Attack)
-                attack += Necklace.Value;
-            if (Head.Attribute == AttributeEnum.Attack)
-                attack += Head.Value;
-            if (Feet.Attribute == AttributeEnum.Attack)
-                attack += Feet.Value;
+            //if (LeftFinger.Attribute == AttributeEnum.Attack)
+            //    attack += LeftFinger.Value;
+            //if (RightFinger.Attribute == AttributeEnum.Attack)
+            //    attack += RightFinger.Value;
+            //if (Necklace.Attribute == AttributeEnum.Attack)
+            //    attack += Necklace.Value;
+            //if (Head.Attribute == AttributeEnum.Attack)
+            //    attack += Head.Value;
+            //if (Feet.Attribute == AttributeEnum.Attack)
+            //    attack += Feet.Value;
             return attack;
         }
 
