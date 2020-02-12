@@ -30,6 +30,8 @@ namespace Game.Views
             await Navigation.PopAsync();
         }
 
+
+
         /// <summary>
         /// Calls for Delete
         /// </summary>

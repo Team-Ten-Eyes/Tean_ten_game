@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Game.ViewModels;
-
+using Game.Models;
 namespace Game.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -18,7 +18,8 @@ namespace Game.Views
         public CharacterCreatePage(CharacterViewModel data)
         {
             InitializeComponent();
-          
+
+            data.Data = new BaseCharacter();
 
             BindingContext = this.ViewModel = data;
         }

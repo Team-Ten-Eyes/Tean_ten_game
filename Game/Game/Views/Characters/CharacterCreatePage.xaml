@@ -10,6 +10,9 @@
             <Label Text="Create Character"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+            <Label Text="Text" FontSize="Medium" />
+            <Entry Text="{Binding Data.Name}" d:Text="Item name" FontSize="Small"/>
+
             <Button Text="Save Changes"
                 Clicked="OnSaveButtonClicked"
                 HorizontalOptions="CenterAndExpand" />
