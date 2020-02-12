@@ -12,8 +12,8 @@
                 <Label Text=""/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                
-                //IMAGE HERE
+
+                <Image Source="{Binding Data.ImageURI}" />
                 <StackLayout Orientation="Vertical">
 
                     <Grid>
@@ -28,22 +28,24 @@
                             <ColumnDefinition Width ="Auto" />
                             <ColumnDefinition Width ="Auto" />
                         </Grid.ColumnDefinitions>
-                            <Labels text="HP ---"  Grid.Row ="1" Grid.Column="0"/>
-                            <Labels text="ATK ---"  Grid.Row ="2" Grid.Column="0"/>
-                            <Labels text="DEF ---"  Grid.Row ="3" Grid.Column="0"/>
-                            <Labels text="SPD ---"  Grid.Row ="4" Grid.Column="0"/>
-                            <Labels text="XP ---"  Grid.Row ="5" Grid.Column="0"/>
-                            <Labels text="{Binding Data.HP}"  Grid.Row ="1" Grid.Column="1"/>
-                            <Labels text="{Binding Data.ATK}"  Grid.Row ="2" Grid.Column="1"/>
-                            <Labels text="{Binding Data.DEF}"  Grid.Row ="3" Grid.Column="1"/>
-                            <Labels text="{Binding Data.SPD}"  Grid.Row ="4" Grid.Column="1"/>
-                            <Labels text="{Binding Data.XP}"  Grid.Row ="5" Grid.Column="1"/>
+                            <Label Text="HP ---"  Grid.Row ="1" Grid.Column="0"/>
+                            <Label Text="ATK ---"  Grid.Row ="2" Grid.Column="0"/>
+                            <Label Text="DEF ---"  Grid.Row ="3" Grid.Column="0"/>
+                            <Label Text="SPD ---"  Grid.Row ="4" Grid.Column="0"/>
+                            <Label Text="XP ---"  Grid.Row ="5" Grid.Column="0"/>
+                            <Label Text="{Binding Data.HP}"  Grid.Row ="1" Grid.Column="1"/>
+                            <Label Text="{Binding Data.ATK}"  Grid.Row ="2" Grid.Column="1"/>
+                            <Label Text="{Binding Data.DEF}"  Grid.Row ="3" Grid.Column="1"/>
+                            <Label Text="{Binding Data.SPD}"  Grid.Row ="4" Grid.Column="1"/>
+                            <Label Text="{Binding Data.XP}"  Grid.Row ="5" Grid.Column="1"/>
                     </Grid>
                 </StackLayout>
             </StackLayout>
-              
-                    
-                    
+            <Label Text="HP Bar" HorizontalOptions="Center"/>
+            <ProgressBar Progress="0.5"/>
+
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
