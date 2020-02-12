@@ -5,6 +5,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Game.Views.CharacterReadPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Update" Clicked="Update_Clicked" IconImageSource="wizard_avatar.png"/>
+        <!--<ToolbarItem Text="Delete" Clicked="Delete_Clicked" IconImageSource="creative.png"/>-->
+    </ContentPage.ToolbarItems>
+
+
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
             <StackLayout Orientation="Horizontal">
