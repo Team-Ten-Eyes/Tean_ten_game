@@ -3,11 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Game.Views.VillagePage"
              BackgroundColor="#F2EBDC"
+             
+             
              >
+    
+        <ContentPage.Content>
 
-    <ContentPage.Content>
-
-        <ScrollView Orientation="Vertical" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" Padding="10">
+        <ScrollView Orientation="Vertical" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" Padding="10"  >
 
             <FlexLayout x:Name="flexLayout"
                         Wrap="Wrap"
