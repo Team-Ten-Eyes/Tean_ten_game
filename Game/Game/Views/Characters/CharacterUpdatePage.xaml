@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Game.Views.CharacterUpdatePage">
+             x:Class="Game.Views.CharacterUpdatePage"
+             BackgroundColor="#F2EBDC">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Update Character"
