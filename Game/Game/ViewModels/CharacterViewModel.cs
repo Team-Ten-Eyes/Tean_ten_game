@@ -12,7 +12,7 @@ namespace Game.ViewModels
     /// Index View Model
     /// Manages the list of data records
     /// </summary>
-    public class CharacterViewModel : BaseViewModel<ItemModel>
+    public class CharacterViewModel : BaseViewModel<BaseCharacter>
     {
         #region Singleton
 
@@ -56,24 +56,24 @@ namespace Game.ViewModels
             #region Messages
 
             // Register the Create Message
-            MessagingCenter.Subscribe<ItemCreatePage, ItemModel>(this, "Create", async (obj, data) =>
+            MessagingCenter.Subscribe<ItemCreatePage, BaseCharacter>(this, "Create", async (obj, data) =>     //NEED TO CHANGE THIS
             {
-                await CreateAsync(data as ItemModel);
+                await CreateAsync(data as BaseCharacter);
             });
 
             // Register the Update Message
-            MessagingCenter.Subscribe<ItemUpdatePage, ItemModel>(this, "Update", async (obj, data) =>
+            MessagingCenter.Subscribe<CharacterUpdatePage, BaseCharacter>(this, "Update", async (obj, data) =>
             {
                 // Have the item update itself
                 data.Update(data);
 
-                await UpdateAsync(data as ItemModel);
+                await UpdateAsync(data as BaseCharacter);
             });
 
             // Register the Delete Message
-            MessagingCenter.Subscribe<ItemDeletePage, ItemModel>(this, "Delete", async (obj, data) =>
+            MessagingCenter.Subscribe<ItemDeletePage, BaseCharacter>(this, "Delete", async (obj, data) =>  //NEED TO CHANGE THIS
             {
-                await DeleteAsync(data as ItemModel);
+                await DeleteAsync(data as BaseCharacter);
             });
 
             // Register the Set Data Source Message
@@ -100,7 +100,7 @@ namespace Game.ViewModels
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public ItemModel CheckIfItemExists(ItemModel data)
+        public BaseCharacter CheckIfItemExists(BaseCharacter data)
         {
             // This will walk the items and find if there is one that is the same.
             // If so, it returns the item...
@@ -122,29 +122,29 @@ namespace Game.ViewModels
         /// Load the Default Data
         /// </summary>
         /// <returns></returns>
-        public override List<ItemModel> GetDefaultData()
+        public override List<BaseCharacter> GetDefaultData()
         {
-            return DefaultData.LoadData(new ItemModel());
+            return DefaultData.LoadData(new BaseCharacter());
         }
 
         #endregion DataOperations_CRUDi
 
-        #region SortDataSet
+        //#region SortDataSet
 
-        /// <summary>
-        /// The Sort Order for the ItemModel
-        /// </summary>
-        /// <param name="dataset"></param>
-        /// <returns></returns>
-        public override List<ItemModel> SortDataset(List<ItemModel> dataset)
-        {
-            return dataset
-                    .OrderBy(a => a.Name)
-                    .ThenBy(a => a.Description)
-                    .ToList();
-        }
+        ///// <summary>
+        ///// The Sort Order for the ItemModel
+        ///// </summary>
+        ///// <param name="dataset"></param>
+        ///// <returns></returns>
+        //public override List<ItemModel> SortDataset(List<ItemModel> dataset)
+        //{
+        //    return dataset
+        //            .OrderBy(a => a.Name)
+        //            .ThenBy(a => a.Description)
+        //            .ToList();
+        //}
 
-        #endregion SortDataSet
+        //#endregion SortDataSet
     }
     //public class CharacterViewModel : BaseViewModel<ItemModel>
     //{

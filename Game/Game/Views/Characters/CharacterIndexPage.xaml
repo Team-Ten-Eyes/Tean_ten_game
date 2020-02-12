@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="Game.Views.CharacterIndexPage"
              Title="Characters">
-  
+ 
     <ContentPage.Content>
         <StackLayout Style="{StaticResource OuterBoxStack}">
 
@@ -59,7 +59,7 @@
                                 </StackLayout>
 
                                 <Label Grid.Column="1" Grid.Row="2"
-                                       Text="{Binding Description}" 
+                                       Text="{Binding level}" 
                                        Style="{StaticResource ListStyle}"
                                        FontSize="Micro"/>
 
