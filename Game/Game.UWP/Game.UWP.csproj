@@ -106,6 +106,8 @@
   <ItemGroup>
     <Content Include="battleboard.jpg" />
     <Content Include="cauldren.png" />
+    <Content Include="creativity.png" />
+    <Content Include="cunning.png" />
     <Content Include="d12.png" />
     <Content Include="dice_20.png" />
     <Content Include="door.png" />
@@ -152,9 +154,11 @@
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="score.png" />
     <Content Include="splashscreen.jpg" />
+    <Content Include="thumbnail_bravery.png" />
     <Content Include="troll.png" />
     <Content Include="village.jpg" />
     <Content Include="village.png" />
+    <Content Include="wizard_avatar.png" />
     <Content Include="xamarin_logo.png" />
     <Content Include="add.png" />
     <Content Include="save.png" />

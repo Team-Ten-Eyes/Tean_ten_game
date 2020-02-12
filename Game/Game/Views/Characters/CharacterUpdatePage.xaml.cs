@@ -24,8 +24,8 @@ namespace Game.Views
 
         public async void OnSaveButtonClicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "Update", ViewModel.Data);
-            await Navigation.PopModalAsync();
+            ///MessagingCenter.Send(this, "Update", ViewModel.Data);
+            //await Navigation.PopModalAsync();
         }
     }
 }

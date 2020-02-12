@@ -72,7 +72,7 @@ namespace Game.Services
                 new BaseCharacter
                 {
                     Name="Courage",
-                    ImageURI = "knight.png",
+                    ImageURI = "thumbnail_bravery.png",
                     CharHealth=10,
                     MaxHealth=15,
                     Mana=5,
@@ -87,7 +87,7 @@ namespace Game.Services
                   new BaseCharacter
                 {
                    Name="sneaky",
-                    ImageURI = "knight.png",
+                    ImageURI = "cunning.png",
                     level=7,
                     CharHealth=15,
                     MaxHealth=15,
@@ -102,7 +102,7 @@ namespace Game.Services
                 new BaseCharacter
                 {
                     Name="Atristic",
-                    ImageURI = "knight.png",
+                    ImageURI = "creativity.png",
                     level=12,
                     CharHealth=20,
                     MaxHealth=20,
