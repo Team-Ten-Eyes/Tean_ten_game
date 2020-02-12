@@ -8,11 +8,10 @@
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
             <StackLayout Orientation="Horizontal">
-                <Label Text=""/>
-                <Label Text=""/>
+                <Label Text="{Binding Data.Name}" />
+                <Label Text="{Binding Data.Level}" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-
                 <Image Source="{Binding Data.ImageURI}" />
                 <StackLayout Orientation="Vertical">
 
@@ -33,10 +32,10 @@
                             <Label Text="DEF ---"  Grid.Row ="3" Grid.Column="0"/>
                             <Label Text="SPD ---"  Grid.Row ="4" Grid.Column="0"/>
                             <Label Text="XP ---"  Grid.Row ="5" Grid.Column="0"/>
-                            <Label Text="{Binding Data.HP}"  Grid.Row ="1" Grid.Column="1"/>
-                            <Label Text="{Binding Data.ATK}"  Grid.Row ="2" Grid.Column="1"/>
-                            <Label Text="{Binding Data.DEF}"  Grid.Row ="3" Grid.Column="1"/>
-                            <Label Text="{Binding Data.SPD}"  Grid.Row ="4" Grid.Column="1"/>
+                            <Label Text="{Binding Data.MaxHealth}"  Grid.Row ="1" Grid.Column="1"/>
+                            <Label Text="{Binding Data.Attack}"  Grid.Row ="2" Grid.Column="1"/>
+                            <Label Text="{Binding Data.defense}"  Grid.Row ="3" Grid.Column="1"/>
+                            <Label Text="{Binding Data.speed}"  Grid.Row ="4" Grid.Column="1"/>
                             <Label Text="{Binding Data.XP}"  Grid.Row ="5" Grid.Column="1"/>
                     </Grid>
                 </StackLayout>
