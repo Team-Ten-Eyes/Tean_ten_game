@@ -22,12 +22,13 @@ namespace Game.Views
 
         async void Cancel_Clicked(object sender, EventArgs e)
         {
-            await DisplayAlert("su", "cancle button clicked", "ok");
+            await Navigation.PopModalAsync(false);
         }
 
         async void Delete_Clicked(object sender, EventArgs e)
         {
-            await DisplayAlert("su", "Cancle Button clicked", "ok");
+            MessagingCenter.Send(this, "Delete", viewModel.Data);
+            await Navigation.PopModalAsync();
         }
     }
 }

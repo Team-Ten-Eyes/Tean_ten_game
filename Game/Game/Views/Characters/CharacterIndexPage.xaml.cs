@@ -33,7 +33,7 @@ namespace Game.Views
             await Navigation.PushAsync(new CharacterReadPage(new GenericViewModel<BaseCharacter>(data)));
 
             //// Manually deselect item.
-            //CharacterListView.SelectedItem = null;
+            CharacterListView.SelectedItem = null;
         }
         /// <param name="sender"></param>
         /// <param name="e"></param>
