@@ -8,25 +8,25 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Game.ViewModels;
 
-//namespace Game.Views
-//{
-//    [XamlCompilation(XamlCompilationOptions.Compile)]
-//    public partial class CharacterCreatePage : ContentPage
-//    {
+namespace Game.Views
+{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class CharacterCreatePage : ContentPage
+    {
 
-//        CharacterViewModel ViewModel { get; set; }
-//        public CharacterCreatePage(CharacterViewModel data)
-//        {
-//            InitializeComponent();
-//            data.Data
+        CharacterViewModel ViewModel { get; set; }
+        public CharacterCreatePage(CharacterViewModel data)
+        {
+            InitializeComponent();
+            data.Data
 
-//            BindingContext = this.ViewModel = data;
-//        }
+            BindingContext = this.ViewModel = data;
+        }
 
-//        public async void OnSaveButtonClicked(object sender, EventArgs e)
-//        {
-//            MessagingCenter.Send(this, "Update", ViewModel.Data);
-//            await Navigation.PopModalAsync();
-//        }
-//    }
-//}
+        public async void OnSaveButtonClicked(object sender, EventArgs e)
+        {
+            MessagingCenter.Send(this, "Update", ViewModel.Data);
+            await Navigation.PopModalAsync();
+        }
+    }
+}
