@@ -44,7 +44,17 @@ namespace Game.Models
         /// </summary>
         public BaseCharacter()
         {
+            Name = "Default";
             ImageURI = "knight.png";
+            level = 7;
+            CharHealth = 15;
+            MaxHealth = 15;
+            Mana = 5;
+            MaxMana = 10;
+            Experience = 5;
+            Attack = 15;
+            defense = 10;
+            speed = 2;
         }
 
         /// <summary>
