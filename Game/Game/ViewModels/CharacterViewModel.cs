@@ -79,7 +79,7 @@ namespace Game.ViewModels
             });
 
             // Register the Delete Message
-            MessagingCenter.Subscribe<ItemDeletePage, BaseCharacter>(this, "Delete", async (obj, data) =>  //NEED TO CHANGE THIS
+            MessagingCenter.Subscribe<CharacterDeletePage, BaseCharacter>(this, "Delete", async (obj, data) =>  //NEED TO CHANGE THIS
             {
                 await DeleteAsync(data as BaseCharacter);
             });
