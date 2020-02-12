@@ -158,6 +158,7 @@
     <Content Include="troll.png" />
     <Content Include="village.jpg" />
     <Content Include="village.png" />
+    <Content Include="wizard_avatar.png" />
     <Content Include="xamarin_logo.png" />
     <Content Include="add.png" />
     <Content Include="save.png" />
