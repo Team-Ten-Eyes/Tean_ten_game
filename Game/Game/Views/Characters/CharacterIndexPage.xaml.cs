@@ -35,7 +35,9 @@ namespace Game.Views
             //// Manually deselect item.
             //CharacterListView.SelectedItem = null;
         }
-        async void AddItem_Clicked(object sender, EventArgs e)
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void AddCharacter_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new CharacterCreatePage(new CharacterViewModel())));
         }
@@ -53,6 +55,8 @@ namespace Game.Views
         /// <summary>
         /// Refresh the list on page appearing
         /// </summary>
+        /// 
+        
         protected override void OnAppearing()
         {
             base.OnAppearing();
