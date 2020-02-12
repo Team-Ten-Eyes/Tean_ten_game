@@ -36,16 +36,16 @@ namespace Game.Views
 
 
 
-        /// <summary>
-        /// Calls for Delete
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        //async void Delete_Clicked(object sender, EventArgs e)
-        //{
-        //    await Navigation.PushModalAsync(new NavigationPage(new ItemDeletePage(new ItemViewModel(ViewModel.Data))));
-        //    await Navigation.PopAsync();
-        //}
+        // <summary>
+        // Calls for Delete
+        // </summary>
+        // <param name = "sender" ></ param >
+        // < param name="e"></param>
+        async void Delete_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new CharacterDeletePage(new CharacterViewModel(ViewModel.Data))));
+            await Navigation.PopAsync();
+        }
 
         //public CharacterReadPage()
         //{
