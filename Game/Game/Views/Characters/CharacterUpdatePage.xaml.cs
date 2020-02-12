@@ -12,13 +12,17 @@ namespace Game.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterUpdatePage : ContentPage
     {
-        public CharacterUpdatePage()
+        public CharacterUpdatePage(CharacterViewModel data)
         {
             InitializeComponent();
+
+            BindingContext = this.ViewModel = data;
         }
 
         public async void OnSaveButtonClicked(object sender, EventArgs e)
         {
+            MessagingCenter.Send(this, "Update", ViewModel.Data);
+            await Navigation.PopModalAsync();
         }
     }
 }
