@@ -49,9 +49,9 @@
                 </StackLayout>
             </StackLayout>
             <Label Text="HP Bar" HorizontalOptions="Center"/>
-            <ProgressBar Progress="0"/>
+            <ProgressBar Progress="0" x:Name="HPbar"/>
             <Label Text="Mana Bar" HorizontalOptions="Center"/>
-            <ProgressBar Progress="0"/>
+            <ProgressBar Progress="0" x:Name="Manabar"/>
 
 
 
