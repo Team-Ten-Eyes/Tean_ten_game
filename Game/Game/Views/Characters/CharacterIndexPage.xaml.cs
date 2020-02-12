@@ -35,6 +35,10 @@ namespace Game.Views
             //// Manually deselect item.
             //CharacterListView.SelectedItem = null;
         }
+        async void AddItem_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new CharacterCreatePage(new CharacterViewModel())));
+        }
 
         ///// <summary>
         ///// Call to Add a new record

@@ -7,7 +7,11 @@
              BackgroundColor="Beige"
              x:Class="Game.Views.CharacterIndexPage"
              Title="Characters">
- 
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="AddItem_Clicked" IconImageSource="knight.png"/>
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
         <StackLayout Style="{StaticResource OuterBoxStack}">
 
