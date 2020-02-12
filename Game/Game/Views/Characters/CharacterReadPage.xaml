@@ -16,7 +16,7 @@
         <StackLayout Orientation="Vertical">
             <StackLayout Orientation="Horizontal">
                 <Label Text="{Binding Data.Name}" />
-                <Label Text="--------------" />
+                <Label Text="-------------- Level:" />
                 <Label Text="{Binding Data.level}" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
@@ -49,7 +49,9 @@
                 </StackLayout>
             </StackLayout>
             <Label Text="HP Bar" HorizontalOptions="Center"/>
-            <ProgressBar Progress="0.5"/>
+            <ProgressBar Progress="0"/>
+            <Label Text="Mana Bar" HorizontalOptions="Center"/>
+            <ProgressBar Progress="0"/>
 
 
 
