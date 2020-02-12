@@ -23,10 +23,10 @@
                             <RowDefinition Height = "Auto" />
                             <RowDefinition Height = "Auto" />
                             <RowDefinition Height = "Auto" />
-                            </Grid.RowDefinition>
+                        </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width ="Auto">
-                            <ColumnDefinition Width ="Auto">
+                            <ColumnDefinition Width ="Auto" />
+                            <ColumnDefinition Width ="Auto" />
                         </Grid.ColumnDefinitions>
                             <Labels text="HP ---"  Grid.Row ="1" Grid.Column="0"/>
                             <Labels text="ATK ---"  Grid.Row ="2" Grid.Column="0"/>

@@ -12,7 +12,7 @@
                 HorizontalOptions="CenterAndExpand" />
             <Button Text="Save Changes"
                 Clicked="OnSaveButtonClicked"
-                HorizontalOptions="CenterAndExpand">
+                HorizontalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
