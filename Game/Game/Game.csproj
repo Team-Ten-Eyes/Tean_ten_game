@@ -36,6 +36,9 @@
     <Compile Update="Views\Battle\BattlePage.xaml.cs">
       <DependentUpon>BattlePage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Characters\CharacterCreatePage.xaml.cs">
+      <DependentUpon>CharacterCreatePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Village\VillagePage.xaml.cs">
       <DependentUpon>VillagePage.xaml</DependentUpon>
     </Compile>
@@ -67,6 +70,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Characters\CharacterUpdatePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Characters\CharacterCreatePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
