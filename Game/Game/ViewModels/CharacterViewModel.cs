@@ -52,6 +52,11 @@ namespace Game.ViewModels
         /// 
         /// The constructor subscribes message listeners for crudi operations
         /// </summary>
+        public CharacterViewModel(BaseCharacter data = null)
+        {
+            Title = data?.Name;
+            Data = data;
+        }
         public CharacterViewModel()
         {
             Title = "Items";
