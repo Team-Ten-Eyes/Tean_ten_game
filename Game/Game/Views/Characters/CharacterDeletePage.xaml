@@ -4,18 +4,11 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Game.Views.CharacterCreatePage"
-             BackgroundColor="#F2EBDC">
+             x:Class="Game.Views.Characters.CharacterDeletePage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Create Character"
+            <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Label Text="Text" FontSize="Medium" />
-            <Entry Text="{Binding Data.Name}" d:Text="Item name" FontSize="Small"/>
-
-            <Button Text="Save Changes"
-                Clicked="OnSaveButtonClicked"
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentPage.Content>
