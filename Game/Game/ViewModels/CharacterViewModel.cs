@@ -59,12 +59,12 @@ namespace Game.ViewModels
         }
         public CharacterViewModel()
         {
-            Title = "Items";
+            Title = "Characters";
 
             #region Messages
 
             // Register the Create Message
-            MessagingCenter.Subscribe<ItemCreatePage, BaseCharacter>(this, "Create", async (obj, data) =>     //NEED TO CHANGE THIS
+            MessagingCenter.Subscribe<CharacterCreatePage, BaseCharacter>(this, "Create", async (obj, data) =>     
             {
                 await CreateAsync(data as BaseCharacter);
             });
@@ -79,7 +79,7 @@ namespace Game.ViewModels
             });
 
             // Register the Delete Message
-            MessagingCenter.Subscribe<ItemDeletePage, BaseCharacter>(this, "Delete", async (obj, data) =>  //NEED TO CHANGE THIS
+            MessagingCenter.Subscribe<CharacterDeletePage, BaseCharacter>(this, "Delete", async (obj, data) =>  //NEED TO CHANGE THIS
             {
                 await DeleteAsync(data as BaseCharacter);
             });
