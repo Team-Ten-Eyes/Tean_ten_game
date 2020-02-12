@@ -18,7 +18,7 @@ namespace Game.Views
         public CharacterCreatePage(CharacterViewModel data)
         {
             InitializeComponent();
-            data.Data
+          
 
             BindingContext = this.ViewModel = data;
         }

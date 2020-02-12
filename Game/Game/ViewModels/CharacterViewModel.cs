@@ -12,6 +12,7 @@ namespace Game.ViewModels
     /// Index View Model
     /// Manages the list of data records
     /// </summary>
+   
     public class CharacterViewModel : BaseViewModel<BaseCharacter>
     {
         #region Singleton
@@ -19,6 +20,8 @@ namespace Game.ViewModels
         // Make this a singleton so it only exist one time because holds all the data records in memory
         private static volatile CharacterViewModel instance;
         private static readonly object syncRoot = new Object();
+
+        public BaseCharacter Data { get; set; }
 
         public static CharacterViewModel Instance
         {
