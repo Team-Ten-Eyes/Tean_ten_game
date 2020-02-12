@@ -41,27 +41,42 @@
                                         Source="{Binding ImageURI}"
                                         Style="{StaticResource ImageSmallStyle}"
                                         VerticalOptions="CenterAndExpand"/>
-
+                                <StackLayout Grid.Column="1" Grid.Row="0"
+                                             Orientation="Horizontal">
+                                    
                                 <Label Grid.Column="1" Grid.Row="0"
+                                       Text="Name:"
+                                       FontAttributes="Bold"
+                                       Style="{StaticResource ListStyle}"/>
+
+                                <Label Grid.Column="2" Grid.Row="0"
                                        Text="{Binding Name}" 
                                        Style="{StaticResource ListStyle}"/>
 
+                                <Label Text="Level:"
+                                       FontAttributes="Bold"
+                                       Style="{StaticResource LabelStyle}"/>
+
+
+                                <Label Text="{Binding level}" 
+                                       Style="{StaticResource ListStyle}"
+                                       FontSize="Micro"/>
+
+                                </StackLayout>
                                 <StackLayout Grid.Column="1" Grid.Row="1"
                                     Orientation="Horizontal">
-
+                                    
+                                    <Label Text="Class:"
+                                           FontAttributes="Bold"
+                                           Style="{StaticResource LabelStyle}"/>
                                     <Label 
                                        Text="{Binding Attribute}" 
                                        Style="{StaticResource ListStyle}"/>
 
-                                    <Label Text="{Binding value}" 
-                                        Style="{StaticResource ListStyle}"/>
 
                                 </StackLayout>
 
-                                <Label Grid.Column="1" Grid.Row="2"
-                                       Text="{Binding level}" 
-                                       Style="{StaticResource ListStyle}"
-                                       FontSize="Micro"/>
+                  
 
                             </Grid>
                         </ViewCell>
