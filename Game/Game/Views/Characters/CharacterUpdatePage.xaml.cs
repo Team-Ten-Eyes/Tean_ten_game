@@ -13,6 +13,8 @@ namespace Game.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterUpdatePage : ContentPage
     {
+
+        CharacterViewModel ViewModel;
         public CharacterUpdatePage(CharacterViewModel data)
         {
             InitializeComponent();
