@@ -23,6 +23,12 @@ namespace Game.Models
         // characer stats//////////////////////////////////
         public int CharHealth { get; set; } = 0;
 
+        public int MaxHealth { get; set; } = 0;
+
+        public int Mana { get; set; } = 0;
+
+        public int MaxMana { get; set; } = 0;
+
         public int Attack { get; set; } = 0;
 
         public int defense { get; set; } = 0;
