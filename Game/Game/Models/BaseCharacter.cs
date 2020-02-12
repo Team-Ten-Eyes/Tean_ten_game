@@ -8,25 +8,27 @@ namespace Game.Models
     {
 
 
-        // Range of the item, swords are 1, hats/rings are 0, bows are >1
+        //  character level info//////////////////////////////
         public int level { get; set; } = 1;
 
-        // The Damage the Item can do if it is used as a weapon in the primary hand
         public int Experience { get; set; } = 0;
-
+        /// //////////////////////////////////////////
+        /// 
+       
+        /// </summary>
         // Enum of the different attributes that the character modifies, Items can only modify one character
         public CharacterTypeEnum Attribute { get; set; } = CharacterTypeEnum.Bravery; //defaults to bravery
 
-        // Where the Item goes on the character.  Head, Foot etc.
-        public ItemLocationEnum Location { get; set; } = ItemLocationEnum.Unknown;
 
-        // characer stats/////////////////////
+        // characer stats//////////////////////////////////
+        public int CharHealth { get; set; } = 0;
+
         public int Attack { get; set; } = 0;
 
         public int defense { get; set; } = 0;
 
         public int speed { get; set; } = 0;
-
+        ////////////////////////////////////////////////////
 
         // Add Unique attributes for Item
 
@@ -61,15 +63,16 @@ namespace Game.Models
 
             // Update all the fields in the Data, except for the Id and guid
             Name = newData.Name;
-            Description = newData.Description;
-            Attack = newData.Attack;
+            level = newData.level;
+            Experience = newData.Experience;
             Attribute = newData.Attribute;
-            Location = newData.Location;
-            Name = newData.Name;
+            CharHealth = newData.CharHealth;
+            Attack = newData.Attack;
+            defense = newData.defense;  
             Description = newData.Description;
             ImageURI = newData.ImageURI;
-            level = newData.level;
-            Experience= newData.Experience;
+           
+            
             defense = newData.defense;
         }
 
@@ -78,7 +81,6 @@ namespace Game.Models
         {
             var myReturn = Name + " , " +
                             Description + " for " +
-                            Location.ToString() + " with " +
                             Attribute.ToString() +
                             "+" + Attack + " , " +
                             "Experience : " + Experience + " , " +

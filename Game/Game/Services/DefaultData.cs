@@ -73,40 +73,34 @@ namespace Game.Services
                 {
                     Name="Courage",
                     ImageURI = "knight.png",
-                    Alive=true,
-                    Level=10,
+                    level=10,
                     Experience=5,
-                    Speed=3,
-                    Attack=10,
-                    Defense=15,
-                    MaxHealth=30,
-                    CurrentHealth=30
+                    Attribute=CharacterTypeEnum.Bravery,
+                    Attack=20,
+                    defense=10,
+                    speed=3
                 },
                   new BaseCharacter
                 {
-                    Name="sneaky",
+                   Name="sneaky",
                     ImageURI = "knight.png",
-                    Alive=true,
-                    Level=10,
+                    level=10,
                     Experience=5,
-                    Speed=3,
-                    Attack=10,
-                    Defense=15,
-                    MaxHealth=30,
-                    CurrentHealth=30
+                    Attribute=CharacterTypeEnum.Cunning,
+                    Attack=15,
+                    defense=10,
+                    speed=20
                 },
                 new BaseCharacter
                 {
-                    Name="sneaky",
+                    Name="Atristic",
                     ImageURI = "knight.png",
-                    Alive=true,
-                    Level=10,
+                    level=10,
                     Experience=5,
-                    Speed=3,
-                    Attack=10,
-                    Defense=15,
-                    MaxHealth=30,
-                    CurrentHealth=30
+                    Attribute=CharacterTypeEnum.Creativity,
+                    Attack=18,
+                    defense=5,
+                    speed=5
                 }
 
             };
