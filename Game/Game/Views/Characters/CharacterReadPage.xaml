@@ -16,7 +16,8 @@
         <StackLayout Orientation="Vertical">
             <StackLayout Orientation="Horizontal">
                 <Label Text="{Binding Data.Name}" />
-                <Label Text="{Binding Data.Level}" />
+                <Label Text="--------------" />
+                <Label Text="{Binding Data.level}" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Image Source="{Binding Data.ImageURI}" />
@@ -43,7 +44,7 @@
                             <Label Text="{Binding Data.Attack}"  Grid.Row ="2" Grid.Column="1"/>
                             <Label Text="{Binding Data.defense}"  Grid.Row ="3" Grid.Column="1"/>
                             <Label Text="{Binding Data.speed}"  Grid.Row ="4" Grid.Column="1"/>
-                            <Label Text="{Binding Data.XP}"  Grid.Row ="5" Grid.Column="1"/>
+                            <Label Text="{Binding Data.Experience}"  Grid.Row ="5" Grid.Column="1"/>
                     </Grid>
                 </StackLayout>
             </StackLayout>
