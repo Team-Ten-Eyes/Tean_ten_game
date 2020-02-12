@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             BackgroundColor="Beige"
              x:Class="Game.Views.CharacterIndexPage"
              Title="Characters">
  
@@ -12,7 +13,7 @@
 
             <Label Text="Character List Page" Style="{StaticResource HeaderStyle}"/>
 
-            <ListView x:Name="CharacterListView" 
+            <ListView x:Name="CharacterListView"
                     ItemsSource="{Binding Dataset}"
                     IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                     RefreshCommand="{Binding LoadItemsCommand}"
