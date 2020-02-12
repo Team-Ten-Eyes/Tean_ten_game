@@ -18,15 +18,15 @@ namespace Game.Views
         public CharacterCreatePage(CharacterViewModel data)
         {
             InitializeComponent();
-            data.Data
+          
 
             BindingContext = this.ViewModel = data;
         }
 
         public async void OnSaveButtonClicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "Update", ViewModel.Data);
-            await Navigation.PopModalAsync();
+            //MessagingCenter.Send(this, "Update", ViewModel.Data);
+           // await Navigation.PopModalAsync();
         }
     }
 }
