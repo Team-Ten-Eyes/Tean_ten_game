@@ -29,5 +29,12 @@ namespace Game.Views
            MessagingCenter.Send(this, "Create", ViewModel.Data);
            await Navigation.PopModalAsync();
         }
+
+        protected override bool OnBackButtonPressed()
+        {
+
+            return true;
+        }
+
     }
 }
