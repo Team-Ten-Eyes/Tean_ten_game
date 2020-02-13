@@ -6,8 +6,6 @@ namespace Game.Models
 {
     public class BaseCharacter : BaseModel<BaseCharacter>
     {
-
-
         //  character level info//////////////////////////////
         public int level { get; set; } = 1;
 
