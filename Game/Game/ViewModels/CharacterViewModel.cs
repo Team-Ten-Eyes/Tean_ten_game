@@ -21,8 +21,7 @@ namespace Game.ViewModels
         private static volatile CharacterViewModel instance;
         private static readonly object syncRoot = new Object();
 
-        //public BaseCharacter Data { get; set; }
-
+  
         public static CharacterViewModel Instance
         {
             get
@@ -52,11 +51,7 @@ namespace Game.ViewModels
         /// 
         /// The constructor subscribes message listeners for crudi operations
         /// </summary>
-        //public CharacterViewModel(BaseCharacter data = null)
-        //{
-        //    Title = data?.Name;
-        //    Data = data;
-        //}
+    
         public CharacterViewModel()
         {
             Title = "Character";
@@ -137,40 +132,7 @@ namespace Game.ViewModels
 
         #endregion DataOperations_CRUDi
 
-        //#region SortDataSet
-
-        ///// <summary>
-        ///// The Sort Order for the ItemModel
-        ///// </summary>
-        ///// <param name="dataset"></param>
-        ///// <returns></returns>
-        //public override List<ItemModel> SortDataset(List<ItemModel> dataset)
-        //{
-        //    return dataset
-        //            .OrderBy(a => a.Name)
-        //            .ThenBy(a => a.Description)
-        //            .ToList();
-        //}
-
-        //#endregion SortDataSet
+        
     }
-    //public class CharacterViewModel : BaseViewModel<ItemModel>
-    //{
-    //    //public T Data { get; set; }
-    //    //public CharacterViewModel(T data)
-    //    //{
-    //    //    if (data != null)
-    //    //    {
-    //    //        Title = (data as BaseModel<T>).Name;
-    //    //    }
-    //    //    Data = data;
-    //    //}
-
-    //    ////generic constructor
-    //    // public CharacterViewModel()
-    //    //{
-
-    //    //}
-
-    //}
+    
 }
