@@ -1,19 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using System.ComponentModel;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 using Game.Models;
 using Game.ViewModels;
 
 namespace Game.Views
 {
-       
 
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MonsterIndexPage : ContentPage
     {
         readonly MonsterViewModel ViewModel;
@@ -23,7 +16,12 @@ namespace Game.Views
             BindingContext = ViewModel = MonsterViewModel.Instance;
         }
 
-        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        /// <summary>
+        /// The row selected from the list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        async void OnMonsterSelected(object sender, SelectedItemChangedEventArgs args)
         {
             BaseMonster data = args.SelectedItem as BaseMonster;
             if (data == null)
@@ -32,10 +30,53 @@ namespace Game.Views
             }
 
             // Open the Read Page
-           // await Navigation.PushAsync(new MonsterReadPage(new GenericViewModel<BaseMonster>(data)));
+            //await Navigation.PushAsync(new MonsterReadPage(new GenericViewModel<BaseMonster>(data)));
 
-           
-            //MonstersListView.SelectedItem = null;
+            //// Manually deselect item.
+            //MonsterListView.SelectedItem = null;
         }
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void AddMonster_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new MonsterCreatePage(new GenericViewModel<BaseMonster>())));
+        }
+
+        ///// <summary>
+        ///// Call to Add a new record
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //async void AddItem_Clicked(object sender, EventArgs e)
+        //{
+        //    await Navigation.PushModalAsync(new NavigationPage(new ItemCreatePage(new GenericViewModel<ItemModel>())));
+        //}
+
+        /// <summary>
+        /// Refresh the list on page appearing
+        /// </summary>
+        /// 
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            BindingContext = null;
+
+            // If no data, then set it for needing refresh
+            if (ViewModel.Dataset.Count == 0)
+            {
+                ViewModel.SetNeedsRefresh(true);
+            }
+
+            // If the needs Refresh flag is set update it
+            if (ViewModel.NeedsRefresh())
+            {
+                ViewModel.LoadDatasetCommand.Execute(null);
+            }
+
+            BindingContext = ViewModel;
+        }
+
     }
 }
