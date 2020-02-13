@@ -75,7 +75,7 @@ namespace Game.Services
                     ImageURI = "thumbnail_bravery.png",
                     CharHealth=10,
                     MaxHealth=15,
-                    Mana=5,
+                    Mana=7,
                     MaxMana=10,
                     level=10,
                     Experience=5,
