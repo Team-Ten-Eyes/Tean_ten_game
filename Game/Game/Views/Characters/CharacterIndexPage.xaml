@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              BackgroundColor="#F2EBDC"
              x:Class="Game.Views.CharacterIndexPage"
-             Title="Characters">
+             Title="{Binding Title}">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="AddCharacter_Clicked" IconImageSource="knight.png"/>
