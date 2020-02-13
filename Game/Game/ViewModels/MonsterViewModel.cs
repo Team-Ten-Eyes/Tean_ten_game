@@ -13,17 +13,17 @@ namespace Game.ViewModels
     /// Manages the list of data records
     /// </summary>
    
-    public class CharacterViewModel : BaseViewModel<BaseCharacter>
+    public class MonsterViewModel : BaseViewModel<BaseMonster>
     {
         #region Singleton
 
         // Make this a singleton so it only exist one time because holds all the data records in memory
-        private static volatile CharacterViewModel instance;
+        private static volatile MonsterViewModel instance;
         private static readonly object syncRoot = new Object();
 
-        public BaseCharacter Data { get; set; }
+        public BaseMonster Data { get; set; }
 
-        public static CharacterViewModel Instance
+        public static MonsterViewModel Instance
         {
             get
             {
@@ -33,7 +33,7 @@ namespace Game.ViewModels
                     {
                         if (instance == null)
                         {
-                            instance = new CharacterViewModel();
+                            instance = new MonsterViewModel();
                             instance.Initialize();
                         }
                     }
@@ -52,36 +52,36 @@ namespace Game.ViewModels
         /// 
         /// The constructor subscribes message listeners for crudi operations
         /// </summary>
-        public CharacterViewModel(BaseCharacter data = null)
+        public MonsterViewModel(BaseMonster data = null)
         {
             Title = data?.Name;
             Data = data;
         }
-        public CharacterViewModel()
+        public MonsterViewModel()
         {
-            Title = "Character";
+            Title = "Monsters";
 
             #region Messages
 
             // Register the Create Message
-            MessagingCenter.Subscribe<CharacterCreatePage, BaseCharacter>(this, "Create", async (obj, data) =>     //NEED TO CHANGE THIS
+            MessagingCenter.Subscribe<MonsterCreatePage, BaseMonster>(this, "Create", async (obj, data) =>     //NEED TO CHANGE THIS
             {
-                await CreateAsync(data as BaseCharacter);
+                await CreateAsync(data as BaseMonster);
             });
 
             // Register the Update Message
-            MessagingCenter.Subscribe<CharacterUpdatePage, BaseCharacter>(this, "Update", async (obj, data) =>
+            MessagingCenter.Subscribe<MonsterUpdatePage, BaseMonster>(this, "Update", async (obj, data) =>
             {
                 // Have the item update itself
                 data.Update(data);
 
-                await UpdateAsync(data as BaseCharacter);
+                await UpdateAsync(data as BaseMonster);
             });
 
             // Register the Delete Message
-            MessagingCenter.Subscribe<CharacterDeletePage, BaseCharacter>(this, "Delete", async (obj, data) =>  //NEED TO CHANGE THIS
+            MessagingCenter.Subscribe<MonsterDeletePage, BaseMonster>(this, "Delete", async (obj, data) =>  //NEED TO CHANGE THIS
             {
-                await DeleteAsync(data as BaseCharacter);
+                await DeleteAsync(data as BaseMonster);
             });
 
             // Register the Set Data Source Message
@@ -108,7 +108,7 @@ namespace Game.ViewModels
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public BaseCharacter CheckIfItemExists(BaseCharacter data)
+        public BaseMonster CheckIfItemExists(BaseMonster data)
         {
             // This will walk the items and find if there is one that is the same.
             // If so, it returns the item...
@@ -130,9 +130,9 @@ namespace Game.ViewModels
         /// Load the Default Data
         /// </summary>
         /// <returns></returns>
-        public override List<BaseCharacter> GetDefaultData()
+        public override List<BaseMonster> GetDefaultData()
         {
-            return DefaultData.LoadData(new BaseCharacter());
+            return DefaultData.LoadData(new BaseMonster());
         }
 
         #endregion DataOperations_CRUDi

@@ -4,30 +4,23 @@ using System.Text;
 
 namespace Game.Models
 {
-    public class BaseCharacter : BaseModel<BaseCharacter>
+    public class BaseMonster : BaseModel<BaseMonster>
     {
 
 
         //  character level info//////////////////////////////
         public int level { get; set; } = 1;
 
-        public int Experience { get; set; } = 0;
-        /// //////////////////////////////////////////
-        /// 
-       
+
         /// </summary>
         // Enum of the different attributes that the character modifies, Items can only modify one character
-        public CharacterTypeEnum Attribute { get; set; } = CharacterTypeEnum.Bravery; //defaults to bravery
+        public MonsterTypeEnum Attribute { get; set; } = MonsterTypeEnum.Stress; //defaults to bravery
 
 
         // characer stats//////////////////////////////////
-        public int CharHealth { get; set; } = 0;
+        public int MonsterHealth { get; set; } = 0;
 
         public int MaxHealth { get; set; } = 0;
-
-        public int Mana { get; set; } = 0;
-
-        public int MaxMana { get; set; } = 0;
 
         public int Attack { get; set; } = 0;
 
@@ -42,16 +35,13 @@ namespace Game.Models
         /// Default ItemModel
         /// Establish the Default Image Path
         /// </summary>
-        public BaseCharacter()
+        public BaseMonster()
         {
-            Name = "Default";
+            Name = "Default_Bad";
             ImageURI = "knight.png";
             level = 7;
-            CharHealth = 15;
+            MonsterHealth = 15;
             MaxHealth = 15;
-            Mana = 5;
-            MaxMana = 10;
-            Experience = 5;
             Attack = 15;
             defense = 10;
             speed = 2;
@@ -61,7 +51,7 @@ namespace Game.Models
         /// Constructor to create an item based on what is passed in
         /// </summary>
         /// <param name="data"></param>
-        public BaseCharacter(BaseCharacter data)
+        public BaseMonster(BaseMonster data)
         {
             Update(data);
         }
@@ -70,7 +60,7 @@ namespace Game.Models
         /// Update the Record
         /// </summary>
         /// <param name="newData">The new data</param>
-        public override void Update(BaseCharacter newData)
+        public override void Update(BaseMonster newData)
         {
             if (newData == null)
             {
@@ -80,11 +70,9 @@ namespace Game.Models
             // Update all the fields in the Data, except for the Id and guid
             Name = newData.Name;
             level = newData.level;
-            Experience = newData.Experience;
             Attribute = newData.Attribute;
-            CharHealth = newData.CharHealth;
             Attack = newData.Attack;
-            defense = newData.defense;  
+            defense = newData.defense;
             Description = newData.Description;
             ImageURI = newData.ImageURI;
         }
@@ -96,7 +84,6 @@ namespace Game.Models
                             Description + " for " +
                             Attribute.ToString() +
                             "+" + Attack + " , " +
-                            "Experience : " + Experience + " , " +
                             "Level : " + level;
 
             return myReturn.Trim();
@@ -235,3 +222,4 @@ namespace Game.Models
 
     }
 }
+
