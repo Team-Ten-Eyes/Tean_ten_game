@@ -118,7 +118,39 @@ namespace Game.Services
             };
             return datalist;
         }
-        
+
+        public static List<BaseMonster> LoadData(BaseMonster temp)
+        {
+            var datalist = new List<BaseMonster>()
+            {
+                new BaseMonster {
+                    Name="Stress",
+                    ImageURI = "creativity.png",
+                    level=12,
+                    MonsterHealth=20,
+                    MaxHealth=20,
+                    Attribute=MonsterTypeEnum.Stress,
+                    Attack=18,
+                    defense=5,
+                    speed=5
+                },
+
+                new BaseMonster {
+                    Name="StresssedTest",
+                    ImageURI = "creativity.png",
+                    level=12,
+                    MonsterHealth=20,
+                    MaxHealth=20,
+                    Attribute=MonsterTypeEnum.Stress,
+                    Attack=18,
+                    defense=5,
+                    speed=5
+                }
+            };
+
+            return datalist;
+        }
+
 
     }
 }

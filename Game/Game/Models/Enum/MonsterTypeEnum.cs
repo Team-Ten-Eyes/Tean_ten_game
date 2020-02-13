@@ -3,10 +3,9 @@
     /// <summary>
     /// List of items to show in the Menu
     /// </summary>
-    public enum CharacterTypeEnum
+    public enum MonsterTypeEnum
     { 
-        Bravery,
-        Creativity,
-        Cunning    
+        Stress,
+        Paranoia    
     }
 }
