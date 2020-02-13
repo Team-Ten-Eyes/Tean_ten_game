@@ -13,9 +13,8 @@ namespace Game.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterCreatePage : ContentPage
     {
-
-        CharacterViewModel ViewModel { get; set; }
-        public CharacterCreatePage(CharacterViewModel data)
+        GenericViewModel<BaseCharacter> ViewModel { get; set; }
+        public CharacterCreatePage(GenericViewModel<BaseCharacter> data)
         {
             InitializeComponent();
 

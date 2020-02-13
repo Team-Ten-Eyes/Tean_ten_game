@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Game.ViewModels;
+using Game.Models;
 
 namespace Game.Views
 {
@@ -14,8 +15,8 @@ namespace Game.Views
     public partial class CharacterUpdatePage : ContentPage
     {
 
-        CharacterViewModel ViewModel;
-        public CharacterUpdatePage(CharacterViewModel data)
+        readonly GenericViewModel<BaseCharacter> ViewModel;
+        public CharacterUpdatePage(GenericViewModel<BaseCharacter> data)
         {
             InitializeComponent();
 

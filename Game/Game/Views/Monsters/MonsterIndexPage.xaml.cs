@@ -22,5 +22,20 @@ namespace Game.Views
             InitializeComponent();
             BindingContext = ViewModel = MonsterViewModel.Instance;
         }
+
+        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            BaseMonster data = args.SelectedItem as BaseMonster;
+            if (data == null)
+            {
+                return;
+            }
+
+            // Open the Read Page
+           // await Navigation.PushAsync(new MonsterReadPage(new GenericViewModel<BaseMonster>(data)));
+
+           
+            //MonstersListView.SelectedItem = null;
+        }
     }
 }

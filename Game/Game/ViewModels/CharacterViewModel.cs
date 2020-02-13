@@ -21,7 +21,7 @@ namespace Game.ViewModels
         private static volatile CharacterViewModel instance;
         private static readonly object syncRoot = new Object();
 
-        public BaseCharacter Data { get; set; }
+        //public BaseCharacter Data { get; set; }
 
         public static CharacterViewModel Instance
         {
@@ -52,11 +52,11 @@ namespace Game.ViewModels
         /// 
         /// The constructor subscribes message listeners for crudi operations
         /// </summary>
-        public CharacterViewModel(BaseCharacter data = null)
-        {
-            Title = data?.Name;
-            Data = data;
-        }
+        //public CharacterViewModel(BaseCharacter data = null)
+        //{
+        //    Title = data?.Name;
+        //    Data = data;
+        //}
         public CharacterViewModel()
         {
             Title = "Character";

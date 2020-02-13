@@ -12,9 +12,10 @@ namespace Game.Views
 
     public partial class CharacterDeletePage : ContentPage
     {
-        CharacterViewModel viewModel;
+        GenericViewModel<BaseCharacter> viewModel;
+           
 
-        public CharacterDeletePage(CharacterViewModel data)
+        public CharacterDeletePage(GenericViewModel<BaseCharacter> data)
         {
             InitializeComponent();
             BindingContext = this.viewModel = data;
