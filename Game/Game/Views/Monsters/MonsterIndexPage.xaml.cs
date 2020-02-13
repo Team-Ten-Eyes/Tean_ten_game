@@ -16,12 +16,11 @@ namespace Game.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MonsterIndexPage : ContentPage
     {
-        //readonly MonsterViewModel ViewModel;
+        readonly MonsterViewModel ViewModel;
         public MonsterIndexPage()
         {
             InitializeComponent();
-            BindingContext = null;
-            //= ViewModels = MonsterViewModel.Instance;
+            BindingContext = ViewModel = MonsterViewModel.Instance;
         }
     }
 }
