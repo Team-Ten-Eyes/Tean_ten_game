@@ -4,11 +4,17 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Game.Views.Monsters.MonsterUpdatePage">
+             x:Class="Game.Views.MonsterUpdatePage"
+             BackgroundColor="#F2EBDC">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+            <Label Text="Update Monster"
                 VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Label Text="New Name:" FontSize="Medium" HorizontalOptions="Center" />
+            <Entry Text="{Binding Data.Name}" d:Text="Monster Name" FontSize="Small"/>
+            <Button Text="Save Changes"
+                Clicked="OnSaveButtonClicked"
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentPage.Content>
