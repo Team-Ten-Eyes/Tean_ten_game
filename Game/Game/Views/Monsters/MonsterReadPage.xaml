@@ -4,12 +4,57 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Game.Views.MonsterReadPage">
+             x:Class="Game.Views.MonsterReadPage"
+             BackgroundColor="#F2EBDC">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Update" Clicked="Update_Clicked" IconImageSource="wizard_avatar.png"/>
+        <ToolbarItem Text="Delete" Clicked="Delete_Clicked" IconImageSource="icon_delete.png"/>
+    </ContentPage.ToolbarItems>
+
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="{Binding Data.Name}" />
+                <Label Text="-------------- Level:" />
+                <Label Text="{Binding Data.level}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Image Source="{Binding Data.ImageURI}" />
+                <StackLayout Orientation="Vertical">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height = "Auto" />
+                            <RowDefinition Height = "Auto" />
+                            <RowDefinition Height = "Auto" />
+                            <RowDefinition Height = "Auto" />
+                            <RowDefinition Height = "Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width ="Auto" />
+                            <ColumnDefinition Width ="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="HP ---"  Grid.Row ="1" Grid.Column="0"/>
+                        <Label Text="ATK ---"  Grid.Row ="2" Grid.Column="0"/>
+                        <Label Text="DEF ---"  Grid.Row ="3" Grid.Column="0"/>
+                        <Label Text="SPD ---"  Grid.Row ="4" Grid.Column="0"/>
+                        
+                        <Label Text="{Binding Data.MaxHealth}"  Grid.Row ="1" Grid.Column="1"/>
+                        <Label Text="{Binding Data.Attack}"  Grid.Row ="2" Grid.Column="1"/>
+                        <Label Text="{Binding Data.defense}"  Grid.Row ="3" Grid.Column="1"/>
+                        <Label Text="{Binding Data.speed}"  Grid.Row ="4" Grid.Column="1"/>
+                        
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+            <Label Text="HP Bar" HorizontalOptions="Center"/>
+            <ProgressBar Progress="0" x:Name="HP_bar"/>
+            
+
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

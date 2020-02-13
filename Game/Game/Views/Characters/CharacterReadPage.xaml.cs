@@ -22,7 +22,7 @@ namespace Game.Views
             InitializeComponent();
 
             BindingContext = this.ViewModel = data;
-            double hp = ViewModel.Data.CharHealth / ViewModel.Data.MaxHealth;
+            double hp = ((double)ViewModel.Data.CharHealth) / ((double)ViewModel.Data.MaxHealth);
             double mana = ViewModel.Data.Mana / ViewModel.Data.MaxMana;
             HPbar.Progress = hp;
             Manabar.Progress = mana;
