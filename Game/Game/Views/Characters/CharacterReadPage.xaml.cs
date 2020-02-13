@@ -47,10 +47,6 @@ namespace Game.Views
             await Navigation.PopAsync();
         }
 
-        //public CharacterReadPage()
-        //{
-        //    InitializeComponent();
-        //    BindingContext = this.ViewModel = data;
-        //}
+      
     }
 }
