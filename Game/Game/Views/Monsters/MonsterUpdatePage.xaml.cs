@@ -16,6 +16,10 @@ namespace Game.Views
     {
 
         readonly GenericViewModel<BaseMonster> ViewModel;
+
+        /// <summary>
+        /// Constructor for Update binds the new BaseMonster
+        /// </summary>
         public MonsterUpdatePage(GenericViewModel<BaseMonster> data)
         {
             InitializeComponent();
@@ -23,12 +27,17 @@ namespace Game.Views
             BindingContext = this.ViewModel = data;
         }
 
+        /// <summary>
+        /// Event handler for save button interaction. Sends Update and pops page
+        /// </summary>
         public async void OnSaveButtonClicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "Update", ViewModel.Data);
             await Navigation.PopModalAsync();
         }
-
+        /// <summary>
+        /// Android back button supression
+        /// </summary>
         protected override bool OnBackButtonPressed()
         {
             return true;
