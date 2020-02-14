@@ -17,11 +17,11 @@
         <StackLayout Orientation="Vertical">
             <StackLayout Orientation="Horizontal">
                 <Label Text="{Binding Data.Name}" />
-                <Label Text="-------------- Level:" />
+                <Label Text="----------------- Level:" />
                 <Label Text="{Binding Data.Level}" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Image Source="{Binding Data.ImageURI}" />
+                <Image Source="{Binding Data.ImageURI}" WidthRequest="200" HeightRequest="200"/>
                 <StackLayout Orientation="Vertical">
 
                     <Grid>
