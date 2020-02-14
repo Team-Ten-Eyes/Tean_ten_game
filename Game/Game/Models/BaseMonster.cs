@@ -45,6 +45,7 @@ namespace Game.Models
             Attack = 15;
             Defense = 10;
             Speed = 2;
+            Description = "Stress monster";
         }
 
         /// <summary>

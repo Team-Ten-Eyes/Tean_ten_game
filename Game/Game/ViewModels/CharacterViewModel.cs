@@ -1,10 +1,10 @@
 ﻿using Game.Models;
+using Game.Services;
 using Game.Views;
 using System;
-using Xamarin.Forms;
-using System.Linq;
 using System.Collections.Generic;
-using Game.Services;
+using System.Linq;
+using Xamarin.Forms;
 
 
 namespace Game.ViewModels
@@ -12,7 +12,7 @@ namespace Game.ViewModels
     /// Index View Model
     /// Manages the list of data records
     /// </summary>
-   
+
     public class CharacterViewModel : BaseViewModel<BaseCharacter>
     {
         #region Singleton
@@ -21,7 +21,7 @@ namespace Game.ViewModels
         private static volatile CharacterViewModel instance;
         private static readonly object syncRoot = new Object();
 
-  
+
         public static CharacterViewModel Instance
         {
             get
@@ -51,7 +51,7 @@ namespace Game.ViewModels
         /// 
         /// The constructor subscribes message listeners for crudi operations
         /// </summary>
-    
+
         public CharacterViewModel()
         {
             Title = "Character";
@@ -132,7 +132,7 @@ namespace Game.ViewModels
 
         #endregion DataOperations_CRUDi
 
-        
+
     }
-    
+
 }
