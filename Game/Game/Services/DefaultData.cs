@@ -77,18 +77,18 @@ namespace Game.Services
                     MaxHealth=15,
                     Mana=7,
                     MaxMana=10,
-                    level=10,
+                    Level=10,
                     Experience=5,
                     Attribute=CharacterTypeEnum.Bravery,
                     Attack=20,
-                    defense=10,
-                    speed=3
+                    Defense=10,
+                    Speed=3
                 },
                   new BaseCharacter
                 {
                    Name="sneaky",
                     ImageURI = "cunning.png",
-                    level=7,
+                    Level=7,
                     CharHealth=15,
                     MaxHealth=15,
                     Mana=5,
@@ -96,14 +96,14 @@ namespace Game.Services
                     Experience=5,
                     Attribute=CharacterTypeEnum.Cunning,
                     Attack=15,
-                    defense=10,
-                    speed=20
+                    Defense=10,
+                    Speed=20
                 },
                 new BaseCharacter
                 {
                     Name="Atristic",
                     ImageURI = "creativity.png",
-                    level=12,
+                    Level=12,
                     CharHealth=20,
                     MaxHealth=20,
                     Mana=10,
@@ -111,8 +111,8 @@ namespace Game.Services
                     Experience=5,
                     Attribute=CharacterTypeEnum.Creativity,
                     Attack=18,
-                    defense=5,
-                    speed=5
+                    Defense=5,
+                    Speed=5
                 }
 
             };

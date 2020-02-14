@@ -9,9 +9,9 @@ namespace Game.Models
 
 
         //  character level info//////////////////////////////
-        public int level { get; set; } = 1;
+        public uint Level { get; set; } = 1;
 
-        public int Experience { get; set; } = 0;
+        public uint Experience { get; set; } = 0;
         /// //////////////////////////////////////////
         /// 
        
@@ -21,19 +21,19 @@ namespace Game.Models
 
 
         // characer stats//////////////////////////////////
-        public int CharHealth { get; set; } = 0;
+        public uint CharHealth { get; set; } = 0;
 
-        public int MaxHealth { get; set; } = 0;
+        public uint MaxHealth { get; set; } = 0;
 
-        public int Mana { get; set; } = 0;
+        public uint Mana { get; set; } = 0;
 
-        public int MaxMana { get; set; } = 0;
+        public uint MaxMana { get; set; } = 0;
 
-        public int Attack { get; set; } = 0;
+        public uint Attack { get; set; } = 0;
 
-        public int defense { get; set; } = 0;
+        public uint Defense { get; set; } = 0;
 
-        public int speed { get; set; } = 0;
+        public uint Speed { get; set; } = 0;
         ////////////////////////////////////////////////////
 
         // Add Unique attributes for Item
@@ -46,15 +46,15 @@ namespace Game.Models
         {
             Name = "Default";
             ImageURI = "knight.png";
-            level = 7;
+            Level = 7;
             CharHealth = 15;
             MaxHealth = 15;
             Mana = 5;
             MaxMana = 10;
             Experience = 5;
             Attack = 15;
-            defense = 10;
-            speed = 2;
+            Defense = 10;
+            Speed = 2;
         }
 
         /// <summary>
@@ -79,12 +79,13 @@ namespace Game.Models
 
             // Update all the fields in the Data, except for the Id and guid
             Name = newData.Name;
-            level = newData.level;
+            Level = newData.level;
             Experience = newData.Experience;
             Attribute = newData.Attribute;
             CharHealth = newData.CharHealth;
             Attack = newData.Attack;
-            defense = newData.defense;  
+            Speed = newData.Speed;
+            Defense = newData.defense;  
             Description = newData.Description;
             ImageURI = newData.ImageURI;
         }
