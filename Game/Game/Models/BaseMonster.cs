@@ -9,7 +9,7 @@ namespace Game.Models
 
 
         //  character level info//////////////////////////////
-        public int level { get; set; } = 1;
+        public uint Level { get; set; } = 1;
 
 
         /// </summary>
@@ -18,15 +18,15 @@ namespace Game.Models
 
 
         // characer stats//////////////////////////////////
-        public int MonsterHealth { get; set; } = 0;
+        public uint MonsterHealth { get; set; } = 0;
 
-        public int MaxHealth { get; set; } = 0;
+        public uint MaxHealth { get; set; } = 0;
 
-        public int Attack { get; set; } = 0;
+        public uint Attack { get; set; } = 0;
 
-        public int defense { get; set; } = 0;
+        public uint Defense { get; set; } = 0;
 
-        public int speed { get; set; } = 0;
+        public uint Speed { get; set; } = 0;
         ////////////////////////////////////////////////////
 
         // Add Unique attributes for Item
@@ -39,12 +39,12 @@ namespace Game.Models
         {
             Name = "Default_Bad";
             ImageURI = "knight.png";
-            level = 7;
+            Level = 7;
             MonsterHealth = 15;
             MaxHealth = 15;
             Attack = 15;
-            defense = 10;
-            speed = 2;
+            Defense = 10;
+            Speed = 2;
         }
 
         /// <summary>
@@ -69,10 +69,11 @@ namespace Game.Models
 
             // Update all the fields in the Data, except for the Id and guid
             Name = newData.Name;
-            level = newData.level;
+            Level = newData.Level;
             Attribute = newData.Attribute;
             Attack = newData.Attack;
-            defense = newData.defense;
+            Defense = newData.Defense;
+            Speed = newData.Speed;
             Description = newData.Description;
             ImageURI = newData.ImageURI;
         }
@@ -84,7 +85,7 @@ namespace Game.Models
                             Description + " for " +
                             Attribute.ToString() +
                             "+" + Attack + " , " +
-                            "Level : " + level;
+                            "Level : " + Level;
 
             return myReturn.Trim();
         }

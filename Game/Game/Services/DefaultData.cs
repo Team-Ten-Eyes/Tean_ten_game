@@ -126,25 +126,25 @@ namespace Game.Services
                 new BaseMonster {
                     Name="Stress",
                     ImageURI = "creativity.png",
-                    level=12,
+                    Level=12,
                     MonsterHealth=20,
                     MaxHealth=20,
                     Attribute=MonsterTypeEnum.Stress,
                     Attack=18,
-                    defense=5,
-                    speed=5
+                    Defense=5,
+                    Speed=5
                 },
 
                 new BaseMonster {
                     Name="StresssedTest",
                     ImageURI = "creativity.png",
-                    level=12,
+                    Level=12,
                     MonsterHealth=20,
                     MaxHealth=20,
                     Attribute=MonsterTypeEnum.Stress,
                     Attack=18,
-                    defense=5,
-                    speed=5
+                    Defense=5,
+                    Speed=5
                 }
             };
 
