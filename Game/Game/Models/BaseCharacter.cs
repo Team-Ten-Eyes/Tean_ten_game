@@ -77,13 +77,13 @@ namespace Game.Models
 
             // Update all the fields in the Data, except for the Id and guid
             Name = newData.Name;
-            Level = newData.level;
+            Level = newData.Level;
             Experience = newData.Experience;
             Attribute = newData.Attribute;
             CharHealth = newData.CharHealth;
             Attack = newData.Attack;
             Speed = newData.Speed;
-            Defense = newData.defense;  
+            Defense = newData.Defense;  
             Description = newData.Description;
             ImageURI = newData.ImageURI;
         }
@@ -96,7 +96,7 @@ namespace Game.Models
                             Attribute.ToString() +
                             "+" + Attack + " , " +
                             "Experience : " + Experience + " , " +
-                            "Level : " + level;
+                            "Level : " + Level;
 
             return myReturn.Trim();
         }
