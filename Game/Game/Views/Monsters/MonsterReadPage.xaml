@@ -49,8 +49,8 @@
                     </Grid>
                 </StackLayout>
             </StackLayout>
-            <Label Text="HP Bar" HorizontalOptions="Center"/>
-            <ProgressBar Progress="0" x:Name="HP_bar"/>
+            <Label Text="{Binding Data.Description}" HorizontalOptions="Center"/>
+            
             
 
 
