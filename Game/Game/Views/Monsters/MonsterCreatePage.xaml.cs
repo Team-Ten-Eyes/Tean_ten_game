@@ -29,6 +29,11 @@ namespace Game.Views
             await Navigation.PopModalAsync();
         }
 
+        async void CancelButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+        }
+
         protected override bool OnBackButtonPressed()
         {
             return true;

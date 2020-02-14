@@ -13,10 +13,14 @@
                 HorizontalOptions="CenterAndExpand" />
             <Label Text="Name" FontSize="Medium" />
             <Entry Text="{Binding Data.Name}" d:Text="Monster Name" FontSize="Small"/>
-
-            <Button Text="Save Changes"
-                Clicked="OnSaveButtonClicked"
-                HorizontalOptions="CenterAndExpand" />
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Save Changes"
+                    Clicked="OnSaveButtonClicked"
+                    HorizontalOptions="CenterAndExpand" />
+                <Button Text="Cancel"
+                    Clicked="CancelButtonClicked"
+                    HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
