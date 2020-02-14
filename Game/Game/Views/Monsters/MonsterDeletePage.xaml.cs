@@ -14,25 +14,30 @@ namespace Game.Views
     {
         GenericViewModel<BaseMonster> viewModel;
 
-        /// <summary>
-        /// Constructor for Delete takes GenericViewModel<BaseMonster>
-        /// </summary>
+
         public MonsterDeletePage(GenericViewModel<BaseMonster> data)
         {
             InitializeComponent();
             BindingContext = this.viewModel = data;
         }
 
+
         /// <summary>
-        /// Event handler for button click to cancel
+        /// Cancel button will let the user backout of the delete modal page
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync(false);
         }
+
+
         /// <summary>
-        /// Event handler for delete button interaction triggering delete from BaseMonster
+        /// will fully delete the monster
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void Delete_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "Delete", viewModel.Data);

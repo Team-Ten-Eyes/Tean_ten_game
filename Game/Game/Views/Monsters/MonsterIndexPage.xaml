@@ -63,7 +63,7 @@
                                        Style="{StaticResource LabelStyle}"/>
 
 
-                                    <Label Text="{Binding level}" 
+                                    <Label Text="{Binding Level}" 
                                        Style="{StaticResource ListStyle}"
                                        FontSize="Micro"/>
 

@@ -17,7 +17,7 @@
         <StackLayout Orientation="Vertical">
             <StackLayout Orientation="Horizontal">
                 <Label Text="{Binding Data.Name}" />
-                <Label Text="----------------- Level:" />
+                <Label Text="----------------- Level:" FontAttributes="Bold" />
                 <Label Text="{Binding Data.Level}" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
@@ -36,10 +36,10 @@
                             <ColumnDefinition Width ="Auto" />
                             <ColumnDefinition Width ="Auto" />
                         </Grid.ColumnDefinitions>
-                        <Label Text="HP ---"  Grid.Row ="1" Grid.Column="0"/>
-                        <Label Text="ATK ---"  Grid.Row ="2" Grid.Column="0"/>
-                        <Label Text="DEF ---"  Grid.Row ="3" Grid.Column="0"/>
-                        <Label Text="SPD ---"  Grid.Row ="4" Grid.Column="0"/>
+                        <Label Text="HP ---"  Grid.Row ="1" Grid.Column="0" FontAttributes="Bold"/>
+                        <Label Text="ATK ---"  Grid.Row ="2" Grid.Column="0" FontAttributes="Bold"/>
+                        <Label Text="DEF ---"  Grid.Row ="3" Grid.Column="0" FontAttributes="Bold"/>
+                        <Label Text="SPD ---"  Grid.Row ="4" Grid.Column="0" FontAttributes="Bold"/>
                         
                         <Label Text="{Binding Data.MaxHealth}"  Grid.Row ="1" Grid.Column="1"/>
                         <Label Text="{Binding Data.Attack}"  Grid.Row ="2" Grid.Column="1"/>
@@ -49,8 +49,8 @@
                     </Grid>
                 </StackLayout>
             </StackLayout>
-            <Label Text="Description" FontAttributes="Bold" HorizontalOptions="Center" TextDecorations="Underline"/>
-            <Label Text="{Binding Data.Description}" HorizontalOptions="Center"/>
+            <Label Text="Description" FontAttributes="Bold" HorizontalOptions="Start" TextDecorations="Underline"/>
+            <Label Text="{Binding Data.Description}" HorizontalOptions="Start"/>
             
             
 
