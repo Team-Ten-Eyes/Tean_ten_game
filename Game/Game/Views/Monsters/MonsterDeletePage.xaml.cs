@@ -21,11 +21,23 @@ namespace Game.Views
             BindingContext = this.viewModel = data;
         }
 
+
+        /// <summary>
+        /// Cancel button will let the user backout of the delete modal page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync(false);
         }
 
+
+        /// <summary>
+        /// will fully delete the monster
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void Delete_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "Delete", viewModel.Data);
