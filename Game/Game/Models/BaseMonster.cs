@@ -27,6 +27,8 @@ namespace Game.Models
         public uint Defense { get; set; } = 0;
 
         public uint Speed { get; set; } = 0;
+
+       
         ////////////////////////////////////////////////////
 
         // Add Unique attributes for Item
