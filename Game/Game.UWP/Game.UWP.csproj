@@ -125,6 +125,7 @@
     <Content Include="items.png" />
     <Content Include="knight.png" />
     <Content Include="icon_new.png" />
+    <Content Include="lab.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
@@ -155,6 +156,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="score.png" />
     <Content Include="splashscreen.jpg" />
+    <Content Include="Stress_dragon.png" />
     <Content Include="thumbnail_bravery.png" />
     <Content Include="troll.png" />
     <Content Include="village.jpg" />

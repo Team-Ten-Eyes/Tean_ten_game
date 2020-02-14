@@ -30,7 +30,7 @@ namespace Game.Views
 
         async void Update_Clicked(object sender, EventArgs e)
         {
-           // await Navigation.PushModalAsync(new NavigationPage(new MonsterUpdatePage(new GenericViewModel<BaseMonster>(ViewModel.Data))));
+            await Navigation.PushModalAsync(new NavigationPage(new MonsterUpdatePage(new GenericViewModel<BaseMonster>(ViewModel.Data))));
             await Navigation.PopAsync();
         }
 
