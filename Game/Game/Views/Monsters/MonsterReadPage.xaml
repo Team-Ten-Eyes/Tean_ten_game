@@ -49,6 +49,7 @@
                     </Grid>
                 </StackLayout>
             </StackLayout>
+            <Label Text="Description" FontAttributes="Bold" HorizontalOptions="Center" TextDecorations="Underline"/>
             <Label Text="{Binding Data.Description}" HorizontalOptions="Center"/>
             
             
