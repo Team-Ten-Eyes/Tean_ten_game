@@ -22,12 +22,15 @@ namespace Game.Views
             InitializeComponent();
 
             BindingContext = this.ViewModel = data;
-            double hp = ((double) ViewModel.Data.MonsterHealth )/ ((double) ViewModel.Data.MaxHealth);
-            //double mana = ViewModel.Data.Mana / ViewModel.Data.MaxMana;
-            HP_bar.Progress = hp;
-            //Manabar.Progress = mana;
+          
         }
 
+
+        /// <summary>
+        /// Update clicked will redirect the user to the upate page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void Update_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new MonsterUpdatePage(new GenericViewModel<BaseMonster>(ViewModel.Data))));
@@ -47,10 +50,6 @@ namespace Game.Views
             await Navigation.PopAsync();
         }
 
-        //public CharacterReadPage()
-        //{
-        //    InitializeComponent();
-        //    BindingContext = this.ViewModel = data;
-        //}
+ 
     }
 }
