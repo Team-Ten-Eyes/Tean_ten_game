@@ -33,7 +33,7 @@ namespace Game.Views
             await Navigation.PushAsync(new MonsterReadPage(new GenericViewModel<BaseMonster>(data)));
 
             //// Manually deselect item.
-            //MonsterListView.SelectedItem = null;
+            MonsterListView.SelectedItem = null;
         }
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -42,15 +42,6 @@ namespace Game.Views
             await Navigation.PushModalAsync(new NavigationPage(new MonsterCreatePage(new GenericViewModel<BaseMonster>())));
         }
 
-        ///// <summary>
-        ///// Call to Add a new record
-        ///// </summary>
-        ///// <param name="sender"></param>
-        ///// <param name="e"></param>
-        //async void AddItem_Clicked(object sender, EventArgs e)
-        //{
-        //    await Navigation.PushModalAsync(new NavigationPage(new ItemCreatePage(new GenericViewModel<ItemModel>())));
-        //}
 
         /// <summary>
         /// Refresh the list on page appearing
