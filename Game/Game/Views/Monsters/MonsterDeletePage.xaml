@@ -21,7 +21,7 @@
                     <Label Text="{Binding Data.level}" />
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <Image Source="{Binding Data.ImageURI}" />
+                    <Image Source="{Binding Data.ImageURI}" WidthRequest="200" HeightRequest="200"/>
                     <StackLayout Orientation="Vertical">
 
                         <Grid>
