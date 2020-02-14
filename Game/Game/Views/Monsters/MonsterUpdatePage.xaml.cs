@@ -23,12 +23,24 @@ namespace Game.Views
             BindingContext = this.ViewModel = data;
         }
 
+
+        /// <summary>
+        /// will sage the monster to the index list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public async void OnSaveButtonClicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "Update", ViewModel.Data);
             await Navigation.PopModalAsync();
         }
 
+
+        /// <summary>
+        /// this disables the back button for android becuase
+        /// the page is modal
+        /// </summary>
+        /// <returns></returns>
         protected override bool OnBackButtonPressed()
         {
             return true;
