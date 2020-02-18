@@ -34,5 +34,15 @@ namespace Game.Views
             return true;
         }
 
+        /// <summary>
+        /// the cancle button with back out of the create page and 
+        /// Direct the user back to the list page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void CancelButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+        }
     }
 }
