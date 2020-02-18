@@ -12,7 +12,7 @@ namespace Game.Models
         public uint Experience { get; set; } = 0;
         /// //////////////////////////////////////////
         /// 
-       
+
         /// </summary>
         // Enum of the different attributes that the character modifies, Items can only modify one character
         public CharacterTypeEnum Attribute { get; set; } = CharacterTypeEnum.Bravery; //defaults to bravery
@@ -32,6 +32,8 @@ namespace Game.Models
         public uint Defense { get; set; } = 0;
 
         public uint Speed { get; set; } = 0;
+
+        public bool IsAlive = true;
         ////////////////////////////////////////////////////
 
         // Add Unique attributes for Item
@@ -83,7 +85,7 @@ namespace Game.Models
             CharHealth = newData.CharHealth;
             Attack = newData.Attack;
             Speed = newData.Speed;
-            Defense = newData.Defense;  
+            Defense = newData.Defense;
             Description = newData.Description;
             ImageURI = newData.ImageURI;
         }
@@ -100,6 +102,29 @@ namespace Game.Models
 
             return myReturn.Trim();
         }
+
+        public bool LevelUp() {
+            return true;
+        }
+
+        public bool AddExperience(uint toAdd) {
+            Experience += toAdd;
+            return true;
+        }
+
+        public bool TakeDamage(uint Damage) {
+            CharHealth -= Damage;
+            if (CharHealth <= 0)
+                IsAlive = false;
+            return true;
+        }
+
+        //public int GetAttack() { }
+
+        public CharacterTypeEnum GetCharType(){
+            return Attribute;
+        }
+
 
 
     }
