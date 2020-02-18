@@ -17,7 +17,8 @@
         <StackLayout Orientation="Vertical">
             <StackLayout Orientation="Horizontal">
                 <Label Text="{Binding Data.Name}" />
-                <Label Text="-------------- Level:" />
+                <Label Text="-------------- Level:" 
+                       FontAttributes="Bold"/>
                 <Label Text="{Binding Data.Level}" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
@@ -36,11 +37,11 @@
                             <ColumnDefinition Width ="Auto" />
                             <ColumnDefinition Width ="Auto" />
                         </Grid.ColumnDefinitions>
-                            <Label Text="HP ---"  Grid.Row ="1" Grid.Column="0"/>
-                            <Label Text="ATK ---"  Grid.Row ="2" Grid.Column="0"/>
-                            <Label Text="DEF ---"  Grid.Row ="3" Grid.Column="0"/>
-                            <Label Text="SPD ---"  Grid.Row ="4" Grid.Column="0"/>
-                            <Label Text="XP ---"  Grid.Row ="5" Grid.Column="0"/>
+                        <Label Text="HP ---" FontAttributes="Bold"   Grid.Row ="1" Grid.Column="0"/>
+                        <Label Text="ATK ---" FontAttributes="Bold"  Grid.Row ="2" Grid.Column="0"/>
+                        <Label Text="DEF ---" FontAttributes="Bold"  Grid.Row ="3" Grid.Column="0"/>
+                        <Label Text="SPD ---" FontAttributes="Bold"   Grid.Row ="4" Grid.Column="0"/>
+                        <Label Text="XP ---" FontAttributes="Bold"  Grid.Row ="5" Grid.Column="0"/>
                             <Label Text="{Binding Data.MaxHealth}"  Grid.Row ="1" Grid.Column="1"/>
                             <Label Text="{Binding Data.Attack}"  Grid.Row ="2" Grid.Column="1"/>
                             <Label Text="{Binding Data.Defense}"  Grid.Row ="3" Grid.Column="1"/>
@@ -49,9 +50,9 @@
                     </Grid>
                 </StackLayout>
             </StackLayout>
-            <Label Text="HP Bar" HorizontalOptions="Center"/>
+            <Label Text="HP Bar" FontAttributes="Bold" HorizontalOptions="Center"/>
             <ProgressBar Progress="0" x:Name="HPbar"/>
-            <Label Text="Mana Bar" HorizontalOptions="Center"/>
+            <Label Text="Mana Bar" FontAttributes="Bold" HorizontalOptions="Center"/>
             <ProgressBar Progress="0" x:Name="Manabar"/>
 
 
