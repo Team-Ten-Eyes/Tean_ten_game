@@ -125,6 +125,21 @@ namespace Game.Models
             return Attribute;
         }
 
+        public bool TakeMana(uint mana) {
+            Mana -= mana;
+            return true;
+        }
+
+        public bool AddMana(uint mana) {
+            if (mana + Mana > MaxMana)
+                Mana = MaxMana;
+            else Mana += mana;
+            return true;
+        }
+
+        public void AddMaxMana() {
+            Mana = MaxMana;
+        }
         
 
 
