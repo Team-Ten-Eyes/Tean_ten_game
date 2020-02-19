@@ -45,7 +45,7 @@ namespace Game.Models
         public BaseCharacter()
         {
             Name = "Default";
-            ImageURI = "knight.png";
+            ImageURI = "wizard_avatar.png";
             Level = 7;
             CharHealth = 15;
             MaxHealth = 15;
