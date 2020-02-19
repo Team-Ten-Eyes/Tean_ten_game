@@ -5,7 +5,7 @@
     /// </summary>
     public enum MonsterTypeEnum
     { 
-        Stress,
-        Paranoia    
+        Stress = 1,
+        Paranoia = 2    
     }
 }
