@@ -113,6 +113,7 @@
     <Content Include="dice_20.png" />
     <Content Include="door.png" />
     <Content Include="dungeon_door.png" />
+    <Content Include="Fire_monster.png" />
     <Content Include="gameover.png" />
     <Content Include="game_demon.png" />
     <Content Include="grey_door.png" />
@@ -157,6 +158,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="score.png" />
+    <Content Include="Shadow_Monster.png" />
     <Content Include="splashscreen.jpg" />
     <Content Include="Stress_dragon.png" />
     <Content Include="thumbnail_bravery.png" />
