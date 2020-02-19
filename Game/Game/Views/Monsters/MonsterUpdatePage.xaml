@@ -7,15 +7,65 @@
              x:Class="Game.Views.MonsterUpdatePage"
              BackgroundColor="#F2EBDC">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Update Monster"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Label Text="New Name:" FontSize="Medium" HorizontalOptions="Center" />
-            <Entry Text="{Binding Data.Name}" d:Text="Monster Name" FontSize="Small"/>
-            <Button Text="Save Changes"
-                Clicked="OnSaveButtonClicked"
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Orientation="Vertical">
+            <Label Text="Update Monster" FontSize="Header" FontAttributes="Bold" 
+                   HorizontalOptions="Start"
+                   VerticalOptions="Start"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="{Binding Data.Name}" />
+                <Label Text="-------------- Level:" 
+                       FontAttributes="Bold"/>
+                <Label Text="{Binding Data.Level}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Image Source="{Binding Data.ImageURI}" WidthRequest="200" HeightRequest="200" />
+                <StackLayout Orientation="Vertical">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height = "Auto" />
+                            <RowDefinition Height = "Auto" />
+                            <RowDefinition Height = "Auto" />
+                            <RowDefinition Height = "Auto" />
+                            <RowDefinition Height = "Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width ="Auto" />
+                            <ColumnDefinition Width ="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="HP ---" FontAttributes="Bold"   Grid.Row ="1" Grid.Column="0"/>
+                        <Label Text="ATK ---" FontAttributes="Bold"  Grid.Row ="2" Grid.Column="0"/>
+                        <Label Text="DEF ---" FontAttributes="Bold"  Grid.Row ="3" Grid.Column="0"/>
+                        <Label Text="SPD ---" FontAttributes="Bold"   Grid.Row ="4" Grid.Column="0"/>
+                        <Label Text="XP ---" FontAttributes="Bold"  Grid.Row ="5" Grid.Column="0"/>
+                        <Label Text="{Binding Data.MaxHealth}"  Grid.Row ="1" Grid.Column="1"/>
+                        <Label Text="{Binding Data.Attack}"  Grid.Row ="2" Grid.Column="1"/>
+                        <Label Text="{Binding Data.Defense}"  Grid.Row ="3" Grid.Column="1"/>
+                        <Label Text="{Binding Data.Speed}"  Grid.Row ="4" Grid.Column="1"/>
+                        <Label Text="{Binding Data.Experience}"  Grid.Row ="5" Grid.Column="1"/>
+                    </Grid>
+                </StackLayout>
+
+            </StackLayout>
+            <StackLayout Orientation="Vertical" Padding="20"
+                                 HorizontalOptions="Start"
+                                 VerticalOptions="End">
+                <Label Text="New Name:" FontSize="Medium" HorizontalOptions="Center" FontAttributes="Bold" />
+                <Entry Text="{Binding Data.Name}" d:Text="Character Name" FontSize="Small"/>
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Save Changes"
+                                Clicked="OnSaveButtonClicked"
+                            BackgroundColor="#Co3BFC"
+                            TextColor="Black"
+                            HorizontalOptions="CenterAndExpand" />
+                    <Button Text="Cancel"
+                            BackgroundColor="#Co3BFC"
+                                TextColor="Black"
+                                 Clicked="CancelButtonClicked"
+                                     HorizontalOptions="CenterAndExpand"/>
+
+                </StackLayout>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
