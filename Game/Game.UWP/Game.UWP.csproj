@@ -114,6 +114,7 @@
     <Content Include="door.png" />
     <Content Include="dungeon_door.png" />
     <Content Include="gameover.png" />
+    <Content Include="game_demon.png" />
     <Content Include="grey_door.png" />
     <Content Include="home_background.png" />
     <Content Include="icon_add.png" />

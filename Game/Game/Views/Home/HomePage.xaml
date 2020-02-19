@@ -14,26 +14,22 @@
 
                 <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
                     <Image
-                         Source="knight.png"
+                         Source="game_demon.png"
                          Style="{StaticResource ImageLargeStyle}"/>
-
-                    <Image
-                         Source="troll.png"
-                         Style="{StaticResource ImageLargeStyle}"/>
-                
+                                    
                 </StackLayout>
                 
                 <StackLayout HorizontalOptions="Center" Padding="75,5,75,5"> 
                
                     <Label 
-                        Text="In a far away land there was a tribe of warrior elves."
+                        Text="In the recesses of your mind lurk dark things."
                         Style="{StaticResource CenterMessageStyle}"
                         FontSize="Micro"
                         LineBreakMode="WordWrap"
                         />
 
                     <Label 
-                        Text="The elves entered the woods to eraticate the monsters that threatened their villages."
+                        Text="The battle inside your psyche between these undesirable elements and your positive personality traits is an epic one."
                         Style="{StaticResource CenterMessageStyle}"
                         FontSize="Micro"
                         LineBreakMode="WordWrap"
