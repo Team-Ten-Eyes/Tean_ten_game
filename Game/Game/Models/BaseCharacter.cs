@@ -125,8 +125,30 @@ namespace Game.Models
             return Attribute;
         }
 
-        
+        public bool TakeMana(uint mana) {
+            Mana -= mana;
+            return true;
+        }
 
+        public bool AddMana(uint mana) {
+            if (mana + Mana > MaxMana)
+                Mana = MaxMana;
+            else Mana += mana;
+            return true;
+        }
+
+        public void AddMaxMana() {
+            Mana = MaxMana;
+        }
+
+        //public int GetDamageDice(){}
+        //public int GetDamageRollValue(){}
+        //public List<ItemModel> DropAllItems(){}
+        //public ItemModel GetItemByLocation(enum Location){}
+        //public bool AddItem(ItemModel item, Location location){}
+        //public int GetItemBonusAtk(){}
+        //public int GetItemBonusDef(){}
+        //public int GetItemBonusSpd(){}
 
     }
 }
