@@ -21,6 +21,9 @@ namespace Game.Views
             data.Data = new BaseCharacter();
 
             BindingContext = this.ViewModel = data;
+
+            CharacterTypePicker.SelectedItem = data.Data.Attribute.ToString();
+
         }
 
         public async void OnSaveButtonClicked(object sender, EventArgs e)
