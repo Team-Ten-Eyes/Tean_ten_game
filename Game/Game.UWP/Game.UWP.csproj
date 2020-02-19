@@ -122,6 +122,7 @@
     <Content Include="icon_delete.png" />
     <Content Include="icon_edit.png" />
     <Content Include="icon_save.png" />
+    <Content Include="Insanty.png" />
     <Content Include="item.png" />
     <Content Include="items.png" />
     <Content Include="knight.png" />
