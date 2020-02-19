@@ -20,16 +20,18 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Create Monster"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Label Text="Name" FontSize="Medium" />
-            <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="Start" 
-                   WidthRequest="350" HeightRequest="350"/>
+                VerticalOptions="Start" 
+                HorizontalOptions="Start" 
+                   FontAttributes="Bold"
+                   FontSize="Header"/>
             <Picker
                         ItemsSource="{x:Static local_helpers:MonsterTypeEnumHelper.GetListMonsterType}" 
                         SelectedItem="{Binding Data.Attribute, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
                         x:Name="MonsterTypePicker"/>
-            
+
+            <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="Center" 
+                   WidthRequest="350" HeightRequest="350"/>
+            <Label Text="Name" FontSize="Medium" HorizontalOptions="Start"/>
             <Entry Text="{Binding Data.Name}" d:Text="Monster Name" FontSize="Small"/>
             <StackLayout Orientation="Horizontal">
                 <Button Text="Save Changes"
