@@ -117,6 +117,7 @@
     <Content Include="gameover.png" />
     <Content Include="game_demon.png" />
     <Content Include="grey_door.png" />
+    <Content Include="highscore.png" />
     <Content Include="home_background.png" />
     <Content Include="icon_add.png" />
     <Content Include="icon_cancel.png" />
