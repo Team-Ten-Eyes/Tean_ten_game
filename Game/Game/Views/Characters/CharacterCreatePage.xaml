@@ -18,19 +18,21 @@
 
     <ContentPage.Content>
         <StackLayout>
+            
             <Label Text="Create Character"
                 VerticalOptions="Start" 
                 HorizontalOptions="Start"
                    FontAttributes="Bold"
                    FontSize="Header"/>
-            <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="Start" 
-                   WidthRequest="350" HeightRequest="350"/>
-            <Label Text="Name" FontSize="Medium" />
-            <Entry Text="{Binding Data.Name}" d:Text="Character Name" FontSize="Small"/>
             <Picker
                         ItemsSource="{x:Static local_helpers:CharacterTypeEnumHelper.GetListCharacterType}" 
                         SelectedItem="{Binding Data.Attribute, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
                         x:Name="CharacterTypePicker"/>
+            <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="Start" 
+                   WidthRequest="350" HeightRequest="350"/>
+            <Label Text="Name" FontSize="Medium" />
+            <Entry Text="{Binding Data.Name}" d:Text="Character Name" FontSize="Small"/>
+            
             <StackLayout Orientation="Horizontal">
                 <Button Text="Save Changes"
                 Clicked="OnSaveButtonClicked"
