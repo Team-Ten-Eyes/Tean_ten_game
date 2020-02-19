@@ -140,8 +140,15 @@ namespace Game.Models
         public void AddMaxMana() {
             Mana = MaxMana;
         }
-        
 
+        //public int GetDamageDice(){}
+        //public int GetDamageRollValue(){}
+        //public List<ItemModel> DropAllItems(){}
+        //public ItemModel GetItemByLocation(enum Location){}
+        //public bool AddItem(ItemModel item, Location location){}
+        //public int GetItemBonusAtk(){}
+        //public int GetItemBonusDef(){}
+        //public int GetItemBonusSpd(){}
 
     }
 }
