@@ -43,7 +43,7 @@ namespace Game.Models
         public BaseMonster()
         {
             Name = "Default_Bad";
-            ImageURI = "isnanty.png";
+            ImageURI = "Insanty.png";
             Level = 1;
             MonsterHealth = 10;
             MaxHealth = 10;
