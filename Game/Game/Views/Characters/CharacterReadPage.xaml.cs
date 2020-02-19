@@ -28,6 +28,11 @@ namespace Game.Views
             Manabar.Progress = mana;
         }
 
+        /// <summary>
+        /// Button helper for update which adds an update page to the modal stack
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void Update_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new CharacterUpdatePage(new GenericViewModel<BaseCharacter>(ViewModel.Data))));
