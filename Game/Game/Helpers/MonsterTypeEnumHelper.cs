@@ -10,8 +10,7 @@ namespace Game.Helpers
     static class MonsterTypeEnumHelper
     {
         /// <summary>
-        /// Returns a list of strings of the enum for Attribute
-        /// Removes the attributes that are not changable by Items such as Unknown, MaxHealth
+        /// Returns a list of strings of the enum for Monster Type
         /// </summary>
         public static List<string> GetListMonsterType
         {
