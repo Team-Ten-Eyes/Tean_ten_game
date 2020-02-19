@@ -23,6 +23,8 @@
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
             <Label Text="Name" FontSize="Medium" />
+            <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="Start" 
+                   WidthRequest="350" HeightRequest="350"/>
             <Picker
                         ItemsSource="{x:Static local_helpers:MonsterTypeEnumHelper.GetListMonsterType}" 
                         SelectedItem="{Binding Data.Attribute, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
