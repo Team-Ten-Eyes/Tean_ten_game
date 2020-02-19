@@ -57,7 +57,9 @@
                                     <Label Grid.Column="2" Grid.Row="0"
                                        Text="{Binding Name}" 
                                        Style="{StaticResource ListStyle}"/>
-
+                                </StackLayout>
+                                <StackLayout Grid.Column="1" Grid.Row="1"
+                                             Orientation="Horizontal">
                                     <Label Text="Level:"
                                        FontAttributes="Bold"
                                        Style="{StaticResource LabelStyle}"/>
@@ -68,7 +70,7 @@
                                        FontSize="Micro"/>
 
                                 </StackLayout>
-                                <StackLayout Grid.Column="1" Grid.Row="1"
+                                <StackLayout Grid.Column="1" Grid.Row="3"
                                     Orientation="Horizontal">
 
                                     <Label Text="Class:"
