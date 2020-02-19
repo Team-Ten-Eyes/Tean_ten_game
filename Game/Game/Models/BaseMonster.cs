@@ -14,7 +14,7 @@ namespace Game.Models
 
         /// </summary>
         // Enum of the different attributes that the character modifies, Items can only modify one character
-        public MonsterTypeEnum Attribute { get; set; } = MonsterTypeEnum.Stress; //defaults to bravery
+        public MonsterTypeEnum Attribute { get; set; } = MonsterTypeEnum.Stress; //defaults to stress
 
 
         // characer stats//////////////////////////////////
