@@ -10,6 +10,9 @@ namespace Game.Views
     public partial class MonsterIndexPage : ContentPage
     {
         readonly MonsterViewModel ViewModel;
+        /// <summary>
+        /// Base Constructor for item index page
+        /// </summary>
         public MonsterIndexPage()
         {
             InitializeComponent();
@@ -35,6 +38,9 @@ namespace Game.Views
             //// Manually deselect item.
             MonsterListView.SelectedItem = null;
         }
+        /// <summary>
+        /// Button helped for monster add. Pushes a monal monster create to the navigation stack
+        /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         async void AddMonster_Clicked(object sender, EventArgs e)
@@ -46,8 +52,6 @@ namespace Game.Views
         /// <summary>
         /// Refresh the list on page appearing
         /// </summary>
-        /// 
-
         protected override void OnAppearing()
         {
             base.OnAppearing();

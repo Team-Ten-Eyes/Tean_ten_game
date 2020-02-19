@@ -16,7 +16,7 @@ namespace Game.Services
                 new ItemModel {
                     Name = "Sword Of Truth",
                     Description = "Sword made of Gold, really expensive looking",
-                    ImageURI = "http://www.clker.com/cliparts/e/L/A/m/I/c/sword-md.png",
+                    ImageURI = "tinfoil.png",
                     Range = 0,
                     Damage = 5,
                     Value = 6,
@@ -26,7 +26,7 @@ namespace Game.Services
                 new ItemModel {
                     Name = "Tinfoil Hat",
                     Description = "It'll stop the government rays",
-                    ImageURI = "http://www.clipartbest.com/cliparts/4T9/LaR/4T9LaReTE.png",
+                    ImageURI = "tinfoil.png",
                     Range = 0,
                     Damage = 2,
                     Value = 9,
@@ -36,7 +36,7 @@ namespace Game.Services
                 new ItemModel {
                     Name = "Starbucks Coffee",
                     Description = "Good bean juice makes my brain fast",
-                    ImageURI = "http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png",
+                    ImageURI = "tinfoil.png",
                     Range = 0,
                     Damage = 0,
                     Value = 9,
@@ -86,7 +86,7 @@ namespace Game.Services
                 },
                   new BaseCharacter
                 {
-                   Name="sneaky",
+                   Name="Conniving",
                     ImageURI = "cunning.png",
                     Level=7,
                     CharHealth=15,
@@ -101,7 +101,7 @@ namespace Game.Services
                 },
                 new BaseCharacter
                 {
-                    Name="Atristic",
+                    Name="Artistic",
                     ImageURI = "creativity.png",
                     Level=12,
                     CharHealth=20,
