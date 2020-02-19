@@ -14,6 +14,10 @@ namespace Game.Views
     public partial class CharacterCreatePage : ContentPage
     {
         GenericViewModel<BaseCharacter> ViewModel { get; set; }
+
+        /// <summary>
+        /// Base constructor for the create page
+        /// </summary>
         public CharacterCreatePage(GenericViewModel<BaseCharacter> data)
         {
             InitializeComponent();
@@ -26,6 +30,11 @@ namespace Game.Views
 
         }
 
+        /// <summary>
+        /// Save current data binding when the save button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public async void OnSaveButtonClicked(object sender, EventArgs e)
         {
             if (ViewModel.Data.Name.Length > 12)
@@ -36,14 +45,16 @@ namespace Game.Views
                 await Navigation.PopModalAsync();
             }
         }
-
+        /// <summary>
+        /// Override of back button for android
+        /// </summary>
         protected override bool OnBackButtonPressed()
         {
             return true;
         }
 
         /// <summary>
-        /// the cancle button with back out of the create page and 
+        /// the cancel button with back out of the create page and 
         /// Direct the user back to the list page
         /// </summary>
         /// <param name="sender"></param>
