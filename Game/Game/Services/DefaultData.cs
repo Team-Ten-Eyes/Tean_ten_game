@@ -125,7 +125,7 @@ namespace Game.Services
             {
                 new BaseMonster {
                     Name="Stress",
-                    ImageURI = "Stress_dragon.png",
+                    ImageURI = "Fire_monster.png",
                     Level=12,
                     MonsterHealth=20,
                     MaxHealth=20,
@@ -137,7 +137,7 @@ namespace Game.Services
 
                 new BaseMonster {
                     Name="StresssedTest",
-                    ImageURI = "Stress_dragon.png",
+                    ImageURI = "Shadow_Monster.png",
                     Level=12,
                     MonsterHealth=20,
                     MaxHealth=20,
