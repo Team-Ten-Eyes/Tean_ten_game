@@ -14,6 +14,11 @@ namespace Game.Views
     public partial class MonsterCreatePage : ContentPage
     {
         GenericViewModel<BaseMonster> ViewModel { get; set; }
+
+        /// <summary>
+        /// Base Constructor for the Monster Create Page
+        /// </summary>
+        /// <param name="data"></param>
         public MonsterCreatePage(GenericViewModel<BaseMonster> data)
         {
             InitializeComponent();
@@ -27,9 +32,10 @@ namespace Game.Views
 
 
         /// <summary>
-        /// will save the monster the user just created the list
+        /// Save by calling for Create
         /// </summary>
-        /// <returns></returns>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public async void OnSaveButtonClicked(object sender, EventArgs e)
         {
             if (ViewModel.Data.Name.Length > 12)
