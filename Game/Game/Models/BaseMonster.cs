@@ -8,38 +8,38 @@ namespace Game.Models
     {
 
 
-        //  character level info//////////////////////////////
+        //  character level info//
         public uint Level { get; set; } = 1;
 
 
         /// </summary>
-        // Enum of the different attributes that the character modifies, Items can only modify one character
+        // Enum of the different class that the monster modifies
         public MonsterTypeEnum Attribute { get; set; } = MonsterTypeEnum.Stress; //defaults to stress
 
 
         // characer stats//////////////////////////////////
+        //current health
         public uint MonsterHealth { get; set; } = 0;
-
+        
         public uint MaxHealth { get; set; } = 0;
-
+        //used to calculate TOHit contest
         public uint Attack { get; set; } = 0;
-
+        //used to calculat ToHit contest
         public uint Defense { get; set; } = 0;
-
+        //Used to determine turn order
         public uint Speed { get; set; } = 0;
 
         public bool IsAlive = true;
 
 
-       
+
         ////////////////////////////////////////////////////
 
-        // Add Unique attributes for Item
+        // Special items dropped by a monster on battleend
+        public List<ItemModel> SpecialDrop { get; set; } = null;
+       
+        //Default constructor
 
-        /// <summary>
-        /// Default ItemModel
-        /// Establish the Default Image Path
-        /// </summary>
         public BaseMonster()
         {
             Name = "Default_Bad";
@@ -54,7 +54,7 @@ namespace Game.Models
         }
 
         /// <summary>
-        /// Constructor to create an item based on what is passed in
+        /// Copy Constructor to create an item based on what is passed in
         /// </summary>
         /// <param name="data"></param>
         public BaseMonster(BaseMonster data)

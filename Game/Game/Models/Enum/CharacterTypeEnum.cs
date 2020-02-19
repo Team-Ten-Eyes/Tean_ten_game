@@ -1,7 +1,7 @@
 ﻿namespace Game.Models
 {
     /// <summary>
-    /// List of items to show in the Menu
+    /// List of different Character classes
     /// </summary>
     public enum CharacterTypeEnum
     { 

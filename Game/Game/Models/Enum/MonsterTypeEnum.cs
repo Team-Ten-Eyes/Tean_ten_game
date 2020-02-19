@@ -1,8 +1,7 @@
 ﻿namespace Game.Models
 {
     /// <summary>
-    /// List of items to show in the Menu
-    /// </summary>
+    /// List of different Monster classes
     public enum MonsterTypeEnum
     { 
         Unknown = 0,

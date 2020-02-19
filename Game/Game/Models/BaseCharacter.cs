@@ -6,35 +6,35 @@ namespace Game.Models
 {
     public class BaseCharacter : BaseModel<BaseCharacter>
     {
-        //  character level info//////////////////////////////
+        //  character level info//
         public uint Level { get; set; } = 1;
 
+        // character total experience //
         public uint Experience { get; set; } = 0;
-        /// //////////////////////////////////////////
-        /// 
 
-        /// </summary>
-        // Enum of the different attributes that the character modifies, Items can only modify one character
+        // Enum of the different "CLass" that the character has
         public CharacterTypeEnum Attribute { get; set; } = CharacterTypeEnum.Bravery; //defaults to bravery
 
-
-        // characer stats//////////////////////////////////
+        // characer stats//
+        //Current Health
         public uint CharHealth { get; set; } = 0;
 
         public uint MaxHealth { get; set; } = 0;
-
+        //Current Mana, Mana is used for special attacks, this feature will be added later
         public uint Mana { get; set; } = 0;
-
+       
         public uint MaxMana { get; set; } = 0;
-
+        //Used to calculate ToHit roll
         public uint Attack { get; set; } = 0;
-
+        //used to determine ToHit contest
         public uint Defense { get; set; } = 0;
-
+        //Used to determine turn order in battle
         public uint Speed { get; set; } = 0;
 
-        public List<ItemModel> HeldItems;
 
+        //Items held by a character
+        public List<ItemModel> HeldItems;
+       
         public bool IsAlive = true;
         ////////////////////////////////////////////////////
 
@@ -60,7 +60,7 @@ namespace Game.Models
         }
 
         /// <summary>
-        /// Constructor to create an item based on what is passed in
+        /// Copy Constructor to create an item based on what is passed in
         /// </summary>
         /// <param name="data"></param>
         public BaseCharacter(BaseCharacter data)
@@ -104,41 +104,42 @@ namespace Game.Models
 
             return myReturn.Trim();
         }
-
+        //Method to be called when a character levels up, not implemented
         public bool LevelUp() {
             return true;
         }
-
+        //Adds experience upon a hit of a monster, not implemented
         public bool AddExperience(uint toAdd) {
             Experience += toAdd;
             return true;
         }
-
+        //Method to remove HP from a character and returns if a Char is dead
         public bool TakeDamage(uint Damage) {
             CharHealth -= Damage;
             if (CharHealth <= 0)
                 IsAlive = false;
-            return true;
+            return IsAlive;
         }
 
         //public int GetAttack() { }
-
+        //Used to determine the Class of a character
         public CharacterTypeEnum GetCharType(){
             return Attribute;
         }
 
+        //Used to reduce mana points after a special attack is used
         public bool TakeMana(uint mana) {
             Mana -= mana;
             return true;
         }
-
+        //Called when some special item is used
         public bool AddMana(uint mana) {
             if (mana + Mana > MaxMana)
                 Mana = MaxMana;
             else Mana += mana;
             return true;
         }
-
+        //Called on level up
         public void AddMaxMana() {
             Mana = MaxMana;
         }
