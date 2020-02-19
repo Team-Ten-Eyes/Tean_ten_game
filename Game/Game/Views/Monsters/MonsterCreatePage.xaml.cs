@@ -32,8 +32,12 @@ namespace Game.Views
         /// <returns></returns>
         public async void OnSaveButtonClicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "Create", ViewModel.Data);
-            await Navigation.PopModalAsync();
+            if (ViewModel.Data.Name.Length > 12)
+                await DisplayAlert("Name Too Long", "Must Be Less Than 13 Chars", "OK");
+            else {
+                MessagingCenter.Send(this, "Create", ViewModel.Data);
+                await Navigation.PopModalAsync();
+            }
         }
 
         /// <summary>
