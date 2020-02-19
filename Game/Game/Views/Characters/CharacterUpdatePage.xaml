@@ -52,13 +52,17 @@
             <StackLayout Orientation="Vertical" Padding="20"
                                  HorizontalOptions="Start"
                                  VerticalOptions="End">
-                <Label Text="New Name:" FontSize="Medium" HorizontalOptions="Center" />
+                <Label Text="New Name:" FontSize="Medium" HorizontalOptions="Center" FontAttributes="Bold" />
                 <Entry Text="{Binding Data.Name}" d:Text="Character Name" FontSize="Small"/>
                 <StackLayout Orientation="Horizontal">
                     <Button Text="Save Changes"
                                 Clicked="OnSaveButtonClicked"
+                            BackgroundColor="#Co3BFC"
+                            TextColor="Black"
                             HorizontalOptions="CenterAndExpand" />
                     <Button Text="Cancel"
+                            BackgroundColor="#Co3BFC"
+                                TextColor="Black"
                                  Clicked="CancelButtonClicked"
                                      HorizontalOptions="CenterAndExpand"/>
 
