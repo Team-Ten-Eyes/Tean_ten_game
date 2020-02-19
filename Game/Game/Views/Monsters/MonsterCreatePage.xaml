@@ -1,17 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:local="using:Game.Models"
+             xmlns:local_helpers="clr-namespace:Game.Helpers"
+             xmlns:local_enum="clr-namespace:Game.Models"
              x:Class="Game.Views.MonsterCreatePage"
-             BackgroundColor="#F2EBDC">
+            >
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local_helpers:StringEnumConverter x:Key="StringEnum"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Create Monster"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
             <Label Text="Name" FontSize="Medium" />
+            <Picker
+                        ItemsSource="{x:Static local_helpers:MonsterTypeEnumHelper.GetListMonsterType}" 
+                        SelectedItem="{Binding Data.Attribute, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
+                        x:Name="MonsterTypePicker"/>
+            
             <Entry Text="{Binding Data.Name}" d:Text="Monster Name" FontSize="Small"/>
             <StackLayout Orientation="Horizontal">
                 <Button Text="Save Changes"
