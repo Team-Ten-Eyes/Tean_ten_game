@@ -33,5 +33,9 @@ namespace Game.Views
         {
             return true;
         }
+        async void CancelButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+        }
     }
 }
