@@ -28,6 +28,9 @@ namespace Game.Models
 
         public uint Speed { get; set; } = 0;
 
+        public bool IsAlive = true;
+
+
        
         ////////////////////////////////////////////////////
 
@@ -92,6 +95,22 @@ namespace Game.Models
 
             return myReturn.Trim();
         }
+
+        public bool TakeDamage(uint Damage) {
+            MonsterHealth -= Damage;
+            if (MonsterHealth < 1)
+                IsAlive = false;
+            return true;
+        }
+
+        public string GetType() {
+            return Attribute.ToString();
+        }
+
+        //TO BE IMPLEMENTED WITH BATTLE SYSTEM
+        //public int GetDamageDice(){}
+        //public int GetDamageRollValue(){}
+        //public ItemModel RollItemDrop(){}
 
 
     }

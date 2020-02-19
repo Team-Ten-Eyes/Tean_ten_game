@@ -33,6 +33,8 @@ namespace Game.Models
 
         public uint Speed { get; set; } = 0;
 
+        public List<ItemModel> HeldItems;
+
         public bool IsAlive = true;
         ////////////////////////////////////////////////////
 
@@ -46,15 +48,15 @@ namespace Game.Models
         {
             Name = "Default";
             ImageURI = "wizard_avatar.png";
-            Level = 7;
-            CharHealth = 15;
-            MaxHealth = 15;
+            Level = 1;
+            CharHealth = 10;
+            MaxHealth = 10;
             Mana = 5;
-            MaxMana = 10;
-            Experience = 5;
-            Attack = 15;
-            Defense = 10;
-            Speed = 2;
+            MaxMana = 5;
+            Experience = 1;
+            Attack = 5;
+            Defense = 5;
+            Speed = 3;
         }
 
         /// <summary>
@@ -141,6 +143,7 @@ namespace Game.Models
             Mana = MaxMana;
         }
 
+        //TO BE IMPLEMENTED WITH BATTLE SYSTEM
         //public int GetDamageDice(){}
         //public int GetDamageRollValue(){}
         //public List<ItemModel> DropAllItems(){}
