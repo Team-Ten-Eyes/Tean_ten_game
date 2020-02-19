@@ -16,6 +16,10 @@ namespace Game.Views
     {
 
         readonly GenericViewModel<BaseCharacter> ViewModel;
+
+        /// <summary>
+        /// Base constructor for Char Update Page
+        /// </summary>
         public CharacterUpdatePage(GenericViewModel<BaseCharacter> data)
         {
             InitializeComponent();
@@ -23,6 +27,11 @@ namespace Game.Views
             BindingContext = this.ViewModel = data;
         }
 
+        /// <summary>
+        /// Save button helper which sends to the message center an update request with context data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public async void OnSaveButtonClicked(object sender, EventArgs e)
         {
             if (ViewModel.Data.Name.Length > 12)
@@ -33,10 +42,19 @@ namespace Game.Views
             }
         }
 
+        /// <summary>
+        /// Android back button supression
+        /// </summary>
         protected override bool OnBackButtonPressed()
         {
             return true;
         }
+
+        /// <summary>
+        /// Cancel button helper to pop the current page from the modal stack
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void CancelButtonClicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
