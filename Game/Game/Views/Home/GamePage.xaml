@@ -40,7 +40,7 @@
                 <StackLayout Style="{StaticResource CardImageTextBox}">
 
                     <ImageButton
-                        Source="dungeon_door.png"
+                        Source="auto_battle.png"
                         Clicked="AutobattleButton_Clicked"/>
 
                     <Label 
