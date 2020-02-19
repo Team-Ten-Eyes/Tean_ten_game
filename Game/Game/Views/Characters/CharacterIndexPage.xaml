@@ -15,10 +15,13 @@
     <ContentPage.Content>
         <StackLayout Style="{StaticResource OuterBoxStack}">
 
-            <Label Text="Character List Page" Style="{StaticResource HeaderStyle}"/>
+            <Label Text="Character List Page"
+                   FontSize="Header"
+                   FontAttributes="Bold"
+                   Style="{StaticResource HeaderStyle}"/>
 
             <ListView x:Name="CharacterListView"
-                    ItemsSource="{Binding Dataset}"
+                    ItemsSource="{Binding Dataset}" 
                     IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                     RefreshCommand="{Binding LoadItemsCommand}"
                     CachingStrategy="RecycleElement"
@@ -44,45 +47,43 @@
 
                                 <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
                                         Source="{Binding ImageURI}"
+                                        HeightRequest="50"
                                         Style="{StaticResource ImageSmallStyle}"
                                         VerticalOptions="CenterAndExpand"/>
                                 <StackLayout Grid.Column="1" Grid.Row="0"
                                              Orientation="Horizontal">
-                                    
-                                <Label Grid.Column="1" Grid.Row="0"
+
+                                    <Label Grid.Column="1" Grid.Row="0"
                                        Text="Name:"
                                        FontAttributes="Bold"
                                        Style="{StaticResource ListStyle}"/>
 
-                                <Label Grid.Column="2" Grid.Row="0"
+                                    <Label Grid.Column="2" Grid.Row="0"
                                        Text="{Binding Name}" 
                                        Style="{StaticResource ListStyle}"/>
-
-                                <Label Text="Level:"
+                                </StackLayout>
+                                <StackLayout Grid.Column="1" Grid.Row="1"
+                                             Orientation="Horizontal">
+                                        <Label Text="Level:"
                                        FontAttributes="Bold"
                                        Style="{StaticResource LabelStyle}"/>
 
 
-                                <Label Text="{Binding Level}" 
+                                        <Label Text="{Binding Level}" 
                                        Style="{StaticResource ListStyle}"
                                        FontSize="Micro"/>
+                                    </StackLayout>
 
-                                </StackLayout>
-                                <StackLayout Grid.Column="1" Grid.Row="1"
+                                <StackLayout Grid.Column="1" Grid.Row="2"
                                     Orientation="Horizontal">
-                                    
+
                                     <Label Text="Class:"
                                            FontAttributes="Bold"
                                            Style="{StaticResource LabelStyle}"/>
                                     <Label 
                                        Text="{Binding Attribute}" 
                                        Style="{StaticResource ListStyle}"/>
-
-
                                 </StackLayout>
-
-                  
-
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
