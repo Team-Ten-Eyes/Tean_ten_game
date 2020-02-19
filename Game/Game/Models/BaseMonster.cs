@@ -103,7 +103,7 @@ namespace Game.Models
             return true;
         }
 
-        public string GetType() {
+        public string GetMonsterType() {
             return Attribute.ToString();
         }
 
