@@ -5,8 +5,8 @@
     /// </summary>
     public enum CharacterTypeEnum
     { 
-        Bravery,
-        Creativity,
-        Cunning    
+        Bravery = 1,
+        Creativity = 2,
+        Cunning = 3,   
     }
 }
