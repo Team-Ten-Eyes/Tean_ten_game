@@ -44,12 +44,12 @@ namespace Game.Models
         {
             Name = "Default_Bad";
             ImageURI = "isnanty.png";
-            Level = 7;
-            MonsterHealth = 15;
-            MaxHealth = 15;
-            Attack = 15;
-            Defense = 10;
-            Speed = 2;
+            Level = 1;
+            MonsterHealth = 10;
+            MaxHealth = 10;
+            Attack = 3;
+            Defense = 3;
+            Speed = 3;
             Description = "Stress monster";
         }
 
