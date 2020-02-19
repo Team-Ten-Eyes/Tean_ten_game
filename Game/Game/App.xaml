@@ -22,9 +22,12 @@
                 Dark
                 -->
 
-            <Color x:Key="PageBackgroundColor">#D9C6B0</Color>
-            <Color x:Key="ViewBackgroundColor">#BF895A</Color>
-            <Color x:Key="NavigationBarColor">#D9C6B0</Color>
+            
+            
+            
+            <Color x:Key="PageBackgroundColor">#7FD9BF</Color>
+            <Color x:Key="ViewBackgroundColor">#F2EBDC</Color>
+            <Color x:Key="NavigationBarColor">#C03BFC</Color>
 
             <Color x:Key="PrimaryBackgroundColor">#D9C6B0</Color>
             <Color x:Key="SecondaryBackgroundColor">#BF895A</Color>
@@ -39,7 +42,7 @@
 
             <!-- Pages -->
             <Style TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor" Value="{StaticResource ViewBackgroundColor}" />
+                <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationBarColor}" />
                 <Setter Property="BarTextColor" Value="{StaticResource SecondaryTextColor}" />
             </Style>
 
