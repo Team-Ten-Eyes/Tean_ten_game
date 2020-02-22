@@ -11,6 +11,10 @@ namespace Game.Models
         // Location to the image for the item.  Will come from the server as a fully qualified URI example:  https://developer.android.com/images/robot-tiny.png
         public string ImageURI { get; set; }
 
+        /// <summary>
+        /// Update Method is virutal and changed for each class
+        /// </summary>
+        /// <param name="newData"></param>
         public virtual void Update(T newData)
         {
             
