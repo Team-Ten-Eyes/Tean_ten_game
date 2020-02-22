@@ -4,12 +4,8 @@ using System.Text;
 
 namespace Game.Models
 {
-    public class BaseMonster : BaseModel<BaseMonster>
+    public class BaseMonster : PlayerModel<BaseMonster>
     {
-
-
-        //  character level info//
-        public uint Level { get; set; } = 1;
 
 
         /// </summary>
@@ -19,25 +15,12 @@ namespace Game.Models
 
         // characer stats//////////////////////////////////
         //current health
-        public uint MonsterHealth { get; set; } = 0;
-        
-        public uint MaxHealth { get; set; } = 0;
-        //used to calculate TOHit contest
-        public uint Attack { get; set; } = 0;
-        //used to calculat ToHit contest
-        public uint Defense { get; set; } = 0;
-        //Used to determine turn order
-        public uint Speed { get; set; } = 0;
-
-        public bool IsAlive = true;
 
 
 
         ////////////////////////////////////////////////////
 
         // Special items dropped by a monster on battleend
-        public List<ItemModel> SpecialDrop { get; set; } = null;
-       
         //Default constructor
 
         public BaseMonster()
@@ -45,7 +28,7 @@ namespace Game.Models
             Name = "Default_Bad";
             ImageURI = "Insanty.png";
             Level = 1;
-            MonsterHealth = 10;
+            CurrHealth = 10;
             MaxHealth = 10;
             Attack = 3;
             Defense = 3;
@@ -96,14 +79,10 @@ namespace Game.Models
             return myReturn.Trim();
         }
 
-        public bool TakeDamage(uint Damage) {
-            MonsterHealth -= Damage;
-            if (MonsterHealth < 1)
-                IsAlive = false;
-            return true;
-        }
 
-        public string GetMonsterType() {
+
+        public string GetMonsterType()
+        {
             return Attribute.ToString();
         }
 
