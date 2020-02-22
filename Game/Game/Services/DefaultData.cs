@@ -16,7 +16,7 @@ namespace Game.Services
                 new ItemModel {
                     Name = "Sword Of Truth",
                     Description = "Sword made of Gold, really expensive looking",
-                    ImageURI = "tinfoil.png",
+                    ImageURI = "claymore.png",
                     Range = 0,
                     Damage = 5,
                     Value = 6,
@@ -36,7 +36,7 @@ namespace Game.Services
                 new ItemModel {
                     Name = "Starbucks Coffee",
                     Description = "Good bean juice makes my brain fast",
-                    ImageURI = "tinfoil.png",
+                    ImageURI = "Coffee.png",
                     Range = 0,
                     Damage = 0,
                     Value = 9,
