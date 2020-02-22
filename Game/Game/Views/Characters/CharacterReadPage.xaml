@@ -22,6 +22,10 @@
                 <Label Text="{Binding Data.Level}" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
+                <Label Text="Class: " HorizontalOptions="EndAndExpand" FontAttributes="Bold"/>
+                <Label Text="{Binding Data.Attribute}" HorizontalOptions="StartAndExpand" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
                 <Image Source="{Binding Data.ImageURI}" WidthRequest="200" HeightRequest="200" />
                 <StackLayout Orientation="Vertical">
 
