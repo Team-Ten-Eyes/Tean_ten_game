@@ -106,6 +106,7 @@
   <ItemGroup>
     <Content Include="auto_battle.png" />
     <Content Include="battleboard.jpg" />
+    <Content Include="brain.gif" />
     <Content Include="Brain.png" />
     <Content Include="cauldren.png" />
     <Content Include="claymore.png" />
