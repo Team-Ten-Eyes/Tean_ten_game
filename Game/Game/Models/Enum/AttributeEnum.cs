@@ -24,4 +24,50 @@
         // The highest value health can go
         MaxHealth = 18,
     }
+
+    /// <summary>
+    /// Friendly strings for the Enum Class
+    /// </summary>
+    public static class AttributeEnumExtensions
+    {
+        /// <summary>
+        /// Display a String for the Enums
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static string ToMessage(this AttributeEnum value)
+        {
+            // Default String
+            var Message = "Unknown";
+
+            switch (value)
+            {
+                case AttributeEnum.Attack:
+                    Message = "Attack";
+                    break;
+
+                case AttributeEnum.CurrentHealth:
+                    Message = "Current Health";
+                    break;
+
+                case AttributeEnum.Defense:
+                    Message = "Defense";
+                    break;
+
+                case AttributeEnum.MaxHealth:
+                    Message = "Max Health";
+                    break;
+
+                case AttributeEnum.Speed:
+                    Message = "Speed";
+                    break;
+
+                case AttributeEnum.Unknown:
+                default:
+                    break;
+            }
+
+            return Message;
+        }
+    }
 }

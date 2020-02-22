@@ -1,12 +1,36 @@
-﻿using System;
+﻿using Game.Helpers;
+using Game.ViewModels;
+using SQLite;
+using System;
 using System.Collections.Generic;
-using System.Text;
-
 namespace Game.Models
 {
     public class PlayerModel<T> : BaseModel<T>
     {
-        //  character level info//
+        #region Attributes
+        #region GameEngineAttributes
+        //alive status, !alive will be removed from the list
+        [Ignore]
+
+        public bool Alive { get; set; } = true;
+
+        //the type of player, character comes before monster
+        [Ignore]
+        public PlayerTypeEnum PlayerType{ get; set; } = PlayerTypeEnum.Unknown;
+
+        //TurnOrder
+        [Ignore]
+        public int Order { get; set; } = 0;
+
+        //Remember who was first into the list ...
+        [Ignore]
+        public int ListOrder { get; set; } = 0;
+
+        #endregion GameEngineAttributes
+
+        #region PlayerAttributes
+
+        //  character level info for character or monster
         public uint Level { get; set; } = 1;
 
         // character total experience //
@@ -18,6 +42,8 @@ namespace Game.Models
         //Current Health
         public uint CurrHealth { get; set; } = 0;
 
+        //Total Expereince
+        public int ExpereinceTotal { get; set; } = 0;
         // MaxHealth
         public uint MaxHealth { get; set; } = 1;
 
@@ -28,17 +54,36 @@ namespace Game.Models
         //Used to determine turn order in battle
         public uint Speed { get; set; } = 0;
 
+        #endregion PlayerAttributes
 
+        #endregion Attributes
+
+        #region Items
         //Items held by a character
 
+        // ItemModel is a string referencing the database table
         public string HeadItem { get; set; } = null;
+
+        //NeckItem referencing the database table
         public string NeckItem { get; set; } = null;
+
+        // Offhand is a string referencing the database table
         public string OffHand { get; set; } = null;
+
+        // PrimaryHand is a string referencing the database table
         public string PrimaryHand { get; set; } = null;
+
+        // RightFinger is a string referencing the database table
         public string RightFinger { get; set; } = null;
+
+        // LeftFinger is a string referencing the database table
+        public string LeftFinger { get; set; } = null;
 
         public bool IsAlive = true;
         ////////////////////////////////////////////////////
+        ///
+        #endregion Items
+
 
         // Add Unique attributes for Item
 
