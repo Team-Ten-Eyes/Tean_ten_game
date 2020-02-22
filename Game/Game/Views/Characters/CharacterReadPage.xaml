@@ -29,7 +29,7 @@
                 <Image Source="{Binding Data.ImageURI}" WidthRequest="200" HeightRequest="200" />
                 <StackLayout Orientation="Vertical">
 
-                    <Grid HorizontalOptions="EndAndExpand">
+                    <Grid HorizontalOptions="EndAndExpand" >
                         <Grid.RowDefinitions>
                             <RowDefinition Height = "Auto" />
                             <RowDefinition Height = "Auto" />
@@ -41,11 +41,11 @@
                             <ColumnDefinition Width ="Auto" />
                             <ColumnDefinition Width ="Auto" />
                         </Grid.ColumnDefinitions>
-                        <Label Text="HP ---" FontAttributes="Bold"  Grid.Row ="1" Grid.Column="0"/>
-                        <Label Text="ATK ---" FontAttributes="Bold" Grid.Row ="2" Grid.Column="0"/>
-                        <Label Text="DEF ---" FontAttributes="Bold" Grid.Row ="3" Grid.Column="0"/>
-                        <Label Text="SPD ---" FontAttributes="Bold"  Grid.Row ="4" Grid.Column="0"/>
-                        <Label Text="XP ---" FontAttributes="Bold"  Grid.Row ="5" Grid.Column="0"/>
+                        <Label Text="HP ---" FontAttributes="Bold" HorizontalOptions="End" Grid.Row ="1" Grid.Column="0"/>
+                        <Label Text="ATK ---" FontAttributes="Bold" HorizontalOptions="End" Grid.Row ="2" Grid.Column="0"/>
+                        <Label Text="DEF ---" FontAttributes="Bold" HorizontalOptions="End" Grid.Row ="3" Grid.Column="0"/>
+                        <Label Text="SPD ---" FontAttributes="Bold" HorizontalOptions="End" Grid.Row ="4" Grid.Column="0"/>
+                        <Label Text="XP ---" FontAttributes="Bold" HorizontalOptions="End" Grid.Row ="5" Grid.Column="0"/>
                         <Label Text="{Binding Data.MaxHealth}"  Grid.Row ="1" Grid.Column="1"/>
                         <Label Text="{Binding Data.Attack}"  Grid.Row ="2" Grid.Column="1"/>
                         <Label Text="{Binding Data.Defense}"  Grid.Row ="3" Grid.Column="1"/>
