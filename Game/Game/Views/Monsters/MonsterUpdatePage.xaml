@@ -5,7 +5,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Game.Views.MonsterUpdatePage"
+             xmlns:local_helpers="clr-namespace:Game.Helpers"
              BackgroundColor="#F2EBDC">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local_helpers:StringEnumConverter x:Key="StringEnum"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
             <Label Text="Update Monster" FontSize="Header" FontAttributes="Bold" 
@@ -48,14 +56,26 @@
             <StackLayout Orientation="Vertical" Padding="20"
                                  HorizontalOptions="Start"
                                  VerticalOptions="End">
+                
+                <Label Text="New Type:" FontSize="Medium" HorizontalOptions="Center" FontAttributes="Bold"/>
+                
+                <Picker
+                        ItemsSource="{x:Static local_helpers:MonsterTypeEnumHelper.GetListMonsterType}" 
+                        SelectedItem="{Binding Data.Attribute, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
+                        x:Name="MonsterTypePicker"/>
+                
                 <Label Text="New Name:" FontSize="Medium" HorizontalOptions="Center" FontAttributes="Bold" />
+                
                 <Entry Text="{Binding Data.Name}" d:Text="Character Name" FontSize="Small"/>
+                
                 <StackLayout Orientation="Horizontal">
+                    
                     <Button Text="Save Changes"
                                 Clicked="OnSaveButtonClicked"
                             BackgroundColor="#Co3BFC"
                             TextColor="Black"
                             HorizontalOptions="CenterAndExpand" />
+                    
                     <Button Text="Cancel"
                             BackgroundColor="#Co3BFC"
                                 TextColor="Black"

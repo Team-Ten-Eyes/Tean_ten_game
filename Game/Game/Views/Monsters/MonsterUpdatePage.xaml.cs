@@ -21,6 +21,8 @@ namespace Game.Views
             InitializeComponent();
 
             BindingContext = this.ViewModel = data;
+
+            MonsterTypePicker.SelectedItem = data.Data.Attribute.ToString();
         }
 
 

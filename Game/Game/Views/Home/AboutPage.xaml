@@ -17,7 +17,7 @@
 
             <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand">
 
-                <Image Source="dice_20.png" Style="{StaticResource ImageMediumStyle}"/>
+                <Image Source="brain.gif" Style="{StaticResource ImageMediumStyle}" IsAnimationPlaying="True"/>
                 <Label Text="Insanity Simulator 2020" Style="{StaticResource HeaderStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
                 <Label Text="Team Ten Eyes" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
                 <Label x:Name="CurrentDateTime" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
