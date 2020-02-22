@@ -16,10 +16,10 @@
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
             <StackLayout Orientation="Horizontal">
-                <Label Text="{Binding Data.Name}" />
-                <Label Text="-------------- Level:" 
+                <Label Text="{Binding Data.Name}" HorizontalOptions="EndAndExpand"/>
+                <Label Text="- Level:" 
                        FontAttributes="Bold"/>
-                <Label Text="{Binding Data.Level}" />
+                <Label Text="{Binding Data.Level}" HorizontalOptions="StartAndExpand"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Class: " HorizontalOptions="EndAndExpand" FontAttributes="Bold"/>
@@ -29,7 +29,7 @@
                 <Image Source="{Binding Data.ImageURI}" WidthRequest="200" HeightRequest="200" />
                 <StackLayout Orientation="Vertical">
 
-                    <Grid>
+                    <Grid HorizontalOptions="EndAndExpand">
                         <Grid.RowDefinitions>
                             <RowDefinition Height = "Auto" />
                             <RowDefinition Height = "Auto" />
@@ -41,16 +41,16 @@
                             <ColumnDefinition Width ="Auto" />
                             <ColumnDefinition Width ="Auto" />
                         </Grid.ColumnDefinitions>
-                        <Label Text="HP ---" FontAttributes="Bold"   Grid.Row ="1" Grid.Column="0"/>
-                        <Label Text="ATK ---" FontAttributes="Bold"  Grid.Row ="2" Grid.Column="0"/>
-                        <Label Text="DEF ---" FontAttributes="Bold"  Grid.Row ="3" Grid.Column="0"/>
-                        <Label Text="SPD ---" FontAttributes="Bold"   Grid.Row ="4" Grid.Column="0"/>
+                        <Label Text="HP ---" FontAttributes="Bold"  Grid.Row ="1" Grid.Column="0"/>
+                        <Label Text="ATK ---" FontAttributes="Bold" Grid.Row ="2" Grid.Column="0"/>
+                        <Label Text="DEF ---" FontAttributes="Bold" Grid.Row ="3" Grid.Column="0"/>
+                        <Label Text="SPD ---" FontAttributes="Bold"  Grid.Row ="4" Grid.Column="0"/>
                         <Label Text="XP ---" FontAttributes="Bold"  Grid.Row ="5" Grid.Column="0"/>
-                            <Label Text="{Binding Data.MaxHealth}"  Grid.Row ="1" Grid.Column="1"/>
-                            <Label Text="{Binding Data.Attack}"  Grid.Row ="2" Grid.Column="1"/>
-                            <Label Text="{Binding Data.Defense}"  Grid.Row ="3" Grid.Column="1"/>
-                            <Label Text="{Binding Data.Speed}"  Grid.Row ="4" Grid.Column="1"/>
-                            <Label Text="{Binding Data.Experience}"  Grid.Row ="5" Grid.Column="1"/>
+                        <Label Text="{Binding Data.MaxHealth}"  Grid.Row ="1" Grid.Column="1"/>
+                        <Label Text="{Binding Data.Attack}"  Grid.Row ="2" Grid.Column="1"/>
+                        <Label Text="{Binding Data.Defense}"  Grid.Row ="3" Grid.Column="1"/>
+                        <Label Text="{Binding Data.Speed}"  Grid.Row ="4" Grid.Column="1"/>
+                        <Label Text="{Binding Data.Experience}"  Grid.Row ="5" Grid.Column="1"/>
                     </Grid>
                 </StackLayout>
             </StackLayout>
