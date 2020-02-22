@@ -36,7 +36,7 @@ namespace Game.Services
                 new ItemModel {
                     Name = "Starbucks Coffee",
                     Description = "Good bean juice makes my brain fast",
-                    ImageURI = "tinfoil.png",
+                    ImageURI = "Coffee.png",
                     Range = 0,
                     Damage = 0,
                     Value = 9,
