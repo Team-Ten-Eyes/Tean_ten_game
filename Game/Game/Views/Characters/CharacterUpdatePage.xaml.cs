@@ -25,6 +25,7 @@ namespace Game.Views
             InitializeComponent();
 
             BindingContext = this.ViewModel = data;
+            CharacterTypePicker.SelectedItem = data.Data.Attribute.ToString();
         }
 
         /// <summary>

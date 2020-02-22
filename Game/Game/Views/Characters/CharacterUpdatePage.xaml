@@ -4,9 +4,15 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:local_helpers="clr-namespace:Game.Helpers"
              x:Class="Game.Views.CharacterUpdatePage"
              BackgroundColor="#F2EBDC">
-
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local_helpers:StringEnumConverter x:Key="StringEnum"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
@@ -52,6 +58,11 @@
             <StackLayout Orientation="Vertical" Padding="20"
                                  HorizontalOptions="Start"
                                  VerticalOptions="End">
+                <Label Text="New Type:" FontSize="Medium" HorizontalOptions="Center" FontAttributes="Bold"/>
+                <Picker
+                        ItemsSource="{x:Static local_helpers:CharacterTypeEnumHelper.GetListCharacterType}" 
+                        SelectedItem="{Binding Data.Attribute, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
+                        x:Name="CharacterTypePicker"/>
                 <Label Text="New Name:" FontSize="Medium" HorizontalOptions="Center" FontAttributes="Bold" />
                 <Entry Text="{Binding Data.Name}" d:Text="Character Name" FontSize="Small"/>
                 <StackLayout Orientation="Horizontal">
