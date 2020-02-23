@@ -11,7 +11,7 @@ namespace Game.Models
     /// 
     /// Constructor Player to Player used a T in Round
     /// </summary>
-    class PlayerInfoModel : PlayerModel<PlayerInfoModel>
+    public class PlayerInfoModel : PlayerModel<PlayerInfoModel>
     {
         /// <summary>
         /// Default Constructor
