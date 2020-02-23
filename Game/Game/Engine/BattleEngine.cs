@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Game.Engine
 {
-    class BattleEngine
+    public class BattleEngine
     {
     }
 }
