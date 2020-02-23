@@ -29,4 +29,61 @@
         // Boots, shoes, socks or anything else on the feet
         Feet = 40,
     }
+
+    /// <summary>
+    /// Friendly strings for the Enum Class
+    /// </summary>
+    public static class ItemLocationEnumExtensions
+    {
+        /// <summary>
+        /// Display a String for the Enums
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static string ToMessage(this ItemLocationEnum value)
+        {
+            // Default String
+            var Message = "Unknown";
+
+            switch (value)
+            {
+                case ItemLocationEnum.Head:
+                    Message = "Head";
+                    break;
+
+                case ItemLocationEnum.Necklass:
+                    Message = "Necklass";
+                    break;
+
+                case ItemLocationEnum.PrimaryHand:
+                    Message = "Primary Hand";
+                    break;
+
+                case ItemLocationEnum.OffHand:
+                    Message = "Off Hand";
+                    break;
+
+                case ItemLocationEnum.RightFinger:
+                    Message = "Right Finger";
+                    break;
+
+                case ItemLocationEnum.LeftFinger:
+                    Message = "Left Finger";
+                    break;
+
+                case ItemLocationEnum.Finger:
+                    Message = "Any Finger";
+                    break;
+
+                case ItemLocationEnum.Feet:
+                    Message = "Feet";
+                    break;
+
+                case ItemLocationEnum.Unknown:
+                default:
+                    break;
+            }
+            return Message;
+        }
+    }
 }

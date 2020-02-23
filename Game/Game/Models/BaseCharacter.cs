@@ -32,6 +32,7 @@ namespace Game.Models
         /// </summary>
         public BaseCharacter()
         {
+            Guid = Id;
             Name = "Default";
             ImageURI = "wizard_avatar.png";
             Level = 1;
@@ -96,7 +97,7 @@ namespace Game.Models
             return true;
         }
         //Adds experience upon a hit of a monster, not implemented
-        public bool AddExperience(uint toAdd)
+        public bool AddExperience(int toAdd)
         {
             Experience += toAdd;
             return true;

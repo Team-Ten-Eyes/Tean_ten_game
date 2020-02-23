@@ -8,7 +8,7 @@ namespace Game.Helpers
     /// <summary>
     /// Helper for the Attribute Enum Class
     /// </summary>
-    static class AttributeEnumHelper
+    public static class AttributeEnumHelper
     {
         /// <summary>
         /// Returns a list of strings of the enum for Attribute

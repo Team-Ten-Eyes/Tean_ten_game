@@ -26,7 +26,7 @@ namespace Game.Models
         #endregion Singleton
 
         // Level Max
-        public const int MaxLevel = 20;
+        public const uint MaxLevel = 20;
 
         // List of all the levels
         public List<LevelDetailsModel> LevelDetailsList { get; set; }
