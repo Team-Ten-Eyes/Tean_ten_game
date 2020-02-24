@@ -60,6 +60,22 @@
             <ProgressBar Progress="0" x:Name="Manabar"/>
 
 
+            <Label Text="This Character's type is strong against these monster types"
+                   FontSize="Small" TextDecorations="Underline"/>
+
+            <ListView x:Name="StrengthListView"
+                    ItemsSource="{Binding strenghts}" 
+                    IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                    RefreshCommand="{Binding LoadItemsCommand}"
+                    CachingStrategy="RecycleElement"
+                     SelectionMode="None"
+                    HasUnevenRows="true"
+                    Margin="5,0,5,0">
+            </ListView>
+
+
+
+
 
         </StackLayout>
     </ContentPage.Content>

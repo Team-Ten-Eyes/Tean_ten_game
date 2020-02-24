@@ -1,16 +1,22 @@
-﻿using System;
+﻿
+using System;
 using System.ComponentModel;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+
 using Game.Models;
 using Game.ViewModels;
+using Game.Helpers;
+using System.Collections.Generic;
 
 
 namespace Game.Views
 {
-   
+
     public partial class CharacterReadPage : ContentPage
     {
-      readonly GenericViewModel<BaseCharacter> ViewModel;
+        readonly GenericViewModel<BaseCharacter> ViewModel;
         /// <summary>
         /// Constructor called with a view model
         /// This is the primary way to open the page
@@ -26,7 +32,14 @@ namespace Game.Views
             double mana = (((double)ViewModel.Data.Mana) / ((double)ViewModel.Data.MaxMana));
             HPbar.Progress = hp;
             Manabar.Progress = mana;
+            List<string> strengths = StrengthWeaknessHelper.getCharacterStrengths(ViewModel.Data.Attribute.ToString());
+            StrengthListView.ItemsSource = strengths;
         }
+
+
+
+
+
 
         /// <summary>
         /// Button helper for update which adds an update page to the modal stack
@@ -51,7 +64,7 @@ namespace Game.Views
             await Navigation.PushModalAsync(new NavigationPage(new CharacterDeletePage(new GenericViewModel<BaseCharacter>(ViewModel.Data))));
             await Navigation.PopAsync();
         }
-
-      
     }
+
 }
+    

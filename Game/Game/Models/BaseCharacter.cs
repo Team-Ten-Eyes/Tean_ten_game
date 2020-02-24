@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Game.Helpers;
 
 namespace Game.Models
 {
@@ -21,6 +22,9 @@ namespace Game.Models
         //Items held by a character
         public List<ItemModel> HeldItems;
 
+     
+
+        
 
         ////////////////////////////////////////////////////
 
@@ -130,6 +134,19 @@ namespace Game.Models
         public void AddMaxMana()
         {
             Mana = MaxMana;
+        }
+
+
+        /// <summary>
+        /// This function should take the character Attribute and 
+        /// cll the helper function to return a string of monsters the 
+        /// character has strengths against
+        /// </summary>
+        /// <param name="Attribute"></param>
+        /// <returns></returns>
+        public List <string> getStrengths(string Attribute)
+        {
+            return Helpers.StrengthWeaknessHelper.getCharacterStrengths(Attribute.ToString());
         }
 
         //TO BE IMPLEMENTED WITH BATTLE SYSTEM
