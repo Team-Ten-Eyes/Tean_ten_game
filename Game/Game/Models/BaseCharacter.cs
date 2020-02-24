@@ -137,17 +137,7 @@ namespace Game.Models
         }
 
 
-        /// <summary>
-        /// This function should take the character Attribute and 
-        /// cll the helper function to return a string of monsters the 
-        /// character has strengths against
-        /// </summary>
-        /// <param name="Attribute"></param>
-        /// <returns></returns>
-        public List <string> getStrengths(string Attribute)
-        {
-            return Helpers.StrengthWeaknessHelper.getCharacterStrengths(Attribute.ToString());
-        }
+ 
 
         //TO BE IMPLEMENTED WITH BATTLE SYSTEM
         //public int GetDamageDice(){}
