@@ -6,6 +6,7 @@
     { 
         Unknown = 0,
         Stress = 1,
-        Paranoia = 2    
+        Paranoia = 2, 
+        Anxiety = 3
     }
 }
