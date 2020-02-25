@@ -5,8 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:local_helpers="clr-namespace:Game.Helpers"
-             x:Class="Game.Views.CharacterUpdatePage"
-             BackgroundColor="#F2EBDC">
+             x:Class="Game.Views.CharacterUpdatePage">
     
     <ContentPage.Resources>
         <ResourceDictionary>

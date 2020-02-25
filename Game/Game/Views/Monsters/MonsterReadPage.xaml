@@ -4,8 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Game.Views.MonsterReadPage"
-             BackgroundColor="#F2EBDC">
+             x:Class="Game.Views.MonsterReadPage">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Update" Clicked="Update_Clicked" IconImageSource="Icon_edit.png"/>
