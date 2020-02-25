@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Game.Engine;
 
 namespace Game.Views
 {
@@ -46,7 +47,7 @@ namespace Game.Views
 		async void AutobattleButton_Clicked(object sender, EventArgs e)
 		{
 			// Run the Autobattle simulation from here
-
+			AutoBattleEngine GoGoPowerRangers = new AutoBattleEngine();
 			// Call to the Score Page
 			await Navigation.PushModalAsync(new NavigationPage(new ScorePage()));
 		}
