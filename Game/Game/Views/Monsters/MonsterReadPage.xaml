@@ -55,6 +55,9 @@
             <Label Text="Description" FontAttributes="Bold" HorizontalOptions="Start" TextDecorations="Underline"/>
             <Label Text="{Binding Data.Description}" HorizontalOptions="Start"/>
 
+
+            <Label Text="This Monster's type is strong against these Character types"
+                   FontSize="Small" TextDecorations="Underline" />
             <ListView x:Name="StrengthListView"
                     ItemsSource="{Binding strenghts}" 
                     IsRefreshing="{Binding IsBusy, Mode=OneWay}"
