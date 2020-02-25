@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Game.Models;
 using System.Linq;
+using System.Diagnostics;
 
 namespace Game.Helpers
 {
@@ -103,55 +104,47 @@ namespace Game.Helpers
         /// <returns></returns>
         public static List<string> getMonsterStrengths(string  monsterType)
         {
-            var charType = Enum.GetNames(typeof(CharacterTypeEnum)).ToList();
-
-            //if(monsterType == "Paranoia")
-            //{
-            //    var ParanoiaStrength = charType.Where(a =>
-            //    a.ToString() == CharacterTypeEnum.Bravery.ToString() &&
-            //    a.ToString() == CharacterTypeEnum.Cunning.ToString()).ToList();
-            //    return ParanoiaStrength;
-            //}
-
-            //if(monsterType == "Depression")
-            //{
-            //    var depressionStrength = charType.Where(a =>
-            //    a.ToString() == CharacterTypeEnum.Bravery.ToString() &&
-            //    a.ToString() == CharacterTypeEnum.Creativity.ToString()).ToList();
-            //    return depressionStrength;
-            //}
+            var characterType = Enum.GetNames(typeof(CharacterTypeEnum)).ToList();
 
             if(monsterType == "Depression")
             {
-                var dStrength = charType.Where(a =>
-                a.ToString() == CharacterTypeEnum.Bravery.ToString() &&
-                a.ToString() == CharacterTypeEnum.Creativity.ToString()).ToList();
-                return dStrength;
+                var DStrengths = characterType.Where(a =>
+            a.ToString() != CharacterTypeEnum.Unknown.ToString() &&
+           a.ToString() != CharacterTypeEnum.Cunning.ToString()).ToList();
+                return DStrengths;
+            }
+
+            if(monsterType == "Paranoia")
+            {
+                var PStrengths = characterType.Where(a =>
+               a.ToString() != CharacterTypeEnum.Creativity.ToString() &&
+               a.ToString() != CharacterTypeEnum.Unknown.ToString()).ToList();
+                return PStrengths;
             }
 
             if(monsterType == "Anger")
             {
-                var AngerStrengths = charType.Where(a =>
+                var AngerStrengths = characterType.Where(a =>
                 a.ToString() == CharacterTypeEnum.Bravery.ToString()).ToList();
                 return AngerStrengths;
             }
 
             if(monsterType == "Fear")
             {
-                var fearStrenths = charType.Where(a =>
+                var fearStrenths = characterType.Where(a =>
                a.ToString() == CharacterTypeEnum.Cunning.ToString()).ToList();
                 return fearStrenths;
             }
 
             if(monsterType == "Anxiety")
             {
-                var AnxietyStrengths = charType.Where(a =>
+                var AnxietyStrengths = characterType.Where(a =>
                a.ToString() == CharacterTypeEnum.Creativity.ToString()).ToList();
                 return AnxietyStrengths;
             }
             if(monsterType == "BurnOut")
             {
-                var burnoutStrengths = charType.Where(a =>
+                var burnoutStrengths = characterType.Where(a =>
                a.ToString() == CharacterTypeEnum.Creativity.ToString()).ToList();
                 return burnoutStrengths;
             }
@@ -162,7 +155,7 @@ namespace Game.Helpers
                 nothing.Add("none");
                 return nothing;
             }
-            return charType;
+            return characterType;
 
         }
     }
