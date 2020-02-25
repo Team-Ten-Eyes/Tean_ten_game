@@ -7,7 +7,7 @@
         <StackLayout Style="{StaticResource VerticalStack}">
             
             <Label Text="Score Page..."></Label>
-
+                        
             <Button Clicked="CloseButton_Clicked" Text="Close"></Button>
 
         </StackLayout>

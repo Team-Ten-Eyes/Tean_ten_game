@@ -30,7 +30,7 @@
                         x:Name="MonsterTypePicker"/>
 
             <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="Center" 
-                   WidthRequest="350" HeightRequest="350"/>
+                   WidthRequest="250" HeightRequest="250"/>
             <Label Text="Name" FontSize="Medium" HorizontalOptions="Start"/>
             <Entry Text="{Binding Data.Name}" d:Text="Monster Name" FontSize="Small"/>
             <StackLayout Orientation="Horizontal">

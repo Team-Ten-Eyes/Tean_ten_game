@@ -1,6 +1,10 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Game.Engine;
+using Game.Models;
+using Game.ViewModels;
+
 
 namespace Game.Views
 {
@@ -46,9 +50,18 @@ namespace Game.Views
 		async void AutobattleButton_Clicked(object sender, EventArgs e)
 		{
 			// Run the Autobattle simulation from here
+			AutoBattleEngine AutoEngine = new AutoBattleEngine();
+
+			 var catchResult = await AutoEngine.RunAutoBattle();
+
+			ScoreModel endScore = AutoEngine.GetScoreObject();
+
+
+
 
 			// Call to the Score Page
-			await Navigation.PushModalAsync(new NavigationPage(new ScorePage()));
+
+			await Navigation.PushModalAsync(new NavigationPage(new ScorePage(new GenericViewModel<ScoreModel>(endScore) )));
 		}
 	}
 }

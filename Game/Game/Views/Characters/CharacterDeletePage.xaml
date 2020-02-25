@@ -4,8 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Game.Views.CharacterDeletePage"
-             BackgroundColor="#F2EBDC">
+             x:Class="Game.Views.CharacterDeletePage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
         <ToolbarItem Text="Delete" Clicked="Delete_Clicked" IconImageSource="icon_delete.png"/>
@@ -16,9 +15,14 @@
         <StackLayout>
             <StackLayout Orientation="Vertical">
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="{Binding Data.Name}" />
-                    <Label Text="-------------- Level:" FontAttributes="Bold"/>
-                    <Label Text="{Binding Data.level}" />
+                    <Label Text="{Binding Data.Name}" HorizontalOptions="EndAndExpand"/>
+                    <Label Text="- Level:" 
+                       FontAttributes="Bold"/>
+                    <Label Text="{Binding Data.Level}" HorizontalOptions="StartAndExpand"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Class: " HorizontalOptions="EndAndExpand" FontAttributes="Bold"/>
+                    <Label Text="{Binding Data.Attribute}" HorizontalOptions="StartAndExpand" />
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Image Source="{Binding Data.ImageURI}" />
@@ -36,11 +40,11 @@
                                 <ColumnDefinition Width ="Auto" />
                                 <ColumnDefinition Width ="Auto" />
                             </Grid.ColumnDefinitions>
-                            <Label Text="HP ---"  Grid.Row ="1" Grid.Column="0" FontAttributes="Bold"/>
-                            <Label Text="ATK ---"  Grid.Row ="2" Grid.Column="0" FontAttributes="Bold"/>
-                            <Label Text="DEF ---"  Grid.Row ="3" Grid.Column="0" FontAttributes="Bold"/>
-                            <Label Text="SPD ---"  Grid.Row ="4" Grid.Column="0" FontAttributes="Bold"/>
-                            <Label Text="XP ---"  Grid.Row ="5" Grid.Column="0" FontAttributes="Bold"/>
+                            <Label Text="HP ---" FontAttributes="Bold" HorizontalOptions="End" Grid.Row ="1" Grid.Column="0"/>
+                            <Label Text="ATK ---" FontAttributes="Bold" HorizontalOptions="End" Grid.Row ="2" Grid.Column="0"/>
+                            <Label Text="DEF ---" FontAttributes="Bold" HorizontalOptions="End" Grid.Row ="3" Grid.Column="0"/>
+                            <Label Text="SPD ---" FontAttributes="Bold" HorizontalOptions="End" Grid.Row ="4" Grid.Column="0"/>
+                            <Label Text="XP ---" FontAttributes="Bold" HorizontalOptions="End" Grid.Row ="5" Grid.Column="0"/>
                             <Label Text="{Binding Data.MaxHealth}"  Grid.Row ="1" Grid.Column="1"/>
                             <Label Text="{Binding Data.Attack}"  Grid.Row ="2" Grid.Column="1"/>
                             <Label Text="{Binding Data.Defense}"  Grid.Row ="3" Grid.Column="1"/>
