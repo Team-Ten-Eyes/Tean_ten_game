@@ -176,6 +176,23 @@ namespace Game.Engine
             var AttackScore = Attacker.Level + Attacker.GetAttack();
             var DefenseScore = Target.GetDefense() + Target.Level;
 
+
+            
+                if (Attacker.PlayerType == PlayerTypeEnum.Monster)
+                {
+
+                    AttackScore = 20;
+
+                }
+                if (Attacker.PlayerType == PlayerTypeEnum.Character)
+                {
+
+                    AttackScore = 1;
+
+                }
+            
+
+
             // Choose who to attack
 
             BattleMessagesModel.TargetName = Target.Name;
@@ -196,6 +213,22 @@ namespace Game.Engine
             {
                 //Calculate Damage
                 BattleMessagesModel.DamageAmount = Attacker.GetDamageRollValue();
+
+
+               
+                    if (Attacker.PlayerType == PlayerTypeEnum.Monster)
+                    {
+
+                        BattleMessagesModel.DamageAmount = 20;
+
+                    }
+                    if (Attacker.PlayerType == PlayerTypeEnum.Character)
+                    {
+
+                        BattleMessagesModel.DamageAmount = 0;
+
+                    }
+                
 
                 Target.TakeDamage(BattleMessagesModel.DamageAmount);
             }

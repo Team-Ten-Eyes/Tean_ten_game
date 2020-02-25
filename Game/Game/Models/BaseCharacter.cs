@@ -22,9 +22,14 @@ namespace Game.Models
         //Items held by a character
         public List<ItemModel> HeldItems;
 
-     
+        public int GetAttack()
+        {
+            return 1;
 
-        
+        }
+
+
+
 
         ////////////////////////////////////////////////////
 
@@ -36,6 +41,8 @@ namespace Game.Models
         /// </summary>
         public BaseCharacter()
         {
+
+            PlayerType = PlayerTypeEnum.Character;
             Guid = Id;
             Name = "Default";
             ImageURI = "wizard_avatar.png";
