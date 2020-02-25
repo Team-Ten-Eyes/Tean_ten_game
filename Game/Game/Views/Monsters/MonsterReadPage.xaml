@@ -51,8 +51,16 @@
             </StackLayout>
             <Label Text="Description" FontAttributes="Bold" HorizontalOptions="Start" TextDecorations="Underline"/>
             <Label Text="{Binding Data.Description}" HorizontalOptions="Start"/>
-            
-            
+
+            <ListView x:Name="StrengthListView"
+                    ItemsSource="{Binding strenghts}" 
+                    IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                    RefreshCommand="{Binding LoadItemsCommand}"
+                    CachingStrategy="RecycleElement"
+                     SelectionMode="None"
+                    HasUnevenRows="true"
+                    Margin="5,0,5,0">
+            </ListView>
 
 
 
