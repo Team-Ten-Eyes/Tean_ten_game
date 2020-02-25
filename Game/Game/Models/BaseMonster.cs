@@ -80,13 +80,13 @@ namespace Game.Models
         }
 
 
-
+        // To string wrapper for monster type enum
         public string GetMonsterType()
         {
             return Attribute.ToString();
         }
 
-
+        //Temporary override of monster damage for autobattle
         public override int GetDamageRollValue()
         {
             return 20;
