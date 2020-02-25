@@ -29,7 +29,7 @@
                         SelectedItem="{Binding Data.Attribute, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
                         x:Name="CharacterTypePicker"/>
             <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="Center" 
-                   WidthRequest="350" HeightRequest="350"/>
+                   WidthRequest="250" HeightRequest="250"/>
             <Label Text="Name" FontSize="Medium" />
             <Entry Text="{Binding Data.Name}" d:Text="Character Name" FontSize="Small"/>
             

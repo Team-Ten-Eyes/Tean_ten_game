@@ -4,7 +4,6 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             BackgroundColor="#F2EBDC"
              x:Class="Game.Views.MonsterIndexPage"
              Title="{Binding Title}">
 
@@ -15,7 +14,7 @@
     <ContentPage.Content>
         <StackLayout Style="{StaticResource OuterBoxStack}">
 
-            <Label Text="Monster List Page" FontSize="Header" FontAttributes="Bold" Style="{StaticResource HeaderStyle}"/>
+            <Label Text="Monster List Page" FontSize="Header" FontAttributes="Bold" Style="{StaticResource HeaderStyle}" HorizontalOptions="CenterAndExpand"/>
 
             <ListView x:Name="MonsterListView"
                     ItemsSource="{Binding Dataset}"

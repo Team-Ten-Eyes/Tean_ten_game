@@ -5,8 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Game.Views.MonsterUpdatePage"
-             xmlns:local_helpers="clr-namespace:Game.Helpers"
-             BackgroundColor="#F2EBDC">
+             xmlns:local_helpers="clr-namespace:Game.Helpers">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -17,13 +16,17 @@
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
             <Label Text="Update Monster" FontSize="Header" FontAttributes="Bold" 
-                   HorizontalOptions="Start"
+                   HorizontalOptions="Center"
                    VerticalOptions="Start"/>
             <StackLayout Orientation="Horizontal">
-                <Label Text="{Binding Data.Name}" />
-                <Label Text="-------------- Level:" 
+                <Label Text="{Binding Data.Name}" HorizontalOptions="EndAndExpand"/>
+                <Label Text="- Level:" 
                        FontAttributes="Bold"/>
-                <Label Text="{Binding Data.Level}" />
+                <Label Text="{Binding Data.Level}" HorizontalOptions="StartAndExpand"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Class: " HorizontalOptions="EndAndExpand" FontAttributes="Bold"/>
+                <Label Text="{Binding Data.Attribute}" HorizontalOptions="StartAndExpand" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Image Source="{Binding Data.ImageURI}" WidthRequest="200" HeightRequest="200" />
@@ -41,10 +44,10 @@
                             <ColumnDefinition Width ="Auto" />
                             <ColumnDefinition Width ="Auto" />
                         </Grid.ColumnDefinitions>
-                        <Label Text="HP ---" FontAttributes="Bold"   Grid.Row ="1" Grid.Column="0"/>
-                        <Label Text="ATK ---" FontAttributes="Bold"  Grid.Row ="2" Grid.Column="0"/>
-                        <Label Text="DEF ---" FontAttributes="Bold"  Grid.Row ="3" Grid.Column="0"/>
-                        <Label Text="SPD ---" FontAttributes="Bold"   Grid.Row ="4" Grid.Column="0"/>
+                        <Label Text="HP ---" FontAttributes="Bold" HorizontalOptions="End" Grid.Row ="1" Grid.Column="0"/>
+                        <Label Text="ATK ---" FontAttributes="Bold" HorizontalOptions="End" Grid.Row ="2" Grid.Column="0"/>
+                        <Label Text="DEF ---" FontAttributes="Bold" HorizontalOptions="End" Grid.Row ="3" Grid.Column="0"/>
+                        <Label Text="SPD ---" FontAttributes="Bold" HorizontalOptions="End" Grid.Row ="4" Grid.Column="0"/>
                         <Label Text="{Binding Data.MaxHealth}"  Grid.Row ="1" Grid.Column="1"/>
                         <Label Text="{Binding Data.Attack}"  Grid.Row ="2" Grid.Column="1"/>
                         <Label Text="{Binding Data.Defense}"  Grid.Row ="3" Grid.Column="1"/>
@@ -54,7 +57,7 @@
 
             </StackLayout>
             <StackLayout Orientation="Vertical" Padding="20"
-                                 HorizontalOptions="Start"
+                                 HorizontalOptions="Center"
                                  VerticalOptions="End">
                 
                 <Label Text="New Type:" FontSize="Medium" HorizontalOptions="Center" FontAttributes="Bold"/>

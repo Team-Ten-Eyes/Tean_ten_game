@@ -44,6 +44,7 @@
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationBarColor}" />
                 <Setter Property="BarTextColor" Value="{StaticResource SecondaryTextColor}" />
+                <Setter Property="BackgroundColor" Value="#7FD9BF" />
             </Style>
 
             <Style TargetType="ContentPage" ApplyToDerivedTypes="True">

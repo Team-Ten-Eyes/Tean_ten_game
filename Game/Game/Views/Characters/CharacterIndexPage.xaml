@@ -4,7 +4,6 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             BackgroundColor="#F2EBDC"
              x:Class="Game.Views.CharacterIndexPage"
              Title="{Binding Title}">
 
@@ -18,7 +17,8 @@
             <Label Text="Character List Page"
                    FontSize="Header"
                    FontAttributes="Bold"
-                   Style="{StaticResource HeaderStyle}"/>
+                   Style="{StaticResource HeaderStyle}"
+                   HorizontalOptions="CenterAndExpand"/>
 
             <ListView x:Name="CharacterListView"
                     ItemsSource="{Binding Dataset}" 
@@ -48,6 +48,7 @@
                                 <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
                                         Source="{Binding ImageURI}"
                                         HeightRequest="50"
+                                        WidthRequest="50"
                                         Style="{StaticResource ImageSmallStyle}"
                                         VerticalOptions="CenterAndExpand"/>
                                 <StackLayout Grid.Column="1" Grid.Row="0"
