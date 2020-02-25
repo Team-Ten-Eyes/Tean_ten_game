@@ -9,6 +9,8 @@ namespace Game.Models
 {
     public class PlayerModel<T> : BaseModel<T>
     {
+
+     
         #region Attributes
         #region GameEngineAttributes
         //alive status, !alive will be removed from the list
@@ -226,7 +228,7 @@ namespace Game.Models
         /// Return the Total Attack Value
         /// </summary>
         /// <returns></returns>
-        public int GetAttack()
+        virtual public int GetAttack()
         {
             // Base Attack
             var myReturn = Attack;
@@ -235,7 +237,7 @@ namespace Game.Models
             myReturn += GetAttackLevelBonus;
 
             // Get Attack bonus from Items
-            myReturn +=GetAttackItemBonus;
+            myReturn += GetAttackItemBonus;
 
             return myReturn;
         }

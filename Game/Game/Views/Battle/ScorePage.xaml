@@ -7,7 +7,9 @@
         <StackLayout Style="{StaticResource VerticalStack}">
             
             <Label Text="Score Page..."></Label>
-                        
+            <Label Text="{Binding Data.ScoreTotal}"></Label>
+
+                
             <Button Clicked="CloseButton_Clicked" Text="Close"></Button>
 
         </StackLayout>

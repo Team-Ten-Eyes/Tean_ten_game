@@ -12,6 +12,6 @@
         Depression = 5,
         Anger = 6,
         BurnOut = 7,
-        Insanity = 8//I feel this one should be the final boss
+        Insanity = 8, //I feel this one should be the final boss
     }
 }
