@@ -15,7 +15,7 @@
     <ContentPage.Content>
         <StackLayout Style="{StaticResource OuterBoxStack}">
 
-            <Label Text="Monster List Page" FontSize="Header" FontAttributes="Bold" Style="{StaticResource HeaderStyle}"/>
+            <Label Text="Monster List Page" FontSize="Header" FontAttributes="Bold" Style="{StaticResource HeaderStyle}" HorizontalOptions="CenterAndExpand"/>
 
             <ListView x:Name="MonsterListView"
                     ItemsSource="{Binding Dataset}"

@@ -18,7 +18,8 @@
             <Label Text="Character List Page"
                    FontSize="Header"
                    FontAttributes="Bold"
-                   Style="{StaticResource HeaderStyle}"/>
+                   Style="{StaticResource HeaderStyle}"
+                   HorizontalOptions="CenterAndExpand"/>
 
             <ListView x:Name="CharacterListView"
                     ItemsSource="{Binding Dataset}" 
