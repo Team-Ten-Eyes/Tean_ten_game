@@ -60,6 +60,7 @@ namespace Game.Views
 		/// <param name="e"></param>
 		async void BattleOverButton_Clicked(object sender, EventArgs e)
 		{
+			
 			await Navigation.PushModalAsync(new ScorePage());
 		}
 

@@ -340,8 +340,10 @@ namespace Game.Models
         /// Roll the Damage Dice, and add to the Damage
         /// </summary>
         /// <returns></returns>
-        public int GetDamageRollValue()
+        virtual public int GetDamageRollValue()
         {
+
+
             var myReturn = 0;
 
             var myItem = ItemIndexViewModel.Instance.GetItem(PrimaryHand);

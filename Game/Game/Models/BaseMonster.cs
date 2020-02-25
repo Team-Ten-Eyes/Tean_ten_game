@@ -86,6 +86,13 @@ namespace Game.Models
             return Attribute.ToString();
         }
 
+
+        public override int GetDamageRollValue()
+        {
+            return 20;
+
+        }
+
         //TO BE IMPLEMENTED WITH BATTLE SYSTEM
         //public int GetDamageDice(){}
         //public int GetDamageRollValue(){}
