@@ -15,9 +15,14 @@
         <StackLayout>
             <StackLayout Orientation="Vertical">
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="{Binding Data.Name}" />
-                    <Label Text="-------------- Level:" />
-                    <Label Text="{Binding Data.Level}" />
+                    <Label Text="{Binding Data.Name}" HorizontalOptions="EndAndExpand"/>
+                    <Label Text="- Level:" 
+                       FontAttributes="Bold"/>
+                    <Label Text="{Binding Data.Level}" HorizontalOptions="StartAndExpand"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Class: " HorizontalOptions="EndAndExpand" FontAttributes="Bold"/>
+                    <Label Text="{Binding Data.Attribute}" HorizontalOptions="StartAndExpand" />
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Image Source="{Binding Data.ImageURI}" WidthRequest="200" HeightRequest="200"/>
