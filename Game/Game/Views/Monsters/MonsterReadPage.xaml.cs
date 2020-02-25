@@ -2,7 +2,9 @@
 using System.ComponentModel;
 using Xamarin.Forms;
 using Game.Models;
+using Game.Helpers;
 using Game.ViewModels;
+using System.Collections.Generic;
 
 
 namespace Game.Views
@@ -22,7 +24,8 @@ namespace Game.Views
             InitializeComponent();
 
             BindingContext = this.ViewModel = data;
-          
+            List<string> strengths = StrengthWeaknessHelper.getMonsterStrengths(ViewModel.Data.Attribute.ToString());
+            StrengthListView.ItemsSource = strengths;
         }
 
 

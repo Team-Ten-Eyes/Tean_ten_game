@@ -129,7 +129,7 @@ namespace Game.Services
                     Level=12,
                     CurrHealth=20,
                     MaxHealth=20,
-                    Attribute=MonsterTypeEnum.Stress,
+                    Attribute=MonsterTypeEnum.Paranoia,
                     Attack=18,
                     Defense=5,
                     Speed=5

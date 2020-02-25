@@ -15,9 +15,14 @@
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
             <StackLayout Orientation="Horizontal">
-                <Label Text="{Binding Data.Name}" />
-                <Label Text="----------------- Level:" FontAttributes="Bold" />
-                <Label Text="{Binding Data.Level}" />
+                <Label Text="{Binding Data.Name}" HorizontalOptions="EndAndExpand"/>
+                <Label Text="- Level:" 
+                       FontAttributes="Bold"/>
+                <Label Text="{Binding Data.Level}" HorizontalOptions="StartAndExpand"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Class: " HorizontalOptions="EndAndExpand" FontAttributes="Bold"/>
+                <Label Text="{Binding Data.Attribute}" HorizontalOptions="StartAndExpand" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Image Source="{Binding Data.ImageURI}" WidthRequest="200" HeightRequest="200"/>
@@ -49,8 +54,16 @@
             </StackLayout>
             <Label Text="Description" FontAttributes="Bold" HorizontalOptions="Start" TextDecorations="Underline"/>
             <Label Text="{Binding Data.Description}" HorizontalOptions="Start"/>
-            
-            
+
+            <ListView x:Name="StrengthListView"
+                    ItemsSource="{Binding strenghts}" 
+                    IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                    RefreshCommand="{Binding LoadItemsCommand}"
+                    CachingStrategy="RecycleElement"
+                     SelectionMode="None"
+                    HasUnevenRows="true"
+                    Margin="5,0,5,0">
+            </ListView>
 
 
 
