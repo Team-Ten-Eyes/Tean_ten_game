@@ -25,6 +25,7 @@ namespace Game.Models
 
         public BaseMonster()
         {
+            PlayerType = PlayerTypeEnum.Monster;
             Name = "Default_Bad";
             ImageURI = "Insanty.png";
             Level = 1;
@@ -87,10 +88,9 @@ namespace Game.Models
         }
 
 
-        public override int GetDamageRollValue()
+        public int GetAttack()
         {
             return 20;
-
         }
 
         //TO BE IMPLEMENTED WITH BATTLE SYSTEM

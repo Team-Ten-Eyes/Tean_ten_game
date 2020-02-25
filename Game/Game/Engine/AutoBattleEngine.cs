@@ -61,7 +61,7 @@ namespace Game.Engine
             {
                 PopulateCharacterList(data);
             }
-
+            
             // Start Battle in AutoBattle mode
             StartBattle(true);
 
