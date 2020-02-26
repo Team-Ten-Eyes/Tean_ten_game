@@ -53,7 +53,7 @@
                     </Grid>
                 </StackLayout>
             </StackLayout>
-            <Label Text="HP Bar" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <Label Text="Insanity Bar" FontAttributes="Bold" HorizontalOptions="Center"/>
             <ProgressBar Progress="0" x:Name="HPbar"/>
             <Label Text="Mana Bar" FontAttributes="Bold" HorizontalOptions="Center"/>
             <ProgressBar Progress="0" x:Name="Manabar"/>

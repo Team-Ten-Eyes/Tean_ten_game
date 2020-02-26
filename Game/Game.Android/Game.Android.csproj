@@ -193,5 +193,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Shadow_Monster.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\TitlePage.PNG" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

@@ -8,15 +8,24 @@
             VerticalOptions="CenterAndExpand"
             HorizontalOptions="CenterAndExpand">
             
+
             <StackLayout
                 VerticalOptions="Center"
                 HorizontalOptions="Center">
 
                 <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
-                    <Image
+
+                    <StackLayout Orientation="Vertical">
+                        <Image Source="TitlePage.PNG" 
+                           VerticalOptions="Start"
+                           HorizontalOptions="CenterAndExpand"
+                           HeightRequest="400"
+                           WidthRequest="500"/>
+                        <Image
                          Source="game_demon.png"
                          Style="{StaticResource ImageLargeStyle}"/>
-                                    
+
+                    </StackLayout>
                 </StackLayout>
                 
                 <StackLayout HorizontalOptions="Center" Padding="75,5,75,5"> 
