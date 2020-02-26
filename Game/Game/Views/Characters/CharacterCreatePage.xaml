@@ -33,6 +33,17 @@
             <Label Text="Name" FontSize="Medium" />
             <Entry Text="{Binding Data.Name}" d:Text="Character Name" FontSize="Small"/>
             
+            <!--<ListView x:Name="ImageSelection"
+                    ItemsSource="{Binding ItemSelect}" 
+                    IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                    RefreshCommand="{Binding LoadItemsCommand}"
+                    CachingStrategy="RecycleElement"
+                     SelectionMode="None"
+                    HasUnevenRows="true"
+                    Margin="5,0,5,0">
+               
+            </ListView>-->
+
             <StackLayout Orientation="Horizontal">
                 <Button Text="Save Changes"
                 Clicked="OnSaveButtonClicked"

@@ -131,9 +131,11 @@
     <Content Include="Insanty.png" />
     <Content Include="item.png" />
     <Content Include="items.png" />
+    <Content Include="Jack.PNG" />
     <Content Include="knight.png" />
     <Content Include="icon_new.png" />
     <Content Include="lab.png" />
+    <Content Include="Michelle.PNG" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
@@ -172,6 +174,7 @@
     <Content Include="troll.png" />
     <Content Include="village.jpg" />
     <Content Include="village.png" />
+    <Content Include="Will.PNG" />
     <Content Include="wizard_avatar.png" />
     <Content Include="xamarin_logo.png" />
     <Content Include="add.png" />

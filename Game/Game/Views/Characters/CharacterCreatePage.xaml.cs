@@ -28,6 +28,9 @@ namespace Game.Views
 
             CharacterTypePicker.SelectedItem = data.Data.Attribute.ToString();
 
+            itemPickerModel ImageSelect = new itemPickerModel();
+           
+
         }
 
         /// <summary>
