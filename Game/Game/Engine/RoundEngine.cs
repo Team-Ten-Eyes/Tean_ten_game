@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using Game.Models;
@@ -48,18 +49,30 @@ namespace Game.Engine
             * Hint: 
             * I don't have crudi monsters yet so will add 6 new ones...
             * If you have crudi monsters, then pick from the list
-
             * Consdier how you will scale the monsters up to be appropriate for the characters to fight
+            * 
             */
         /// </summary>
         /// <returns></returns>
         public int AddMonstersToRound()
         {
+            // TODO: Teams, You need to implement your own Logic can not use mine.
+
+            int TargetLevel = 1;
+
+            if (CharacterList.Count() > 0)
+            {
+                // Get the Min Character Level (linq is soo cool....)
+                TargetLevel = Convert.ToInt32(CharacterList.Min(m => m.Level));
+            }
+
             for (var i = 0; i < MaxNumberPartyMonsters; i++)
             {
-                var data = new BaseMonster();
+                var data = Helpers.RandomPlayerHelper.GetRandomMonster(TargetLevel);
+
                 // Help identify which Monster it is
                 data.Name += " " + MonsterList.Count() + 1;
+
                 MonsterList.Add(new PlayerInfoModel(data));
             }
 
@@ -114,12 +127,15 @@ namespace Game.Engine
                 return RoundEnum.NewRound;
             }
 
-            // Decide Who gets next turn
-            // Remember who just went...
-            PlayerCurrent = GetNextPlayerTurn();
+            if (BattleScore.AutoBattle)
+            {
+                // Decide Who gets next turn
+                // Remember who just went...
+                CurrentAttacker = GetNextPlayerTurn();
+            }
 
             // Do the turn....
-            TakeTurn(PlayerCurrent);
+            TakeTurn(CurrentAttacker);
 
             RoundStateEnum = RoundEnum.NextTurn;
 
@@ -159,7 +175,7 @@ namespace Game.Engine
 
             PlayerList = PlayerList.OrderByDescending(a => a.GetSpeed())
                 .ThenByDescending(a => a.Level)
-                .ThenByDescending(a => a.Experience)
+                //.ThenByDescending(a => a.ExperienceTotal)
                 .ThenByDescending(a => a.PlayerType)
                 .ThenBy(a => a.Name)
                 .ThenBy(a => a.ListOrder)
@@ -229,13 +245,13 @@ namespace Game.Engine
             }
 
             // No current player, so set the first one
-            if (PlayerCurrent == null)
+            if (CurrentAttacker == null)
             {
                 return PlayerList.FirstOrDefault();
             }
 
             // Find current player in the list
-            var index = PlayerList.FindIndex(m => m.Guid.Equals(PlayerCurrent.Guid));
+            var index = PlayerList.FindIndex(m => m.Guid.Equals(CurrentAttacker.Guid));
 
             // If at the end of the list, return the first element
             if (index == PlayerList.Count() - 1)
@@ -245,26 +261,6 @@ namespace Game.Engine
 
             // Return the next element
             return PlayerList[index + 1];
-
-            //// Else go and pick the next player in the list...
-            //for (var i = 0; i < PlayerCount; i++)
-            //{
-            //    // Look for current Player in the list
-            //    if (PlayerList[i].Guid.Equals(PlayerCurrent.Guid))
-            //    {
-            //        if (i < PlayerList.Count() - 1) // 0 based...
-            //        {
-            //            return PlayerList[i + 1];
-            //        }
-            //        else
-            //        {
-            //            // Return the first in the list...
-            //            return PlayerList.FirstOrDefault();
-            //        }
-            //    }
-            //}
-
-            //            return null;
         }
 
         /// <summary>
@@ -273,16 +269,23 @@ namespace Game.Engine
         /// <param name="character"></param>
         public bool PickupItemsFromPool(PlayerInfoModel character)
         {
-            // Have the character, walk the items in the pool, and decide if any are better than current one.
 
-            GetItemFromPoolIfBetter(character, ItemLocationEnum.Head);
-            GetItemFromPoolIfBetter(character, ItemLocationEnum.Necklass);
-            GetItemFromPoolIfBetter(character, ItemLocationEnum.PrimaryHand);
-            GetItemFromPoolIfBetter(character, ItemLocationEnum.OffHand);
-            GetItemFromPoolIfBetter(character, ItemLocationEnum.RightFinger);
-            GetItemFromPoolIfBetter(character, ItemLocationEnum.LeftFinger);
-            GetItemFromPoolIfBetter(character, ItemLocationEnum.Feet);
+            // TODO: Teams, You need to implement your own Logic if not using auto apply
 
+            // I use the same logic for Auto Battle as I do for Manual Battle
+
+            //if (BattleScore.AutoBattle)
+            {
+                // Have the character, walk the items in the pool, and decide if any are better than current one.
+
+                GetItemFromPoolIfBetter(character, ItemLocationEnum.Head);
+                GetItemFromPoolIfBetter(character, ItemLocationEnum.Necklass);
+                GetItemFromPoolIfBetter(character, ItemLocationEnum.PrimaryHand);
+                GetItemFromPoolIfBetter(character, ItemLocationEnum.OffHand);
+                GetItemFromPoolIfBetter(character, ItemLocationEnum.RightFinger);
+                GetItemFromPoolIfBetter(character, ItemLocationEnum.LeftFinger);
+                GetItemFromPoolIfBetter(character, ItemLocationEnum.Feet);
+            }
             return true;
         }
 

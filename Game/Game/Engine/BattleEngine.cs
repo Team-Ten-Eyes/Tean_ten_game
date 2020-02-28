@@ -1,5 +1,4 @@
-﻿
-using Game.Models;
+﻿using Game.Models;
 
 namespace Game.Engine
 {

@@ -36,7 +36,8 @@ namespace Game.Models
 
         //  character level info for character or monster
         public int Level { get; set; } = 1;
-
+        public DifficultyEnum Difficulty { get; set; } = DifficultyEnum.Unknown;
+        public int ExperienceRemaining { get; set; }
         // character total experience //
         public int Experience { get; set; } = 0;
 
@@ -337,6 +338,35 @@ namespace Game.Models
 
             return true;
         }
+
+        public int LevelUpToValue(int Value)
+        {
+            // Adjust the experience to the min for that level.
+            // That will trigger level up to happen
+
+            if (Value < 0)
+            {
+                // Skip, and return old level
+                return Level;
+            }
+
+            if (Value <= Level)
+            {
+                // Skip, and return old level
+                return Level;
+            }
+
+            if (Value > LevelTableHelper.MaxLevel)
+            {
+                return Level;
+            }
+
+            AddExperience(LevelTableHelper.Instance.LevelDetailsList[Value].Experience + 1);
+
+            return Level;
+        }
+
+
 
         /// <summary>
         /// Roll the Damage Dice, and add to the Damage

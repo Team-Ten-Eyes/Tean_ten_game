@@ -55,7 +55,7 @@ namespace Scenario
                                 Level = 10,
                                 CurrHealth = 11,
                                 Experience = 1,
-                                //ExperienceRemaining = 1,
+                                ExperienceRemaining = 1,
                                 Name = "Mike",
                                 ListOrder = 1,
                             });
@@ -155,7 +155,7 @@ namespace Scenario
                                 Level = 10,
                                 CurrHealth = 1,
                                 Experience = 1,
-                                //ExperienceRemaining = 1,
+                                ExperienceRemaining = 1,
                                 ListOrder = 1,
                             });
 

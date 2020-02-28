@@ -96,7 +96,7 @@ namespace UnitTests.Engine
                                 Level = 10,
                                 CurrHealth = 11,
                                 Experience = 1,
-                                //ExperienceRemaining = 1,
+                                ExperienceRemaining = 1,
                                 Name = "Mike",
                                 ListOrder = 1,
                             });
