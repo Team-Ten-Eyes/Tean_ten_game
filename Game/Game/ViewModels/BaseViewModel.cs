@@ -1,4 +1,5 @@
-﻿using Game.Models;
+﻿using Game.Helpers;
+using Game.Models;
 using Game.Services;
 using System;
 using System.Collections.Generic;
@@ -20,10 +21,10 @@ namespace Game.ViewModels
         #region Attributes
 
         // The Mock DataStore
-        private IDataStore<T> DataSource_Mock => new MockDataStore<T>();
+        private static IDataStore<T> DataSource_Mock => MockDataStore<T>.Instance;
 
         // The SQL DataStore
-        private IDataStore<T> DataSource_SQL => new DatabaseService<T>();
+        private static IDataStore<T> DataSource_SQL => DatabaseService<T>.Instance;
 
         // Which DataStore to use
         public IDataStore<T> DataStore;
@@ -116,12 +117,29 @@ namespace Game.ViewModels
 
         /// <summary>
         ///  Load the DefaultData
+        ///  
+        /// READ this:
+        /// 
+        /// This will clear the dataset, and then reload the default data.
+        /// This is so the system, is always restored into a known good state
+        /// Defalt Data is part of being in the known good state
+        /// If after wipeing the system, if the data lists are empty, something is wrong
+        /// As populated lists are expected
+        /// 
         /// </summary>
         /// <returns></returns>
         public async Task<bool> LoadDefaultDataAsync()
         {
+            if (await DataStore.GetNeedsInitializationAsync())
+            {
+                Dataset.Clear();
+
+                // Load the Data from the DataStore
+                await LoadDataFromIndexAsync();
+            }
+
             // If data exists, do not run
-            if (Dataset.Count>0)
+            if (Dataset.Count > 0)
             {
                 return false;
             }
@@ -165,18 +183,7 @@ namespace Game.ViewModels
 
             try
             {
-                Dataset.Clear();
-                var dataset = await DataStore.IndexAsync();
-
-                // Example of how to sort the database output using a linq query.
-                // Sort the list
-                dataset = SortDataset(dataset);
-
-                foreach (var data in dataset)
-                {
-                    // Make a Copy of the Item Model to add to the List
-                    Dataset.Add(data);
-                }
+                await LoadDataFromIndexAsync();
             }
             catch (Exception ex)
             {
@@ -185,6 +192,26 @@ namespace Game.ViewModels
             finally
             {
                 IsBusy = false;
+            }
+        }
+
+        /// <summary>
+        /// Load the Data from the Index Call into the Data List
+        /// </summary>
+        /// <returns></returns>
+        public async Task LoadDataFromIndexAsync()
+        {
+            Dataset.Clear();
+            var dataset = await DataStore.IndexAsync();
+
+            // Example of how to sort the database output using a linq query.
+            // Sort the list
+            dataset = SortDataset(dataset);
+
+            foreach (var data in dataset)
+            {
+                // Make a Copy of the Item Model to add to the List
+                Dataset.Add(data);
             }
         }
 
@@ -216,6 +243,16 @@ namespace Game.ViewModels
             return false;
         }
 
+
+        /// <summary>
+        /// Returns the needs refresh value
+        /// </summary>
+        /// <returns></returns>
+        public bool GetNeedsRefresh()
+        {
+            return _needsRefresh;
+        }
+
         /// <summary>
         /// Sets the need to refresh 
         /// </summary>
@@ -237,22 +274,41 @@ namespace Game.ViewModels
         }
 
         #endregion Refresh
-        
+
         #region DataSourceManagement
+
+        /// <summary>
+        /// The Wipe Data comes in from multiple Messages one from each view model
+        /// The user can also click the Wipe button quickly
+        /// 
+        /// So need a way to control the wipe so it does not overlap
+        /// 
+        /// First call up to the shared Helper so wipe wipes all data sets, not just the message that came in
+        /// This will ensure the wipe happens in the correct sequence.
+        /// 
+        /// Then the helper will call to the BaseView to wipe just its data
+        /// </summary>
+        /// <returns></returns>
+        public async Task<bool> WipeDataListAsync()
+        {
+            var result = await DataSetsHelper.WipeDataInSequence();
+
+            return result;
+        }
 
         /// <summary>
         /// Wipes the current Data from the Data Store
         /// </summary>
-        public async Task<bool> WipeDataListAsync()
+        public async Task<bool> DataStoreWipeDataListAsync()
         {
+            Dataset.Clear();
+
             await DataStore.WipeDataListAsync();
 
             // Load the Sample Data
-            await LoadDefaultDataAsync();
+            var result = await LoadDefaultDataAsync();
 
-            SetNeedsRefresh(true);
-
-            return await Task.FromResult(true);
+            return result;
         }
 
         /// <summary>
@@ -274,6 +330,11 @@ namespace Game.ViewModels
         /// <returns></returns>
         public async Task<bool> CreateAsync(T data)
         {
+            if (data == null)
+            {
+                return false;
+            }
+
             Dataset.Add(data);
             var result = await DataStore.CreateAsync(data);
 
@@ -300,15 +361,22 @@ namespace Game.ViewModels
         /// <returns></returns>
         public async Task<bool> UpdateAsync(T data)
         {
+            if (data == null)
+            {
+                return false;
+            }
+
+            var BaseDataId = ((BaseModel<T>)(object)data).Id;
+
             // Check that the record exists, if it does not, then exit with false
-            var record = await ReadAsync(((BaseModel<T>)(object)data).Id);
+            var record = await ReadAsync(BaseDataId);
             if (record == null)
             {
                 return false;
             }
 
             // Save the change to the Data Store
-            var result = await DataStore.UpdateAsync(record);
+            var result = await DataStore.UpdateAsync(data);
 
             SetNeedsRefresh(true);
 
@@ -322,8 +390,15 @@ namespace Game.ViewModels
         /// <returns></returns>
         public async Task<bool> DeleteAsync(T data)
         {
+            if (data == null)
+            {
+                return false;
+            }
+
+            var BaseDataId = ((BaseModel<T>)(object)data).Id;
+
             // Check that the record exists, if it does not, then exit with false
-            var record = await ReadAsync(((BaseModel<T>)(object)data).Id);
+            var record = await ReadAsync(BaseDataId);
             if (record == null)
             {
                 return false;
@@ -341,6 +416,29 @@ namespace Game.ViewModels
         }
 
         /// <summary>
+        /// Returns the item passed in
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public virtual T CheckIfExists(T data)
+        {
+            // This will walk the items and find if there is one that is the same.
+            // If so, it returns the item...
+
+            var myList = Dataset.Where(a =>
+                                        ((BaseModel<T>)(object)a).Name == ((BaseModel<T>)(object)data).Name)
+                                        .FirstOrDefault();
+
+            if (myList == null)
+            {
+                // it's not a match, return false;
+                return default(T);
+            }
+
+            return myList;
+        }
+
+        /// <summary>
         /// Having this at the ViewModel, because it has the DataStore
         /// That allows the feature to work for both SQL and the Mock datastores...
         /// </summary>
@@ -348,12 +446,18 @@ namespace Game.ViewModels
         /// <returns></returns>
         public async Task<bool> CreateUpdateAsync(T data)
         {
+            if (data == null)
+            {
+                return false;
+            }
+
+            var BaseDataId = ((BaseModel<T>)(object)data).Id;
+
             // Check to see if the data exist
-            var oldData = await ReadAsync(((BaseModel<T>)(object)data).Id);
+            var oldData = CheckIfExists(data);
             if (oldData == null)
             {
-                await CreateAsync(data);
-                return true;
+                return await CreateAsync(data);
             }
 
             // Compare it, if different update in the DB
@@ -377,6 +481,11 @@ namespace Game.ViewModels
         /// <returns></returns>
         public bool Create_Sync(T data)
         {
+            if (data == null)
+            {
+                return false;
+            }
+
             Dataset.Add(data);
             SetNeedsRefresh(true);
             return true;
@@ -415,7 +524,7 @@ namespace Game.ViewModels
         #endregion PropertyChanges
 
         #region INotifyPropertyChanged
-        
+
         /// <summary>
         /// Notify when changes happen
         /// </summary>

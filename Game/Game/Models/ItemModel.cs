@@ -55,11 +55,11 @@ namespace Game.Models
         /// Update the Record
         /// </summary>
         /// <param name="newData">The new data</param>
-        public override void Update(ItemModel newData)
+        public override bool Update(ItemModel newData)
         {
             if (newData == null)
             {
-                return;
+                return false;
             }
 
             // Update all the fields in the Data, except for the Id and guid
@@ -73,6 +73,7 @@ namespace Game.Models
             ImageURI = newData.ImageURI;
             Range = newData.Range;
             Damage = newData.Damage;
+            return true;
         }
 
         // Helper to combine the attributes into a single line, to make it easier to display the item as a string

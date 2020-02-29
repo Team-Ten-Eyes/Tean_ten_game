@@ -1,18 +1,17 @@
 ﻿using Game.Models;
-using Game.Services;
 using Game.Views;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using Xamarin.Forms;
-
+using System.Linq;
+using System.Collections.Generic;
+using Game.Services;
 
 namespace Game.ViewModels
-{   /// <summary>
+{
+    /// <summary>
     /// Index View Model
     /// Manages the list of data records
     /// </summary>
-
     public class CharacterViewModel : BaseViewModel<BaseCharacter>
     {
         #region Singleton
@@ -20,7 +19,6 @@ namespace Game.ViewModels
         // Make this a singleton so it only exist one time because holds all the data records in memory
         private static volatile CharacterViewModel instance;
         private static readonly object syncRoot = new Object();
-
 
         public static CharacterViewModel Instance
         {
@@ -51,15 +49,14 @@ namespace Game.ViewModels
         /// 
         /// The constructor subscribes message listeners for crudi operations
         /// </summary>
-
         public CharacterViewModel()
         {
-            Title = "Character";
+            Title = "Characters";
 
             #region Messages
 
             // Register the Create Message
-            MessagingCenter.Subscribe<CharacterCreatePage, BaseCharacter>(this, "Create", async (obj, data) =>     //NEED TO CHANGE THIS
+            MessagingCenter.Subscribe<CharacterCreatePage, BaseCharacter>(this, "Create", async (obj, data) =>
             {
                 await CreateAsync(data as BaseCharacter);
             });
@@ -67,14 +64,14 @@ namespace Game.ViewModels
             // Register the Update Message
             MessagingCenter.Subscribe<CharacterUpdatePage, BaseCharacter>(this, "Update", async (obj, data) =>
             {
-                // Have the item update itself
+                // Have the Character update itself
                 data.Update(data);
 
                 await UpdateAsync(data as BaseCharacter);
             });
 
             // Register the Delete Message
-            MessagingCenter.Subscribe<CharacterDeletePage, BaseCharacter>(this, "Delete", async (obj, data) =>  //NEED TO CHANGE THIS
+            MessagingCenter.Subscribe<CharacterDeletePage, BaseCharacter>(this, "Delete", async (obj, data) =>
             {
                 await DeleteAsync(data as BaseCharacter);
             });
@@ -99,17 +96,23 @@ namespace Game.ViewModels
         #region DataOperations_CRUDi
 
         /// <summary>
-        /// Returns the item passed in
+        /// Returns the Character passed in
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public BaseCharacter CheckIfItemExists(BaseCharacter data)
+        public override BaseCharacter CheckIfExists(BaseCharacter data)
         {
-            // This will walk the items and find if there is one that is the same.
-            // If so, it returns the item...
+            // This will walk the Characters and find if there is one that is the same.
+            // If so, it returns the Character...
 
             var myList = Dataset.Where(a =>
-                                        a.Name == data.Name)
+                                        a.Name == data.Name &&
+                                        a.Description == data.Description &&
+                                        a.Level == data.Level &&
+                                        a.Experience == data.Experience &&
+                                        a.MaxHealth == data.MaxHealth &&
+                                        a.CurrHealth == data.CurrHealth
+                                        )
                                         .FirstOrDefault();
 
             if (myList == null)
@@ -132,7 +135,25 @@ namespace Game.ViewModels
 
         #endregion DataOperations_CRUDi
 
+        #region SortDataSet
 
+        /// <summary>
+        /// The Sort Order for the BaseCharacter
+        /// </summary>
+        /// <param name="dataset"></param>
+        /// <returns></returns>
+        public override List<BaseCharacter> SortDataset(List<BaseCharacter> dataset)
+        {
+            return dataset
+                    .OrderBy(a => a.Name)
+                    .ThenBy(a => a.Description)
+                    .ThenBy(a => a.Level)
+                    .ThenBy(a => a.Experience)
+                    .ThenBy(a => a.MaxHealth)
+                    .ThenBy(a => a.CurrHealth)
+                    .ToList();
+        }
+
+        #endregion SortDataSet
     }
-
 }

@@ -27,7 +27,7 @@ namespace Game.Models
             PlayerType = data.PlayerType;
             Guid = data.Guid;
             Alive = data.Alive;
-            Experience = data.ExpereinceTotal;
+            Experience = data.Experience;
             Level = data.Level;
             Name = data.Name;
             Description = data.Description;
@@ -54,7 +54,7 @@ namespace Game.Models
             PlayerType = data.PlayerType;
             Guid = data.Guid;
             Alive = data.Alive;
-            Experience = data.ExpereinceTotal;
+            Experience = data.Experience;
             Level = data.Level;
             Name = data.Name;
             Description = data.Description;
@@ -81,7 +81,7 @@ namespace Game.Models
             PlayerType = data.PlayerType;
             Guid = data.Guid;
             Alive = data.Alive;
-            Experience = data.ExpereinceTotal;
+            Experience = data.Experience;
             Level = data.Level;
             Name = data.Name;
             Description = data.Description;

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SQLite;
+using System;
+using System.Collections.Generic;
 
 namespace Game.Models
 {
@@ -43,15 +45,27 @@ namespace Game.Models
 
         // A list of all the characters at the time of death and their stats.  
         // Only use Get only, set will be done by the Add feature.
-        public string CharacterAtDeathList { get; set; }
+        public string CharacterAtDeathList { get; set; } = string.Empty;
 
         // All of the monsters killed and their stats. 
         // Only use Get only, set will be done by the Add feature.
-        public string MonstersKilledList { get; set; }
+        public string MonstersKilledList { get; set; } = string.Empty;
 
         // All of the items dropped and their stats. 
         // Only use Get only, set will be done by the Add feature.
-        public string ItemsDroppedList { get; set; }
+        public string ItemsDroppedList { get; set; } = string.Empty;
+
+        // Add Characters to the List for easier testing
+        [Ignore]
+        public List<PlayerInfoModel> CharacterModelDeathList { get; set; } = new List<PlayerInfoModel>();
+
+        // Add Monsters to the List for easier testing
+        [Ignore]
+        public List<PlayerInfoModel> MonsterModelDeathList { get; set; } = new List<PlayerInfoModel>();
+
+        // Add Item to the List for easier testing
+        [Ignore]
+        public List<ItemModel> ItemModelDropList { get; set; } = new List<ItemModel>();
 
         /// <summary>
         /// Instantiate new Score 
@@ -60,10 +74,6 @@ namespace Game.Models
         {
             GameDate = DateTime.Now;    // Set to be now by default.
             AutoBattle = false;         //assume user battle
-
-            CharacterAtDeathList = null;
-            MonstersKilledList = null;
-            ItemsDroppedList = null;
 
             TurnCount = 0;
             RoundCount = 0;
@@ -78,7 +88,7 @@ namespace Game.Models
         /// <param name="data"></param>
         public ScoreModel(ScoreModel data)
         {
-            Id = data.Id;
+            // Id = data.Id;
             Update(data);
         }
 
@@ -86,11 +96,11 @@ namespace Game.Models
         /// Update the score based on the passed in values. 
         /// </summary>
         /// <param name="newData"></param>
-        public override void Update(ScoreModel newData)
+        public override bool Update(ScoreModel newData)
         {
             if (newData == null)
             {
-                return;
+                return false;
             }
 
             // Update all the fields in the Data, except for the Id
@@ -108,6 +118,8 @@ namespace Game.Models
             CharacterAtDeathList = newData.CharacterAtDeathList;
             MonstersKilledList = newData.MonstersKilledList;
             ItemsDroppedList = newData.ItemsDroppedList;
+
+            return true;
         }
 
         #region ScoreItems

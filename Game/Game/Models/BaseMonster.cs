@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using Game.ViewModels;
+using Game.Helpers;
 namespace Game.Models
 {
     public class BaseMonster : PlayerModel<BaseMonster>
@@ -35,6 +36,8 @@ namespace Game.Models
             Defense = 3;
             Speed = 3;
             Description = "Stress monster";
+            ExperienceRemaining = LevelTableHelper.Instance.LevelDetailsList[Level + 1].Experience - 1;
+            Difficulty = DifficultyEnum.Average;
         }
 
         /// <summary>
@@ -50,22 +53,35 @@ namespace Game.Models
         /// Update the Record
         /// </summary>
         /// <param name="newData">The new data</param>
-        public override void Update(BaseMonster newData)
+        public override bool Update(BaseMonster newData)
         {
             if (newData == null)
             {
-                return;
+                return false;
             }
 
-            // Update all the fields in the Data, except for the Id and guid
+
+            PlayerType = newData.PlayerType;
+            Guid = newData.Guid;
             Name = newData.Name;
-            Level = newData.Level;
-            Attribute = newData.Attribute;
-            Attack = newData.Attack;
-            Defense = newData.Defense;
-            Speed = newData.Speed;
             Description = newData.Description;
+            Level = newData.Level;
             ImageURI = newData.ImageURI;
+
+            Difficulty = newData.Difficulty;
+
+            Speed = newData.Speed;
+            Defense = newData.Defense;
+            Attack = newData.Attack;
+
+            Experience = newData.Experience;
+            ExperienceRemaining = newData.ExperienceRemaining;
+            CurrHealth = newData.CurrHealth;
+            MaxHealth = newData.MaxHealth;
+
+            // Update all the fields in the Data, except for the Id and guid
+            
+            return true;
         }
 
         // Helper to combine the attributes into a single line, to make it easier to display the item as a string

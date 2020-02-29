@@ -92,7 +92,7 @@ namespace Game.ViewModels
         }
 
         #endregion Constructor
-        
+
         #region DataOperations_CRUDi
 
         /// <summary>
@@ -100,13 +100,25 @@ namespace Game.ViewModels
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public ItemModel CheckIfItemExists(ItemModel data)
+        public override ItemModel CheckIfExists(ItemModel data)
         {
+            if (data == null)
+            {
+                return null;
+            }
+
             // This will walk the items and find if there is one that is the same.
             // If so, it returns the item...
 
             var myList = Dataset.Where(a =>
-                                        a.Name == data.Name)
+                                        a.Name == data.Name &&
+                                        a.Description == data.Description &&
+                                        a.Damage == data.Damage &&
+                                        a.Attribute == data.Attribute &&
+                                        a.Location == data.Location &&
+                                        a.Range == data.Range &&
+                                        a.Value == data.Value
+                                        )
                                         .FirstOrDefault();
 
             if (myList == null)
@@ -122,7 +134,7 @@ namespace Game.ViewModels
         /// Load the Default Data
         /// </summary>
         /// <returns></returns>
-        public override List<ItemModel> GetDefaultData() 
+        public override List<ItemModel> GetDefaultData()
         {
             return DefaultData.LoadData(new ItemModel());
         }
@@ -167,6 +179,67 @@ namespace Game.ViewModels
             }
 
             return myData;
+        }
+
+        /// <summary>
+        /// Get the ID of the Default Item for the Location
+        /// The Default item is the first Item in the List
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
+        public string GetDefaultItemId(ItemLocationEnum location)
+        {
+            var data = GetDefaultItem(location);
+            if (data == null)
+            {
+                return null;
+            }
+
+            return data.Id;
+        }
+
+        /// <summary>
+        /// Get the First item of the location from the list
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
+        public ItemModel GetDefaultItem(ItemLocationEnum location)
+        {
+            var dataList = GetLocationItems(location);
+            if (dataList.Count() == 0)
+            {
+                return null;
+            }
+
+            var data = dataList.FirstOrDefault();
+
+            return data;
+        }
+
+        /// <summary>
+        /// Get all the items for a set location
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
+        public List<ItemModel> GetLocationItems(ItemLocationEnum location)
+        {
+            List<ItemModel> data = null;
+
+            // Convert Right and Left Finger to Finger
+            if (location == ItemLocationEnum.RightFinger)
+            {
+                location = ItemLocationEnum.Finger;
+            }
+
+            if (location == ItemLocationEnum.LeftFinger)
+            {
+                location = ItemLocationEnum.Finger;
+            }
+
+            // Find the Items that meet the criteria
+            data = Dataset.Where(m => m.Location == location).ToList();
+
+            return data;
         }
     }
 }

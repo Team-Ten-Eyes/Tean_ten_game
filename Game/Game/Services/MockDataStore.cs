@@ -1,23 +1,72 @@
 ﻿using Game.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Game.Services
 {
-    public class MockDataStore<T> : IDataStore<T> where T: new()
+    public class MockDataStore<T> : IDataStore<T> where T : new()
     {
+        #region Singleton
+
+        // Make this a singleton so it only exist one time because holds all the data records in memory
+        private static volatile MockDataStore<T> instance;
+        private static readonly object syncRoot = new Object();
+
+        public static MockDataStore<T> Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    lock (syncRoot)
+                    {
+                        if (instance == null)
+                        {
+                            instance = new MockDataStore<T>();
+                        }
+                    }
+                }
+
+                return instance;
+            }
+        }
+
+        #endregion Singleton
+
         /// <summary>
         /// The Data List
         /// This is where the items are stored
         /// </summary>
         public List<T> datalist = new List<T>();
 
+        // Set Needs Init to False, so toggles to true 
+        public bool NeedsInitialization = true;
+
+        /// <summary>
+        /// First time toggled, returns true.
+        /// </summary>
+        /// <returns></returns>
+        public async Task<bool> GetNeedsInitializationAsync()
+        {
+            if (NeedsInitialization == true)
+            {
+                // Toggle State
+                NeedsInitialization = false;
+                return await Task.FromResult(true);
+            }
+
+            return await Task.FromResult(NeedsInitialization);
+        }
+
         /// <summary>
         /// Clear the Dataset
         /// </summary>
         public async Task<bool> WipeDataListAsync()
         {
+            NeedsInitialization = true;
+
             datalist.Clear();
             return await Task.FromResult(true);
         }
@@ -29,6 +78,11 @@ namespace Game.Services
         /// <returns>True for pass, else fail</returns>
         public async Task<bool> CreateAsync(T data)
         {
+            if (data == null)
+            {
+                return await Task.FromResult(false);
+            }
+
             datalist.Add(data);
 
             return await Task.FromResult(true);
@@ -39,10 +93,15 @@ namespace Game.Services
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Record if found else null</returns>
-        #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
         public async Task<T> ReadAsync(string id)
-        #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
+            if (string.IsNullOrEmpty(id))
+            {
+                return default(T);
+            }
+
             if (!datalist.Any())
             {
                 return default(T);
@@ -59,6 +118,11 @@ namespace Game.Services
         /// <returns>True for pass, else fail</returns>
         public async Task<bool> UpdateAsync(T data)
         {
+            if (data == null)
+            {
+                return await Task.FromResult(false);
+            }
+
             T oldData = await ReadAsync(((BaseModel<T>)(object)data).Id);
             if (oldData == null)
             {
@@ -79,6 +143,11 @@ namespace Game.Services
         /// <returns>True for pass, else fail</returns>
         public async Task<bool> DeleteAsync(string id)
         {
+            if (string.IsNullOrEmpty(id))
+            {
+                return await Task.FromResult(false);
+            }
+
             T oldData = await ReadAsync(id);
             if (oldData == null)
             {

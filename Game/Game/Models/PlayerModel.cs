@@ -4,29 +4,30 @@ using SQLite;
 using System;
 using System.Collections.Generic;
 
-
 namespace Game.Models
 {
+    /// <summary>
+    /// Base Player that Characters and Monsters derive from
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class PlayerModel<T> : BaseModel<T>
     {
-
-     
         #region Attributes
-        #region GameEngineAttributes
-        //alive status, !alive will be removed from the list
-        [Ignore]
 
+        #region GameEngineAttributes
+        // alive status, !alive will be removed from the list
+        [Ignore]
         public bool Alive { get; set; } = true;
 
-        //the type of player, character comes before monster
+        // The type of player, character comes before monster
         [Ignore]
         public PlayerTypeEnum PlayerType { get; set; } = PlayerTypeEnum.Unknown;
 
-        //TurnOrder
+        // TurnOrder
         [Ignore]
         public int Order { get; set; } = 0;
 
-        //Remember who was first into the list ...
+        // Remember who was first into the list...
         [Ignore]
         public int ListOrder { get; set; } = 0;
 
@@ -34,29 +35,31 @@ namespace Game.Models
 
         #region PlayerAttributes
 
-        //  character level info for character or monster
+        // Level of character or monster
         public int Level { get; set; } = 1;
 
-        // character total experience //
-        public int Experience { get; set; } = 0;
-
-        // Enum of the different "CLass" that the character has
-
-        // characer stats//
-        //Current Health
+        // Current Health
         public int CurrHealth { get; set; } = 0;
 
-        //Total Expereince
-        public int ExpereinceTotal { get; set; } = 0;
-        // MaxHealth
-        public int MaxHealth { get; set; } = 1;
+        // Max Health
+        public int MaxHealth { get; set; } = 0;
 
-        //Used to calculate ToHit roll
-        public int Attack { get; set; } = 0;
-        //used to determine ToHit contest
-        public int Defense { get; set; } = 0;
-        //Used to determine turn order in battle
+        // Total Experience Earned
+        public int Experience { get; set; } = 0;
+
+        // The Experience available to given up
+        public int ExperienceRemaining { get; set; }
+
+        // Total speed, including level and items
         public int Speed { get; set; } = 0;
+
+        // The defense score, to be used for defending against attacks
+        public int Defense { get; set; } = 0;
+
+        // The Attack score to be used when attacking
+        public int Attack { get; set; } = 0;
+
+        public DifficultyEnum Difficulty { get; set; } = DifficultyEnum.Unknown;
 
         #endregion PlayerAttributes
 
@@ -83,6 +86,9 @@ namespace Game.Models
 
         // LeftFinger is a string referencing the database table
         public string LeftFinger { get; set; } = null;
+
+        // Unique Drop Item for Monsters
+        public string UniqueItem { get; set; } = null;
         #endregion Items
 
         #region AttributeDisplay
@@ -215,20 +221,33 @@ namespace Game.Models
 
         #endregion AttributeDisplay
 
-        
         #region Methods
 
+        #region BasicMethods
+
+        /// <summary>
+        /// Constructor for BasePlayer
+        /// </summary>
         public PlayerModel()
         {
             Guid = Id;
         }
 
+        /// <summary>
+        /// Format Output
+        /// </summary>
+        /// <returns></returns>
+        public virtual string FormatOutput() { return ""; }
+
+        #endregion BasicMethods
+
         #region GetAttributeValues
+
         /// <summary>
         /// Return the Total Attack Value
         /// </summary>
         /// <returns></returns>
-        virtual public int GetAttack()
+        public int GetAttack()
         {
             // Base Attack
             var myReturn = Attack;
@@ -255,7 +274,7 @@ namespace Game.Models
             myReturn += GetDefenseLevelBonus;
 
             // Get Defense bonus from Items
-            myReturn +=  GetDefenseItemBonus;
+            myReturn += GetDefenseItemBonus;
 
             return myReturn;
         }
@@ -291,7 +310,7 @@ namespace Game.Models
             myReturn += GetCurrentHealthLevelBonus;
 
             // Get CurrentHealth bonus from Items
-            myReturn +=  GetCurrentHealthItemBonus;
+            myReturn += GetCurrentHealthItemBonus;
 
             return myReturn;
         }
@@ -309,16 +328,22 @@ namespace Game.Models
             myReturn += GetMaxHealthLevelBonus;
 
             // Get MaxHealth bonus from Items
-            myReturn +=  GetMaxHealthItemBonus;
+            myReturn += GetMaxHealthItemBonus;
 
             return myReturn;
         }
+
         #endregion GetAttributeValues
 
-        // Take Damage
-        // If the damage recived, is > health, then death occurs
-        // Return the number of experience received for this attack 
-        // monsters give experience to characters.  Characters don't accept expereince from monsters
+        #region BattleMethods
+        /// <summary>
+        /// Take Damage
+        /// If the damage recived, is > health, then death occurs
+        /// Return the number of experience received for this attack 
+        /// monsters give experience to characters.  Characters don't accept expereince from monsters
+        /// </summary>
+        /// <param name="damage"></param>
+        /// <returns></returns>
         public bool TakeDamage(int damage)
         {
             if (damage <= 0)
@@ -342,10 +367,8 @@ namespace Game.Models
         /// Roll the Damage Dice, and add to the Damage
         /// </summary>
         /// <returns></returns>
-        virtual public int GetDamageRollValue()
+        public int GetDamageRollValue()
         {
-
-
             var myReturn = 0;
 
             var myItem = ItemIndexViewModel.Instance.GetItem(PrimaryHand);
@@ -369,11 +392,143 @@ namespace Game.Models
             return Alive;
         }
 
-        public string FormatOutput() { return ""; }
+        #endregion BattleMethods
 
-        public bool AddExperience(int newExperience) { return true; }
+        #region LevelMethods
 
-        public int CalculateExperienceEarned(int damage) { return 0; }
+        /// <summary>
+        /// Add Experience
+        /// </summary>
+        /// <param name="newExperience"></param>
+        /// <returns></returns>
+        public bool AddExperience(int newExperience)
+        {
+            // Don't allow going lower in experience
+            if (newExperience < 0)
+            {
+                return false;
+            }
+
+            // Increment the Experience
+            Experience += newExperience;
+
+            // Can't level UP if at max.
+            if (Level >= LevelTableHelper.MaxLevel)
+            {
+                return false;
+            }
+
+            // Then check for Level UP
+            // If experience is higher than the experience at the next level, level up is OK.
+            if (Experience >= LevelTableHelper.Instance.LevelDetailsList[Level + 1].Experience)
+            {
+                return LevelUp();
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Calculate The amount of Experience to give
+        /// Reduce the remaining by what was given
+        /// </summary>
+        /// <param name="damage"></param>
+        /// <returns></returns>
+        public int CalculateExperienceEarned(int damage)
+        {
+            if (damage < 1)
+            {
+                return 0;
+            }
+
+            int remainingHealth = Math.Max(CurrHealth - damage, 0); // Go to 0 is OK...
+            double rawPercent = (double)remainingHealth / (double)CurrHealth;
+            double deltaPercent = 1 - rawPercent;
+            var pointsAllocate = (int)Math.Floor(ExperienceRemaining * deltaPercent);
+
+            // Catch rounding of low values, and force to 1.
+            if (pointsAllocate < 1)
+            {
+                pointsAllocate = 1;
+            }
+
+            // Take away the points from remaining experience
+            ExperienceRemaining -= pointsAllocate;
+            if (ExperienceRemaining < 0)
+            {
+                pointsAllocate = 0;
+            }
+
+            return pointsAllocate;
+        }
+
+        // Level Up
+        public bool LevelUp()
+        {
+            // Walk the Level Table descending order
+            // Stop when experience is >= experience in the table
+            for (var i = LevelTableHelper.Instance.LevelDetailsList.Count - 1; i > 0; i--)
+            {
+                // Check the Level
+                // If the Level is > Experience for the Index, increment the Level.
+                if (LevelTableHelper.Instance.LevelDetailsList[i].Experience <= Experience)
+                {
+                    var NewLevel = LevelTableHelper.Instance.LevelDetailsList[i].Level;
+
+                    // When leveling up, the current health is adjusted up by an offset of the MaxHealth, rather than full restore
+                    var OldCurrentHealth = CurrHealth;
+                    var OldMaxHealth = MaxHealth;
+
+                    // Set new Health
+                    // New health, is d10 of the new level.  So leveling up 1 level is 1 d10, leveling up 2 levels is 2 d10.
+                    var NewHealthAddition = DiceHelper.RollDice(NewLevel - Level, 10);
+
+                    // Increment the Max health
+                    MaxHealth += NewHealthAddition;
+
+                    // Calculate new current health
+                    // old max was 10, current health 8, new max is 15 so (15-(10-8)) = current health
+                    CurrHealth = (MaxHealth - (OldMaxHealth - OldCurrentHealth));
+
+                    // Set the new level
+                    Level = NewLevel;
+
+                    // Done, exit
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        // Level up to a number, say Level 3
+        public int LevelUpToValue(int Value)
+        {
+            // Adjust the experience to the min for that level.
+            // That will trigger level up to happen
+
+            if (Value < 0)
+            {
+                // Skip, and return old level
+                return Level;
+            }
+
+            if (Value <= Level)
+            {
+                // Skip, and return old level
+                return Level;
+            }
+
+            if (Value > LevelTableHelper.MaxLevel)
+            {
+                return Level;
+            }
+
+            AddExperience(LevelTableHelper.Instance.LevelDetailsList[Value].Experience + 1);
+
+            return Level;
+        }
+
+        #endregion LevelMethods
 
         #region Items
         // Get the Item at a known string location (head, foot etc.)
@@ -484,44 +639,37 @@ namespace Game.Models
         // Puts the ItemModel ID as a string in the location slot
         // If ItemModel is null, then puts null in the slot
         // Returns the ItemModel that was in the location
-        public ItemModel AddItem(ItemLocationEnum itemlocation, string itemID)
+        public ItemModel AddItem(ItemLocationEnum itemLocation, string itemID)
         {
-            ItemModel myReturn;
+            var myReturn = GetItemByLocation(itemLocation);
 
-            switch (itemlocation)
+            switch (itemLocation)
             {
                 case ItemLocationEnum.Feet:
-                    myReturn = GetItem(Feet);
                     Feet = itemID;
                     break;
 
                 case ItemLocationEnum.Head:
-                    myReturn = GetItem(Head);
                     Head = itemID;
                     break;
 
                 case ItemLocationEnum.Necklass:
-                    myReturn = GetItem(Necklass);
                     Necklass = itemID;
                     break;
 
                 case ItemLocationEnum.PrimaryHand:
-                    myReturn = GetItem(PrimaryHand);
                     PrimaryHand = itemID;
                     break;
 
                 case ItemLocationEnum.OffHand:
-                    myReturn = GetItem(OffHand);
                     OffHand = itemID;
                     break;
 
                 case ItemLocationEnum.RightFinger:
-                    myReturn = GetItem(RightFinger);
                     RightFinger = itemID;
                     break;
 
                 case ItemLocationEnum.LeftFinger:
-                    myReturn = GetItem(LeftFinger);
                     LeftFinger = itemID;
                     break;
 
@@ -546,7 +694,7 @@ namespace Game.Models
             {
                 if (myItem.Attribute == attributeEnum)
                 {
-                   myReturn += myItem.Value;
+                    myReturn += myItem.Value;
                 }
             }
 
@@ -605,6 +753,65 @@ namespace Game.Models
             }
 
             return myReturn;
+        }
+
+        /// <summary>
+        /// Get the Items the Character has
+        /// </summary>
+        /// <returns></returns>
+        public string ItemSlotsFormatOutput()
+        {
+            var myReturn = "";
+
+            var data = ItemIndexViewModel.Instance.GetItem(UniqueItem);
+            if (data != null)
+            {
+                myReturn += data.FormatOutput();
+            }
+
+            data = ItemIndexViewModel.Instance.GetItem(Head);
+            if (data != null)
+            {
+                myReturn += data.FormatOutput();
+            }
+
+            data = ItemIndexViewModel.Instance.GetItem(Necklass);
+            if (data != null)
+            {
+                myReturn += data.FormatOutput();
+            }
+
+            data = ItemIndexViewModel.Instance.GetItem(PrimaryHand);
+            if (data != null)
+            {
+                myReturn += data.FormatOutput();
+            }
+
+            data = ItemIndexViewModel.Instance.GetItem(OffHand);
+            if (data != null)
+            {
+                myReturn += data.FormatOutput();
+            }
+
+            data = ItemIndexViewModel.Instance.GetItem(RightFinger);
+            if (data != null)
+            {
+                myReturn += data.FormatOutput();
+            }
+
+            data = ItemIndexViewModel.Instance.GetItem(LeftFinger);
+            if (data != null)
+            {
+                myReturn += data.FormatOutput();
+            }
+
+            data = ItemIndexViewModel.Instance.GetItem(Feet);
+            if (data != null)
+            {
+                myReturn += data.FormatOutput();
+            }
+
+            return myReturn.Trim();
         }
 
         #endregion Items
