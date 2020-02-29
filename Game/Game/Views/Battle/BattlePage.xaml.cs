@@ -92,5 +92,10 @@ namespace Game.Views
 				await Navigation.PopModalAsync();
 			}
 		}
+
+		async void Go_to_monsters_lurking(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new MonstersInTheNextBattle());
+		}
 	}
 }

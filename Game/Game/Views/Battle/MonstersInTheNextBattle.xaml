@@ -7,9 +7,12 @@
              x:Class="Game.Views.MonstersInTheNextBattle">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Monsters Lurking in this level"
+                   FontSize="Medium"
+                   FontAttributes="Bold"
+                   TextDecorations="Underline"
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
