@@ -14,7 +14,79 @@
                    VerticalOptions="CenterAndExpand" 
                    HorizontalOptions="CenterAndExpand" />
 
-          
+            <ListView x:Name="MonsterListView"
+                    ItemsSource="{Binding Dataset}"
+                    IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                    RefreshCommand="{Binding LoadItemsCommand}"
+                    CachingStrategy="RecycleElement"
+                    ItemSelected="OnMonsterSelected"
+                    HasUnevenRows="true"
+                    Margin="5,0,5,0"
+                    RowHeight="80"
+                    >
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid ColumnSpacing="5" RowSpacing="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                        Source="{Binding ImageURI}"
+                                        Style="{StaticResource ImageSmallStyle}"
+                                        VerticalOptions="CenterAndExpand"/>
+                                <StackLayout Grid.Column="1" Grid.Row="0"
+                                             Orientation="Horizontal">
+
+                                    <Label Grid.Column="1" Grid.Row="0"
+                                       Text="Name:"
+                                       FontAttributes="Bold"
+                                       Style="{StaticResource ListStyle}"/>
+
+                                    <Label Grid.Column="2" Grid.Row="0"
+                                       Text="{Binding Name}" 
+                                       Style="{StaticResource ListStyle}"/>
+                                </StackLayout>
+                                <StackLayout Grid.Column="1" Grid.Row="1"
+                                             Orientation="Horizontal">
+                                    <Label Text="Level:"
+                                       FontAttributes="Bold"
+                                       Style="{StaticResource LabelStyle}"/>
+
+
+                                    <Label Text="{Binding Level}" 
+                                       Style="{StaticResource ListStyle}"
+                                       FontSize="Micro"/>
+
+                                </StackLayout>
+                                <StackLayout Grid.Column="1" Grid.Row="3"
+                                    Orientation="Horizontal">
+
+                                    <Label Text="Class:"
+                                           FontAttributes="Bold"
+                                           Style="{StaticResource LabelStyle}"/>
+                                    <Label 
+                                       Text="{Binding Attribute}" 
+                                       Style="{StaticResource ListStyle}"/>
+
+
+                                </StackLayout>
+
+
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

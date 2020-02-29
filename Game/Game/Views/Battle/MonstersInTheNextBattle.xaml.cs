@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Game.ViewModels;
+using Game.Models;
 
 namespace Game.Views
 {
@@ -19,6 +20,26 @@ namespace Game.Views
         {
             InitializeComponent();
             BindingContext = ViewModel = MonsterViewModel.Instance;
+        }
+
+        /// <summary>
+        /// The row selected from the list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        async void OnMonsterSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            BaseMonster data = args.SelectedItem as BaseMonster;
+            if (data == null)
+            {
+                return;
+            }
+
+            // Open the Read Page
+            await Navigation.PushAsync(new MonsterReadPage(new GenericViewModel<BaseMonster>(data)));
+
+            //// Manually deselect item.
+            MonsterListView.SelectedItem = null;
         }
     }
 }
