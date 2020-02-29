@@ -80,6 +80,8 @@
 
                                 </StackLayout>
 
+                                
+
 
 
                             </Grid>
@@ -87,6 +89,11 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Button Text="Continue" 
+                    FontAttributes="Bold"
+                    WidthRequest="200"
+                    HeightRequest="100"
+                    Clicked="Direct_pick_character_page"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

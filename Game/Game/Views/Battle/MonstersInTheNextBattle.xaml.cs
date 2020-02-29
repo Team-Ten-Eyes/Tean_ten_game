@@ -41,5 +41,10 @@ namespace Game.Views
             //// Manually deselect item.
             MonsterListView.SelectedItem = null;
         }
+
+        async void Direct_pick_character_page(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PickCharactersPage());
+        }
     }
 }
