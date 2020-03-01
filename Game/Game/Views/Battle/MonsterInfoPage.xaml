@@ -5,11 +5,65 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Game.Views.MonsterInfoPage">
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="{Binding Data.Name}" HorizontalOptions="EndAndExpand"/>
+                <Label Text="- Level:" 
+                       FontAttributes="Bold"/>
+                <Label Text="{Binding Data.Level}" HorizontalOptions="StartAndExpand"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Class: " HorizontalOptions="EndAndExpand" FontAttributes="Bold"/>
+                <Label Text="{Binding Data.Attribute}" HorizontalOptions="StartAndExpand" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Image Source="{Binding Data.ImageURI}" WidthRequest="200" HeightRequest="200"/>
+                <StackLayout Orientation="Vertical">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height = "Auto" />
+                            <RowDefinition Height = "Auto" />
+                            <RowDefinition Height = "Auto" />
+                            <RowDefinition Height = "Auto" />
+                            <RowDefinition Height = "Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width ="Auto" />
+                            <ColumnDefinition Width ="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="HP ---" FontAttributes="Bold" HorizontalOptions="End" Grid.Row ="1" Grid.Column="0"/>
+                        <Label Text="ATK ---" FontAttributes="Bold" HorizontalOptions="End" Grid.Row ="2" Grid.Column="0"/>
+                        <Label Text="DEF ---" FontAttributes="Bold" HorizontalOptions="End" Grid.Row ="3" Grid.Column="0"/>
+                        <Label Text="SPD ---" FontAttributes="Bold" HorizontalOptions="End" Grid.Row ="4" Grid.Column="0"/>
+                        <Label Text="{Binding Data.MaxHealth}"  Grid.Row ="1" Grid.Column="1"/>
+                        <Label Text="{Binding Data.Attack}"  Grid.Row ="2" Grid.Column="1"/>
+                        <Label Text="{Binding Data.Defense}"  Grid.Row ="3" Grid.Column="1"/>
+                        <Label Text="{Binding Data.Speed}"  Grid.Row ="4" Grid.Column="1"/>
+
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+            <Label Text="Description" FontAttributes="Bold" HorizontalOptions="Start" TextDecorations="Underline"/>
+            <Label Text="{Binding Data.Description}" HorizontalOptions="Start"/>
+
+
+            <Label Text="This Monster's type is strong against these Character types"
+                   FontSize="Small" TextDecorations="Underline" />
+            <ListView x:Name="StrengthListView"
+                    ItemsSource="{Binding strenghts}" 
+                    IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                    RefreshCommand="{Binding LoadItemsCommand}"
+                    CachingStrategy="RecycleElement"
+                     SelectionMode="None"
+                    HasUnevenRows="true"
+                    Margin="5,0,5,0">
+            </ListView>
+
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
