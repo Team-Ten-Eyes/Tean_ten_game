@@ -25,7 +25,7 @@ namespace Game.Views
 		/// <param name="e"></param>
 		void AttackButton_Clicked(object sender, EventArgs e)
 		{
-			DisplayAlert("SU", "Attack !!!", "OK");
+			DisplayAlert("Attack!!!", "Attack !!!", "OK");
 		}
 
 		/// <summary>
