@@ -89,6 +89,18 @@
                 </Grid>
 
 
+                <StackLayout Orientation="Horizontal">
+                    <Button Clicked="AttackButton_Clicked" Text="Attack" HorizontalOptions="FillAndExpand"></Button>
+                    <Button Clicked="AttackButton_Clicked" Text="Special Attack" HorizontalOptions="FillAndExpand"></Button>
+                    <Button Clicked="AttackButton_Clicked" Text="Pass Turn" HorizontalOptions="FillAndExpand"></Button>
+                </StackLayout>
+                
+                <StackLayout Orientation="Horizontal">
+                    <Button Clicked="AttackButton_Clicked" Text="Potions" HorizontalOptions="FillAndExpand" ></Button>
+                    <Button Clicked="AttackButton_Clicked" Text="Autobattle" HorizontalOptions="FillAndExpand"></Button>
+                </StackLayout>
+
+                <Label Text="OFFICIAL END OF PAGE" />
 
                 <Button Clicked="AttackButton_Clicked" Text="Attack"></Button>
 
