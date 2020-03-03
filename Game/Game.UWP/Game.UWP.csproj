@@ -104,6 +104,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="skull.png" />
     <Content Include="auto_battle.png" />
     <Content Include="battleboard.jpg" />
     <Content Include="brain.gif" />

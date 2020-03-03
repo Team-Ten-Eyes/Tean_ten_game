@@ -177,7 +177,6 @@
 
                 <Button Clicked="QuitButton_Clicked" Text="Quit"></Button>
 
-                <Button Clicked="Go_to_monsters_lurking" Text="Monsters lurking page"/>
 
             </StackLayout>
         </ScrollView>

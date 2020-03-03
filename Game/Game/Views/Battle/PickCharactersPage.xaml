@@ -89,7 +89,9 @@
                             Text="Begin Battle"
                             IsEnabled="False"
                             HorizontalOptions="Center"
-                            TextColor="White"/>
+                            BackgroundColor="White"
+                            TextColor="#C03BFC"
+                            FontAttributes="Bold"/>
 
                     </StackLayout>
 

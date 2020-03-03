@@ -5,11 +5,12 @@
 
     <ContentPage.Content>
         <StackLayout Style="{StaticResource VerticalStack}">
-            
-            <Label Text="Score Page..."></Label>
-            <Label Text="{Binding Data.ScoreTotal}"></Label>
-            
-                
+            <Label Text="GAME OVER" HorizontalOptions="CenterAndExpand" FontSize="24" FontAttributes="Bold"></Label>
+            <Label LineBreakMode="WordWrap" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" Text="You've lost control. Make your peace as now you will wander for the rest of time within your own mind watching someone else in the drivers seat."></Label>
+            <Image Source="skull.png" WidthRequest="250" HeightRequest="250" HorizontalOptions="CenterAndExpand"/>
+            <Label HorizontalOptions="CenterAndExpand" Text="Your Score:"></Label>
+            <Label HorizontalOptions="CenterAndExpand" Text="{Binding Data.ScoreTotal}"></Label>
+
             <Button Clicked="CloseButton_Clicked" Text="Close"></Button>
 
         </StackLayout>
