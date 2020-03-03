@@ -30,7 +30,7 @@ namespace Game.Views
         public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
 
         // Empty Constructor for UTs
-       // public PickCharactersPage(bool UnitTest) { }
+        // public PickCharactersPage(bool UnitTest) { }
 
         /// <summary>
         /// Constructor for Index Page
