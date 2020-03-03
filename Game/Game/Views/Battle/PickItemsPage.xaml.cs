@@ -48,18 +48,16 @@ namespace Game.Views
             BindingContext = EngineViewModel;
         }
 
+
         /// <summary>
-        /// Attack Action
+        /// Jump to the character equiped page
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void select_fighting_character(object sender, EventArgs e)
+        async void select_fighting_character(object sender, EventArgs e)
         {
-            DisplayAlert("Attack!!!", "Attack !!!", "OK");
+            await Navigation.PushAsync(new CharacterEquiped());
         }
-
-
-
 
 
     }
