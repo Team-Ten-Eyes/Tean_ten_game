@@ -21,16 +21,57 @@
                     <ColumnDefinition Width ="Auto" />
                     <ColumnDefinition Width ="Auto" />
                 </Grid.ColumnDefinitions>
-                <Image Source="stress.png" Grid.Row ="1" Grid.Column="0"/>
-                <Image Source="stress.png" Grid.Row ="2" Grid.Column="0"/>
-                <Image Source="stress.png" Grid.Row ="3" Grid.Column="0"/>
-                <Image Source="stress.png" Grid.Row ="4" Grid.Column="0"/>
-                <Image Source="stress.png" Grid.Row ="5" Grid.Column="0"/>
-                <Image Source="stress.png" Grid.Row ="1" Grid.Column="3"/>
-                <Image Source="stress.png" Grid.Row ="2" Grid.Column="3"/>
-                <Image Source="stress.png" Grid.Row ="3" Grid.Column="3"/>
-                <Image Source="stress.png" Grid.Row ="4" Grid.Column="3"/>
-                <Image Source="stress.png" Grid.Row ="5" Grid.Column="3"/>
+                <StackLayout Orientation="Vertical" Grid.Row ="1" Grid.Column="0">
+                    <Image Source="stress.png"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Grid.Row ="2" Grid.Column="0">
+                    <Image Source="stress.png"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Grid.Row ="3" Grid.Column="0">
+                    <Image Source="stress.png"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Grid.Row ="4" Grid.Column="0">
+                    <Image Source="stress.png"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Grid.Row ="5" Grid.Column="0">
+                    <Image Source="stress.png"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" Grid.Row ="1" Grid.Column="3">
+                    <Image Source="stress.png"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Grid.Row ="2" Grid.Column="3">
+                    <Image Source="stress.png"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Grid.Row ="3" Grid.Column="3">
+                    <Image Source="stress.png"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Grid.Row ="4" Grid.Column="3">
+                    <Image Source="stress.png"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Grid.Row ="5" Grid.Column="3">
+                    <Image Source="stress.png"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                </StackLayout>
             </Grid>
 
 
