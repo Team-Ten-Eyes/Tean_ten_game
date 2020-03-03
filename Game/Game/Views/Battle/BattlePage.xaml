@@ -6,7 +6,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Style="{StaticResource VerticalStack}">
-                <Label Text=""></Label>
+                <Label Text="Round 1!" HorizontalOptions="FillAndExpand" FontAttributes="Bold"></Label>
 
                 <Grid>
                     <Grid.RowDefinitions>
