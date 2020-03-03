@@ -86,7 +86,7 @@
                         <Button 
                             x:Name="BeginBattleButton"
                             Clicked="BattleButton_Clicked" 
-                            Text="Begin Battle"
+                            Text="Equip your characters"
                             IsEnabled="False"
                             HorizontalOptions="Center"
                             BackgroundColor="White"

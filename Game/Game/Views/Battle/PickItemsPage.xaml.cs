@@ -66,7 +66,8 @@ namespace Game.Views
         /// <param name="e"></param>
         async void Go_to_battle(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new BattlePage());
+            await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
+            await Navigation.PopAsync();
         }
 
     }
