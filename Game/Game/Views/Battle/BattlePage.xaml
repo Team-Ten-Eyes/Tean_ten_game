@@ -38,7 +38,7 @@
                         <Frame BackgroundColor="Transparent" BorderColor="Black" x:Name="Char2Frame">
                             <Grid>
                                 
-                                <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Char2Pic"/>
+                                <Image Source="Michelle.png" HeightRequest="100" WidthRequest="100" x:Name="Char2Pic"/>
                                 <Image Source="dead.png" IsVisible="False" HeightRequest="100" WidthRequest="100" x:Name="Char2Dead"/>
                             </Grid>
                         </Frame>
@@ -50,8 +50,8 @@
                         <Frame BackgroundColor="Transparent" BorderColor="Transparent" x:Name="Char3Frame">
                             <Grid>
                                 
-                                <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Char3Pic"/>
-                                <Image Source="dead.png" IsVisible="True" HeightRequest="100" WidthRequest="100" x:Name="Char3Dead"/>
+                                <Image Source="Will.png" HeightRequest="100" WidthRequest="100" x:Name="Char3Pic"/>
+                                <Image Source="dead.png" IsVisible="False" HeightRequest="100" WidthRequest="100" x:Name="Char3Dead"/>
                             </Grid>
                         </Frame>
                         <ProgressBar IsVisible="True" Progress="0" x:Name="Char3HP"/>
@@ -62,8 +62,8 @@
                         <Frame BackgroundColor="Transparent" BorderColor="Transparent" x:Name="Char4Frame">
                             <Grid>
                                 
-                                <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Char4Pic"/>
-                                <Image Source="dead.png" IsVisible="False" HeightRequest="100" WidthRequest="100" x:Name="Char4Dead"/>
+                                <Image Source="thumbnail_bravery.png" HeightRequest="100" WidthRequest="100" x:Name="Char4Pic"/>
+                                <Image Source="dead.png" IsVisible="True" HeightRequest="100" WidthRequest="100" x:Name="Char4Dead"/>
                             </Grid>
                         </Frame>
                         <ProgressBar IsVisible="True" Progress="0.5" x:Name="Char4HP"/>
@@ -74,7 +74,7 @@
                         <Frame BackgroundColor="Transparent" BorderColor="Transparent" x:Name="Char5Frame">
                             <Grid>
                                 
-                                <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Char5Pic"/>
+                                <Image Source="creativity.png" HeightRequest="100" WidthRequest="100" x:Name="Char5Pic"/>
                                 <Image Source="dead.png" IsVisible="False" HeightRequest="100" WidthRequest="100" x:Name="Char5Dead"/>
                             </Grid>
                         </Frame>
