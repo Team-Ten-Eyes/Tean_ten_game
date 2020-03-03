@@ -22,9 +22,9 @@
                 Dark
                 -->
 
-            
-            
-            
+
+
+            <Color x:Key="pickCharacterPageColor">#FFFFFF</Color>
             <Color x:Key="PageBackgroundColor">#7FD9BF</Color>
             <Color x:Key="ViewBackgroundColor">#F2EBDC</Color>
             <Color x:Key="NavigationBarColor">#C03BFC</Color>
