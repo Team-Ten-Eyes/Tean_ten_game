@@ -4,9 +4,9 @@
              x:Class="Game.Views.BattlePage">
 
     <ContentPage.Content>
-        <ScrollView>
+        <ScrollView >
             <StackLayout Style="{StaticResource VerticalStack}">
-                <Label Text="Round 1!" HorizontalOptions="FillAndExpand" FontAttributes="Bold"></Label>
+                <Label Text="Round 1!" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"></Label>
 
                 <Grid>
                     <Grid.RowDefinitions>
@@ -17,10 +17,10 @@
                         <RowDefinition Height = "Auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width ="Auto" />
-                        <ColumnDefinition Width ="Auto" />
-                        <ColumnDefinition Width ="Auto" />
-                        <ColumnDefinition Width ="Auto" />
+                        <ColumnDefinition Width ="150" />
+                        <ColumnDefinition Width ="250" />
+                        <ColumnDefinition Width ="250" />
+                        <ColumnDefinition Width ="150" />
                     </Grid.ColumnDefinitions>
                     <StackLayout Orientation="Vertical" Grid.Row ="1" Grid.Column="0">
                         <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Char1Pic"/>
@@ -74,13 +74,13 @@
                         <ProgressBar IsVisible="False" Progress="0.5"/>
                     </StackLayout>
 
-                    <Label Text="TEST" IsVisible="False" HorizontalOptions="Start" Grid.Row ="1" Grid.Column="1" />
+                    <Label Text="Hit! -45 HP" IsVisible="True" HorizontalOptions="Start" Grid.Row ="1" Grid.Column="1" />
                     <Label Text="TEST" IsVisible="False" HorizontalOptions="Start" Grid.Row ="2" Grid.Column="1" />
                     <Label Text="TEST" IsVisible="False" HorizontalOptions="Start" Grid.Row ="3" Grid.Column="1" />
                     <Label Text="TEST" IsVisible="False" HorizontalOptions="Start" Grid.Row ="4" Grid.Column="1" />
                     <Label Text="TEST" IsVisible="False" HorizontalOptions="Start" Grid.Row ="5" Grid.Column="1" />
 
-                    <Label Text="TEST" IsVisible="False" HorizontalOptions="End" Grid.Row ="1" Grid.Column="2" />
+                    <Label Text="Miss! Try Again Buddy" IsVisible="True" HorizontalOptions="End" Grid.Row ="1" Grid.Column="2" />
                     <Label Text="TEST" IsVisible="False" HorizontalOptions="End" Grid.Row ="2" Grid.Column="2" />
                     <Label Text="TEST" IsVisible="False" HorizontalOptions="End" Grid.Row ="3" Grid.Column="2" />
                     <Label Text="TEST" IsVisible="False" HorizontalOptions="End" Grid.Row ="4" Grid.Column="2" />
