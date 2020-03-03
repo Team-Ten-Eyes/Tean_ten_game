@@ -27,7 +27,11 @@ namespace Game.Views
             InitializeComponent();
 
             // Add Players to Display
-           
+            
+            PartyListView.ItemsSource = EngineViewModel.PartyCharacterList;
+
+
+
 
         }
         /// <summary>
@@ -43,6 +47,18 @@ namespace Game.Views
 
             BindingContext = EngineViewModel;
         }
+
+        /// <summary>
+        /// Attack Action
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void select_fighting_character(object sender, EventArgs e)
+        {
+            DisplayAlert("Attack!!!", "Attack !!!", "OK");
+        }
+
+
 
 
 
