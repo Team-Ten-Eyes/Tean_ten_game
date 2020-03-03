@@ -79,7 +79,7 @@ namespace Game.Engine
                 RoundCondition = RoundNextTurn();
 
                 if (RoundCondition == RoundEnum.NewRound)
-                {
+                {   
                     NewRound();
                     Debug.WriteLine("New Round");
                 }

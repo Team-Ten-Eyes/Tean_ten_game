@@ -55,17 +55,21 @@ namespace Game.Models
         // Only use Get only, set will be done by the Add feature.
         public string ItemsDroppedList { get; set; } = string.Empty;
 
-        // Add Characters to the List for easier testing
+        // Add Characters to the List for Score, New Round, and Easier testing
         [Ignore]
         public List<PlayerInfoModel> CharacterModelDeathList { get; set; } = new List<PlayerInfoModel>();
 
-        // Add Monsters to the List for easier testing
+        // Add Monsters to the List for Score, New Round, and Easier testing
         [Ignore]
         public List<PlayerInfoModel> MonsterModelDeathList { get; set; } = new List<PlayerInfoModel>();
 
-        // Add Item to the List for easier testing
+        // Add Item to the List for Score, New Round, and Easier testing
         [Ignore]
         public List<ItemModel> ItemModelDropList { get; set; } = new List<ItemModel>();
+
+        // Add the Selected Items to the List for Score, New Round, and Easier testing
+        [Ignore]
+        public List<ItemModel> ItemModelSelectList { get; set; } = new List<ItemModel>();
 
         /// <summary>
         /// Instantiate new Score 
@@ -124,27 +128,16 @@ namespace Game.Models
 
         #region ScoreItems
 
-        //public bool AddToList(CharacterModel data)
-        //{
-        //    if (data == null)
-        //    {
-        //        return false;
-        //    }
+        /// <summary>
+        /// Calculate the Final Score
+        /// </summary>
+        /// <returns></returns>
+        public int CalculateScore()
+        {
+            int result = ExperienceGainedTotal;
 
-        //    CharacterAtDeathList += data.FormatOutput() + "\n";
-        //    return true;
-        //}
-
-        //public bool AddToList(MonsterModel data)
-        //{
-        //    if (data == null)
-        //    {
-        //        return false;
-        //    }
-
-        //    MonstersKilledList += data.FormatOutput() + "\n";
-        //    return true;
-        //}
+            return result;
+        }
 
         /// <summary>
         /// All an item to the list of items for score and their stats

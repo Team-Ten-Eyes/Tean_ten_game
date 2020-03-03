@@ -41,7 +41,7 @@ namespace Game.Engine
         public int MaxNumberPartyCharacters = 5;
 
         // Max Number of Monsters
-        public int MaxNumberPartyMonsters = 6;
+        public int MaxNumberPartyMonsters = 5;
 
         // Max Number of Rounds for AutoBattle
         public int MaxRoundCount = 1000;
