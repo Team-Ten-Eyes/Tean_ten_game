@@ -78,6 +78,8 @@ namespace Game.Models
             }
 
             // Update all the fields in the Data, except for the Id and guid
+            PlayerType = newData.PlayerType;
+
             Name = newData.Name;
             Guid = newData.Guid;
             Level = newData.Level;

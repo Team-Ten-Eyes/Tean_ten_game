@@ -98,10 +98,41 @@ namespace Game.Services
                     Attack=15,
                     Defense=10,
                     Speed=20
+                    
                 },
                 new BaseCharacter
                 {
                     Name="Artistic",
+                    ImageURI = "creativity.png",
+                    Level=12,
+                    CurrHealth=20,
+                    MaxHealth=20,
+                    Mana=10,
+                    MaxMana=10,
+                    Experience=5,
+                    Attribute=CharacterTypeEnum.Creativity,
+                    Attack=18,
+                    Defense=5,
+                    Speed=5
+                },
+                 new BaseCharacter
+                {
+                    Name="Artistic2",
+                    ImageURI = "creativity.png",
+                    Level=12,
+                    CurrHealth=20,
+                    MaxHealth=20,
+                    Mana=10,
+                    MaxMana=10,
+                    Experience=5,
+                    Attribute=CharacterTypeEnum.Creativity,
+                    Attack=18,
+                    Defense=5,
+                    Speed=5
+                },
+                  new BaseCharacter
+                {
+                    Name="Artistic3",
                     ImageURI = "creativity.png",
                     Level=12,
                     CurrHealth=20,
@@ -142,6 +173,39 @@ namespace Game.Services
                     CurrHealth=20,
                     MaxHealth=20,
                     Attribute=MonsterTypeEnum.Stress,
+                    Attack=18,
+                    Defense=5,
+                    Speed=5
+                },
+                 new BaseMonster {
+                    Name="Stress2",
+                    ImageURI = "Fire_monster.png",
+                    Level=12,
+                    CurrHealth=20,
+                    MaxHealth=20,
+                    Attribute=MonsterTypeEnum.Depression,
+                    Attack=18,
+                    Defense=5,
+                    Speed=5
+                },
+                  new BaseMonster {
+                    Name="Stress3",
+                    ImageURI = "Fire_monster.png",
+                    Level=12,
+                    CurrHealth=20,
+                    MaxHealth=20,
+                    Attribute=MonsterTypeEnum.Depression,
+                    Attack=18,
+                    Defense=5,
+                    Speed=5
+                },
+                   new BaseMonster {
+                    Name="Stress4",
+                    ImageURI = "Fire_monster.png",
+                    Level=12,
+                    CurrHealth=20,
+                    MaxHealth=20,
+                    Attribute=MonsterTypeEnum.Depression,
                     Attack=18,
                     Defense=5,
                     Speed=5
