@@ -26,6 +26,10 @@ namespace Game.Views
 			
 			InitializeComponent();
 		}
+
+		/// <summary>
+		/// Parameterized Constructor
+		/// </summary>
 		public ScorePage (GenericViewModel<ScoreModel> data)
 		{
 			BindingContext = this.ViewModel = data;
@@ -34,7 +38,7 @@ namespace Game.Views
 		}
 
 		/// <summary>
-		/// Attack Action
+		/// Close Button Returns User To Monsters Lurking
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
