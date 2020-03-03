@@ -5,7 +5,29 @@
 
     <ContentPage.Content>
         <StackLayout Style="{StaticResource VerticalStack}">
-            <Label Text="Battle Page..."></Label>
+            <Label Text=""></Label>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height = "Auto" />
+                    <RowDefinition Height = "Auto" />
+                    <RowDefinition Height = "Auto" />
+                    <RowDefinition Height = "Auto" />
+                    <RowDefinition Height = "Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width ="Auto" />
+                    <ColumnDefinition Width ="Auto" />
+                    <ColumnDefinition Width ="Auto" />
+                    <ColumnDefinition Width ="Auto" />
+                    <ColumnDefinition Width ="Auto" />
+                </Grid.ColumnDefinitions>
+
+            </Grid>
+
+
+
+
 
             <Image Source="knight.png" Style="{StaticResource ImageMediumStyle}"></Image>
             <Image Source="troll.png" Style="{StaticResource ImageMediumStyle}"></Image>
