@@ -6,7 +6,10 @@
 
     <ContentPage.Content>
         <StackLayout Style="{StaticResource VerticalStack}">
-            <Label Text="Pick Items Page..."></Label>
+            <Label Text="Equip your characters"
+                   FontSize="Header"
+                   FontAttributes="Bold"
+                   TextDecorations="Underline"></Label>
 
 
 
