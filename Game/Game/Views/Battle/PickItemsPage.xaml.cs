@@ -59,6 +59,15 @@ namespace Game.Views
             await Navigation.PushAsync(new CharacterEquiped());
         }
 
+        /// <summary>
+        /// This will go to battle
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void Go_to_battle(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new BattlePage());
+        }
 
     }
 }

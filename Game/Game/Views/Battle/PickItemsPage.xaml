@@ -58,9 +58,11 @@
                 </ListView.ItemTemplate>
             </ListView>
 
+            <Button Text="Go To Battle" HeightRequest="100" WidthRequest="200"
+                    Clicked="Go_to_battle"/>
 
 
-  
+
         </StackLayout>
         
     </ContentPage.Content>
