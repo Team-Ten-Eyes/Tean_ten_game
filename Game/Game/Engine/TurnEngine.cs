@@ -110,12 +110,12 @@ namespace Game.Engine
         /// <returns></returns>
         public PlayerInfoModel SelectCharacterToAttack()
         {
-            if (CharacterList == null)
+            if (PlayerList == null)
             {
                 return null;
             }
 
-            if (CharacterList.Count < 1)
+            if (PlayerList.Count < 1)
             {
                 return null;
             }
@@ -123,8 +123,8 @@ namespace Game.Engine
             // Select first in the list
 
             // TODO: Teams, You need to implement your own Logic can not use mine.
-            var Defender = CharacterList
-                .Where(m => m.Alive)
+            var Defender = PlayerList
+                .Where(m => m.Alive && m.PlayerType==PlayerTypeEnum.Character)
                 .OrderBy(m => m.ListOrder).FirstOrDefault();
 
             return Defender;
@@ -136,12 +136,12 @@ namespace Game.Engine
         /// <returns></returns>
         public PlayerInfoModel SelectMonsterToAttack()
         {
-            if (MonsterList == null)
+            if (PlayerList == null)
             {
                 return null;
             }
 
-            if (MonsterList.Count < 1)
+            if (PlayerList.Count < 1)
             {
                 return null;
             }
@@ -151,8 +151,8 @@ namespace Game.Engine
 
             // TODO: Teams, You need to implement your own Logic can not use mine.
 
-            var Defender = MonsterList
-                .Where(m => m.Alive)
+            var Defender = PlayerList
+                .Where(m => m.Alive && m.PlayerType == PlayerTypeEnum.Monster)
                 .OrderBy(m => m.CurrHealth).FirstOrDefault();
 
             return Defender;
@@ -184,6 +184,16 @@ namespace Game.Engine
             // Do the Attack
             CalculateAttackStatus(Attacker, Target);
 
+            // Hackathon
+            // Hackathon Scenario 2, Bob alwasys misses
+            if (Attacker.Name.Equals("Bob"))
+            {
+                BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
+                BattleMessagesModel.TurnMessage = "Bob always Misses";
+                Debug.WriteLine(BattleMessagesModel.TurnMessage);
+                return true;
+            }
+
             switch (BattleMessagesModel.HitStatus)
             {
                 case HitStatusEnum.Miss:
@@ -198,8 +208,8 @@ namespace Game.Engine
                     BattleMessagesModel.DamageAmount = Attacker.GetDamageRollValue();
 
                     // Apply the Damage
-                    Target.TakeDamage(BattleMessagesModel.DamageAmount);
-                    BattleMessagesModel.CurrentHealth = Target.CurrHealth;
+                    ApplyDamage(Target);
+
                     BattleMessagesModel.TurnMessageSpecial = BattleMessagesModel.GetCurrentHealthMessage();
 
                     // Check if Dead and Remove
@@ -215,6 +225,16 @@ namespace Game.Engine
             Debug.WriteLine(BattleMessagesModel.TurnMessage);
 
             return true;
+        }
+
+        /// <summary>
+        /// Apply the Damage to the Target
+        /// </summary>
+        /// <param name="Target"></param>
+        private void ApplyDamage(PlayerInfoModel Target)
+        {
+            Target.TakeDamage(BattleMessagesModel.DamageAmount);
+            BattleMessagesModel.CurrentHealth = Target.CurrHealth;
         }
 
         /// <summary>
@@ -260,6 +280,9 @@ namespace Game.Engine
                     BattleMessagesModel.LevelUpMessage = Attacker.Name + " is now Level " + Attacker.Level + " With Health Max of " + Attacker.GetMaxHealthTotal;
                     Debug.WriteLine(BattleMessagesModel.LevelUpMessage);
                 }
+
+                // Add Experinece to the Score
+                BattleScore.ExperienceGainedTotal += experienceEarned;
             }
 
             return true;
@@ -291,10 +314,10 @@ namespace Game.Engine
         /// <param name="Target"></param>
         public bool TargetDied(PlayerInfoModel Target)
         {
+            bool found;
+
             // Mark Status in output
             BattleMessagesModel.TurnMessageSpecial = " and causes death. ";
-
-            // Remove target from list...
 
             // INFO: Teams, Hookup your Boss if you have one...
 
@@ -302,21 +325,20 @@ namespace Game.Engine
             switch (Target.PlayerType)
             {
                 case PlayerTypeEnum.Character:
-                    CharacterList.Remove(Target);
-
-                    // Add the MonsterModel to the killed list
+                    // Add the Character to the killed list
                     BattleScore.CharacterAtDeathList += Target.FormatOutput() + "\n";
 
                     BattleScore.CharacterModelDeathList.Add(Target);
 
                     DropItems(Target);
 
+                    found = CharacterList.Remove(CharacterList.Find(m=>m.Guid.Equals(Target.Guid)));
+                    found = PlayerList.Remove(PlayerList.Find(m => m.Guid.Equals(Target.Guid)));
+
                     return true;
 
                 case PlayerTypeEnum.Monster:
                 default:
-                    MonsterList.Remove(Target);
-
                     // Add one to the monsters killed count...
                     BattleScore.MonsterSlainNumber++;
 
@@ -326,6 +348,9 @@ namespace Game.Engine
                     BattleScore.MonsterModelDeathList.Add(Target);
 
                     DropItems(Target);
+
+                    found = MonsterList.Remove(MonsterList.Find(m => m.Guid.Equals(Target.Guid)));
+                    found = PlayerList.Remove(PlayerList.Find(m => m.Guid.Equals(Target.Guid)));
 
                     return true;
             }

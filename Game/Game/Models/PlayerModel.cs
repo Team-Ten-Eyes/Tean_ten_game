@@ -12,6 +12,13 @@ namespace Game.Models
     /// <typeparam name="T"></typeparam>
     public class PlayerModel<T> : BaseModel<T>
     {
+
+        public PlayerModel()
+        {
+            Guid = Id;
+        }
+
+
         #region Attributes
 
         #region GameEngineAttributes
@@ -30,6 +37,8 @@ namespace Game.Models
         // Remember who was first into the list...
         [Ignore]
         public int ListOrder { get; set; } = 0;
+
+        
 
         #endregion GameEngineAttributes
 
@@ -228,10 +237,7 @@ namespace Game.Models
         /// <summary>
         /// Constructor for BasePlayer
         /// </summary>
-        public PlayerModel()
-        {
-            Guid = Id;
-        }
+       
 
         /// <summary>
         /// Format Output
@@ -817,5 +823,8 @@ namespace Game.Models
         #endregion Items
 
         #endregion Methods
+        
+
+
     }
 }

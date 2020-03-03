@@ -43,7 +43,7 @@ namespace Game.Models
         {
 
             PlayerType = PlayerTypeEnum.Character;
-            Guid = Id;
+            
             Name = "Default";
             ImageURI = "wizard_avatar.png";
             Level = 1;
@@ -79,6 +79,7 @@ namespace Game.Models
 
             // Update all the fields in the Data, except for the Id and guid
             Name = newData.Name;
+            Guid = newData.Guid;
             Level = newData.Level;
             Experience = newData.Experience;
             Attribute = newData.Attribute;

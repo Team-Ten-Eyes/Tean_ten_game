@@ -1,4 +1,5 @@
-﻿using Game.Models;
+﻿
+using Game.Models;
 
 namespace Game.Engine
 {
@@ -49,6 +50,8 @@ namespace Game.Engine
         public bool EndBattle()
         {
             BattleRunning = false;
+
+            BattleScore.CalculateScore();
 
             return true;
         }

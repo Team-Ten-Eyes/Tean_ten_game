@@ -22,7 +22,10 @@ namespace Game.Engine
             return true;
         }
 
-        // Call to make a new set of monsters...
+        /// <summary>
+        /// Call to make a new set of monsters...
+        /// </summary>
+        /// <returns></returns>
         public bool NewRound()
         {
             // End the existing round
@@ -33,6 +36,9 @@ namespace Game.Engine
 
             // Make the PlayerList
             MakePlayerList();
+
+            // Set Order for the Round
+            OrderPlayerListByTurnOrder();
 
             // Update Score for the RoundCount
             BattleScore.RoundCount++;
@@ -49,6 +55,7 @@ namespace Game.Engine
             * Hint: 
             * I don't have crudi monsters yet so will add 6 new ones...
             * If you have crudi monsters, then pick from the list
+
             * Consdier how you will scale the monsters up to be appropriate for the characters to fight
             * 
             */
@@ -87,16 +94,31 @@ namespace Game.Engine
         /// <returns></returns>
         public bool EndRound()
         {
-            // Have each character pickup items...
-            foreach (var character in CharacterList)
+            // In Auto Battle this happens and the characters get their items, In manual mode need to do it manualy
+            if (BattleScore.AutoBattle)
             {
-                PickupItemsFromPool(character);
+                PickupItemsForAllCharacters();
             }
 
             // Reset Monster and Item Lists
             ClearLists();
 
             return true;
+        }
+
+        /// <summary>
+        /// For each character pickup the items
+        /// </summary>
+        public void PickupItemsForAllCharacters()
+        {
+            // In Auto Battle this happens and the characters get their items
+            // When called manualy, make sure to do the character pickup before calling EndRound
+
+            // Have each character pickup items...
+            foreach (var character in CharacterList)
+            {
+                PickupItemsFromPool(character);
+            }
         }
 
         /// <summary>
@@ -132,9 +154,12 @@ namespace Game.Engine
                 // Decide Who gets next turn
                 // Remember who just went...
                 CurrentAttacker = GetNextPlayerTurn();
+
             }
 
             // Do the turn....
+
+            
             TakeTurn(CurrentAttacker);
 
             RoundStateEnum = RoundEnum.NextTurn;
@@ -148,13 +173,23 @@ namespace Game.Engine
         /// <returns></returns>
         public PlayerInfoModel GetNextPlayerTurn()
         {
-            // Recalculate Order
-            OrderPlayerListByTurnOrder();
+            // Remove the Dead
+            RemoveDeadPlayersFromList();
 
             // Get Next Player
             var PlayerCurrent = GetNextPlayerInList();
 
             return PlayerCurrent;
+        }
+
+        /// <summary>
+        /// Remove Dead Players from the List
+        /// </summary>
+        /// <returns></returns>
+        public List<PlayerInfoModel> RemoveDeadPlayersFromList()
+        {
+            PlayerList = PlayerList.Where(m => m.Alive == true).ToList();
+            return PlayerList;
         }
 
         /// <summary>
@@ -170,12 +205,9 @@ namespace Game.Engine
             // Then by Alphabetic on Name (Assending)
             // Then by First in list order (Assending
 
-            // Work with the Class variable PlayerList
-            PlayerList = MakePlayerList();
-
             PlayerList = PlayerList.OrderByDescending(a => a.GetSpeed())
                 .ThenByDescending(a => a.Level)
-                //.ThenByDescending(a => a.ExperienceTotal)
+                .ThenByDescending(a => a.Experience)
                 .ThenByDescending(a => a.PlayerType)
                 .ThenBy(a => a.Name)
                 .ThenBy(a => a.ListOrder)
@@ -192,7 +224,7 @@ namespace Game.Engine
             // Start from a clean list of players
             PlayerList.Clear();
 
-            // Remeber the Insert order, used for Sorting
+            // Remember the Insert order, used for Sorting
             var ListOrder = 0;
 
             foreach (var data in CharacterList)
@@ -311,8 +343,7 @@ namespace Game.Engine
             var CharacterItem = character.GetItemByLocation(setLocation);
             if (CharacterItem == null)
             {
-                // If no ItemModel in the slot then put on the first in the list
-                character.AddItem(setLocation, myList.FirstOrDefault().Id);
+                SwapCharacterItem(character, setLocation, myList.FirstOrDefault());
                 return true;
             }
 
@@ -320,21 +351,42 @@ namespace Game.Engine
             {
                 if (PoolItem.Value > CharacterItem.Value)
                 {
-                    // Put on the new ItemModel, which drops the one back to the pool
-                    var droppedItem = character.AddItem(setLocation, PoolItem.Id);
-
-                    // Remove the ItemModel just put on from the pool
-                    ItemPool.Remove(PoolItem);
-
-                    if (droppedItem != null)
-                    {
-                        // Add the dropped ItemModel to the pool
-                        ItemPool.Add(droppedItem);
-                    }
+                    SwapCharacterItem(character, setLocation, PoolItem);
+                    return true;
                 }
             }
 
             return true;
+        }
+
+        /// <summary>
+        /// Swap the Item the character has for one from the pool
+        /// 
+        /// Drop the current item back into the Pool
+        /// 
+        /// </summary>
+        /// <param name="character"></param>
+        /// <param name="setLocation"></param>
+        /// <param name="PoolItem"></param>
+        /// <returns></returns>
+        private ItemModel SwapCharacterItem(PlayerInfoModel character, ItemLocationEnum setLocation, ItemModel PoolItem)
+        {
+            // Put on the new ItemModel, which drops the one back to the pool
+            var droppedItem = character.AddItem(setLocation, PoolItem.Id);
+
+            // Add the PoolItem to the list of selected items
+            BattleScore.ItemModelSelectList.Add(PoolItem);
+
+            // Remove the ItemModel just put on from the pool
+            ItemPool.Remove(PoolItem);
+
+            if (droppedItem != null)
+            {
+                // Add the dropped ItemModel to the pool
+                ItemPool.Add(droppedItem);
+            }
+
+            return droppedItem;
         }
     }
 }
