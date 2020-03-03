@@ -38,7 +38,7 @@ namespace Game.Engine
         public RoundEnum RoundStateEnum = RoundEnum.Unknown;
 
         // Max Number of Characters
-        public int MaxNumberPartyCharacters = 6;
+        public int MaxNumberPartyCharacters = 5;
 
         // Max Number of Monsters
         public int MaxNumberPartyMonsters = 6;
