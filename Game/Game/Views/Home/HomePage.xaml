@@ -20,10 +20,11 @@
                            VerticalOptions="Start"
                            HorizontalOptions="CenterAndExpand"
                            HeightRequest="400"
-                           WidthRequest="500"/>
-                        <Image
+                           WidthRequest="500"
+                               Style="{StaticResource ImageLargeStyle}"/>
+                        <!--<Image
                          Source="game_demon.png"
-                         Style="{StaticResource ImageLargeStyle}"/>
+                         Style="{StaticResource ImageLargeStyle}"/>-->
 
                     </StackLayout>
                 </StackLayout>
