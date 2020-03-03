@@ -23,53 +23,53 @@
                         <ColumnDefinition Width ="Auto" />
                     </Grid.ColumnDefinitions>
                     <StackLayout Orientation="Vertical" Grid.Row ="1" Grid.Column="0">
-                        <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100"/>
+                        <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Char1Pic"/>
                         <ProgressBar IsVisible="False" Progress="0.5"/>
                         <ProgressBar IsVisible="False" Progress="0.5"/>
                     </StackLayout>
                     <StackLayout Orientation="Vertical" Grid.Row ="2" Grid.Column="0">
-                        <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100"/>
+                        <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Char2Pic"/>
                         <ProgressBar IsVisible="False" Progress="0.5"/>
                         <ProgressBar IsVisible="False" Progress="0.5"/>
                     </StackLayout>
                     <StackLayout Orientation="Vertical" Grid.Row ="3" Grid.Column="0">
-                        <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100"/>
+                        <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Char3Pic"/>
                         <ProgressBar IsVisible="False" Progress="0.5"/>
                         <ProgressBar IsVisible="False" Progress="0.5"/>
                     </StackLayout>
                     <StackLayout Orientation="Vertical" Grid.Row ="4" Grid.Column="0">
-                        <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100"/>
+                        <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Char4Pic"/>
                         <ProgressBar IsVisible="False" Progress="0.5"/>
                         <ProgressBar IsVisible="False" Progress="0.5"/>
                     </StackLayout>
                     <StackLayout Orientation="Vertical" Grid.Row ="5" Grid.Column="0">
-                        <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100"/>
+                        <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Char5Pic"/>
                         <ProgressBar IsVisible="False" Progress="0.5"/>
                         <ProgressBar IsVisible="False" Progress="0.5"/>
                     </StackLayout>
 
                     <StackLayout Orientation="Vertical" Grid.Row ="1" Grid.Column="3">
-                        <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100"/>
+                        <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Mon1Pic"/>
                         <ProgressBar IsVisible="False" Progress="0.5"/>
                         <ProgressBar IsVisible="False" Progress="0.5"/>
                     </StackLayout>
                     <StackLayout Orientation="Vertical" Grid.Row ="2" Grid.Column="3">
-                        <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100"/>
+                        <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Mon2Pic"/>
                         <ProgressBar IsVisible="False" Progress="0.5"/>
                         <ProgressBar IsVisible="False" Progress="0.5"/>
                     </StackLayout>
                     <StackLayout Orientation="Vertical" Grid.Row ="3" Grid.Column="3">
-                        <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100"/>
+                        <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Mon3Pic"/>
                         <ProgressBar IsVisible="False" Progress="0.5"/>
                         <ProgressBar IsVisible="False" Progress="0.5"/>
                     </StackLayout>
                     <StackLayout Orientation="Vertical" Grid.Row ="4" Grid.Column="3">
-                        <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100"/>
+                        <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Mon4Pic"/>
                         <ProgressBar IsVisible="False" Progress="0.5"/>
                         <ProgressBar IsVisible="False" Progress="0.5"/>
                     </StackLayout>
                     <StackLayout Orientation="Vertical" Grid.Row ="5" Grid.Column="3">
-                        <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100"/>
+                        <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Mon5Pic"/>
                         <ProgressBar IsVisible="False" Progress="0.5"/>
                         <ProgressBar IsVisible="False" Progress="0.5"/>
                     </StackLayout>
