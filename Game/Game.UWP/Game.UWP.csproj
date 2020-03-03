@@ -112,6 +112,7 @@
     <Content Include="claymore.png" />
     <Content Include="Coffee.png" />
     <Content Include="creativity.png" />
+    <Content Include="crosshair.png" />
     <Content Include="cunning.png" />
     <Content Include="d12.png" />
     <Content Include="dice_20.png" />
