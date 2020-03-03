@@ -2,19 +2,23 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Game.Views.PickCharactersPage"
+             BackgroundImageSource="characterPickPage.png"
+             
              >
 
     <ContentPage.Content>
         <ScrollView VerticalScrollBarVisibility="Never">
             <StackLayout Style="{StaticResource OuterBoxStack}">
 
-                <Label Text="Bring on the Battle" Style="{StaticResource CenterMessageStyle}"/>
+                <Label Text="Bring on the Battle" Style="{StaticResource CenterMessageStyle}"
+                       TextColor="White"/>
 
-                <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand">
+                <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand"
+                            >
 
                     <StackLayout HorizontalOptions="Start">
 
-                        <Label Text="Characters" Style="{StaticResource CenterMessageStyle}"/>
+                        <Label Text="Characters" Style="{StaticResource CenterMessageStyle}" TextColor="White"/>
 
                         <ListView 
                                 x:Name="CharactersListView" 
@@ -44,20 +48,24 @@
                                             <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
                                                     Source="{Binding ImageURI}"
                                                     Style="{StaticResource ImageMediumStyle}"
-                                                    VerticalOptions="CenterAndExpand"/>
+                                                    VerticalOptions="CenterAndExpand"
+                                                    />
 
                                             <Label Grid.Column="1" Grid.Row="0"
                                                    Text="{Binding Name}" 
                                                    Style="{StaticResource ListStyle}"
-                                                   FontAttributes="Bold"/>
+                                                   FontAttributes="Bold"
+                                                   TextColor="White"/>
 
                                             <Label Grid.Column="1" Grid.Row="1"
                                                    Text="{Binding Path=Level, StringFormat='Level {0:G}'}" 
-                                                   Style="{StaticResource ListStyle}"/>
+                                                   Style="{StaticResource ListStyle}"
+                                                   TextColor="White"/>
 
                                             <Label Grid.Column="1" Grid.Row="2"
                                                     Text="{Binding Path=MaxHealth, StringFormat= '{0:G} hp'}" 
-                                                    Style="{StaticResource ListStyle}"/>
+                                                    Style="{StaticResource ListStyle}"
+                                                   TextColor="White"/>
 
                                         </Grid>
                                     </ViewCell>
@@ -68,24 +76,29 @@
 
                     <StackLayout HorizontalOptions="CenterAndExpand">
 
-                        <Label Text="Count" Style="{StaticResource CenterMessageStyle}"/>
+                        <Label Text="Count" Style="{StaticResource CenterMessageStyle}" TextColor="White"/>
 
                         <Label Style="{StaticResource CenterMessageStyle}" 
                             x:Name="PartyCountLabel"
-                            Text="0"/>
+                            Text="0"
+                               TextColor="White"/>
 
                         <Button 
                             x:Name="BeginBattleButton"
                             Clicked="BattleButton_Clicked" 
                             Text="Begin Battle"
                             IsEnabled="False"
-                            HorizontalOptions="Center"/>
+                            HorizontalOptions="Center"
+                            BackgroundColor="White"
+                            TextColor="#C03BFC"
+                            FontAttributes="Bold"/>
 
                     </StackLayout>
 
                     <StackLayout HorizontalOptions="End">
 
-                        <Label Text="Party" Style="{StaticResource CenterMessageStyle}"/>
+                        <Label Text="Party" Style="{StaticResource CenterMessageStyle}"
+                               TextColor="White"/>
 
                         <ListView 
                                 x:Name="PartyListView" 
@@ -120,16 +133,19 @@
                                             <Label Grid.Column="1" Grid.Row="0"
                                                    Text="{Binding Name}" 
                                                    Style="{StaticResource ListStyle}"
-                                                   FontAttributes="Bold"/>
+                                                   FontAttributes="Bold"
+                                                   TextColor="White"/>
 
                                             <Label Grid.Column="1" Grid.Row="1"
                                                    Text="{Binding Path=Level, StringFormat='Level {0:G}'}" 
-                                                   Style="{StaticResource ListStyle}"/>
+                                                   Style="{StaticResource ListStyle}"
+                                                   TextColor="White"/>
 
 
                                             <Label Grid.Column="1" Grid.Row="2"
                                                     Text="{Binding Path=MaxHealth, StringFormat= '{0:G} hp'}" 
-                                                    Style="{StaticResource ListStyle}"/>
+                                                    Style="{StaticResource ListStyle}"
+                                                   TextColor="White"/>
 
                                         </Grid>
                                     </ViewCell>
