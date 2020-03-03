@@ -72,6 +72,19 @@
                     <ProgressBar IsVisible="False" Progress="0.5"/>
                     <ProgressBar IsVisible="False" Progress="0.5"/>
                 </StackLayout>
+
+                <Label Text="TEST" IsVisible="False" HorizontalOptions="Start" Grid.Row ="1" Grid.Column="1" />
+                <Label Text="TEST" IsVisible="False" HorizontalOptions="Start" Grid.Row ="2" Grid.Column="1" />
+                <Label Text="TEST" IsVisible="False" HorizontalOptions="Start" Grid.Row ="3" Grid.Column="1" />
+                <Label Text="TEST" IsVisible="False" HorizontalOptions="Start" Grid.Row ="4" Grid.Column="1" />
+                <Label Text="TEST" IsVisible="False" HorizontalOptions="Start" Grid.Row ="5" Grid.Column="1" />
+
+                <Label Text="TEST" IsVisible="False" HorizontalOptions="Start" Grid.Row ="1" Grid.Column="2" />
+                <Label Text="TEST" IsVisible="False" HorizontalOptions="Start" Grid.Row ="2" Grid.Column="2" />
+                <Label Text="TEST" IsVisible="False" HorizontalOptions="Start" Grid.Row ="3" Grid.Column="2" />
+                <Label Text="TEST" IsVisible="False" HorizontalOptions="Start" Grid.Row ="4" Grid.Column="2" />
+                <Label Text="TEST" IsVisible="False" HorizontalOptions="Start" Grid.Row ="5" Grid.Column="2" />
+
             </Grid>
 
 
