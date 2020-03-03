@@ -46,7 +46,7 @@ namespace Game.Services
 
             return datalist;
         }
-        
+
         public static List<ScoreModel> LoadData(ScoreModel temp)
         {
             var datalist = new List<ScoreModel>()
@@ -64,7 +64,7 @@ namespace Game.Services
 
             return datalist;
         }
-        
+
         public static List<BaseCharacter> LoadData(BaseCharacter temp)
         {
             var datalist = new List<BaseCharacter>()
@@ -151,6 +151,19 @@ namespace Game.Services
             return datalist;
         }
 
-
+        public static List<ImagePickerModel> AllChacterImages()
+        {
+            var imageList = new List<ImagePickerModel>()
+            {
+                new ImagePickerModel {Url = "Will.PNG"},
+                new ImagePickerModel {Url = "Michelle.PNG"},
+                new ImagePickerModel {Url = "Jack.PNG"},
+                new ImagePickerModel {Url = "wizard_avatar.png"},
+                new ImagePickerModel {Url = "creativity.png"},
+                new ImagePickerModel {Url = "cunning.png"},
+                new ImagePickerModel {Url = "thumbnail_bravery.png"}
+            };
+            return imageList;
+        }
     }
 }

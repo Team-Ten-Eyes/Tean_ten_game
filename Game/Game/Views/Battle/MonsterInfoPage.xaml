@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             BackgroundColor="#055267"
+             x:Class="Game.Views.MonsterInfoPage">
+
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="{Binding Data.Name}" HorizontalOptions="EndAndExpand" TextColor="White"/>
+                <Label Text="- Level:" 
+                       FontAttributes="Bold" TextColor="White"/>
+                <Label Text="{Binding Data.Level}" HorizontalOptions="StartAndExpand"
+                       TextColor="White"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Class: " HorizontalOptions="EndAndExpand" FontAttributes="Bold" TextColor="White"/>
+                <Label Text="{Binding Data.Attribute}" HorizontalOptions="StartAndExpand" TextColor="White"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Image Source="{Binding Data.ImageURI}" WidthRequest="200" HeightRequest="200"/>
+                <StackLayout Orientation="Vertical">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height = "Auto" />
+                            <RowDefinition Height = "Auto" />
+                            <RowDefinition Height = "Auto" />
+                            <RowDefinition Height = "Auto" />
+                            <RowDefinition Height = "Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width ="Auto" />
+                            <ColumnDefinition Width ="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="HP ---" FontAttributes="Bold" HorizontalOptions="End" Grid.Row ="1" Grid.Column="0"
+                               TextColor="White"/>
+                        <Label Text="ATK ---" FontAttributes="Bold" HorizontalOptions="End" Grid.Row ="2" Grid.Column="0"
+                               TextColor="White"/>
+                        <Label Text="DEF ---" FontAttributes="Bold" HorizontalOptions="End" Grid.Row ="3" Grid.Column="0"
+                               TextColor="White"/>
+                        <Label Text="SPD ---" FontAttributes="Bold" HorizontalOptions="End" Grid.Row ="4" Grid.Column="0"
+                               TextColor="White"/>
+                        <Label Text="{Binding Data.MaxHealth}"  Grid.Row ="1" Grid.Column="1"
+                               TextColor="White"/>
+                        <Label Text="{Binding Data.Attack}"  Grid.Row ="2" Grid.Column="1"
+                               TextColor="White"/>
+                        <Label Text="{Binding Data.Defense}"  Grid.Row ="3" Grid.Column="1"
+                               TextColor="White"/>
+                        <Label Text="{Binding Data.Speed}"  Grid.Row ="4" Grid.Column="1"
+                               TextColor="White"/>
+
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+            <Label Text="Description" FontAttributes="Bold" HorizontalOptions="Start" TextDecorations="Underline"
+                   TextColor="White"/>
+            <Label Text="{Binding Data.Description}" HorizontalOptions="Start"
+                   TextColor="White"/>
+
+
+            <Label Text="This Monster's type is strong against these Character types"
+                   FontSize="Small" TextDecorations="Underline" 
+                   TextColor="White"/>
+            <ListView x:Name="StrengthListView"
+                    ItemsSource="{Binding strenghts}" 
+                    IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                    RefreshCommand="{Binding LoadItemsCommand}"
+                    CachingStrategy="RecycleElement"
+                     SelectionMode="None"
+                    HasUnevenRows="true"
+                    Margin="5,0,5,0"
+                    >
+            </ListView>
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

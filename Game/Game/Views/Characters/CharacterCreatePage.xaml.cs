@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Game.ViewModels;
 using Game.Models;
+using Game.Services;
+
 namespace Game.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -27,6 +29,16 @@ namespace Game.Views
             BindingContext = this.ViewModel = data;
 
             CharacterTypePicker.SelectedItem = data.Data.Attribute.ToString();
+
+            //This is the creation of the character image selection
+            ObservableCollection<ImagePickerModel> imageList = new ObservableCollection<ImagePickerModel>();
+
+            foreach (ImagePickerModel image in DefaultData.AllChacterImages())
+            {
+                imageList.Add(image);
+            }
+            ImageView.ItemsSource = imageList;
+           
 
         }
 
@@ -62,6 +74,19 @@ namespace Game.Views
         async void CancelButtonClicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
+        }
+
+        /// <summary>
+        /// This is a function that once an image is picked it will change the character to 
+        /// that image
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        void OnCharacterImageSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            var image = args.SelectedItem as ImagePickerModel;
+            ViewModel.Data.ImageURI = image.Url;
+            //.Source = image.Url;
         }
     }
 }

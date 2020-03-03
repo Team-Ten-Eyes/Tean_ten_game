@@ -5,10 +5,89 @@
 
     <ContentPage.Content>
         <StackLayout Style="{StaticResource VerticalStack}">
-            <Label Text="Battle Page..."></Label>
+            <Label Text=""></Label>
 
-            <Image Source="knight.png" Style="{StaticResource ImageMediumStyle}"></Image>
-            <Image Source="troll.png" Style="{StaticResource ImageMediumStyle}"></Image>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height = "Auto" />
+                    <RowDefinition Height = "Auto" />
+                    <RowDefinition Height = "Auto" />
+                    <RowDefinition Height = "Auto" />
+                    <RowDefinition Height = "Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width ="Auto" />
+                    <ColumnDefinition Width ="Auto" />
+                    <ColumnDefinition Width ="Auto" />
+                    <ColumnDefinition Width ="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackLayout Orientation="Vertical" Grid.Row ="1" Grid.Column="0">
+                    <Image Source="Fire_monster.png"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Grid.Row ="2" Grid.Column="0">
+                    <Image Source="Fire_monster.png"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Grid.Row ="3" Grid.Column="0">
+                    <Image Source="Fire_monster.png"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Grid.Row ="4" Grid.Column="0">
+                    <Image Source="Fire_monster.png"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Grid.Row ="5" Grid.Column="0">
+                    <Image Source="Fire_monster.png"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" Grid.Row ="1" Grid.Column="3">
+                    <Image Source="Fire_monster.png"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Grid.Row ="2" Grid.Column="3">
+                    <Image Source="Fire_monster.png"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Grid.Row ="3" Grid.Column="3">
+                    <Image Source="Fire_monster.png"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Grid.Row ="4" Grid.Column="3">
+                    <Image Source="Fire_monster.png"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Grid.Row ="5" Grid.Column="3">
+                    <Image Source="Fire_monster.png"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                    <ProgressBar IsVisible="False" Progress="0.5"/>
+                </StackLayout>
+
+                <Label Text="TEST" IsVisible="False" HorizontalOptions="Start" Grid.Row ="1" Grid.Column="1" />
+                <Label Text="TEST" IsVisible="False" HorizontalOptions="Start" Grid.Row ="2" Grid.Column="1" />
+                <Label Text="TEST" IsVisible="False" HorizontalOptions="Start" Grid.Row ="3" Grid.Column="1" />
+                <Label Text="TEST" IsVisible="False" HorizontalOptions="Start" Grid.Row ="4" Grid.Column="1" />
+                <Label Text="TEST" IsVisible="False" HorizontalOptions="Start" Grid.Row ="5" Grid.Column="1" />
+
+                <Label Text="TEST" IsVisible="False" HorizontalOptions="End" Grid.Row ="1" Grid.Column="2" />
+                <Label Text="TEST" IsVisible="False" HorizontalOptions="End" Grid.Row ="2" Grid.Column="2" />
+                <Label Text="TEST" IsVisible="False" HorizontalOptions="End" Grid.Row ="3" Grid.Column="2" />
+                <Label Text="TEST" IsVisible="False" HorizontalOptions="End" Grid.Row ="4" Grid.Column="2" />
+                <Label Text="TEST" IsVisible="False" HorizontalOptions="End" Grid.Row ="5" Grid.Column="2" />
+
+            </Grid>
+
+
 
             <Button Clicked="AttackButton_Clicked" Text="Attack"></Button>
 
@@ -21,6 +100,8 @@
             <Button Clicked="ExitButton_Clicked" Text="Exit"></Button>
 
             <Button Clicked="QuitButton_Clicked" Text="Quit"></Button>
+
+            <Button Clicked="Go_to_monsters_lurking" Text="Monsters lurking page"/>
 
         </StackLayout>
         
