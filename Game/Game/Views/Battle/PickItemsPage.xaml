@@ -8,7 +8,9 @@
         <StackLayout Style="{StaticResource VerticalStack}">
             <Label Text="Pick Items Page..."></Label>
 
-            <Button Clicked="CloseButton_Clicked" Text="Close"></Button>
+
+
+  
         </StackLayout>
         
     </ContentPage.Content>
