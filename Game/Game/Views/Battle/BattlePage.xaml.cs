@@ -93,5 +93,10 @@ namespace Game.Views
 			}
 		}
 
+		async void Item_Pick_Page(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new PickItemsPage());
+		}
+
 	}
 }

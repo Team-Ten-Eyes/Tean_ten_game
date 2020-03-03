@@ -6,9 +6,63 @@
 
     <ContentPage.Content>
         <StackLayout Style="{StaticResource VerticalStack}">
-            <Label Text="Pick Items Page..."></Label>
+            <Label Text="Equip your characters"
+                   FontSize="Header"
+                   FontAttributes="Bold"
+                   TextDecorations="Underline"></Label>
 
-            <Button Clicked="CloseButton_Clicked" Text="Close"></Button>
+            <ListView
+                x:Name= "PartyListView"
+                ItemsSource="{Binding partyCharacterList}"
+                IsRefreshing="{Binding LoadItemsCommand}"
+                CachingStrategy="RecycleElement"
+                ItemSelected="select_fighting_character"
+                HasUnevenRows="True"
+                Margin="5,0,5,0"
+                RowHeight="80">
+                <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid ColumnSpacing="5" RowSpacing="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                                    Source="{Binding ImageURI}"
+                                                    Style="{StaticResource ImageMediumStyle}"
+                                                    VerticalOptions="CenterAndExpand"/>
+
+                            <Label Grid.Column="1" Grid.Row="0"
+                                                   Text="{Binding Name}" 
+                                                   Style="{StaticResource ListStyle}"
+                                                   FontAttributes="Bold"/>
+
+                            <Label Grid.Column="1" Grid.Row="1"
+                                                   Text="{Binding Path=Level, StringFormat='Level {0:G}'}" 
+                                                   Style="{StaticResource ListStyle}"/>
+
+                            <Label Grid.Column="1" Grid.Row="2"
+                                                    Text="{Binding Path=MaxHealth, StringFormat= '{0:G} hp'}" 
+                                                    Style="{StaticResource ListStyle}"/>
+
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button Text="Go To Battle" HeightRequest="100" WidthRequest="200"
+                    Clicked="Go_to_battle"/>
+
+
+
         </StackLayout>
         
     </ContentPage.Content>

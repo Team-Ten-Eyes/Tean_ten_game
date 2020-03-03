@@ -177,6 +177,8 @@
 
                 <Button Clicked="QuitButton_Clicked" Text="Quit"></Button>
 
+                <Button Clicked="Item_Pick_Page" Text="Character Item Pick Page"></Button>
+
 
             </StackLayout>
         </ScrollView>
