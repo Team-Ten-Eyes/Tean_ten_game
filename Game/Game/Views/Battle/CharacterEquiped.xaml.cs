@@ -110,7 +110,19 @@ namespace Game.Views
 
         public void On_items_selected(object sender, SelectedItemChangedEventArgs args)
         {
-            DisplayAlert("Attack!!!", "Attack !!!", "OK");
+            ItemModel data = args.SelectedItem as ItemModel;
+            if (data == null)
+            {
+                return;
+            }
+
+            if (ViewModel.Data.GetItemByLocation(data.Location) == null)
+            {
+                ViewModel.Data.AddItem(data.Location, data.Id);
+            }
+       
         }
+
+
     }
 }
