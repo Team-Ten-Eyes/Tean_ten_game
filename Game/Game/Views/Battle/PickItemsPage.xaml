@@ -21,7 +21,7 @@
                 ItemsSource="{Binding partyCharacterList}"
                 IsRefreshing="{Binding LoadItemsCommand}"
                 CachingStrategy="RecycleElement"
-                ItemSelected="select_fighting_character"
+                ItemSelected="OnCharacterSelected"
                 HasUnevenRows="True"
                 Margin="5,0,5,0"
                 RowHeight="80">

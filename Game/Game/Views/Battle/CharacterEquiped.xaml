@@ -10,6 +10,8 @@
             <Label Text="character equiped page"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+
+            <Image Source="{Binding Data.ImageURI}" WidthRequest="200" HeightRequest="200" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -50,16 +50,6 @@ namespace Game.Views
 
 
         /// <summary>
-        /// Jump to the character equiped page
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        async void select_fighting_character(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new CharacterEquiped());
-        }
-
-        /// <summary>
         /// This will go to battle
         /// </summary>
         /// <param name="sender"></param>
@@ -69,6 +59,27 @@ namespace Game.Views
             await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
             await Navigation.PopAsync();
         }
+
+        /// <summary>
+        /// go to that characters equiped page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        async void OnCharacterSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            BaseCharacter data = args.SelectedItem as BaseCharacter;
+            if (data == null)
+            {
+                return;
+            }
+
+            // Open the Read Page
+            await Navigation.PushAsync(new CharacterEquiped(new GenericViewModel<BaseCharacter>(data)));
+
+            //// Manually deselect item.
+            PartyListView.SelectedItem = null;
+        }
+
 
     }
 }

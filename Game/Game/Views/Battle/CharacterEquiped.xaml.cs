@@ -6,15 +6,22 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Game.ViewModels;
+using Game.Models;
+using Game.Services;
 
 namespace Game.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterEquiped : ContentPage
     {
-        public CharacterEquiped()
+        readonly GenericViewModel<BaseCharacter> ViewModel;
+
+
+        public CharacterEquiped(GenericViewModel<BaseCharacter> data)
         {
             InitializeComponent();
+            BindingContext = this.ViewModel = data;
         }
     }
 }
