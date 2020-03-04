@@ -16,6 +16,14 @@
                 <Image Source="{Binding Data.ImageURI}" WidthRequest="200" HeightRequest="200" 
                        HorizontalOptions="Start"/>
 
+                <FlexLayout 
+                        Padding="5"
+                        Wrap="Wrap"
+                        JustifyContent="SpaceAround"
+                        AlignContent="SpaceAround"
+                        x:Name="ItemBox">
+                </FlexLayout>
+
 
                 <StackLayout Style="{StaticResource OuterBoxStack}">
 
