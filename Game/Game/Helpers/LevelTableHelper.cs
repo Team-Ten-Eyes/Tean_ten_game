@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using Game.Models;
+using System.Collections.Generic;
 
-namespace Game.Models
+namespace Game.Helpers
 {
     /// <summary>
     /// Helper to manage the Level Table Data
     /// </summary>
-    class LevelTableHelper
+    public class LevelTableHelper
     {
         #region Singleton
         // Make this a singleton so it only exist one time because holds all the data records in memory
@@ -26,7 +27,7 @@ namespace Game.Models
         #endregion Singleton
 
         // Level Max
-        public const uint MaxLevel = 20;
+        public const int MaxLevel = 20;
 
         // List of all the levels
         public List<LevelDetailsModel> LevelDetailsList { get; set; }
