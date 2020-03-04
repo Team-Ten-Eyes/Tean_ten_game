@@ -5,16 +5,66 @@
 
     <ContentPage.Content>
         <StackLayout Style="{StaticResource VerticalStack}">
-            <Label Text="Round Over Page..."></Label>
+            <Label Text="Round Over Page/ You Survived!..." VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
 
-            <Label Text="Items Found..."></Label>
+            <Label Text="Items Found..." VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
 
-            <Image Source="items.png" Style="{StaticResource ImageMediumStyle}"></Image>
-            <Image Source="items.png" Style="{StaticResource ImageMediumStyle}"></Image>
+            <ListView 
+                                x:Name="ItemListView" 
+                                ItemsSource="{Binding DatabaseItemList}"
+                                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                                RefreshCommand="{Binding LoadItemsCommand}"
+                                CachingStrategy="RecycleElement"
+                                ItemSelected="On_items_selected"
+                                HasUnevenRows="true"
+                                Margin="5,0,5,0"
+                                RowHeight="80">
 
-            <Button Clicked="PickItems_Clicked" Text="Pick Items"></Button>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid ColumnSpacing="5" RowSpacing="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
 
-            <Button Clicked="NextButton_Clicked" Text="Next Round"></Button>
+                                <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                                    Source="{Binding ImageURI}"
+                                                    Style="{StaticResource ImageMediumStyle}"
+                                                    VerticalOptions="CenterAndExpand"
+                                                    />
+
+                                <Label Grid.Column="1" Grid.Row="0"
+                                                   Text="{Binding Name}" 
+                                                   Style="{StaticResource ListStyle}"
+                                                   FontAttributes="Bold"
+                                                   />
+
+                                <Label Grid.Column="1" Grid.Row="1"
+                                                   Text="{Binding Path=Level, StringFormat='Level {0:G}'}" 
+                                                   Style="{StaticResource ListStyle}"
+                                                   />
+
+                                <Label Grid.Column="1" Grid.Row="2"
+                                                    Text="{Binding Path=MaxHealth, StringFormat= '{0:G} hp'}" 
+                                                    Style="{StaticResource ListStyle}"
+                                                   />
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button Clicked="PickItems_Clicked" Text="Equip Items To Party"></Button>
+
+            <Button Clicked="NextButton_Clicked" Text="Skip Item Collection/Next Round"></Button>
 
         </StackLayout>
         
