@@ -26,34 +26,34 @@ namespace Game.Views
             InitializeComponent();
 
 
-            PartyListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel()));
-            PartyListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel()));
-            PartyListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel()));
-            PartyListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel()));
-            PartyListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel()));
+            //PartyListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel()));
+            //PartyListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel()));
+            //PartyListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel()));
+            //PartyListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel()));
+            //PartyListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel()));
 
 
-            
+
             MonsterListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel()));
             MonsterListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel()));
             MonsterListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel()));
             MonsterListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel()));
             MonsterListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel()));
 
-            ////COMMENTED OUT FOR Battle Screens UX 
-            //// Draw the Characters
-            //foreach (var data in EngineViewModel.Engine.CharacterList)
-            //{
-            //    PartyListFrame.Children.Add(CreatePlayerDisplayBox(data));
-            //}
+            //COMMENTED OUT FOR Battle Screens UX 
+            // Draw the Characters
+            foreach (var data in EngineViewModel.Engine.CharacterList)
+            {
+                PartyListFrame.Children.Add(CreatePlayerDisplayBox(data));
+            }
 
-            // Draw the Monsters
+            //Draw the Monsters
 
-            //foreach (var data in EngineViewModel.Engine.MonsterList)
+            foreach (var data in EngineViewModel.Engine.MonsterList)
 
-            //{
-            //    MonsterListFrame.Children.Add(CreatePlayerDisplayBox(data));
-            //}
+            {
+                MonsterListFrame.Children.Add(CreatePlayerDisplayBox(data));
+            }
 
         }
 

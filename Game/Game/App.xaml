@@ -120,8 +120,8 @@
             <Style TargetType="Image"
                 x:Key="ImageMediumStyle"
                 BasedOn="{StaticResource ImageLargeStyle}">
-                <Setter Property="WidthRequest" Value="60" />
-                <Setter Property="HeightRequest" Value="60" />
+                <Setter Property="WidthRequest" Value="50" />
+                <Setter Property="HeightRequest" Value="50" />
             </Style>
 
             <Style TargetType="Image"
@@ -130,6 +130,28 @@
                 <Setter Property="WidthRequest" Value="30" />
                 <Setter Property="HeightRequest" Value="30" />
             </Style>
+
+            <Style TargetType="Image"
+                x:Key="ImageBattleSmallStyle"
+                BasedOn="{StaticResource ImageLargeStyle}">
+                <Setter Property="WidthRequest" Value="50" />
+                <Setter Property="HeightRequest" Value="50" />
+            </Style>
+
+            <Style TargetType="Image"
+                x:Key="ImageBattleMediumStyle"
+                BasedOn="{StaticResource ImageLargeStyle}">
+                <Setter Property="WidthRequest" Value="75" />
+                <Setter Property="HeightRequest" Value="75" />
+            </Style>
+
+            <Style TargetType="Image"
+                x:Key="ImageBattleLargeStyle"
+                BasedOn="{StaticResource ImageLargeStyle}">
+                <Setter Property="WidthRequest" Value="80" />
+                <Setter Property="HeightRequest" Value="80" />
+            </Style>
+
 
             <!-- ImageButton -->
             <Style TargetType="ImageButton">
@@ -148,6 +170,27 @@
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center"/>
             </Style>
+
+
+            <Style TargetType="StackLayout"
+                x:Key="CardImageTextBox">
+                <Setter Property="Orientation" Value="Vertical" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="HeightRequest" Value="200" />
+                <Setter Property="WidthRequest" Value="200" />
+            </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="PlayerInfoBox"
+                BasedOn="{StaticResource CardImageTextBox}">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="HeightRequest" Value="150" />
+                <Setter Property="WidthRequest" Value="100" />
+                <Setter Property="Spacing" Value="1" />
+            </Style>
+            
+            
 
             <!-- Stack Layouts -->
             <Style TargetType="StackLayout"
@@ -169,14 +212,7 @@
                 BasedOn="{StaticResource VerticalStack}">
             </Style>
 
-            <Style TargetType="StackLayout"
-                x:Key="CardImageTextBox">
-                <Setter Property="Orientation" Value="Vertical" />
-                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
-                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
-                <Setter Property="HeightRequest" Value="200" />
-                <Setter Property="WidthRequest" Value="200" />
-            </Style>
+            
 
             <!-- Frame -->
             <Style TargetType="FlexLayout"
