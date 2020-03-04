@@ -30,7 +30,7 @@ namespace Game.Views
         {
             InitializeComponent();
             BindingContext = this.ViewModel = data;
-            //ItemListView.ItemsSource = EngineViewModel.DatabaseItemList;
+            ItemListView.ItemsSource = EngineViewModel.DatabaseItemList;
             AddItemsToDisplay();
         }
 
