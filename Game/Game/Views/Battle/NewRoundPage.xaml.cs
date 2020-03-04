@@ -32,7 +32,7 @@ namespace Game.Views
             //PartyListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel()));
             //PartyListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel()));
 
-
+            Player monster1 
 
             MonsterListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel()));
             MonsterListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel()));
