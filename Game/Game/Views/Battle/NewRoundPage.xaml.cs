@@ -32,13 +32,27 @@ namespace Game.Views
             //PartyListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel()));
             //PartyListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel()));
 
-            Player monster1 
+            PlayerInfoModel monster1 = new PlayerInfoModel();
+            monster1.ImageURI = "fire_monster.png";
+            monster1.CurrHealth = 5;
+            PlayerInfoModel monster2 = new PlayerInfoModel();
+            monster2.ImageURI = "fire_monster.png";
+            monster2.CurrHealth = 5;
+            PlayerInfoModel monster3 = new PlayerInfoModel();
+            monster3.ImageURI = "fire_monster.png";
+            monster3.CurrHealth = 5;
+            PlayerInfoModel monster4 = new PlayerInfoModel();
+            monster4.ImageURI = "fire_monster.png";
+            monster4.CurrHealth = 5;
+            PlayerInfoModel monster5 = new PlayerInfoModel();
+            monster5.ImageURI = "fire_monster.png";
+            monster5.CurrHealth = 5;
 
-            MonsterListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel()));
-            MonsterListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel()));
-            MonsterListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel()));
-            MonsterListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel()));
-            MonsterListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel()));
+            MonsterListFrame.Children.Add(CreatePlayerDisplayBox(monster1));
+            MonsterListFrame.Children.Add(CreatePlayerDisplayBox(monster2));
+            MonsterListFrame.Children.Add(CreatePlayerDisplayBox(monster3));
+            MonsterListFrame.Children.Add(CreatePlayerDisplayBox(monster4));
+            MonsterListFrame.Children.Add(CreatePlayerDisplayBox(monster5));
 
             //COMMENTED OUT FOR Battle Screens UX 
             // Draw the Characters
