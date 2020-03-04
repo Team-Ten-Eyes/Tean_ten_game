@@ -13,7 +13,8 @@
                 <Label Text="character equiped page"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-                <Image Source="{Binding Data.ImageURI}" WidthRequest="200" HeightRequest="200" />
+                <Image Source="{Binding Data.ImageURI}" WidthRequest="200" HeightRequest="200" 
+                       HorizontalOptions="Start"/>
 
 
                 <StackLayout Style="{StaticResource OuterBoxStack}">
