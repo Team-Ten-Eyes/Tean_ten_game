@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
+using Game.Helpers;
 
 namespace Game.Models
 {
@@ -24,17 +23,19 @@ namespace Game.Models
         /// <param name="data"></param>
         public PlayerInfoModel(PlayerInfoModel data)
         {
+            
             PlayerType = data.PlayerType;
             Guid = data.Guid;
             Alive = data.Alive;
             Experience = data.Experience;
+            ExperienceRemaining = data.ExperienceRemaining;
             Level = data.Level;
             Name = data.Name;
             Description = data.Description;
             Speed = data.GetSpeed();
             ImageURI = data.ImageURI;
-            CurrHealth = data.GetCurrentHealthTotal;
             MaxHealth = data.GetMaxHealthTotal;
+            CurrHealth = data.GetMaxHealthTotal;
 
             // Set the strings for the items
             Head = data.Head;
@@ -43,6 +44,9 @@ namespace Game.Models
             RightFinger = data.RightFinger;
             LeftFinger = data.LeftFinger;
             Feet = data.Feet;
+            UniqueItem = data.UniqueItem;
+
+            Difficulty = data.Difficulty;
         }
 
         /// <summary>
@@ -51,17 +55,19 @@ namespace Game.Models
         /// <param name="data"></param>
         public PlayerInfoModel(BaseCharacter data)
         {
+            
             PlayerType = data.PlayerType;
             Guid = data.Guid;
             Alive = data.Alive;
             Experience = data.Experience;
+            ExperienceRemaining = data.ExperienceRemaining;
             Level = data.Level;
             Name = data.Name;
             Description = data.Description;
             Speed = data.GetSpeed();
             ImageURI = data.ImageURI;
-            CurrHealth = data.GetCurrentHealthTotal;
             MaxHealth = data.GetMaxHealthTotal;
+            CurrHealth = data.GetMaxHealthTotal;
 
             // Set the strings for the items
             Head = data.Head;
@@ -70,6 +76,16 @@ namespace Game.Models
             RightFinger = data.RightFinger;
             LeftFinger = data.LeftFinger;
             Feet = data.Feet;
+
+            UniqueItem = data.UniqueItem;
+
+            Difficulty = data.Difficulty;
+
+            // Give the copy a differet quid, so it can be used in the battles as a copy
+            Guid = System.Guid.NewGuid().ToString();
+
+            // Set current experience to be 1 above minimum.
+            Experience = LevelTableHelper.Instance.LevelDetailsList[Level - 1].Experience + 1;
         }
 
         /// <summary>
@@ -82,13 +98,14 @@ namespace Game.Models
             Guid = data.Guid;
             Alive = data.Alive;
             Experience = data.Experience;
+            ExperienceRemaining = data.ExperienceRemaining;
             Level = data.Level;
             Name = data.Name;
             Description = data.Description;
             Speed = data.GetSpeed();
             ImageURI = data.ImageURI;
-            CurrHealth = data.GetCurrentHealthTotal;
             MaxHealth = data.GetMaxHealthTotal;
+            CurrHealth = data.GetCurrentHealthTotal;
 
             // Set the strings for the items
             Head = data.Head;
@@ -97,7 +114,37 @@ namespace Game.Models
             RightFinger = data.RightFinger;
             LeftFinger = data.LeftFinger;
             Feet = data.Feet;
+
+            UniqueItem = data.UniqueItem;
+
+            Difficulty = data.Difficulty;
+
+            // Give the copy a differet quid, so it can be used in the battles as a copy
+            Guid = System.Guid.NewGuid().ToString();
+
+            // Set amount to give to be 1 below max for that level.
+            ExperienceRemaining = LevelTableHelper.Instance.LevelDetailsList[Level + 1].Experience - 1;
+        }
+
+        public override string FormatOutput()
+        {
+            var myReturn = string.Empty;
+            myReturn += Name;
+            myReturn += " , " + Description;
+            myReturn += " , Level : " + Level.ToString();
+
+            if (PlayerType == PlayerTypeEnum.Character)
+            {
+                myReturn += " , Total Experience : " + Experience;
+                myReturn += " , Damage : " + GetDamageTotalString;
+                myReturn += " , Attack :" + GetAttackTotal;
+                myReturn += " , Defense :" + GetDefenseTotal;
+                myReturn += " , Speed :" + GetSpeedTotal;
+            }
+
+            myReturn += " , Items : " + ItemSlotsFormatOutput();
+
+            return myReturn;
         }
     }
 }
-
