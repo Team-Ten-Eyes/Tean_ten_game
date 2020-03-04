@@ -1,6 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Game.ViewModels;
+using Game.Models;
+using Game.Services;
 
 namespace Game.Views
 {
@@ -10,12 +18,15 @@ namespace Game.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class RoundOverPage: ContentPage
 	{
+
+		public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
 		/// <summary>
 		/// Constructor
 		/// </summary>
 		public RoundOverPage()
 		{
-			InitializeComponent ();
+			InitializeComponent();
+			ItemListView.ItemsSource = EngineViewModel.DatabaseItemList;
 		}
 
 		/// <summary>
@@ -36,6 +47,10 @@ namespace Game.Views
 		async void PickItems_Clicked(object sender, EventArgs e)
 		{
 			await Navigation.PushModalAsync(new PickItemsPage());
+		}
+		public void On_items_selected(object sender, SelectedItemChangedEventArgs args)
+		{
+			DisplayAlert("Attack!!!", "Attack !!!", "OK");
 		}
 	}
 }
