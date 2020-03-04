@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -29,7 +30,7 @@ namespace Game.Views
         {
             InitializeComponent();
             BindingContext = this.ViewModel = data;
-            ItemListView.ItemsSource = EngineViewModel.DatabaseItemList;
+            //ItemListView.ItemsSource = EngineViewModel.DatabaseItemList;
             AddItemsToDisplay();
         }
 
@@ -60,6 +61,7 @@ namespace Game.Views
         /// <returns></returns>
         public StackLayout GetItemToDisplay(ItemLocationEnum location)
         {
+            
             // Defualt Image is the Plus
             var ImageSource = "icon_cancel.png";
             var ClickableButton = false;
@@ -82,24 +84,24 @@ namespace Game.Views
             };
 
 
-            //// Add the Display Text for the item
-            //var ItemLabel = new Label
-            //{
-            //    Text = location.ToMessage(),
-            //    Style = (Style)Application.Current.Resources["ValueStyleMicro"],
-            //    HorizontalOptions = LayoutOptions.Center,
-            //    HorizontalTextAlignment = TextAlignment.Center
-            //};
+            // Add the Display Text for the item
+            var ItemLabel = new Label
+            {
+                Text = location.ToMessage(),
+               Style = (Style)Application.Current.Resources["ValueStyleMicro"],
+                HorizontalOptions = LayoutOptions.Center,
+               HorizontalTextAlignment = TextAlignment.Center
+            };
 
             // Put the Image Button and Text inside a layout
             var ItemStack = new StackLayout
             {
                 Padding = 3,
-              //  Style = (Style)Application.Current.Resources["ItemImageBox"],
+                //Style = (Style)Application.Current.Resources["ItemImageBox"],
                 HorizontalOptions = LayoutOptions.Center,
                 Children = {
                     ItemButton,
-                    //ItemLabel
+                    ItemLabel
                 },
             };
 

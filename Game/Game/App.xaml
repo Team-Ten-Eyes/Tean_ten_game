@@ -230,6 +230,15 @@
                 <Setter Property="BackgroundColor" Value="{StaticResource LightBackgroundColor}" />
             </Style>
 
+            <Style TargetType="Label"
+                x:Key="ValueStyleMicro"
+                BasedOn="{StaticResource ValueStyle}">
+                <Setter Property="FontSize" Value="Micro" />
+                <Setter Property="LineBreakMode" Value="WordWrap" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>
