@@ -107,5 +107,31 @@ namespace Game.Models
 
             return myReturn;
         }
+
+        public CharacterTypeEnum GetCharType()
+        {
+            return Attribute;
+        }
+
+        //Used to reduce mana points after a special attack is used
+        public bool TakeMana(uint mana)
+        {
+            Mana -= mana;
+            return true;
+        }
+        //Called when some special item is used
+        public bool AddMana(uint mana)
+        {
+            if (mana + Mana > MaxMana)
+                Mana = MaxMana;
+            else Mana += mana;
+            return true;
+        }
+        //Called on level up
+        public void AddMaxMana()
+        {
+            Mana = MaxMana;
+        }
+
     }
 }
