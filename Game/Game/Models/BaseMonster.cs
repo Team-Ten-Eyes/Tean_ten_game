@@ -84,6 +84,17 @@ namespace Game.Models
         }
 
         /// <summary>
+        /// Helper to show the Specific Monster Type/Class/Attribute when needed
+        /// </summary>
+        /// <returns></returns>
+        public MonsterTypeEnum GetMonsterType()
+        {
+            return Attribute;
+        }
+
+
+
+        /// <summary>
         /// Helper to combine the attributes into a single line, to make it easier to display the item as a string
         /// </summary>
         /// <returns></returns>
