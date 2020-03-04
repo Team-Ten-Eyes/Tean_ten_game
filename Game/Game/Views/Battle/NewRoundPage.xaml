@@ -17,6 +17,7 @@
                 <FlexLayout x:Name="PartyListFrame"
                                     JustifyContent="Start"
                                     AlignContent="Start"
+                            HorizontalOptions="CenterAndExpand"
                                     Wrap="Wrap"/>
 
                 <Label Text="Monsters" Style="{StaticResource MessageStyle}"/>
@@ -24,6 +25,7 @@
                 <FlexLayout x:Name="MonsterListFrame"
                                     JustifyContent="Start"
                                     AlignContent="Start"
+                            HorizontalOptions="CenterAndExpand"
                                     Wrap="Wrap"/>
 
                 <StackLayout Padding="1"></StackLayout>
