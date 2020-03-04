@@ -8,40 +8,32 @@ namespace Game.Models
     public class BaseMonster : PlayerModel<BaseMonster>
     {
 
+        public MonsterTypeEnum Attribute { get; set; } = MonsterTypeEnum.Anger; 
 
+
+
+        /// <summary>
+        /// Set Type to Monster
+        /// 
+        /// Set Name and Description
         /// </summary>
-        // Enum of the different class that the monster modifies
-        public MonsterTypeEnum Attribute { get; set; } = MonsterTypeEnum.Stress; //defaults to stress
-
-
-        // characer stats//////////////////////////////////
-        //current health
-
-
-
-        ////////////////////////////////////////////////////
-
-        // Special items dropped by a monster on battleend
-        //Default constructor
-
         public BaseMonster()
         {
+            Attribute = MonsterTypeEnum.Anxiety;
             PlayerType = PlayerTypeEnum.Monster;
-            Name = "Default_Bad";
-            ImageURI = "Insanty.png";
-            Level = 1;
-            CurrHealth = 10;
-            MaxHealth = 10;
-            Attack = 3;
-            Defense = 3;
-            Speed = 3;
-            Description = "Stress monster";
-            ExperienceRemaining = LevelTableHelper.Instance.LevelDetailsList[Level + 1].Experience - 1;
+            Guid = Id;
+            Name = "Troll";
+            Description = "Angry Troll";
+            Attack = 1;
             Difficulty = DifficultyEnum.Average;
+            UniqueItem = null;
+            ImageURI = "troll.png";
+            Experience = 0;
+            ExperienceRemaining = Helpers.LevelTableHelper.Instance.LevelDetailsList[Level + 1].Experience - 1;
         }
 
         /// <summary>
-        /// Copy Constructor to create an item based on what is passed in
+        /// Make a copy
         /// </summary>
         /// <param name="data"></param>
         public BaseMonster(BaseMonster data)
@@ -50,17 +42,17 @@ namespace Game.Models
         }
 
         /// <summary>
-        /// Update the Record
+        /// Update
         /// </summary>
-        /// <param name="newData">The new data</param>
+        /// <param name="newData"></param>
+        /// <returns></returns>
         public override bool Update(BaseMonster newData)
         {
             if (newData == null)
             {
                 return false;
             }
-
-
+            Attribute = newData.Attribute;
             PlayerType = newData.PlayerType;
             Guid = newData.Guid;
             Name = newData.Name;
@@ -79,42 +71,33 @@ namespace Game.Models
             CurrHealth = newData.CurrHealth;
             MaxHealth = newData.MaxHealth;
 
-            // Update all the fields in the Data, except for the Id and guid
-            
+            Head = newData.Head;
+            Necklass = newData.Necklass;
+            PrimaryHand = newData.PrimaryHand;
+            OffHand = newData.OffHand;
+            RightFinger = newData.RightFinger;
+            LeftFinger = newData.LeftFinger;
+            Feet = newData.Feet;
+            UniqueItem = newData.UniqueItem;
+
             return true;
         }
 
-        // Helper to combine the attributes into a single line, to make it easier to display the item as a string
-        public string FormatOutput()
+        /// <summary>
+        /// Helper to combine the attributes into a single line, to make it easier to display the item as a string
+        /// </summary>
+        /// <returns></returns>
+        public override string FormatOutput()
         {
-            var myReturn = Name + " , " +
-                            Description + " for " +
-                            Attribute.ToString() +
-                            "+" + Attack + " , " +
-                            "Level : " + Level;
+            var myReturn = Name;
+            myReturn += " , " + Description;
+            myReturn += " , Level : " + Level.ToString();
+            myReturn += " , Difficulty : " + Difficulty.ToString();
+            myReturn += " , Total Experience : " + Experience;
+            myReturn += " , Items : " + ItemSlotsFormatOutput();
+            myReturn += " , Damage : " + GetDamageTotalString;
 
-            return myReturn.Trim();
+            return myReturn;
         }
-
-
-
-        public string GetMonsterType()
-        {
-            return Attribute.ToString();
-        }
-
-
-        public int GetAttack()
-        {
-            return 20;
-        }
-
-        //TO BE IMPLEMENTED WITH BATTLE SYSTEM
-        //public int GetDamageDice(){}
-        //public int GetDamageRollValue(){}
-        //public ItemModel RollItemDrop(){}
-
-
     }
 }
-
