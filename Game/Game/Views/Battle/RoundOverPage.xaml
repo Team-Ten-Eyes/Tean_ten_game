@@ -65,7 +65,7 @@
 
             <Button Clicked="PickItems_Clicked" Text="Equip Items To Party"></Button>
 
-            <Button Clicked="NextButton_Clicked" Text="Skip Item Collection/Next Round"></Button>
+            <Button Clicked="NextRoundButton_Clicked" Text="Skip Item Collection/Next Round"></Button>
 
         </StackLayout>
         </ScrollView>
