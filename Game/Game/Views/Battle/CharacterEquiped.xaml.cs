@@ -97,7 +97,7 @@ namespace Game.Views
             var ItemStack = new StackLayout
             {
                 Padding = 3,
-                //Style = (Style)Application.Current.Resources["ItemImageBox"],
+                Style = (Style)Application.Current.Resources["ItemImageBox"],
                 HorizontalOptions = LayoutOptions.Center,
                 Children = {
                     ItemButton,
