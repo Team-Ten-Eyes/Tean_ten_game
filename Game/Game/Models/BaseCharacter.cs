@@ -105,18 +105,27 @@ namespace Game.Models
         }
 
 
+        /// <summary>
+        /// Helper to show the Specific Character Type/Class/Attribute when needed
+        /// </summary>
+        /// <returns></returns>
         public CharacterTypeEnum GetCharType()
         {
             return Attribute;
         }
 
-        //Used to reduce mana points after a special attack is used
+        /// <summary>
+        /// Helper to remove mana after a special attack is used
+        /// </summary>
+        /// <returns></returns>
         public bool TakeMana(uint mana)
         {
             Mana -= mana;
             return true;
         }
-        //Called when some special item is used
+        /// <summary>
+        /// Helper called when a potion is used ... potions to be implemented later.
+        /// <returns></returns>
         public bool AddMana(uint mana)
         {
             if (mana + Mana > MaxMana)
@@ -124,7 +133,11 @@ namespace Game.Models
             else Mana += mana;
             return true;
         }
-        //Called on level up
+
+        /// <summary>
+        /// Helper to reset Mana to its maximum on level up! 
+        /// </summary>
+        /// <returns></returns>
         public void AddMaxMana()
         {
             Mana = MaxMana;
