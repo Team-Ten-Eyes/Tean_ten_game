@@ -13,12 +13,6 @@ namespace Game.Models
     public class PlayerModel<T> : BaseModel<T>
     {
 
-        public PlayerModel()
-        {
-            Guid = Id;
-        }
-
-
         #region Attributes
 
         #region GameEngineAttributes
@@ -38,8 +32,6 @@ namespace Game.Models
         [Ignore]
         public int ListOrder { get; set; } = 0;
 
-        
-
         #endregion GameEngineAttributes
 
         #region PlayerAttributes
@@ -54,7 +46,7 @@ namespace Game.Models
         public int MaxHealth { get; set; } = 0;
 
         // Total Experience Earned
-        public int Experience { get; set; } = 0;
+        public int Experience{ get; set; } = 0;
 
         // The Experience available to given up
         public int ExperienceRemaining { get; set; }
@@ -237,7 +229,10 @@ namespace Game.Models
         /// <summary>
         /// Constructor for BasePlayer
         /// </summary>
-       
+        public PlayerModel()
+        {
+            Guid = Id;
+        }
 
         /// <summary>
         /// Format Output
@@ -823,8 +818,5 @@ namespace Game.Models
         #endregion Items
 
         #endregion Methods
-        
-
-
     }
 }
