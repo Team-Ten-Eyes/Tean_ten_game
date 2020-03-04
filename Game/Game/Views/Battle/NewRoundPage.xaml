@@ -9,11 +9,11 @@
 
             <StackLayout Style="{StaticResource VerticalStack}">
 
-                <Label Text="Beginning a Round" Style="{StaticResource CenterMessageStyle}"/>
+                <Label Text="Beginning a Round" Style="{StaticResource CenterMessageStyle}" TextColor="White"/>
 
-                <Button Clicked="BeginButton_Clicked" Text="Begin"/>
+                <Button Clicked="BeginButton_Clicked" Text="Begin" BackgroundColor="White" TextColor="#C03BFC"/>
 
-                <Label Text="Characters" Style="{StaticResource MessageStyle}"/>
+                <Label Text="Characters" Style="{StaticResource MessageStyle}" TextColor="White"/>
 
                 <FlexLayout x:Name="PartyListFrame"
                                     JustifyContent="Start"
@@ -21,7 +21,7 @@
                             HorizontalOptions="CenterAndExpand"
                                     Wrap="Wrap"/>
                 
-                <Label Text="Monsters" Style="{StaticResource MessageStyle}"/>
+                <Label Text="Monsters" Style="{StaticResource MessageStyle}" TextColor="White"/>
                 
                 <FlexLayout x:Name="MonsterListFrame"
                                     JustifyContent="Start"
@@ -31,7 +31,7 @@
 
                 <StackLayout Padding="1"></StackLayout>
 
-                <Button Clicked="BeginButton_Clicked" Text="Begin"/>
+                <Button Clicked="BeginButton_Clicked" Text="Begin" BackgroundColor="White" TextColor="#C03BFC"/>
 
             </StackLayout>
         </ScrollView>

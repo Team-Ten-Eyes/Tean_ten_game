@@ -120,7 +120,8 @@ namespace Game.Views
             {
                 ViewModel.Data.AddItem(data.Location, data.Id);
             }
-       
+            MessagingCenter.Send(data, "Delete", data.Id);
+
         }
 
 
