@@ -98,5 +98,49 @@ namespace Game.Views
 			await Navigation.PushAsync(new PickItemsPage());
 		}
 
+		void Mon1Targeted(object sender, EventArgs e)
+		{
+			Mon1XHair.IsVisible = true;
+			Mon2XHair.IsVisible = false;
+			Mon3XHair.IsVisible = false;
+			Mon4XHair.IsVisible = false;
+			Mon5XHair.IsVisible = false;
+		}
+		void Mon2Targeted(object sender, EventArgs e)
+		{
+			Mon1XHair.IsVisible = false;
+			Mon2XHair.IsVisible = true;
+			Mon3XHair.IsVisible = false;
+			Mon4XHair.IsVisible = false;
+			Mon5XHair.IsVisible = false;
+		}
+		void Mon3Targeted(object sender, EventArgs e)
+		{
+			Mon1XHair.IsVisible = false;
+			Mon2XHair.IsVisible = false;
+			Mon3XHair.IsVisible = true;
+			Mon4XHair.IsVisible = false;
+			Mon5XHair.IsVisible = false;
+		}
+
+		void Mon4Targeted(object sender, EventArgs e)
+		{
+			Mon1XHair.IsVisible = false;
+			Mon2XHair.IsVisible = false;
+			Mon3XHair.IsVisible = false;
+			Mon4XHair.IsVisible = true;
+			Mon5XHair.IsVisible = false;
+		}
+
+		void Mon5Targeted(object sender, EventArgs e)
+		{
+			Mon1XHair.IsVisible = false;
+			Mon2XHair.IsVisible = false;
+			Mon3XHair.IsVisible = false;
+			Mon4XHair.IsVisible = false;
+			Mon5XHair.IsVisible = true;
+		}
+
+
 	}
 }

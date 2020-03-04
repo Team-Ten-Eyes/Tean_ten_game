@@ -4,30 +4,33 @@
              x:Class="Game.Views.NewRoundPage">
 
     <ContentPage.Content>
-        <StackLayout Style="{StaticResource VerticalStack}">
-            <Label Text="New Round Page..."></Label>
+        <ScrollView VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never">
 
-            <Label Text="Characters..."></Label>
+            <StackLayout Style="{StaticResource VerticalStack}">
 
-            <StackLayout Style="{StaticResource HorizontalStack}">
-                <Image Source="knight.png" Style="{StaticResource ImageMediumStyle}"></Image>
-                <Image Source="knight.png" Style="{StaticResource ImageMediumStyle}"></Image>
+                <Label Text="Beginning a Round" Style="{StaticResource CenterMessageStyle}"/>
+
+                <Button Clicked="BeginButton_Clicked" Text="Begin"/>
+
+                <Label Text="Characters" Style="{StaticResource MessageStyle}"/>
+
+                <FlexLayout x:Name="PartyListFrame"
+                                    JustifyContent="Start"
+                                    AlignContent="Start"
+                                    Wrap="Wrap"/>
+
+                <Label Text="Monsters" Style="{StaticResource MessageStyle}"/>
+
+                <FlexLayout x:Name="MonsterListFrame"
+                                    JustifyContent="Start"
+                                    AlignContent="Start"
+                                    Wrap="Wrap"/>
+
+                <StackLayout Padding="1"></StackLayout>
+
+                <Button Clicked="BeginButton_Clicked" Text="Begin"/>
+
             </StackLayout>
-            
-            <Label Text="Monsters..."></Label>
-
-            <StackLayout Style="{StaticResource HorizontalStack}">
-                <Image Source="troll.png" Style="{StaticResource ImageMediumStyle}"></Image>
-                <Image Source="troll.png" Style="{StaticResource ImageMediumStyle}"></Image>
-                <Image Source="troll.png" Style="{StaticResource ImageMediumStyle}"></Image>
-                <Image Source="troll.png" Style="{StaticResource ImageMediumStyle}"></Image>
-                <Image Source="troll.png" Style="{StaticResource ImageMediumStyle}"></Image>
-                <Image Source="troll.png" Style="{StaticResource ImageMediumStyle}"></Image>
-            </StackLayout>
-
-            <Button Clicked="BeginButton_Clicked" Text="Begin"></Button>
-
-        </StackLayout>
-        
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
