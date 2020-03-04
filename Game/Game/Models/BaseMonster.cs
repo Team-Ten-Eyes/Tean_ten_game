@@ -22,12 +22,12 @@ namespace Game.Models
             Attribute = MonsterTypeEnum.Anxiety;
             PlayerType = PlayerTypeEnum.Monster;
             Guid = Id;
-            Name = "Troll";
-            Description = "Angry Troll";
+            Name = "EVOLVE MONSTER";
+            Description = "Issa Kraken";
             Attack = 1;
             Difficulty = DifficultyEnum.Average;
             UniqueItem = null;
-            ImageURI = "troll.png";
+            ImageURI = "Fire_monster.png";
             Experience = 0;
             ExperienceRemaining = Helpers.LevelTableHelper.Instance.LevelDetailsList[Level + 1].Experience - 1;
         }
