@@ -87,8 +87,8 @@
                     <StackLayout Orientation="Vertical" Grid.Row ="1" Grid.Column="3">
                         <Frame BackgroundColor="Transparent" BorderColor="Transparent" x:Name="Mon1Frame"> 
                         <Grid>
-                                
-                                <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Mon1Pic"/>
+
+                                <ImageButton Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Mon1Pic" Clicked="Mon1Targeted"/>
                                 <Image Source="dead.png" IsVisible="False" HeightRequest="100" WidthRequest="100" x:Name="Mon1Dead"/>
                                 <Image Source="crosshair.png" IsVisible="True" HeightRequest="100" WidthRequest="100" x:Name="Mon1XHair"/>
                         </Grid>
@@ -97,8 +97,8 @@
                     <StackLayout Orientation="Vertical" Grid.Row ="2" Grid.Column="3">
                         <Frame BackgroundColor="Transparent" BorderColor="Transparent" x:Name="Mon2Frame">
                             <Grid>
-                                
-                                <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Mon2Pic"/>
+
+                                <ImageButton Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Mon2Pic" Clicked="Mon2Targeted"/>
                                 <Image Source="dead.png" IsVisible="False" HeightRequest="100" WidthRequest="100" x:Name="Mon2Dead"/>
                                 <Image Source="crosshair.png" IsVisible="False" HeightRequest="100" WidthRequest="100" x:Name="Mon2XHair"/>
                             </Grid>
@@ -107,8 +107,8 @@
                     <StackLayout Orientation="Vertical" Grid.Row ="3" Grid.Column="3">
                         <Frame BackgroundColor="Transparent" BorderColor="Transparent" x:Name="Mon3Frame">
                             <Grid>
-                                
-                                <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Mon3Pic"/>
+
+                                <ImageButton Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Mon3Pic" Clicked="Mon3Targeted"/>
                                 <Image Source="dead.png" IsVisible="False" HeightRequest="100" WidthRequest="100" x:Name="Mon3Dead"/>
                                 <Image Source="crosshair.png" IsVisible="False" HeightRequest="100" WidthRequest="100" x:Name="Mon3XHair"/>
                             </Grid>
@@ -117,8 +117,8 @@
                     <StackLayout Orientation="Vertical" Grid.Row ="4" Grid.Column="3">
                         <Frame BackgroundColor="Transparent" BorderColor="Transparent" x:Name="Mon4Frame">
                             <Grid>
-                                
-                                <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Mon4Pic"/>
+
+                                <ImageButton Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Mon4Pic" Clicked="Mon4Targeted"/>
                                 <Image Source="dead.png" IsVisible="False" HeightRequest="100" WidthRequest="100" x:Name="Mon4Dead"/>
                                 <Image Source="crosshair.png" IsVisible="False" HeightRequest="100" WidthRequest="100" x:Name="Mon4XHair"/>
                             </Grid>
@@ -129,10 +129,10 @@
                     <StackLayout Orientation="Vertical" Grid.Row ="5" Grid.Column="3">
                         <Frame BackgroundColor="Transparent" BorderColor="Transparent" x:Name="Mon5Frame">
                             <Grid>
-                                
-                                <Image Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Mon5Pic"/>
+
+                                <ImageButton Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Mon5Pic" Clicked="Mon5Targeted"/>
                                 <Image Source="dead.png" IsVisible="False" HeightRequest="100" WidthRequest="100" x:Name="Mon5Dead"/>
-                                <Image Source="crosshair.png" IsVisible="False" HeightRequest="100" WidthRequest="100" x:Name="Mon5XHair"/>
+                                <ImageButton Source="crosshair.png" IsVisible="False" HeightRequest="100" WidthRequest="100" x:Name="Mon5XHair"/>
                             </Grid>
                         </Frame>
                     </StackLayout>
