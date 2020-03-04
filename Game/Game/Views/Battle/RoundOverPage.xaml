@@ -4,7 +4,8 @@
              x:Class="Game.Views.RoundOverPage">
 
     <ContentPage.Content>
-        <StackLayout Style="{StaticResource VerticalStack}">
+        <ScrollView>
+            <StackLayout Style="{StaticResource VerticalStack}">
             <Label Text="Round Over Page/ You Survived!..." VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
 
             <Label Text="Items Found..." VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
@@ -67,6 +68,6 @@
             <Button Clicked="NextButton_Clicked" Text="Skip Item Collection/Next Round"></Button>
 
         </StackLayout>
-        
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -19,6 +19,9 @@ namespace Game.Views
 	public partial class RoundOverPage: ContentPage
 	{
 
+		//TODO: Add Item Descriptor Popup
+
+
 		public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
 		/// <summary>
 		/// Constructor
