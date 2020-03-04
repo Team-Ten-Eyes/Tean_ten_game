@@ -75,7 +75,7 @@ namespace Game.Models
             ExperienceRemaining = newData.ExperienceRemaining;
             CurrHealth = newData.CurrHealth;
             MaxHealth = newData.MaxHealth;
-
+            Attribute = newData.Attribute;
             Head = newData.Head;
             Necklass = newData.Necklass;
             PrimaryHand = newData.PrimaryHand;
@@ -92,21 +92,18 @@ namespace Game.Models
         /// Helper to combine the attributes into a single line, to make it easier to display the item as a string
         /// </summary>
         /// <returns></returns>
-        public override string FormatOutput()
+        public string FormatOutput()
         {
-            var myReturn = string.Empty;
-            myReturn += Name;
-            myReturn += " , " + Description;
-            myReturn += " , Level : " + Level.ToString();
-            myReturn += " , Total Experience : " + Experience;
-            myReturn += " , Attack :" + GetAttackTotal;
-            myReturn += " , Defense :" + GetDefenseTotal;
-            myReturn += " , Speed :" + GetSpeedTotal;
-            myReturn += " , Items : " + ItemSlotsFormatOutput();
-            myReturn += " , Damage : " + GetDamageTotalString;
+            var myReturn = Name + " , " +
+                            Description + " for " +
+                            Attribute.ToString() +
+                            "+" + Attack + " , " +
+                            "Experience : " + Experience + " , " +
+                            "Level : " + Level;
 
-            return myReturn;
+            return myReturn.Trim();
         }
+
 
         public CharacterTypeEnum GetCharType()
         {
