@@ -22,7 +22,7 @@ namespace Game.Models
         //Items held by a character
         public List<ItemModel> HeldItems;
 
-        public int GetAttack()
+        new public int GetAttack()
         {
             return 1;
 
@@ -106,18 +106,7 @@ namespace Game.Models
 
             return myReturn.Trim();
         }
-        //Method to be called when a character levels up, not implemented
-        public bool LevelUp()
-        {
-            return true;
-        }
-        //Adds experience upon a hit of a monster, not implemented
-        public bool AddExperience(int toAdd)
-        {
-            Experience += toAdd;
-            return true;
-        }
-        //Method to remove HP from a character and returns if a Char is dead
+
 
 
         //public int GetAttack() { }
@@ -146,19 +135,6 @@ namespace Game.Models
         {
             Mana = MaxMana;
         }
-
-
- 
-
-        //TO BE IMPLEMENTED WITH BATTLE SYSTEM
-        //public int GetDamageDice(){}
-        //public int GetDamageRollValue(){}
-        //public List<ItemModel> DropAllItems(){}
-        //public ItemModel GetItemByLocation(enum Location){}
-        //public bool AddItem(ItemModel item, Location location){}
-        //public int GetItemBonusAtk(){}
-        //public int GetItemBonusDef(){}
-        //public int GetItemBonusSpd(){}
 
     }
 }
