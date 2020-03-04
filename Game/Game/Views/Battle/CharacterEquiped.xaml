@@ -9,33 +9,38 @@
     <ContentPage.Content>
         <ScrollView VerticalScrollBarVisibility="Never">
             <StackLayout>
-
                 <Label Text="character equiped page"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                       VerticalOptions="Start" 
+                       HorizontalOptions="Start" 
+                       FontSize="Medium"
+                       />
+
+                  
                 <Image Source="{Binding Data.ImageURI}" WidthRequest="200" HeightRequest="200" 
                        HorizontalOptions="Start"/>
 
+                <Label Text="Equiped Items" HorizontalOptions="Start" FontSize="Medium" TextDecorations="Underline"/>
+                
                 <FlexLayout 
                         Padding="5"
                         Wrap="Wrap"
                         JustifyContent="SpaceAround"
                         AlignContent="SpaceAround"
                         x:Name="ItemBox">
-                </FlexLayout>
-
+                    </FlexLayout>
+       
 
                 <StackLayout Style="{StaticResource OuterBoxStack}">
 
                     <Label Text="Bring on the Battle" Style="{StaticResource CenterMessageStyle}"
-                       TextColor="White"/>
+                      />
 
                     <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand"
                             >
 
                         <StackLayout HorizontalOptions="Start">
 
-                            <Label Text="Characters" Style="{StaticResource CenterMessageStyle}" TextColor="White"/>
+                            <Label Text="Characters" Style="{StaticResource CenterMessageStyle}" />
 
                             <ListView 
                                 x:Name="ItemListView" 
@@ -72,17 +77,17 @@
                                                    Text="{Binding Name}" 
                                                    Style="{StaticResource ListStyle}"
                                                    FontAttributes="Bold"
-                                                   TextColor="White"/>
+                                                 />
 
                                                 <Label Grid.Column="1" Grid.Row="1"
                                                    Text="{Binding Path=Level, StringFormat='Level {0:G}'}" 
                                                    Style="{StaticResource ListStyle}"
-                                                   TextColor="White"/>
+                                                 />
 
                                                 <Label Grid.Column="1" Grid.Row="2"
                                                     Text="{Binding Path=MaxHealth, StringFormat= '{0:G} hp'}" 
                                                     Style="{StaticResource ListStyle}"
-                                                   TextColor="White"/>
+                                                  />
 
                                             </Grid>
                                         </ViewCell>
