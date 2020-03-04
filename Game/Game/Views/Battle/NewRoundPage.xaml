@@ -2,18 +2,18 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Game.Views.NewRoundPage"
-             BackgroundImageSource="cave_pj.png">
+           >
 
     <ContentPage.Content>
         <ScrollView VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never">
 
             <StackLayout Style="{StaticResource VerticalStack}">
 
-                <Label Text="Beginning a Round" Style="{StaticResource CenterMessageStyle}" TextColor="White"/>
+                <Label Text="Beginning a Round" Style="{StaticResource CenterMessageStyle}" />
 
-                <Button Clicked="BeginButton_Clicked" Text="Begin" BackgroundColor="White" TextColor="#C03BFC"/>
+                <Button Clicked="BeginButton_Clicked" Text="Begin" />
 
-                <Label Text="Characters" Style="{StaticResource MessageStyle}" TextColor="White"/>
+                <Label Text="Characters" Style="{StaticResource MessageStyle}" />
 
                 <FlexLayout x:Name="PartyListFrame"
                                     JustifyContent="Start"
@@ -21,7 +21,7 @@
                             HorizontalOptions="CenterAndExpand"
                                     Wrap="Wrap"/>
                 
-                <Label Text="Monsters" Style="{StaticResource MessageStyle}" TextColor="White"/>
+                <Label Text="Monsters" Style="{StaticResource MessageStyle}" />
                 
                 <FlexLayout x:Name="MonsterListFrame"
                                     JustifyContent="Start"
@@ -31,7 +31,7 @@
 
                 <StackLayout Padding="1"></StackLayout>
 
-                <Button Clicked="BeginButton_Clicked" Text="Begin" BackgroundColor="White" TextColor="#C03BFC"/>
+                <Button Clicked="BeginButton_Clicked" Text="Begin" />
 
             </StackLayout>
         </ScrollView>
