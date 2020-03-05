@@ -61,7 +61,7 @@ namespace Game.ViewModels
         public ObservableCollection<BaseCharacter> DatabaseCharacterList { get; set; } = CharacterViewModel.Instance.Dataset;
 
         //Have the database of the items for when you equip the characters
-        public ObservableCollection<ItemModel> DatabaseItemList { get; set; } = ItemIndexViewModel.Instance.Dataset;
+        public ObservableCollection<ItemModel> DatabaseItemList { get; set; }
 
         #region Constructor
 
