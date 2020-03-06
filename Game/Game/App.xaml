@@ -281,6 +281,13 @@
                 <Setter Property="WidthRequest" Value="80" />
             </Style>
 
+            <Style TargetType="Label"
+                x:Key="PopupItemTextStyle"
+                BasedOn="{StaticResource ValueStyle}">
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
 
 
         </ResourceDictionary>

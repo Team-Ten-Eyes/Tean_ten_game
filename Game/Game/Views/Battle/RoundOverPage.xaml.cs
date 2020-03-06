@@ -29,7 +29,7 @@ namespace Game.Views
 		public RoundOverPage()
 		{
 			InitializeComponent();
-			ItemListView.ItemsSource = EngineViewModel.DatabaseItemList;
+			ItemListView.ItemsSource = EngineViewModel.baseItemList;
 		}
 
 		/// <summary>

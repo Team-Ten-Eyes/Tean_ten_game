@@ -24,13 +24,16 @@ namespace Game.Views
         //using this to equip items from the database
         public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
 
+        // Hold the current location selected
+        public ItemLocationEnum PopupLocationEnum = ItemLocationEnum.Unknown;
 
         //constructor
         public CharacterEquiped(GenericViewModel<BaseCharacter> data)
         {
             InitializeComponent();
             BindingContext = this.ViewModel = data;
-            ItemListView.ItemsSource = EngineViewModel.DatabaseItemList;
+            
+
             AddItemsToDisplay();
         }
 
@@ -64,7 +67,7 @@ namespace Game.Views
             
             // Defualt Image is the Plus
             var ImageSource = "icon_cancel.png";
-            var ClickableButton = false;
+            var ClickableButton = true;
 
             var data = ViewModel.Data.GetItemByLocation(location);
             if (data == null)
@@ -72,8 +75,6 @@ namespace Game.Views
                 // Show the Default Icon for the Location
                 data = new ItemModel { Location = location, ImageURI = ImageSource };
 
-                // Turn off click action
-                ClickableButton = false;
             }
 
             // Hookup the Image Button to show the Item picture
@@ -83,6 +84,8 @@ namespace Game.Views
                 Source = data.ImageURI
             };
 
+            // Add a event to the user can click the item and see more
+            ItemButton.Clicked += (sender, args) => ShowPopup(location);
 
             // Add the Display Text for the item
             var ItemLabel = new Label
@@ -108,7 +111,14 @@ namespace Game.Views
             return ItemStack;
         }
 
-        public void On_items_selected(object sender, SelectedItemChangedEventArgs args)
+ 
+
+        /// <summary>
+        /// The row selected from the list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        public void OnPopupItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             ItemModel data = args.SelectedItem as ItemModel;
             if (data == null)
@@ -116,12 +126,66 @@ namespace Game.Views
                 return;
             }
 
-            if (ViewModel.Data.GetItemByLocation(data.Location) == null)
-            {
-                ViewModel.Data.AddItem(data.Location, data.Id);
-            }
-            MessagingCenter.Send(data, "Delete", data.Id);
+            ViewModel.Data.AddItem(PopupLocationEnum, data.Id);
 
+            AddItemsToDisplay();
+
+            ClosePopup();
+        }
+
+
+        public bool ShowPopup(ItemLocationEnum location)
+        {
+            PopupItemSelector.IsVisible = true;
+
+            PopupLocationLabel.Text = "Items for :";
+            PopupLocationValue.Text = location.ToMessage();
+
+            // Make a fake item for None
+            var NoneItem = new ItemModel
+            {
+                Id = null, // will use null to clear the item
+                Guid = "None", // how to find this item amoung all of them
+                ImageURI = "icon_cancel.png",
+                Name = "None",
+                Description = "None"
+            };
+
+            List<ItemModel> itemList = new List<ItemModel>
+            {
+                NoneItem
+            };
+
+            // Add the rest of the items to the list
+            itemList.AddRange(ItemIndexViewModel.Instance.GetLocationItems(location));
+
+            // Populate the list with the items
+            PopupLocationItemListView.ItemsSource = itemList;
+
+            // Remember the location for this popup
+            PopupLocationEnum = location;
+
+            return true;
+        }
+
+        /// <summary>
+        /// When the user clicks the close in the Popup
+        /// hide the view
+        /// show the scroll view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void ClosePopup_Clicked(object sender, EventArgs e)
+        {
+            ClosePopup();
+        }
+
+        /// <summary>
+        /// Close the popup
+        /// </summary>
+        public void ClosePopup()
+        {
+            PopupItemSelector.IsVisible = false;
         }
 
 

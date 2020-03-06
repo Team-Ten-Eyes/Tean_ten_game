@@ -55,5 +55,16 @@ namespace Game.Engine
 
             return true;
         }
+
+        /// <summary>
+        /// adding items t0 
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public bool populate_item_list(ItemModel data)
+        {
+            ItemPool.Add(new ItemModel(data));
+            return true;
+        }
     }
 }
