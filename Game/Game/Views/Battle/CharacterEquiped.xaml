@@ -36,7 +36,7 @@
 
                 <!--The Item Popup-->
                 <StackLayout x:Name="PopupItemSelector" 
-                 BackgroundColor="{StaticResource PageBackgroundColor}" 
+                 BackgroundColor="#635173" 
                  IsVisible="false" 
                  AbsoluteLayout.LayoutBounds=".5, .5,.5,.5" 
                  AbsoluteLayout.LayoutFlags="All">
@@ -48,10 +48,10 @@
                     HeightRequest="300"
                     >
 
-                        <Frame  BorderColor="{StaticResource TriciaryTextColor}" Padding="1">
+                        <Frame  BorderColor="White" Padding="1">
                             <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand" Padding="2">
                                 <Label x:Name="PopupLocationLabel" Style="{StaticResource PopupItemTextStyle}" />
-                                <Label x:Name="PopupLocationValue" Style="{StaticResource PopupItemTextStyle}" />
+                                <Label x:Name="PopupLocationValue" Style="{StaticResource PopupItemTextStyle}"  />
 
                                 <ListView x:Name="PopupLocationItemListView" 
                                 CachingStrategy="RecycleElement"
@@ -82,17 +82,21 @@
 
                                                     <Label Grid.Column="1" Grid.Row="0"
                                             Text="{Binding Name}" 
-                                            Style="{StaticResource ListStyle}"/>
+                                            Style="{StaticResource ListStyle}"
+                                                           TextColor="White"/>
 
                                                     <StackLayout Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
-                                                        <Label Text="{Binding Attribute}" Style="{StaticResource ListStyle}"/>
-                                                        <Label Text="{Binding Value}" Style="{StaticResource ListStyle}"/>
+                                                        <Label Text="{Binding Attribute}" Style="{StaticResource ListStyle}"
+                                                               TextColor="White"/>
+                                                        <Label Text="{Binding Value}" Style="{StaticResource ListStyle}"
+                                                               TextColor="White"/>
                                                     </StackLayout>
 
                                                     <Label Grid.Column="1" Grid.Row="2"
-                                                Text="{Binding Description}" 
-                                                Style="{StaticResource ListStyle}"
-                                                FontSize="Micro"
+                                                           Text="{Binding Description}" 
+                                                           Style="{StaticResource ListStyle}"
+                                                           FontSize="Micro"
+                                                           TextColor="White"
                                                            />
                                                 </Grid>
                                             </ViewCell>
@@ -101,8 +105,11 @@
                                 </ListView>
 
                                 <Button x:Name="PopupCloseButton" 
-                                Clicked="ClosePopup_Clicked" 
-                                Text="Close"/>
+                                        Clicked="ClosePopup_Clicked" 
+                                        Text="Close"
+                                        BackgroundColor="White"
+                                        TextColor="#C03BFC"
+                                        FontAttributes="Bold"/>
                             </StackLayout>
                         </Frame>
                     </StackLayout>
