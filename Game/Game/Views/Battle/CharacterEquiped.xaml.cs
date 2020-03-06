@@ -91,7 +91,7 @@ namespace Game.Views
             var ItemLabel = new Label
             {
                 Text = location.ToMessage(),
-               Style = (Style)Application.Current.Resources["ValueStyleMicro"],
+                Style = (Style)Application.Current.Resources["ValueStyleMicro"],
                 HorizontalOptions = LayoutOptions.Center,
                HorizontalTextAlignment = TextAlignment.Center
             };
@@ -133,7 +133,12 @@ namespace Game.Views
             ClosePopup();
         }
 
-
+        /// <summary>
+        /// This will show the popup for the
+        /// item that the ueer clicked on
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
         public bool ShowPopup(ItemLocationEnum location)
         {
             PopupItemSelector.IsVisible = true;

@@ -272,6 +272,7 @@
                 <Setter Property="FontSize" Value="Micro" />
                 <Setter Property="LineBreakMode" Value="WordWrap" />
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="TextColor" Value="White"/>
             </Style>
             
             <Style TargetType="StackLayout"

@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Game.Views.CharacterEquiped">
+             x:Class="Game.Views.CharacterEquiped"
+             BackgroundImageSource="characterPickPage.png">
     
     <ContentPage.Content>
         <ScrollView VerticalScrollBarVisibility="Never">
@@ -13,21 +14,25 @@
                        VerticalOptions="Start" 
                        HorizontalOptions="Start" 
                        FontSize="Medium"
+                       TextColor="White"
                        />
 
                   
                 <Image Source="{Binding Data.ImageURI}" WidthRequest="200" HeightRequest="200" 
                        HorizontalOptions="Start"/>
 
-                <Label Text="Equiped Items" HorizontalOptions="Start" FontSize="Medium" TextDecorations="Underline"/>
-                
+                <Label Text="Equiped Items" HorizontalOptions="Start" FontSize="Medium" TextDecorations="Underline"
+                       TextColor="White"/>
+
                 <FlexLayout 
                         Padding="5"
                         Wrap="Wrap"
                         JustifyContent="SpaceAround"
                         AlignContent="SpaceAround"
-                        x:Name="ItemBox">
-                    </FlexLayout>
+                        x:Name="ItemBox"
+                    />
+
+
 
                 <!--The Item Popup-->
                 <StackLayout x:Name="PopupItemSelector" 
@@ -87,7 +92,8 @@
                                                     <Label Grid.Column="1" Grid.Row="2"
                                                 Text="{Binding Description}" 
                                                 Style="{StaticResource ListStyle}"
-                                                FontSize="Micro"/>
+                                                FontSize="Micro"
+                                                           />
                                                 </Grid>
                                             </ViewCell>
                                         </DataTemplate>
