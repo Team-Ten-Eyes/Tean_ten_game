@@ -17,7 +17,8 @@
 
                     <Button Text="Go To Battle!"  TextColor="#C03BFC" Clicked="Go_to_battle"
                             BackgroundColor="White"
-                            HorizontalOptions="End"/>
+                            HorizontalOptions="End"
+                            FontAttributes="Bold"/>
                 </StackLayout>
                 <ListView
                 x:Name= "PartyListView"
