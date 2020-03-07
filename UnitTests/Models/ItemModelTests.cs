@@ -1,11 +1,5 @@
-﻿using NUnit.Framework;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Game.Models;
+﻿using Game.Models;
+using NUnit.Framework;
 
 namespace UnitTests.Models
 {
@@ -19,7 +13,7 @@ namespace UnitTests.Models
 
             // Act
             var result = new ItemModel();
-            
+
             // Reset
 
             // Assert

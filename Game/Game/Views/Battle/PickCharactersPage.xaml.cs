@@ -1,13 +1,10 @@
-﻿using System;
+﻿using Game.Models;
+using Game.ViewModels;
+using System;
 using System.ComponentModel;
-
+using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
-
-using Game.Models;
-using Game.ViewModels;
-using System.Linq;
 namespace Game.Views
 {
     /// <summary>
@@ -42,7 +39,7 @@ namespace Game.Views
             InitializeComponent();
 
             BindingContext = EngineViewModel;
-            
+
 
             // Clear the Database List and the Party List to start
             EngineViewModel.PartyCharacterList.Clear();

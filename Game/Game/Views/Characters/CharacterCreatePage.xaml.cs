@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Game.Models;
+using Game.Services;
+using Game.ViewModels;
+using System;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Game.ViewModels;
-using Game.Models;
-using Game.Services;
 
 namespace Game.Views
 {
@@ -38,7 +34,7 @@ namespace Game.Views
                 imageList.Add(image);
             }
             ImageView.ItemsSource = imageList;
-           
+
 
         }
 

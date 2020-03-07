@@ -45,8 +45,8 @@ namespace Game.Views
         /// <param name="e"></param>
         private void DebugSettingsSwitch_OnToggled(object sender, ToggledEventArgs e)
         {
-           // Show or hide the Debug Settings
-           DebugSettingsFrame.IsVisible = (e.Value);
+            // Show or hide the Debug Settings
+            DebugSettingsFrame.IsVisible = (e.Value);
         }
 
         /// <summary>

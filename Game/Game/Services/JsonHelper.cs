@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
-using Game.Models;
-using Game.Services;
+using System;
+using System.Collections.Generic;
 
 namespace Game.Services
 {
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0034:Simplify 'default' expression", Justification = "<Pending>")]
-    #pragma warning disable CA1031 // Do not catch general exception types
+#pragma warning disable CA1031 // Do not catch general exception types
     public static class JsonHelper
     {
         // Takes a json object, and retrieves a string from it matching the field

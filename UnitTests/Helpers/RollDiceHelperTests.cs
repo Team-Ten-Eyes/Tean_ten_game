@@ -1,6 +1,5 @@
-﻿using NUnit.Framework;
-
-using Game.Helpers;
+﻿using Game.Helpers;
+using NUnit.Framework;
 
 namespace UnitTests.Helpers
 {

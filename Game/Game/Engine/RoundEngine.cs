@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Game.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-
-using Game.Models;
 
 namespace Game.Engine
 {
@@ -159,7 +158,7 @@ namespace Game.Engine
 
             // Do the turn....
 
-            
+
             TakeTurn(CurrentAttacker);
 
             RoundStateEnum = RoundEnum.NextTurn;

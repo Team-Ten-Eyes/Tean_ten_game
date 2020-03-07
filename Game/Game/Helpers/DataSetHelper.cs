@@ -1,6 +1,5 @@
 ﻿using Game.ViewModels;
 using System;
-using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace Game.Helpers

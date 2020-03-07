@@ -1,6 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using Game.ViewModels;
 using Game.Views;
-using Game.ViewModels;
+using Xamarin.Forms;
 
 namespace Game
 {

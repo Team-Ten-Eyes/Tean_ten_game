@@ -1,9 +1,6 @@
-﻿using NUnit.Framework;
-
-using Game.Engine;
+﻿using Game.Engine;
 using Game.Models;
-using System.Threading.Tasks;
-using System.Linq;
+using NUnit.Framework;
 
 namespace UnitTests.Engine
 {

@@ -20,23 +20,22 @@
                         <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <StackLayout Orientation="Vertical">
-
-
-                                    <Image 
+                                    <Frame BackgroundColor="Transparent" BorderColor="Transparent">
+                                        <StackLayout Orientation="Vertical">
+                                            <Image 
                                                     Source="{Binding ImageURI}"
                                                     Style="{StaticResource ImageMediumStyle}"
                                                     VerticalOptions="CenterAndExpand"
                                                     />
-                                    <ProgressBar 
-                                                   Progress="0.5"></ProgressBar>
-                                    <ProgressBar Grid.Column="1" Grid.Row="1"
-                                                   Progress=".5"></ProgressBar>
-
-                                    
-
-                                </StackLayout>
-                            </ViewCell>
+                                            <ProgressBar 
+                                                   Progress="0.5">
+                                            </ProgressBar>
+                                            <ProgressBar 
+                                                   Progress="0.5">
+                                            </ProgressBar>
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

@@ -1,9 +1,7 @@
-﻿using System;
+﻿using Game.Models;
+using System;
 using System.Collections.Generic;
-using System.Text;
-using Game.Models;
 using System.Linq;
-using System.Diagnostics;
 
 namespace Game.Helpers
 {
@@ -16,26 +14,26 @@ namespace Game.Helpers
         /// invalid type was inputed it would just return the full monster list
         /// but it should never output that if it does there is an error
         /// </summary>
-        public static List<string> getCharacterStrengths (string characterType)
+        public static List<string> getCharacterStrengths(string characterType)
         {
-            
-                var monsterType = Enum.GetNames(typeof(MonsterTypeEnum)).ToList();
 
-            if(characterType == "Bravery")
+            var monsterType = Enum.GetNames(typeof(MonsterTypeEnum)).ToList();
+
+            if (characterType == "Bravery")
             {
                 var BraveStrengths = monsterType.Where(a =>
                       a.ToString() != MonsterTypeEnum.Paranoia.ToString() &&
                       a.ToString() != MonsterTypeEnum.Unknown.ToString() &&
                       a.ToString() != MonsterTypeEnum.Anger.ToString() &&
-                      a.ToString() != MonsterTypeEnum.Insanity.ToString()&&
+                      a.ToString() != MonsterTypeEnum.Insanity.ToString() &&
                       a.ToString() != MonsterTypeEnum.Depression.ToString()).ToList();
-                       
+
 
                 return BraveStrengths;
 
             }
 
-            if(characterType == "Creativity")
+            if (characterType == "Creativity")
             {
                 var CreativeStrengths = monsterType.Where(a =>
                a.ToString() != MonsterTypeEnum.Anxiety.ToString() &&
@@ -47,7 +45,7 @@ namespace Game.Helpers
                 return CreativeStrengths;
             }
 
-            if( characterType == "Cunning")
+            if (characterType == "Cunning")
             {
                 var CunningStrengths = monsterType.Where(a =>
                a.ToString() != MonsterTypeEnum.Paranoia.ToString() &&
@@ -58,7 +56,7 @@ namespace Game.Helpers
             }
 
             return monsterType;
-            
+
         }
 
         public static List<string> GetCharacterWeaknesses(string characterType)
@@ -102,11 +100,11 @@ namespace Game.Helpers
         /// </summary>
         /// <param name="monsterType"></param>
         /// <returns></returns>
-        public static List<string> getMonsterStrengths(string  monsterType)
+        public static List<string> getMonsterStrengths(string monsterType)
         {
             var characterType = Enum.GetNames(typeof(CharacterTypeEnum)).ToList();
 
-            if(monsterType == "Depression")
+            if (monsterType == "Depression")
             {
                 var DStrengths = characterType.Where(a =>
             a.ToString() != CharacterTypeEnum.Unknown.ToString() &&
@@ -114,7 +112,7 @@ namespace Game.Helpers
                 return DStrengths;
             }
 
-            if(monsterType == "Paranoia")
+            if (monsterType == "Paranoia")
             {
                 var PStrengths = characterType.Where(a =>
                a.ToString() != CharacterTypeEnum.Creativity.ToString() &&
@@ -122,34 +120,34 @@ namespace Game.Helpers
                 return PStrengths;
             }
 
-            if(monsterType == "Anger")
+            if (monsterType == "Anger")
             {
                 var AngerStrengths = characterType.Where(a =>
                 a.ToString() == CharacterTypeEnum.Bravery.ToString()).ToList();
                 return AngerStrengths;
             }
 
-            if(monsterType == "Fear")
+            if (monsterType == "Fear")
             {
                 var fearStrenths = characterType.Where(a =>
                a.ToString() == CharacterTypeEnum.Cunning.ToString()).ToList();
                 return fearStrenths;
             }
 
-            if(monsterType == "Anxiety")
+            if (monsterType == "Anxiety")
             {
                 var AnxietyStrengths = characterType.Where(a =>
                a.ToString() == CharacterTypeEnum.Creativity.ToString()).ToList();
                 return AnxietyStrengths;
             }
-            if(monsterType == "BurnOut")
+            if (monsterType == "BurnOut")
             {
                 var burnoutStrengths = characterType.Where(a =>
                a.ToString() == CharacterTypeEnum.Creativity.ToString()).ToList();
                 return burnoutStrengths;
             }
 
-            if(monsterType == "Stress")
+            if (monsterType == "Stress")
             {
                 List<string> nothing = new List<string>();
                 nothing.Add("none");

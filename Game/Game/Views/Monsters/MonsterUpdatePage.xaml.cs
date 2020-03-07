@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using Game.Models;
+using Game.ViewModels;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Game.ViewModels;
-using Game.Models;
 
 namespace Game.Views
 {
@@ -35,7 +30,8 @@ namespace Game.Views
         {
             if (ViewModel.Data.Name.Length > 12 || ViewModel.Data.Name.Length < 1)
                 await DisplayAlert("Name Too Long", "Must Be Less Than 13 Chars", "OK");
-            else {
+            else
+            {
                 MessagingCenter.Send(this, "Update", ViewModel.Data);
                 await Navigation.PopModalAsync();
             }

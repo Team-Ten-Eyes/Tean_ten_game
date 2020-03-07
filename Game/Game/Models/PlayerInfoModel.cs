@@ -23,7 +23,7 @@ namespace Game.Models
         /// <param name="data"></param>
         public PlayerInfoModel(PlayerInfoModel data)
         {
-            
+
             PlayerType = data.PlayerType;
             Guid = data.Guid;
             Alive = data.Alive;
@@ -55,7 +55,7 @@ namespace Game.Models
         /// <param name="data"></param>
         public PlayerInfoModel(BaseCharacter data)
         {
-            
+
             PlayerType = data.PlayerType;
             Guid = data.Guid;
             Alive = data.Alive;

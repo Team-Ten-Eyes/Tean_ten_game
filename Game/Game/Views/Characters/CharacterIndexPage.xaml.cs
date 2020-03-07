@@ -1,12 +1,11 @@
-﻿using System;
-using System.ComponentModel;
-using Xamarin.Forms;
-using Game.Models;
+﻿using Game.Models;
 using Game.ViewModels;
+using System;
+using Xamarin.Forms;
 
-namespace Game.Views 
+namespace Game.Views
 {
-   
+
     public partial class CharacterIndexPage : ContentPage
     {
         readonly CharacterViewModel ViewModel;
@@ -51,7 +50,7 @@ namespace Game.Views
             await Navigation.PushModalAsync(new NavigationPage(new CharacterCreatePage(new GenericViewModel<BaseCharacter>())));
         }
 
-     
+
         /// <summary>
         /// Refresh the list on page appearing
         /// </summary>

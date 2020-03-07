@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Game.Models;
+using Game.ViewModels;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Game.ViewModels;
-using Game.Models;
-using Game.Services;
 
 namespace Game.Views
 {
@@ -61,7 +54,7 @@ namespace Game.Views
         /// <returns></returns>
         public StackLayout GetItemToDisplay(ItemLocationEnum location)
         {
-            
+
             // Defualt Image is the Plus
             var ImageSource = "icon_cancel.png";
             var ClickableButton = false;
@@ -88,9 +81,9 @@ namespace Game.Views
             var ItemLabel = new Label
             {
                 Text = location.ToMessage(),
-               Style = (Style)Application.Current.Resources["ValueStyleMicro"],
+                Style = (Style)Application.Current.Resources["ValueStyleMicro"],
                 HorizontalOptions = LayoutOptions.Center,
-               HorizontalTextAlignment = TextAlignment.Center
+                HorizontalTextAlignment = TextAlignment.Center
             };
 
             // Put the Image Button and Text inside a layout
@@ -120,7 +113,7 @@ namespace Game.Views
             {
                 ViewModel.Data.AddItem(data.Location, data.Id);
             }
-       
+
         }
 
 

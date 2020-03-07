@@ -1,12 +1,7 @@
-﻿using System;
-using System.Diagnostics;
+﻿using Game.ViewModels;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
-using Game.Models;
-using Game.ViewModels;
-using System.Threading.Tasks;
-using System.Linq;
 
 namespace Game.Views
 {
@@ -14,7 +9,7 @@ namespace Game.Views
 	/// The Main Game Page
 	/// </summary>
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class BattlePage: ContentPage
+	public partial class BattlePage : ContentPage
 	{
 
 		public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
@@ -26,31 +21,30 @@ namespace Game.Views
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		public BattlePage ()
+		public BattlePage()
 		{
-			
-				InitializeComponent();
+			InitializeComponent();
 
-				// Set up the UI to Defaults
-				BindingContext = EngineViewModel;
+			// Set up the UI to Defaults
+			BindingContext = EngineViewModel;
 
-				// Start the Battle Engine
-				//EngineViewModel.Engine.StartBattle(false);
+			// Start the Battle Engine
+			//EngineViewModel.Engine.StartBattle(false);
 
-				// Show the New Round Screen
-				//ShowModalNewRoundPage();
+			// Show the New Round Screen
+			//ShowModalNewRoundPage();
 
-				// Ask the Game engine to select who goes first
-				//EngineViewModel.Engine.CurrentAttacker = null;
+			// Ask the Game engine to select who goes first
+			//EngineViewModel.Engine.CurrentAttacker = null;
 
-				// Game Starts with No Attacker or Defender selected
+			// Game Starts with No Attacker or Defender selected
 
-				// Add Players to Display
-				//DrawGameAttackerDefenderBoard();
+			// Add Players to Display
+			//DrawGameAttackerDefenderBoard();
 
-				//HideUIElements();
+			//HideUIElements();
 
-				//StartBattleButton.IsVisible = true;
+			//StartBattleButton.IsVisible = true;
 		}
 
 
@@ -121,7 +115,7 @@ namespace Game.Views
 		{
 			await Navigation.PushModalAsync(new NewRoundPage());
 		}
-		
+
 
 		/// <summary>
 		/// Battle Over
@@ -131,7 +125,7 @@ namespace Game.Views
 		/// <param name="e"></param>
 		async void BattleOverButton_Clicked(object sender, EventArgs e)
 		{
-			
+
 			await Navigation.PushModalAsync(new ScorePage());
 		}
 
@@ -169,9 +163,9 @@ namespace Game.Views
 			await Navigation.PushAsync(new PickItemsPage());
 		}
 
-		
-		
-		
+
+
+
 
 
 

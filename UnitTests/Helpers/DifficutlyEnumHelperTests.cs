@@ -1,10 +1,8 @@
-﻿  using System;
-using System.Linq;
-
-using NUnit.Framework;
-
+﻿using Game.Helpers;
 using Game.Models;
-using Game.Helpers;
+using NUnit.Framework;
+using System;
+using System.Linq;
 
 namespace UnitTests.Helpers
 {

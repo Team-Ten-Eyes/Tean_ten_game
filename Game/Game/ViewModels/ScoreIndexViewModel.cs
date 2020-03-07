@@ -1,10 +1,10 @@
 ﻿using Game.Models;
+using Game.Services;
 using Game.Views;
 using System;
-using Xamarin.Forms;
-using System.Linq;
 using System.Collections.Generic;
-using Game.Services;
+using System.Linq;
+using Xamarin.Forms;
 
 namespace Game.ViewModels
 {
@@ -92,7 +92,7 @@ namespace Game.ViewModels
         }
 
         #endregion Constructor
-        
+
         #region DataOperations_CRUDi
 
         /// <summary>
@@ -122,7 +122,7 @@ namespace Game.ViewModels
         /// Load the Default Data
         /// </summary>
         /// <returns></returns>
-        public override List<ScoreModel> GetDefaultData() 
+        public override List<ScoreModel> GetDefaultData()
         {
             return DefaultData.LoadData(new ScoreModel());
         }

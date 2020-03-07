@@ -1,8 +1,7 @@
-﻿using NUnit.Framework;
-
-using Game.Helpers;
+﻿using Game.Helpers;
 using Game.Models;
 using Game.ViewModels;
+using NUnit.Framework;
 using System.Linq;
 using System.Threading.Tasks;
 
