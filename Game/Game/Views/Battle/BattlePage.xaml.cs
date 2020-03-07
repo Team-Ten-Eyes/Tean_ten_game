@@ -38,19 +38,19 @@ namespace Game.Views
 				EngineViewModel.Engine.StartBattle(false);
 
 				// Show the New Round Screen
-				ShowModalNewRoundPage();
+				//ShowModalNewRoundPage();
 
 				// Ask the Game engine to select who goes first
-				EngineViewModel.Engine.CurrentAttacker = null;
+				//EngineViewModel.Engine.CurrentAttacker = null;
 
 				// Game Starts with No Attacker or Defender selected
 
 				// Add Players to Display
-				DrawGameAttackerDefenderBoard();
+				//DrawGameAttackerDefenderBoard();
 
-				HideUIElements();
+				//HideUIElements();
 
-				StartBattleButton.IsVisible = true;
+				//StartBattleButton.IsVisible = true;
 			}
 
 			/// <summary>
