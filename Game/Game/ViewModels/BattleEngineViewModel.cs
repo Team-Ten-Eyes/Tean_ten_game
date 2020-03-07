@@ -61,7 +61,7 @@ namespace Game.ViewModels
         public ObservableCollection<BaseCharacter> DatabaseCharacterList { get; set; } = CharacterViewModel.Instance.Dataset;
 
         //Have the database of the items for when you equip the characters
-        public ObservableCollection<ItemModel> baseItemList { get; set; }
+        public List<ItemModel> baseItemList { get; set; } = new List<ItemModel>();
 
         #region Constructor
 
@@ -70,7 +70,7 @@ namespace Game.ViewModels
         /// </summary>
         public BattleEngineViewModel()
         {
-            Engine.populate_item_pool();
+          
         }
 
         #endregion Constructor

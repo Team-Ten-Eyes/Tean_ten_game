@@ -156,16 +156,14 @@ namespace Game.Views
                 Description = "None"
             };
 
-            List<ItemModel> itemList = new List<ItemModel>
-            {
-                NoneItem
-            };
+          
+            EngineViewModel.baseItemList.Add(NoneItem);
 
             // Add the rest of the items to the list
-            itemList.AddRange(ItemIndexViewModel.Instance.GetLocationItems(location));
+            EngineViewModel.baseItemList.AddRange(ItemIndexViewModel.Instance.GetLocationItems(location));
 
             // Populate the list with the items
-            PopupLocationItemListView.ItemsSource = itemList;
+            PopupLocationItemListView.ItemsSource = EngineViewModel.baseItemList;
 
             // Remember the location for this popup
             PopupLocationEnum = location;

@@ -61,13 +61,10 @@ namespace Game.Engine
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public bool populate_item_pool()
+        public bool populate_item_pool(ItemModel data)
         {
-           
-            foreach (ItemModel Item in DefaultData.populateItemList())
-            {
-                ItemPool.Add(Item);
-            }
+            ItemPool.Add(new ItemModel(data));
+
             return true;
             
         }
