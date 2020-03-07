@@ -30,8 +30,8 @@
                                                     />
                                     <ProgressBar 
                                                    Progress="0.5"></ProgressBar>
-                                    <ProgressBar Grid.Column="1" Grid.Row="1"
-                                                   Progress=".5"></ProgressBar>
+                                    <ProgressBar 
+                                                   Progress="0.5"></ProgressBar>
 
                                     
 
