@@ -15,12 +15,13 @@
                                 CachingStrategy="RecycleElement"
                                 HasUnevenRows="true"
                                 Margin="5,0,5,0"
-                                RowHeight="80">
+                                >
                         
                         <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <StackLayout Orientation="Vertical">
+                                    <Frame BackgroundColor="Transparent" BorderColor="Black">
+                                        <StackLayout Orientation="Vertical">
 
 
                                     <Image 
@@ -28,15 +29,18 @@
                                                     Style="{StaticResource ImageMediumStyle}"
                                                     VerticalOptions="CenterAndExpand"
                                                     />
-                                    <ProgressBar 
+                                        <Label Text="HP"></Label>
+                                        <ProgressBar 
                                                    Progress="0.5"></ProgressBar>
-                                    <ProgressBar 
+                                        <Label Text="MP"></Label>
+                                        <ProgressBar 
                                                    Progress="0.5"></ProgressBar>
 
                                     
 
                                 </StackLayout>
-                            </ViewCell>
+                                    </Frame>
+                                </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
