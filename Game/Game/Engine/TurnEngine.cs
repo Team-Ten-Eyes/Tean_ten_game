@@ -79,12 +79,12 @@ namespace Game.Engine
                     return false;
                 }
             }
+            
 
 
 
-
-            // Do Attack
-            TurnAsAttack(Attacker, CurrentDefender);
+                // Do Attack
+                TurnAsAttack(Attacker, CurrentDefender);
 
             return true;
         }

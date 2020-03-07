@@ -30,7 +30,10 @@ namespace Game.Views
 			BindingContext = EngineViewModel;
 
 			// Start the Battle Engine
-			//EngineViewModel.Engine.StartBattle(false);
+			EngineViewModel.Engine.StartBattle(false);
+
+
+			FixMonsterListAtRoundStart();
 
 			// Show the New Round Screen
 			//ShowModalNewRoundPage();
