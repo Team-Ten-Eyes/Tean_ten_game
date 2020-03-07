@@ -143,7 +143,7 @@ namespace Game.Engine
         /// Pick the Monster to Attack
         /// </summary>
         /// <returns></returns>
-        public PlayerInfoModel SelectMonsterToAttack()
+        public PlayerInfoModel SelectMonsterToAttack(string)
         {
             if (PlayerList == null)
             {
@@ -202,13 +202,13 @@ namespace Game.Engine
 
             // Hackathon
             // Hackathon Scenario 2, Bob alwasys misses
-            if (Attacker.Name.Equals("Bob"))
-            {
-                BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
-                BattleMessagesModel.TurnMessage = "Bob always Misses";
-                Debug.WriteLine(BattleMessagesModel.TurnMessage);
-                return true;
-            }
+            //if (Attacker.Name.Equals("Bob"))
+            //{
+            //    BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
+            //    BattleMessagesModel.TurnMessage = "Bob always Misses";
+            //    Debug.WriteLine(BattleMessagesModel.TurnMessage);
+            //    return true;
+            //}
 
             switch (BattleMessagesModel.HitStatus)
             {
