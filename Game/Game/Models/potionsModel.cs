@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Game.Models
 {
-    class potionsModel
-    {
+    class potionsModel : BaseModel<potionsModel>
+    { 
+        
     }
 }
