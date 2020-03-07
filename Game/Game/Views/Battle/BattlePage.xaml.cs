@@ -1,6 +1,12 @@
 ﻿using System;
+using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+
+using Game.Models;
+using Game.ViewModels;
+using System.Threading.Tasks;
+using System.Linq;
 
 namespace Game.Views
 {
@@ -10,20 +16,49 @@ namespace Game.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class BattlePage: ContentPage
 	{
+
+		public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
+
+
+
+		public HtmlWebViewSource htmlSource = new HtmlWebViewSource();
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
 		public BattlePage ()
 		{
-			InitializeComponent ();
-		}
+			
+				InitializeComponent();
 
-		/// <summary>
-		/// Attack Action
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		void AttackButton_Clicked(object sender, EventArgs e)
+				// Set up the UI to Defaults
+				BindingContext = EngineViewModel;
+
+				// Start the Battle Engine
+				EngineViewModel.Engine.StartBattle(false);
+
+				// Show the New Round Screen
+				ShowModalNewRoundPage();
+
+				// Ask the Game engine to select who goes first
+				EngineViewModel.Engine.CurrentAttacker = null;
+
+				// Game Starts with No Attacker or Defender selected
+
+				// Add Players to Display
+				DrawGameAttackerDefenderBoard();
+
+				HideUIElements();
+
+				StartBattleButton.IsVisible = true;
+			}
+
+			/// <summary>
+			/// Attack Action
+			/// </summary>
+			/// <param name="sender"></param>
+			/// <param name="e"></param>
+			void AttackButton_Clicked(object sender, EventArgs e)
 		{
 			DisplayAlert("Attack!!!", "Attack !!!", "OK");
 		}
