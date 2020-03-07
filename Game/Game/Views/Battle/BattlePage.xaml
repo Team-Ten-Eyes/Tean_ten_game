@@ -36,8 +36,6 @@
                                         <ProgressBar 
                                                    Progress="0.5"></ProgressBar>
 
-                                    
-
                                 </StackLayout>
                                     </Frame>
                                 </ViewCell>

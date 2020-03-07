@@ -2,6 +2,7 @@
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Game.Models;
 
 namespace Game.Views
 {
@@ -47,7 +48,16 @@ namespace Game.Views
 			//StartBattleButton.IsVisible = true;
 		}
 
+		public void FixMonsterListAtRoundStart()
+		{
+			EngineViewModel.BattleMonsterList.Clear();
 
+			// Load the Characters into the Engine
+			foreach (var data in EngineViewModel.Engine.MonsterList)
+			{
+				EngineViewModel.BattleMonsterList.Add(new PlayerInfoModel(data));
+			}
+		}
 		//public void DrawPlayerBoxes()
 		//{
 		//	var CharacterBoxList = CharacterBox.Children.ToList();
