@@ -82,11 +82,7 @@ namespace Game.Engine
                 }
             }
 
-            if (!BattleScore.AutoBattle) {
             
-                CurrentDefender
-            
-            }
 
 
             // Do Attack
@@ -165,12 +161,7 @@ namespace Game.Engine
                 .OrderBy(m => m.CurrHealth).FirstOrDefault();
 
 
-            if(BattleEngineViewModel.Instance.Engine.BattleScore.AutoBattle == false)
-            {
-                BattleEngineViewModel.Instance.
-
-            }
-
+            
             return Defender;
         }
 
