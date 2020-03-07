@@ -70,6 +70,7 @@ namespace Game.ViewModels
         /// </summary>
         public BattleEngineViewModel()
         {
+            Engine.populate_item_pool();
         }
 
         #endregion Constructor

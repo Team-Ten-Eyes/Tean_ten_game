@@ -1,6 +1,6 @@
 ﻿
 using Game.Models;
-
+using Game.Services;
 namespace Game.Engine
 {
     /// <summary>
@@ -61,11 +61,17 @@ namespace Game.Engine
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public bool populate_item_list(ItemModel data)
+        public bool populate_item_pool()
         {
-            ItemPool.Add(new ItemModel(data));
+           
+            foreach (ItemModel Item in DefaultData.populateItemList())
+            {
+                ItemPool.Add(Item);
+            }
             return true;
+            
         }
+        
 
 
     }

@@ -5,6 +5,45 @@ namespace Game.Services
 {
     public static class DefaultData
     {
+
+        public static List<ItemModel> populateItemList()
+        {
+            var datalist = new List<ItemModel>()
+            {
+                new ItemModel {
+                    Name = "Sword Of Truth",
+                    Description = "Sword made of Gold, really expensive looking",
+                    ImageURI = "claymore.png",
+                    Range = 0,
+                    Damage = 5,
+                    Value = 6,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Attack},
+
+                new ItemModel {
+                    Name = "Tinfoil Hat",
+                    Description = "It'll stop the government rays",
+                    ImageURI = "tinfoil.png",
+                    Range = 0,
+                    Damage = 2,
+                    Value = 9,
+                    Location = ItemLocationEnum.Head,
+                    Attribute = AttributeEnum.Defense},
+
+                new ItemModel {
+                    Name = "Starbucks Coffee",
+                    Description = "Good bean juice makes my brain fast",
+                    ImageURI = "Coffee.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 9,
+                    Location = ItemLocationEnum.OffHand,
+                    Attribute = AttributeEnum.Speed},
+            };
+
+            return datalist;
+
+        }
         /// <summary>
         /// Load the Default data
         /// </summary>
