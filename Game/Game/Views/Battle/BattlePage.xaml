@@ -22,7 +22,8 @@
                         <ColumnDefinition Width ="250" />
                         <ColumnDefinition Width ="150" />
                     </Grid.ColumnDefinitions>
-                    <StackLayout Orientation="Vertical" Grid.Row ="1" Grid.Column="0">
+                    <StackLayout Orientation="Vertical" Grid.Row ="1" Grid.Column="0" x:Name="CharacterBox">
+                        <!--<StackLayout Orientation="Vertical" Grid.Row ="2" Grid.Column="0">-->
                         <Frame BackgroundColor="Transparent" BorderColor="Transparent" x:Name="Char1Frame">
                             <Grid>
                                 
@@ -33,7 +34,7 @@
                         <ProgressBar IsVisible="True" Progress="0.5" x:Name="Char1HP"/>
                             <ProgressBar IsVisible= "True" Progress="0.5" x:Name="Char1MP"/>
                         
-                    </StackLayout>
+                        </StackLayout>
                     <StackLayout Orientation="Vertical" Grid.Row ="2" Grid.Column="0">
                         <Frame BackgroundColor="Transparent" BorderColor="Black" x:Name="Char2Frame">
                             <Grid>

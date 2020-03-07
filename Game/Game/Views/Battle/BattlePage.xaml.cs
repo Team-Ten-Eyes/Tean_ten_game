@@ -53,12 +53,48 @@ namespace Game.Views
 				//StartBattleButton.IsVisible = true;
 			}
 
-			/// <summary>
-			/// Attack Action
-			/// </summary>
-			/// <param name="sender"></param>
-			/// <param name="e"></param>
-			void AttackButton_Clicked(object sender, EventArgs e)
+
+		//public void DrawPlayerBoxes()
+		//{
+		//	var CharacterBoxList = CharacterBox.Children.ToList();
+		//	foreach (var data in CharacterBoxList)
+		//	{
+		//		CharacterBox.Children.Remove(data);
+		//	}
+
+		//	// Draw the Characters
+		//	foreach (var data in EngineViewModel.Engine.PlayerList.Where(m => m.PlayerType == PlayerTypeEnum.Character).ToList())
+		//	{
+		//		CharacterBox.Children.Add(PlayerInfoDisplayBox(data));
+		//	}
+
+		//	var MonsterBoxList = MonsterBox.Children.ToList();
+		//	foreach (var data in MonsterBoxList)
+		//	{
+		//		MonsterBox.Children.Remove(data);
+		//	}
+
+		//	// Draw the Monsters
+		//	foreach (var data in EngineViewModel.Engine.PlayerList.Where(m => m.PlayerType == PlayerTypeEnum.Monster).ToList())
+		//	{
+		//		MonsterBox.Children.Add(PlayerInfoDisplayBox(data));
+		//	}
+
+		//	// Add one black PlayerInfoDisplayBox to hold space incase the list is empty
+		//	CharacterBox.Children.Add(PlayerInfoDisplayBox(null));
+
+		//	// Add one black PlayerInfoDisplayBox to hold space incase the list is empty
+		//	MonsterBox.Children.Add(PlayerInfoDisplayBox(null));
+
+		//}
+
+
+		/// <summary>
+		/// Attack Action
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void AttackButton_Clicked(object sender, EventArgs e)
 		{
 			DisplayAlert("Attack!!!", "Attack !!!", "OK");
 		}
