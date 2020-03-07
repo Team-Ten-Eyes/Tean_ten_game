@@ -134,7 +134,7 @@ namespace Game.Engine
         /// Pick the Monster to Attack
         /// </summary>
         /// <returns></returns>
-        public PlayerInfoModel SelectMonsterToAttack(string)
+        public PlayerInfoModel SelectMonsterToAttack()
         {
             if (PlayerList == null)
             {
