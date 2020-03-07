@@ -4,24 +4,54 @@
              x:Class="Game.Views.BattlePage">
 
     <ContentPage.Content>
-        <ScrollView >
+        <ScrollView>
             <StackLayout>
-                <StackLayout Orientation="Horizontal">
-                <StackLayout Orientation="Vertical">
-                    
-                </StackLayout>
-                <StackLayout Orientation="Vertical">
+                <StackLayout>
+                    <ListView 
+                                x:Name="PartyListView" 
+                                ItemsSource="{Binding PartyCharacterList}"
+                                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                                RefreshCommand="{Binding LoadPartyCommand}"
+                                CachingStrategy="RecycleElement"
+                                HasUnevenRows="true"
+                                Margin="5,0,5,0"
+                                RowHeight="80">
+                        
+                        <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical">
 
-                </StackLayout>
-                <StackLayout Orientation="Vertical">
 
-                </StackLayout>
-                
-                
-                <Button Clicked="AttackButton_Clicked" Text="Attack" HorizontalOptions="FillAndExpand"></Button>
-                    <Button Clicked="AttackButton_Clicked" Text="Special Attack" HorizontalOptions="FillAndExpand"></Button>
-                    <Button Clicked="AttackButton_Clicked" Text="Pass Turn" HorizontalOptions="FillAndExpand"></Button>
+                                    <Image 
+                                                    Source="{Binding ImageURI}"
+                                                    Style="{StaticResource ImageMediumStyle}"
+                                                    VerticalOptions="CenterAndExpand"
+                                                    />
+                                    <ProgressBar 
+                                                   Progress="0.5"></ProgressBar>
+                                    <ProgressBar Grid.Column="1" Grid.Row="1"
+                                                   Progress=".5"></ProgressBar>
+
+                                    
+
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
             </StackLayout>
+                <StackLayout Orientation="Vertical">
+
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+
+                </StackLayout>
+                
+                
+                
+           
           
             
             

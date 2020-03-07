@@ -35,7 +35,7 @@ namespace Game.Views
 				BindingContext = EngineViewModel;
 
 				// Start the Battle Engine
-				EngineViewModel.Engine.StartBattle(false);
+				//EngineViewModel.Engine.StartBattle(false);
 
 				// Show the New Round Screen
 				//ShowModalNewRoundPage();
@@ -51,7 +51,7 @@ namespace Game.Views
 				//HideUIElements();
 
 				//StartBattleButton.IsVisible = true;
-			}
+		}
 
 
 		//public void DrawPlayerBoxes()
