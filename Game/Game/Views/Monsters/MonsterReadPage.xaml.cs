@@ -1,10 +1,9 @@
-﻿using System;
-using System.ComponentModel;
-using Xamarin.Forms;
+﻿using Game.Helpers;
 using Game.Models;
-using Game.Helpers;
 using Game.ViewModels;
+using System;
 using System.Collections.Generic;
+using Xamarin.Forms;
 
 
 namespace Game.Views
@@ -53,6 +52,6 @@ namespace Game.Views
             await Navigation.PopAsync();
         }
 
- 
+
     }
 }

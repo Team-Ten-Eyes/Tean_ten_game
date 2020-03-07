@@ -1,14 +1,10 @@
-﻿using System;
+﻿using Game.Helpers;
+using Game.Models;
+using Game.ViewModels;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Game.Models;
-using Game.Helpers;
-using Game.ViewModels;
 
 
 

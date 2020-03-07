@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Game.ViewModels;
-using Game.Helpers;
-namespace Game.Models
+﻿namespace Game.Models
 {
     public class BaseMonster : PlayerModel<BaseMonster>
     {
 
-        public MonsterTypeEnum Attribute { get; set; } = MonsterTypeEnum.Anger; 
+        public MonsterTypeEnum Attribute { get; set; } = MonsterTypeEnum.Anger;
 
 
 

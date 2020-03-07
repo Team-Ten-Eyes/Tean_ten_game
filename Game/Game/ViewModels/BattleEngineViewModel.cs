@@ -1,14 +1,6 @@
-﻿using System;
-using System.Linq;
-using System.Collections.Generic;
+﻿using Game.Models;
+using System;
 using System.Collections.ObjectModel;
-
-using Xamarin.Forms;
-
-using Game.Models;
-using Game.Views;
-using Game.Services;
-using Game.ViewModels;
 
 namespace Game.ViewModels
 {

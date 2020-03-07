@@ -1,11 +1,9 @@
-﻿using NUnit.Framework;
-
-using Game.Engine;
-using Game.Models;
-using System.Threading.Tasks;
+﻿using Game.Engine;
 using Game.Helpers;
-using System.Linq;
+using Game.Models;
 using Game.ViewModels;
+using NUnit.Framework;
+using System.Threading.Tasks;
 
 namespace Scenario
 {

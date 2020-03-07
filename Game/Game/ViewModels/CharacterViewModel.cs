@@ -1,10 +1,10 @@
 ﻿using Game.Models;
+using Game.Services;
 using Game.Views;
 using System;
-using Xamarin.Forms;
-using System.Linq;
 using System.Collections.Generic;
-using Game.Services;
+using System.Linq;
+using Xamarin.Forms;
 
 namespace Game.ViewModels
 {

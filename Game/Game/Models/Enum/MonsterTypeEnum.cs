@@ -3,10 +3,10 @@
     /// <summary>
     /// List of different Monster classes
     public enum MonsterTypeEnum
-    { 
+    {
         Unknown = 0,
         Stress = 1,
-        Paranoia = 2, 
+        Paranoia = 2,
         Anxiety = 3,
         Fear = 4,
         Depression = 5,

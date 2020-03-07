@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Game.Models;
+﻿using Game.Models;
+using System.Collections.Generic;
 
 namespace Game.Engine
 {

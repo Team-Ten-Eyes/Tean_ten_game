@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Game.Models;
+using System;
 using System.Collections.Generic;
-using Game.Models;
 using System.Linq;
 namespace Game.Helpers
 {

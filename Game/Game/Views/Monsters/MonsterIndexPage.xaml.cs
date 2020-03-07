@@ -1,8 +1,7 @@
-﻿using System;
-using System.ComponentModel;
-using Xamarin.Forms;
-using Game.Models;
+﻿using Game.Models;
 using Game.ViewModels;
+using System;
+using Xamarin.Forms;
 
 namespace Game.Views
 {

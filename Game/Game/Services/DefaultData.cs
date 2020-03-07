@@ -98,7 +98,7 @@ namespace Game.Services
                     Attack=15,
                     Defense=10,
                     Speed=20
-                    
+
                 },
                 new BaseCharacter
                 {
