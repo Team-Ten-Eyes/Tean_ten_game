@@ -1,5 +1,10 @@
-﻿
+﻿using System;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+
 using Game.Models;
+using Game.ViewModels;
 
 namespace Game.Engine
 {
@@ -22,6 +27,7 @@ namespace Game.Engine
 
             return true;
         }
+
 
         /// <summary>
         /// Start the Battle
