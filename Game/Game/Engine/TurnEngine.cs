@@ -5,6 +5,8 @@ using System.Diagnostics;
 using Game.Models;
 using Game.Helpers;
 using Game.ViewModels;
+using Game.Views;
+
 
 namespace Game.Engine
 {
@@ -34,7 +36,7 @@ namespace Game.Engine
         // Drop Items
         // Turn Over
         #endregion Algrorithm
-
+            
         /// <summary>
         /// CharacterModel Attacks...
         /// </summary>
@@ -79,6 +81,13 @@ namespace Game.Engine
                     return false;
                 }
             }
+
+            if (!BattleScore.AutoBattle) {
+            
+                CurrentDefender
+            
+            }
+
 
             // Do Attack
             TurnAsAttack(Attacker, CurrentDefender);
@@ -154,6 +163,13 @@ namespace Game.Engine
             var Defender = PlayerList
                 .Where(m => m.Alive && m.PlayerType == PlayerTypeEnum.Monster)
                 .OrderBy(m => m.CurrHealth).FirstOrDefault();
+
+
+            if(BattleEngineViewModel.Instance.Engine.BattleScore.AutoBattle == false)
+            {
+                BattleEngineViewModel.Instance.
+
+            }
 
             return Defender;
         }
