@@ -52,7 +52,7 @@
                                 x:Name="MonsterListView" 
                                 ItemsSource="{Binding BattleMonsterList}"
                                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                                RefreshCommand="{Binding LoadPartyCommand}"
+                                RefreshCommand="{Binding LoadMonsterCommand}"
                                 CachingStrategy="RecycleElement"
                                 HasUnevenRows="true"
                                 Margin="5,0,5,0"
