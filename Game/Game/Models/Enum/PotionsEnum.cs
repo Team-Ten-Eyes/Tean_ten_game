@@ -20,4 +20,32 @@ namespace Game.Models
 
 
     }
+
+/// <summary>
+/// Friendly strings for the Enum Class
+/// </summary>
+    public static class PotionsEnumExtensions
+    {
+        /// <summary>
+        /// Display a string for the Enums
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static string ToMessage(this PotionsEnum value)
+        {
+            //default string
+            var Message = "unkown";
+
+            switch (value)
+            {
+                case PotionsEnum.Health:
+                    Message = "Health";
+                    break;
+                case PotionsEnum.Mana:
+                    Message = "Mana";
+                    break;
+            }
+            return Message;
+        }
+    }
 }
