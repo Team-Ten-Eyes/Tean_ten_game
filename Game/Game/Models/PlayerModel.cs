@@ -40,10 +40,10 @@ namespace Game.Models
         public int Level { get; set; } = 1;
 
         // Current Health
-        public int CurrHealth { get; set; } = 0;
+        public int CurrHealth { get; set; } = 1;
 
         // Max Health
-        public int MaxHealth { get; set; } = 0;
+        public int MaxHealth { get; set; } = 1;
 
         // Total Experience Earned
         public int Experience{ get; set; } = 0;

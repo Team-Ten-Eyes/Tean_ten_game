@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -28,6 +29,7 @@ namespace Game.Views
 
             BindingContext = this.ViewModel = data;
 
+
             CharacterTypePicker.SelectedItem = data.Data.Attribute.ToString();
 
             //This is the creation of the character image selection
@@ -38,7 +40,7 @@ namespace Game.Views
                 imageList.Add(image);
             }
             ImageView.ItemsSource = imageList;
-           
+
 
         }
 
@@ -82,11 +84,14 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        void OnCharacterImageSelected(object sender, SelectedItemChangedEventArgs args)
+        public async void OnCharacterImageSelected(object sender, SelectedItemChangedEventArgs args)
         {
+
             var image = args.SelectedItem as ImagePickerModel;
             ViewModel.Data.ImageURI = image.Url;
             //.Source = image.Url;
         }
+
+        
     }
 }

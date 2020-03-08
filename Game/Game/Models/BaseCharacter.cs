@@ -14,9 +14,9 @@ namespace Game.Models
 
 
         //Current Mana, Mana is used for special attacks, this feature will be added later
-        public uint Mana { get; set; } = 0;
+        public uint Mana { get; set; } = 1;
 
-        public uint MaxMana { get; set; } = 0;
+        public uint MaxMana { get; set; } = 1;
         //Used to calculate ToHit roll
 
         /// <summary>
@@ -92,17 +92,17 @@ namespace Game.Models
         /// Helper to combine the attributes into a single line, to make it easier to display the item as a string
         /// </summary>
         /// <returns></returns>
-        public string FormatOutput()
-        {
-            var myReturn = Name + " , " +
-                            Description + " for " +
-                            Attribute.ToString() +
-                            "+" + Attack + " , " +
-                            "Experience : " + Experience + " , " +
-                            "Level : " + Level;
+        //public string FormatOutput()
+        //{
+        //    var myReturn = Name + " , " +
+        //                    Description + " for " +
+        //                    Attribute.ToString() +
+        //                    "+" + Attack + " , " +
+        //                    "Experience : " + Experience + " , " +
+        //                    "Level : " + Level;
 
-            return myReturn.Trim();
-        }
+        //    return myReturn.Trim();
+        //}
 
 
         /// <summary>
@@ -141,6 +141,23 @@ namespace Game.Models
         public void AddMaxMana()
         {
             Mana = MaxMana;
+        }
+
+        public override string FormatOutput()
+        {
+            var myReturn = string.Empty;
+            myReturn += Name;
+            myReturn += " , " + Description;
+            myReturn += " , a " + Attribute.ToMessage();
+            myReturn += " , Level : " + Level.ToString();
+            myReturn += " , Total Experience : " + Experience;
+            myReturn += " , Attack :" + GetAttackTotal;
+            myReturn += " , Defense :" + GetDefenseTotal;
+            myReturn += " , Speed :" + GetSpeedTotal;
+            myReturn += " , Items : " + ItemSlotsFormatOutput();
+            myReturn += " , Damage : " + GetDamageTotalString;
+
+            return myReturn;
         }
 
     }

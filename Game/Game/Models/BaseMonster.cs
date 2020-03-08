@@ -22,7 +22,7 @@ namespace Game.Models
             Attribute = MonsterTypeEnum.Anxiety;
             PlayerType = PlayerTypeEnum.Monster;
             Guid = Id;
-            Name = "EVOLVE MONSTER";
+            Name = "monster";
             Description = "Issa Kraken";
             Attack = 1;
             Difficulty = DifficultyEnum.Average;
