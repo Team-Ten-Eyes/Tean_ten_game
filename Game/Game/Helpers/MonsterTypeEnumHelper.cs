@@ -25,7 +25,7 @@ namespace Game.Helpers
         {
             get
             {
-                var myList = Enum.GetNames(typeof(MonsterTypeEnum)).ToList().Where(m => m.ToString().Equals("Unkown") == false).ToList();
+                var myList = Enum.GetNames(typeof(MonsterTypeEnum)).ToList().Where(m => m.ToString().Equals("Unknown") == false).ToList();
                 return myList;
             }
         }
