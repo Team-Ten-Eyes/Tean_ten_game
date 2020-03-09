@@ -82,30 +82,6 @@
                 </Grid>
 
 
-                <!--<Label Text="Pick your characters Image:" FontSize="Medium"/>
-                <ListView x:Name="ImageView"  
-                              Grid.Row ="0" Grid.Column="0"
-                              Rotation="270" RowHeight="40"
-                              ItemSelected="OnCharacterImageSelected"
-                             HorizontalOptions="Start">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <ViewCell.View>
-                                    <StackLayout>
-                                        <Image Source="{Binding Url}"
-                                               WidthRequest="40"
-                                               HeightRequest ="40"
-                                                MinimumHeightRequest = "40"
-                                               MinimumWidthRequest = "40"
-                                               Rotation="90"></Image>
-                                    </StackLayout>
-                                </ViewCell.View>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>-->
-
                 <!--input the character name here-->
                 <Label Text="Name" FontSize="Medium" />
                 <Entry Text="{Binding Data.Name}" d:Text="Character Name" FontSize="Small"/>
