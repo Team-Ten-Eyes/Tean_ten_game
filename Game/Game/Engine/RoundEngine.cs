@@ -118,7 +118,7 @@ namespace Game.Engine
             }
 
             
-            if((BossSwitch && DiceHelper.RollDice(1,100) > 90) || testBossHack)
+            if((BossBattleFunctionality && DiceHelper.RollDice(1,100) > 90) || testBossHack)
             {
                 Debug.WriteLine("BOSS MONSTER APPROACHING!!!!!");
                 MonsterList.Clear();
