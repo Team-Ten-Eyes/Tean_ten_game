@@ -14,7 +14,7 @@ namespace Game.Views
 	{
 
 		public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
-
+		
 
 
 		public HtmlWebViewSource htmlSource = new HtmlWebViewSource();
@@ -61,6 +61,11 @@ namespace Game.Views
 				EngineViewModel.BattleMonsterList.Add(new PlayerInfoModel(data));
 			}
 		}
+
+
+		
+
+
 		//public void DrawPlayerBoxes()
 		//{
 		//	var CharacterBoxList = CharacterBox.Children.ToList();
@@ -103,7 +108,7 @@ namespace Game.Views
 		/// <param name="e"></param>
 		void AttackButton_Clicked(object sender, EventArgs e)
 		{
-			DisplayAlert("Attack!!!", "Attack !!!", "OK");
+			MessagingCenter.Send(this, "Create", );
 		}
 
 		/// <summary>
