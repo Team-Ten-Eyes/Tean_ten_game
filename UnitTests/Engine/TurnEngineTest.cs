@@ -167,6 +167,24 @@ namespace UnitTests.Engine
         }
 
         [Test]
+        public void TurnEngine_BobAlwaysMisses_Should_True()
+        {
+            //Arrange
+            var PlayerInfo = new PlayerInfoModel();
+            PlayerInfo.Name = "Bob";
+            var defenderInfo = new PlayerInfoModel();
+            //Act
+            Engine.TurnAsAttack(PlayerInfo, defenderInfo);
+            var result = Engine.BattleMessagesModel.HitStatus;
+
+            //Reset
+            Engine.StartBattle(false);
+
+            //Assert
+            Assert.AreEqual(HitStatusEnum.Miss,result);
+        }
+
+        [Test]
         public void TurnEngine_SelectMonsterToAttack_InValid_Empty_List_Should_Fail()
         {
             // Arrange
