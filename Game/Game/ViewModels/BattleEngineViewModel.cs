@@ -1,6 +1,10 @@
 ﻿using Game.Models;
 using System;
 using System.Collections.ObjectModel;
+using Xamarin.Forms;
+using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
+using Game.Views;
 
 namespace Game.ViewModels
 {
@@ -47,7 +51,7 @@ namespace Game.ViewModels
         public ObservableCollection<BaseCharacter> PartyCharacterList { get; set; } = new ObservableCollection<BaseCharacter>();
         public ObservableCollection<PlayerInfoModel> BattleMonsterList { get; set; } = new ObservableCollection<PlayerInfoModel>();
 
-        public ObservableCollection<PotionsModel> Potions  { get; set; } = new ObservableCollection<PotionsModel>();
+        public ObservableCollection<PotionsModel> Potions { get; set; } = new ObservableCollection<PotionsModel>();
         // Hold the View Model to the CharacterIndexViewModel
         public CharacterViewModel DatabaseCharacterViewModel = CharacterViewModel.Instance;
 
@@ -59,13 +63,45 @@ namespace Game.ViewModels
 
         #region Constructor
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        public BattleEngineViewModel()
-        {
-        }
+        ///// <summary>
+        ///// Constructor
+        ///// </summary>
+        //public BattleEngineViewModel()
+        //{
+        //}
 
         #endregion Constructor
+
+        #region Hack messages
+        //// Register the Set Data Source Message
+        //MessagingCenter.Subscribe<AboutPage, int>(this, "SetHealingRound", async (obj, data) =>
+        //    {
+
+        //    await SetHealingRound(data);
+        //    });
+
+        /// <summary>
+        /// Sets the roundHealingEnum to on and off
+        /// </summary>
+        /// <param name="isOn"></param>
+        /// <returns></returns>
+        public bool SetRoundHealing(int isOn)
+        {
+            if (isOn == 1)
+            {
+                Engine.RoundHealing = RoundHealingEnum.Healing_off;
+                return true;
+            }
+            else if (isOn == 2)
+            {
+                Engine.RoundHealing = RoundHealingEnum.Healing_on;
+                return true;
+            }
+            return false;
+
+
+        }
+
+        #endregion Hack messages
     }
 }
