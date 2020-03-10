@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Game.Helpers;
 namespace Game.Engine
 {
     /// <summary>
@@ -47,6 +47,9 @@ namespace Game.Engine
             // Update Score for the RoundCount
             BattleScore.RoundCount++;
 
+            //Roll for Hack 48 condition
+            deathRollHack48 = DiceHelper.RollDice(1, 20);
+            
             return true;
         }
 

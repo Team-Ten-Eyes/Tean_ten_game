@@ -126,6 +126,18 @@ namespace Scenario
             Assert.AreEqual(true, Engine.BattleScore.CharacterAtDeathList.Contains("Mike Level Example"));
             // Assert.AreEqual(StartLevel+1, Engine.BattleScore.BaseCharacterDeathList.Where(m=>m.Guid.Equals(Character.Guid)).First().Level);
         }
+        [Test]
+        public async Task AutoBattleEngine_Hack48_Character_To_Hit_Roll_Equal_To_Hack_48_Condition_Attacker_Dies_Game_Ends_At_Round_One()
+        {
+            Engine.testHack48 = true;
+            //FIRST CHARACTER 
+            await Engine.RunAutoBattle();
+
+            var result = Engine.BattleScore.RoundCount;
+
+            Assert.AreEqual(result, 1);
+            
+        }
 
         [Test]
         public async Task AutoBattleEngine_RunAutoBattle_GameOver_Round_1_Should_Pass()

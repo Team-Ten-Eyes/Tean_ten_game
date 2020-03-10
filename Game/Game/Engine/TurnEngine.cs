@@ -25,6 +25,10 @@ namespace Game.Engine
     /// </summary>
     public class TurnEngine : BaseEngine
     {
+        ///HACKATHON STUFF
+        public int deathRollHack48 {get;set;}
+        public bool testHack48 { get; set; } = false;
+
         #region Algrorithm
         // Attack or Move
         // Roll To Hit
@@ -203,7 +207,7 @@ namespace Game.Engine
             {
                 case HitStatusEnum.Miss:
                     // It's a Miss
-
+                    RemoveIfDead(Attacker);
                     break;
 
                 case HitStatusEnum.Hit:
@@ -219,6 +223,7 @@ namespace Game.Engine
 
                     // Check if Dead and Remove
                     RemoveIfDead(Target);
+                    
 
                     // If it is a character apply the experience earned
                     CalculateExperience(Attacker, Target);
@@ -406,6 +411,35 @@ namespace Game.Engine
         public HitStatusEnum RollToHitTarget(int AttackScore, int DefenseScore)
         {
             var d20 = DiceHelper.RollDice(1, 20);
+
+            if (testHack48 == true)
+            {
+                for (int i = 0; i < PlayerList.Count; i++)
+                {
+                    if (PlayerList[i].PlayerType == PlayerTypeEnum.Character && PlayerList[i].Guid == CurrentAttacker.Guid)
+                    {
+                        d20 = 2;
+                        deathRollHack48 = 2;
+                        break;
+                    }
+
+                }
+            }
+            if(d20 == deathRollHack48 && CurrentAttacker.PlayerType==PlayerTypeEnum.Character)
+            {
+                BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
+                for(int i = 0; i < PlayerList.Count; i ++)
+                {
+                    if(PlayerList[i].Guid==CurrentAttacker.Guid)
+                    {
+                        Debug.WriteLine("Hack 48 ACTIVATED!!!!!");
+                        PlayerList[i].Alive = false;
+                        BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
+                        return BattleMessagesModel.HitStatus;
+                    }
+                }
+            }
+
 
             if (d20 == 1)
             {
