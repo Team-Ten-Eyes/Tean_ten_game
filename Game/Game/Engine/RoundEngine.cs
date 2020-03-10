@@ -12,6 +12,10 @@ namespace Game.Engine
     /// </summary>
     public class RoundEngine : TurnEngine
     {
+
+
+
+        public bool testBossHack { get; set; } = false;
         /// <summary>
         /// Clear the List between Rounds
         /// will only clear potions and monster
@@ -100,6 +104,27 @@ namespace Game.Engine
                 MonsterList.Add(new PlayerInfoModel(data));
             }
 
+            
+            if(DiceHelper.RollDice(1,100) > 90 || testBossHack)
+            {
+                Debug.WriteLine("BOSS MONSTER APPROACHING!!!!!");
+                MonsterList.Clear();
+                int scaleFactor = 0;
+                for(int i = 0; i < CharacterList.Count; i++)
+                {
+                    scaleFactor += CharacterList[i].Level;
+                }
+                if (scaleFactor > 20)
+                    scaleFactor = 20;
+
+
+                var data = new BaseMonster();
+                data.LevelUpToValue(scaleFactor);
+                MonsterList.Add(new PlayerInfoModel(data));
+
+            }
+
+
             return MonsterList.Count();
         }
 
@@ -165,16 +190,12 @@ namespace Game.Engine
                 RoundStateEnum = RoundEnum.NewRound;
                 return RoundEnum.NewRound;
             }
-
-            
+        
             // Decide Who gets next turn
             // Remember who just went...
             CurrentAttacker = GetNextPlayerTurn();
 
-            
-
             // Do the turn....
-                         
 
             TakeTurn(CurrentAttacker);
 
