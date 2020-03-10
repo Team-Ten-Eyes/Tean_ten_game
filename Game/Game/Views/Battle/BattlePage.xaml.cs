@@ -108,7 +108,7 @@ namespace Game.Views
 		/// <param name="e"></param>
 		void AttackButton_Clicked(object sender, EventArgs e)
 		{
-			MessagingCenter.Send(this, "Create", );
+			//MessagingCenter.Send(this, "Create", );
 		}
 
 		/// <summary>
