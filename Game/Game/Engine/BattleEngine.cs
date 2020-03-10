@@ -30,7 +30,7 @@ namespace Game.Engine
 
             
 
-            // Start Battle in AutoBattle mode
+            // Start Battle
             StartBattle(false);
 
             // Fight Loop. Continue until Game is Over...
@@ -47,6 +47,7 @@ namespace Game.Engine
 
                 if (RoundCondition == RoundEnum.NewRound)
                 {
+                    //push new round page
                     NewRound();
                     Debug.WriteLine("New Round");
                 }
@@ -54,6 +55,8 @@ namespace Game.Engine
             } while (RoundCondition != RoundEnum.GameOver);
 
             Debug.WriteLine("Game Over");
+            //push game over page with score model
+
 
             // Wrap up
             EndBattle();
