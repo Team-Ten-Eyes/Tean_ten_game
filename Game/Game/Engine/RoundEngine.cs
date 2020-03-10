@@ -1,8 +1,10 @@
 ﻿using Game.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace Game.Engine
 {
@@ -44,6 +46,13 @@ namespace Game.Engine
 
             // Set Order for the Round
             OrderPlayerListByTurnOrder();
+
+            for (int i = 0; i < PlayerList.Count; i++) {
+                if (PlayerList[i].PlayerType == PlayerTypeEnum.Character && PlayerList[i].Name == "Mike") {
+                    Debug.WriteLine("Mike Has Died");
+                    PlayerList[i].Alive = false;
+                }
+            }
 
             // Update Score for the RoundCount
             BattleScore.RoundCount++;
