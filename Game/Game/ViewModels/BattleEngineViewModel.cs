@@ -61,6 +61,7 @@ namespace Game.ViewModels
         //Have the database of the items for when you equip the characters
         public ObservableCollection<ItemModel> DatabaseItemList { get; set; } = ItemIndexViewModel.Instance.Dataset;
 
+
         #region Constructor
 
         ///// <summary>
@@ -73,12 +74,7 @@ namespace Game.ViewModels
         #endregion Constructor
 
         #region Hack messages
-        //// Register the Set Data Source Message
-        //MessagingCenter.Subscribe<AboutPage, int>(this, "SetHealingRound", async (obj, data) =>
-        //    {
 
-        //    await SetHealingRound(data);
-        //    });
 
         /// <summary>
         /// Sets the roundHealingEnum to on and off
@@ -101,6 +97,8 @@ namespace Game.ViewModels
 
 
         }
+
+
 
         #endregion Hack messages
     }
