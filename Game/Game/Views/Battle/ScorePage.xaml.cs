@@ -46,6 +46,7 @@ namespace Game.Views
         {
             MessagingCenter.Send(this, "Create", ViewModel.Data);
             await Navigation.PopModalAsync();
+            //message center not pushing to scorelist DB
         }
     }
 }
