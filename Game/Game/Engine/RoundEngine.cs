@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Game.Helpers;
+using System.Diagnostics;
 namespace Game.Engine
 {
     /// <summary>
@@ -13,18 +14,19 @@ namespace Game.Engine
     {
         /// <summary>
         /// Clear the List between Rounds
+        /// will only clear potions and monster
         /// </summary>
         /// <returns></returns>
         private bool ClearLists()
         {
-            ItemPool.Clear();
             MonsterList.Clear();
-            return true;
+            potionPool.Clear();
+
+            if (MonsterList.Count == 0 && potionPool.Count == 0)
+                return true;
+            else
+                return false;
         }
-
-
-       
-
 
         /// <summary>
         /// Call to make a new set of monsters...
@@ -44,9 +46,17 @@ namespace Game.Engine
             // Set Order for the Round
             OrderPlayerListByTurnOrder();
 
+            for (int i = 0; i < PlayerList.Count; i++)
+            {
+                if (PlayerList[i].PlayerType == PlayerTypeEnum.Character && PlayerList[i].Name == "Mike")
+                {
+                    Debug.WriteLine("Mike Has Died");
+                    PlayerList[i].Alive = false;
+                }
+            }
+
             // Update Score for the RoundCount
             BattleScore.RoundCount++;
-
             //Roll for Hack 48 condition
             deathRollHack48 = DiceHelper.RollDice(1, 20);
             
