@@ -117,6 +117,13 @@
                         VerticalOptions="Center"
                         Toggled="Speed_Reversal_Certain"/>
 
+                    <Label Text="Boss Battles in the game" />
+                    <Switch 
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center"
+                        Toggled="Allow_Boss_Battle"
+                        x:Name="Boss_Battle_Value"/>
+
 
                 </StackLayout>
             </StackLayout>
