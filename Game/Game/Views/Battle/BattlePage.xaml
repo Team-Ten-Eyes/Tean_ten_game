@@ -56,6 +56,8 @@
                                 CachingStrategy="RecycleElement"
                                 HasUnevenRows="true"
                                 Margin="5,0,5,0"
+                                SelectionMode="Single"
+                                
                                 ItemSelected="OnMonsterSelected"
                                 >
 
@@ -85,7 +87,7 @@
                                             <Label Text="{Binding Id}"></Label>
                                             <ProgressBar 
                                                    Progress="0.5"></ProgressBar>
-                                            <Label Text="MP"></Label>
+                                            <Label Text="{Binding SelectedForBattle}"></Label>
                                             <ProgressBar 
                                                    Progress="0.5"></ProgressBar>
 

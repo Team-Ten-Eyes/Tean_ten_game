@@ -24,7 +24,7 @@ namespace Game.Models
         /// <param name="data"></param>
         public PlayerInfoModel(PlayerInfoModel data)
         {
-
+            SelectedForBattle = data.SelectedForBattle;
             PlayerType = data.PlayerType;
             Guid = data.Guid;
             Alive = data.Alive;
@@ -48,7 +48,7 @@ namespace Game.Models
             UniqueItem = data.UniqueItem;
 
             Difficulty = data.Difficulty;
-            SelectedForBattle = false;
+            
         }
 
         /// <summary>
