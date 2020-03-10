@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Game.Views.CharacterEquiped">
+             x:Class="Game.Views.CharacterEquiped"
+             BackgroundImageSource="characterPickPage.png">
     
     <ContentPage.Content>
         <ScrollView VerticalScrollBarVisibility="Never">
@@ -13,13 +14,14 @@
                        VerticalOptions="Start" 
                        HorizontalOptions="Start" 
                        FontSize="Medium"
+                       TextColor="White"
                        />
 
                   
                 <Image Source="{Binding Data.ImageURI}" WidthRequest="200" HeightRequest="200" 
                        HorizontalOptions="Start"/>
 
-                <Label Text="Equiped Items" HorizontalOptions="Start" FontSize="Medium" TextDecorations="Underline"/>
+                <Label Text="Equiped Items" HorizontalOptions="Start" FontSize="Medium" TextDecorations="Underline" TextColor="White"/>
 
 
                 <FlexLayout 
@@ -27,8 +29,7 @@
                         Wrap="Wrap"
                         JustifyContent="SpaceAround"
                         AlignContent="SpaceAround"
-                        x:Name="ItemBox"
-                    />
+                        x:Name="ItemBox" />
 
 
 
@@ -48,8 +49,8 @@
 
                         <Frame  BorderColor="White" Padding="1">
                             <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand" Padding="2">
-                                <Label x:Name="PopupLocationLabel" Style="{StaticResource PopupEquipedTextStyle}" />
-                                <Label x:Name="PopupLocationValue" Style="{StaticResource PopupEquipedTextStyle}"  />
+                                <Label x:Name="PopupLocationLabel" Style="{StaticResource PopupEquipedTextStyle}" TextColor="White" />
+                                <Label x:Name="PopupLocationValue" Style="{StaticResource PopupEquipedTextStyle}"  TextColor="White"/>
 
                                 <ListView x:Name="PopupLocationItemListView" 
                                 CachingStrategy="RecycleElement"
@@ -57,6 +58,7 @@
                                 HasUnevenRows="true"
                                 Margin="5,0,5,0"
                                 RowHeight="80"
+                               
                                 >
 
                                     <ListView.ItemTemplate>
@@ -80,19 +82,19 @@
 
                                                     <Label Grid.Column="1" Grid.Row="0"
                                             Text="{Binding Name}" 
-                                            Style="{StaticResource ListStyle}"
-                                                           TextColor="White"/>
+                                            Style="{StaticResource EquipedListStyle}"
+                                                           />
 
                                                     <StackLayout Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
-                                                        <Label Text="{Binding Attribute}" Style="{StaticResource ListStyle}"
-                                                               TextColor="White"/>
-                                                        <Label Text="{Binding Value}" Style="{StaticResource ListStyle}"
-                                                               TextColor="White"/>
+                                                        <Label Text="{Binding Attribute}" Style="{StaticResource EquipedListStyle}"
+                                                              />
+                                                        <Label Text="{Binding Value}" Style="{StaticResource EquipedListStyle}"
+                                                               />
                                                     </StackLayout>
 
                                                     <Label Grid.Column="1" Grid.Row="2"
                                                            Text="{Binding Description}" 
-                                                           Style="{StaticResource ListStyle}"
+                                                           Style="{StaticResource EquipedListStyle}"
                                                            FontSize="Micro"
                                                            TextColor="White"
                                                            />

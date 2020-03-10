@@ -291,6 +291,22 @@
                 <Setter Property="HorizontalOptions" Value="Center" />
             </Style>
 
+            <Style TargetType="Label"
+                x:Key="EquipedListStyle"
+                BasedOn="{StaticResource Xamarin.Forms.Label}">
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="TextColor" Value ="White"/>
+            </Style>
+
+
+            <Style TargetType="Label"
+                x:Key="ValueStyleMicroWhite"
+                BasedOn="{StaticResource ValueStyle}">
+                <Setter Property="FontSize" Value="Micro" />
+                <Setter Property="LineBreakMode" Value="WordWrap" />
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
 
         </ResourceDictionary>
     </Application.Resources>

@@ -13,11 +13,24 @@ namespace Game.Helpers
         /// Returns a list of strings of the enum for Char Type Attribute
         ///Used in picker 
         /// </summary>
-        public static List<string> GetListCharacterType
+        public static List<string> GetListCharacterTypeALL
         {
             get
             {
                 var myList = Enum.GetNames(typeof(CharacterTypeEnum)).ToList();
+                return myList;
+            }
+        }
+
+        /// <summary>
+        /// Returns a list of strings of the enum character type
+        /// removes the unknown
+        /// </summary>
+        public static List<string> GetListCharacterType
+        {
+            get
+            {
+                var myList = Enum.GetNames(typeof(CharacterTypeEnum)).ToList().Where(m => m.ToString().Equals("Unknown") == false).ToList();
                 return myList;
             }
         }
