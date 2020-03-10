@@ -37,6 +37,10 @@ namespace Game.Engine
         //setting to turn on RoundHealing or not Default is to our default of one potion
         public RoundHealingEnum RoundHealing = RoundHealingEnum.Healing_off;
 
+        //a bool that would set the ability to have a boss battle
+        //default is false -> no boss battle
+        public bool BossBattleFunctionality = false;
+
         // Hold the list of players (MonsterModel, and character by guid), and order by speed
         public List<PlayerInfoModel> PlayerList = new List<PlayerInfoModel>();
 
