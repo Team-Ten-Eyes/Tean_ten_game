@@ -114,5 +114,41 @@ namespace Game.Engine
 
             return true;
         }
+
+
+        /// <summary>
+        /// this is hack number 4 which will give the user 6
+        /// this will also add two mana potions to the character as well
+        /// </summary>
+        /// <returns></returns>
+        public bool populatePotionsList()
+        {
+            for (int i =0; i<6;i++)
+            {
+                //creating a health potion
+                PotionsModel HealthPotion = new PotionsModel();
+                HealthPotion.Addition = (uint)(5* BattleScore.RoundCount);
+                HealthPotion.potionType = PotionsEnum.Health;
+                HealthPotion.ImageURI = "Health.png";
+                //adding to the potionsList
+                potionPool.Add(HealthPotion);
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                //creating a mana potions
+                PotionsModel ManaPotion = new PotionsModel();
+                ManaPotion.Addition = (uint)(5 * BattleScore.RoundCount);
+                ManaPotion.potionType = PotionsEnum.Mana;
+                ManaPotion.ImageURI = "Mana.png";
+                // adding to the potionList
+                potionPool.Add(ManaPotion);
+            }
+
+            if (potionPool.Count == 8)
+                return true;
+           
+
+            return false;
+        }
     }
 }

@@ -77,5 +77,20 @@ namespace UnitTests.Engine
             // Assert
             Assert.AreEqual(true, result);
         }
+
+        [Test]
+        public void BattleEngine_populatePotionsList_Should_Pass()
+        {
+            //Arrange
+            
+
+            //Act
+            var result =Engine.populatePotionsList();
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(true, result);
+        }
     }
 }
