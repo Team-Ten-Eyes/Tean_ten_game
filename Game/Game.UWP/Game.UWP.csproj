@@ -105,6 +105,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="cave_pj.png" />
+    <Content Include="Health.png" />
+    <Content Include="Mana.png" />
     <Content Include="skull.png" />
     <Content Include="auto_battle.png" />
     <Content Include="battleboard.jpg" />

@@ -14,8 +14,8 @@ namespace Game.Views
 	{
 
 		public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
-		
 
+		public AttackInfo attackinfo { get; set; } = null;
 
 		public HtmlWebViewSource htmlSource = new HtmlWebViewSource();
 
@@ -30,9 +30,7 @@ namespace Game.Views
 			BindingContext = EngineViewModel;
 
 			// Start the Battle Engine
-			EngineViewModel.Engine.StartBattle(false);
-
-
+			
 			FixMonsterListAtRoundStart();
 
 			// Show the New Round Screen
@@ -50,10 +48,11 @@ namespace Game.Views
 
 			//StartBattleButton.IsVisible = true;
 		}
-		
+
 		public void FixMonsterListAtRoundStart()
 		{
 			EngineViewModel.BattleMonsterList.Clear();
+			
 
 			// Load the Characters into the Engine
 			foreach (var data in EngineViewModel.Engine.MonsterList)
