@@ -20,81 +20,96 @@
                        HorizontalOptions="Start"/>
 
                 <Label Text="Equiped Items" HorizontalOptions="Start" FontSize="Medium" TextDecorations="Underline"/>
-                
+
+
                 <FlexLayout 
                         Padding="5"
                         Wrap="Wrap"
                         JustifyContent="SpaceAround"
                         AlignContent="SpaceAround"
-                        x:Name="ItemBox">
-                    </FlexLayout>
-       
+                        x:Name="ItemBox"
+                    />
 
-                <StackLayout Style="{StaticResource OuterBoxStack}">
 
-                    <Label Text="Bring on the Battle" Style="{StaticResource CenterMessageStyle}"
-                      />
 
-                    <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand"
-                            >
+                <!--The Item Popup-->
+                <StackLayout x:Name="PopupItemSelector" 
+                 BackgroundColor="#635173" 
+                 IsVisible="false" 
+                 AbsoluteLayout.LayoutBounds=".5, .5,.5,.5" 
+                 AbsoluteLayout.LayoutFlags="All">
 
-                        <StackLayout HorizontalOptions="Start">
+                    <StackLayout 
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand"
+                    WidthRequest="300"
+                    HeightRequest="300"
+                    >
 
-                            <Label Text="Characters" Style="{StaticResource CenterMessageStyle}" />
+                        <Frame  BorderColor="White" Padding="1">
+                            <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand" Padding="2">
+                                <Label x:Name="PopupLocationLabel" Style="{StaticResource PopupEquipedTextStyle}" />
+                                <Label x:Name="PopupLocationValue" Style="{StaticResource PopupEquipedTextStyle}"  />
 
-                            <ListView 
-                                x:Name="ItemListView" 
-                                ItemsSource="{Binding DatabaseItemList}"
-                                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                                RefreshCommand="{Binding LoadItemsCommand}"
+                                <ListView x:Name="PopupLocationItemListView" 
                                 CachingStrategy="RecycleElement"
-                                ItemSelected="On_items_selected"
+                                ItemSelected="OnPopupItemSelected"
                                 HasUnevenRows="true"
                                 Margin="5,0,5,0"
-                                RowHeight="80">
+                                RowHeight="80"
+                                >
 
-                                <ListView.ItemTemplate>
-                                    <DataTemplate>
-                                        <ViewCell>
-                                            <Grid ColumnSpacing="5" RowSpacing="1">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="auto"/>
-                                                    <ColumnDefinition Width="*"/>
-                                                </Grid.ColumnDefinitions>
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="auto"/>
-                                                    <RowDefinition Height="auto"/>
-                                                    <RowDefinition Height="auto"/>
-                                                </Grid.RowDefinitions>
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <Grid ColumnSpacing="5" RowSpacing="1">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="auto"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto"/>
+                                                        <RowDefinition Height="auto"/>
+                                                        <RowDefinition Height="auto"/>
+                                                    </Grid.RowDefinitions>
 
-                                                <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
-                                                    Source="{Binding ImageURI}"
-                                                    Style="{StaticResource ImageMediumStyle}"
-                                                    VerticalOptions="CenterAndExpand"
-                                                    />
+                                                    <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                            Source="{Binding ImageURI}"
+                                            Style="{StaticResource ImageSmallStyle}"
+                                            VerticalOptions="CenterAndExpand"/>
 
-                                                <Label Grid.Column="1" Grid.Row="0"
-                                                   Text="{Binding Name}" 
-                                                   Style="{StaticResource ListStyle}"
-                                                   FontAttributes="Bold"
-                                                 />
+                                                    <Label Grid.Column="1" Grid.Row="0"
+                                            Text="{Binding Name}" 
+                                            Style="{StaticResource ListStyle}"
+                                                           TextColor="White"/>
 
-                                                <Label Grid.Column="1" Grid.Row="1"
-                                                   Text="{Binding Path=Level, StringFormat='Level {0:G}'}" 
-                                                   Style="{StaticResource ListStyle}"
-                                                 />
+                                                    <StackLayout Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+                                                        <Label Text="{Binding Attribute}" Style="{StaticResource ListStyle}"
+                                                               TextColor="White"/>
+                                                        <Label Text="{Binding Value}" Style="{StaticResource ListStyle}"
+                                                               TextColor="White"/>
+                                                    </StackLayout>
 
-                                                <Label Grid.Column="1" Grid.Row="2"
-                                                    Text="{Binding Path=MaxHealth, StringFormat= '{0:G} hp'}" 
-                                                    Style="{StaticResource ListStyle}"
-                                                  />
+                                                    <Label Grid.Column="1" Grid.Row="2"
+                                                           Text="{Binding Description}" 
+                                                           Style="{StaticResource ListStyle}"
+                                                           FontSize="Micro"
+                                                           TextColor="White"
+                                                           />
+                                                </Grid>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
 
-                                            </Grid>
-                                        </ViewCell>
-                                    </DataTemplate>
-                                </ListView.ItemTemplate>
-                            </ListView>
-                        </StackLayout>
+                                <Button x:Name="PopupCloseButton" 
+                                        Clicked="ClosePopup_Clicked" 
+                                        Text="Close"
+                                        BackgroundColor="White"
+                                        TextColor="#C03BFC"
+                                        FontAttributes="Bold"/>
+                            </StackLayout>
+                        </Frame>
                     </StackLayout>
                 </StackLayout>
             </StackLayout>
