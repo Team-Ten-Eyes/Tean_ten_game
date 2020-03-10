@@ -138,6 +138,16 @@ namespace Scenario
             Assert.AreEqual(result, 1);
             
         }
+        [Test]
+        public async Task AutoBattleEngine_Hack13_First_Round_Boss_Fight_Game_Over_At_Round_One()
+        {
+            Engine.testBossHack = true;
+            await Engine.RunAutoBattle();
+
+            var result = Engine.BattleScore.RoundCount;
+
+            Assert.AreEqual(result, 1);
+        }
 
         [Test]
         public async Task AutoBattleEngine_RunAutoBattle_GameOver_Round_1_Should_Pass()

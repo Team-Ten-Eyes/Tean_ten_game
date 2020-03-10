@@ -12,6 +12,10 @@ namespace Game.Engine
     /// </summary>
     public class RoundEngine : TurnEngine
     {
+
+
+
+        public bool testBossHack { get; set; } = false;
         /// <summary>
         /// Clear the List between Rounds
         /// will only clear potions and monster
@@ -82,6 +86,9 @@ namespace Game.Engine
         {
             // TODO: Teams, You need to implement your own Logic can not use mine.
 
+
+
+
             int TargetLevel = 1;
 
             if (CharacterList.Count() > 0)
@@ -97,8 +104,39 @@ namespace Game.Engine
                 // Help identify which Monster it is
                 data.Name += " " + MonsterList.Count() + 1;
 
+                //Scenario 31
+                if (BattleScore.RoundCount >= 100) {
+                    data.Attack *= 10;
+                    data.Speed *= 10;
+                    data.Defense *= 10;
+                    data.CurrHealth *= 10;
+                    data.MaxHealth *= 10;
+                }
+
+
                 MonsterList.Add(new PlayerInfoModel(data));
             }
+
+            
+            if(DiceHelper.RollDice(1,100) > 90 || testBossHack)
+            {
+                Debug.WriteLine("BOSS MONSTER APPROACHING!!!!!");
+                MonsterList.Clear();
+                int scaleFactor = 0;
+                for(int i = 0; i < CharacterList.Count; i++)
+                {
+                    scaleFactor += CharacterList[i].Level;
+                }
+                if (scaleFactor > 20)
+                    scaleFactor = 20;
+
+
+                var data = new BaseMonster();
+                data.LevelUpToValue(scaleFactor);
+                MonsterList.Add(new PlayerInfoModel(data));
+
+            }
+
 
             return MonsterList.Count();
         }
@@ -165,16 +203,12 @@ namespace Game.Engine
                 RoundStateEnum = RoundEnum.NewRound;
                 return RoundEnum.NewRound;
             }
-
-            
+        
             // Decide Who gets next turn
             // Remember who just went...
             CurrentAttacker = GetNextPlayerTurn();
 
-            
-
             // Do the turn....
-                         
 
             TakeTurn(CurrentAttacker);
 
