@@ -86,6 +86,9 @@ namespace Game.Engine
         {
             // TODO: Teams, You need to implement your own Logic can not use mine.
 
+
+
+
             int TargetLevel = 1;
 
             if (CharacterList.Count() > 0)
@@ -100,6 +103,16 @@ namespace Game.Engine
 
                 // Help identify which Monster it is
                 data.Name += " " + MonsterList.Count() + 1;
+
+                //Scenario 31
+                if (BattleScore.RoundCount >= 100) {
+                    data.Attack *= 10;
+                    data.Speed *= 10;
+                    data.Defense *= 10;
+                    data.CurrHealth *= 10;
+                    data.MaxHealth *= 10;
+                }
+
 
                 MonsterList.Add(new PlayerInfoModel(data));
             }
