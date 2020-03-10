@@ -14,9 +14,9 @@ namespace Game.Models
 
 
         //Current Mana, Mana is used for special attacks, this feature will be added later
-        public uint Mana { get; set; } = 0;
+        public uint Mana { get; set; } = 1;
 
-        public uint MaxMana { get; set; } = 0;
+        public uint MaxMana { get; set; } = 1;
         //Used to calculate ToHit roll
 
         /// <summary>
