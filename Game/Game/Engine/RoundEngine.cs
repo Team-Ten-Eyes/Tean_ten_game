@@ -1,11 +1,10 @@
 ﻿using Game.Models;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-
-
+using Game.Helpers;
+using System.Diagnostics;
 namespace Game.Engine
 {
     /// <summary>
@@ -47,8 +46,10 @@ namespace Game.Engine
             // Set Order for the Round
             OrderPlayerListByTurnOrder();
 
-            for (int i = 0; i < PlayerList.Count; i++) {
-                if (PlayerList[i].PlayerType == PlayerTypeEnum.Character && PlayerList[i].Name == "Mike") {
+            for (int i = 0; i < PlayerList.Count; i++)
+            {
+                if (PlayerList[i].PlayerType == PlayerTypeEnum.Character && PlayerList[i].Name == "Mike")
+                {
                     Debug.WriteLine("Mike Has Died");
                     PlayerList[i].Alive = false;
                 }
@@ -56,7 +57,9 @@ namespace Game.Engine
 
             // Update Score for the RoundCount
             BattleScore.RoundCount++;
-
+            //Roll for Hack 48 condition
+            deathRollHack48 = DiceHelper.RollDice(1, 20);
+            
             return true;
         }
 
@@ -210,20 +213,12 @@ namespace Game.Engine
         /// </summary>
         public List<PlayerInfoModel> OrderPlayerListByTurnOrder()
         {
-            // Order is based by... 
-            // Order by Speed (Desending)
-            // Then by Highest level (Descending)
-            // Then by Highest Experience Points (Descending)
-            // Then by Character before MonsterModel (enum assending)
-            // Then by Alphabetic on Name (Assending)
-            // Then by First in list order (Assending
+
 
             PlayerList = PlayerList.OrderByDescending(a => a.GetSpeed())
-                .ThenByDescending(a => a.Level)
                 .ThenByDescending(a => a.Experience)
-                .ThenByDescending(a => a.PlayerType)
-                .ThenBy(a => a.Name)
-                .ThenBy(a => a.ListOrder)
+                .ThenByDescending(a => a.Name)
+                .ThenByDescending(a => a.ListOrder)
                 .ToList();
 
             return PlayerList;

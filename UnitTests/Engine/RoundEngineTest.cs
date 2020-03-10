@@ -48,6 +48,27 @@ namespace UnitTests.Engine
 
         }
 
+        //unit test to make sure all mike's are dead
+        [Test]
+        public void RoundEngine_Test_Mike_List_Should_Pass() 
+        {
+            //Arrange
+            Engine.CharacterList.Add(new PlayerInfoModel {
+                Name = "Mike"
+            });
+
+            //Act
+            Engine.NewRound();
+            var result = Engine.PlayerList;
+
+            //Reset
+            Engine.EndRound();
+
+            //Asset
+            Assert.AreEqual(false, result.Contains(new PlayerInfoModel { Name = "Mike" }));
+        
+        }
+
         //unit test for clear list funciton seeing if it clears the monster list
         [Test]
         public void RoundEngine_ClearList_MonsterList_Should_Pass()
