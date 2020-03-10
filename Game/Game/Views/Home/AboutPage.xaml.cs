@@ -88,5 +88,14 @@ namespace Game.Views
         {
             DisplayAlert("toggle on ","su", "ok");
         }
+
+        async void Speed_Reversal_Basic(object sender, EventArgs e) { 
+            
+        }
+
+        async void Speed_Reversal_Certain(object sender, EventArgs e)
+        {
+
+        }
     }
 }

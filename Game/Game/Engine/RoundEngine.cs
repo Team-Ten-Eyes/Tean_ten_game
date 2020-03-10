@@ -48,7 +48,7 @@ namespace Game.Engine
             OrderPlayerListByTurnOrder();
 
             for (int i = 0; i < PlayerList.Count; i++) {
-                if (PlayerList[i].PlayerType == PlayerTypeEnum.Character && PlayerList[i].Name == "Mike") {
+                if (PlayerList[i].PlayerType == PlayerTypeEnum.Character && PlayerList[i].Name == "Mike" && PlayerList[i].Alive == true) {
                     Debug.WriteLine("Mike Has Died");
                     PlayerList[i].Alive = false;
                 }
