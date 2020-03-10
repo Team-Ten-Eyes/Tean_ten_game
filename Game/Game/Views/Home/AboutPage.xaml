@@ -94,8 +94,7 @@
 
                     <Label Text="Allow Round Healing" />
 
-                    <Switch
-                       
+                    <Switch 
                         HorizontalOptions="Start"
                         VerticalOptions="Center"
                         Toggled="Allow_Round_Healing"/>
