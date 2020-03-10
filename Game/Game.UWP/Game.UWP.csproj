@@ -107,6 +107,7 @@
     <Content Include="cave_pj.png" />
     <Content Include="Health.png" />
     <Content Include="Mana.png" />
+    <Content Include="MIKE_EVIL.png" />
     <Content Include="Sea_monster.png" />
     <Content Include="skull.png" />
     <Content Include="auto_battle.png" />

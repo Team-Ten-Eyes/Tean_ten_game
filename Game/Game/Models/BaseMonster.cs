@@ -17,12 +17,12 @@
             Attribute = MonsterTypeEnum.Anxiety;
             PlayerType = PlayerTypeEnum.Monster;
             Guid = Id;
-            Name = "EVOLVE MONSTER";
+            Name = "MIKE DEMON";
             Description = "Issa Kraken";
             Attack = 1;
             Difficulty = DifficultyEnum.Average;
             UniqueItem = null;
-            ImageURI = "Fire_monster.png";
+            ImageURI = "EVIL_MIKE.png";
             Experience = 0;
             ExperienceRemaining = Helpers.LevelTableHelper.Instance.LevelDetailsList[Level + 1].Experience - 1;
         }

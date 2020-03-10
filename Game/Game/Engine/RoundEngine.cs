@@ -118,7 +118,7 @@ namespace Game.Engine
             }
 
             
-            if(DiceHelper.RollDice(1,100) > 90 || testBossHack)
+            if((BossSwitch && DiceHelper.RollDice(1,100) > 90) || testBossHack)
             {
                 Debug.WriteLine("BOSS MONSTER APPROACHING!!!!!");
                 MonsterList.Clear();
@@ -130,11 +130,9 @@ namespace Game.Engine
                 if (scaleFactor > 20)
                     scaleFactor = 20;
 
-
                 var data = new BaseMonster();
                 data.LevelUpToValue(scaleFactor);
                 MonsterList.Add(new PlayerInfoModel(data));
-
             }
 
 
