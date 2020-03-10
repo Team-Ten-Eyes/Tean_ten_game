@@ -93,9 +93,10 @@ namespace Game.Views
             var ItemLabel = new Label
             {
                 Text = location.ToMessage(),
-                Style = (Style)Application.Current.Resources["ValueStyleMicro"],
+                Style = (Style)Application.Current.Resources["ValueStyleMicroWhite"],
                 HorizontalOptions = LayoutOptions.Center,
                 HorizontalTextAlignment = TextAlignment.Center
+                
             };
 
             // Put the Image Button and Text inside a layout
@@ -146,6 +147,7 @@ namespace Game.Views
             PopupItemSelector.IsVisible = true;
 
             PopupLocationLabel.Text = "Items for :";
+           
             PopupLocationValue.Text = location.ToMessage();
 
             // Make a fake item for None
