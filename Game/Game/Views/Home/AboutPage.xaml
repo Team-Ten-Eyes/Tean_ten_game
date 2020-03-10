@@ -92,7 +92,15 @@
                 <StackLayout Style="{StaticResource HorizontalStack}"
                                     Padding="50,0,0,0">
 
-                    <Label Text="More Debug Settings to come..." />
+                    <Label Text="Allow Round Healing" />
+
+                    <Switch
+                       
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center"
+                        Toggled="Allow_Round_Healing"/>
+
+
 
                 </StackLayout>
             </StackLayout>
