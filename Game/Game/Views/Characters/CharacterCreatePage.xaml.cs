@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+
 namespace Game.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -82,7 +83,7 @@ namespace Game.Views
         {
             var image = args.SelectedItem as ImagePickerModel;
             ViewModel.Data.ImageURI = image.Url;
-            //.Source = image.Url;
+            //Source = image.Url;
         }
     }
 }

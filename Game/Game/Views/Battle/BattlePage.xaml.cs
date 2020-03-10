@@ -64,12 +64,9 @@ namespace Game.Views
 			}
 		}
 
-
-		  void OnMonsterSelected(object sender, SelectedItemChangedEventArgs args)
+		void OnMonsterSelected(object sender, SelectedItemChangedEventArgs args)
 		{
 			PlayerInfoModel data = args.SelectedItem as PlayerInfoModel;
-
-
 
 			if (args.SelectedItem == null)
 				return;
@@ -91,13 +88,16 @@ namespace Game.Views
 			for(int k = 0; k < EngineViewModel.Engine.MonsterList.Count; k++)
 			{
 				if (data.Guid == EngineViewModel.Engine.MonsterList[k].Guid)
+				{
 					EngineViewModel.Engine.MonsterList[k].SelectedForBattle = true;
-
+					EngineViewModel.Engine.CurrentDefender = EngineViewModel.Engine.MonsterList[k];
+				}
 			}
 
 
 			//// Manually deselect item.
 			//MonsterListView.SelectedItem = null;
+			
 			Navigation.PushModalAsync(new BattlePage(SelectedMonsterAlready));
 		}
 

@@ -107,6 +107,7 @@
     <Content Include="cave_pj.png" />
     <Content Include="Health.png" />
     <Content Include="Mana.png" />
+    <Content Include="Sea_monster.png" />
     <Content Include="skull.png" />
     <Content Include="auto_battle.png" />
     <Content Include="battleboard.jpg" />
@@ -215,6 +216,9 @@
       <Project>{0F0BC0CD-CC31-4BE0-8FE4-42C7A3EF8A83}</Project>
       <Name>Game</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Wraith.webp" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

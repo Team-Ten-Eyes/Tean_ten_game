@@ -229,5 +229,21 @@ namespace Game.Services
             };
             return imageList;
         }
+
+        public static List<ImagePickerModel> AllMonsterImages()
+        {
+            var imageList = new List<ImagePickerModel>()
+            {
+                new ImagePickerModel {Url = "Wraith.png"},
+                new ImagePickerModel {Url = "Shadow_monster.png"},
+                new ImagePickerModel {Url = "Insanty.png"},
+                new ImagePickerModel {Url = "Fire_monster.png"},
+                new ImagePickerModel {Url = "Sea_monster.png"},
+                new ImagePickerModel {Url = "Will.PNG"},
+                new ImagePickerModel {Url = "Michelle.PNG"},
+                new ImagePickerModel {Url = "Jack.PNG"},
+            };
+            return imageList;
+        }
     }
 }
