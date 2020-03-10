@@ -17,7 +17,7 @@ namespace Game.Views
         ScoreModel endScore { get; set; } = null;
 
 
-        readonly GenericViewModel<ScoreModel> ViewModel;
+        GenericViewModel<ScoreModel> ViewModel;
         /// <summary>
         /// Constructor
         /// </summary>
