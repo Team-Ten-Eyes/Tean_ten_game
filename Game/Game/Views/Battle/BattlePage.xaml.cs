@@ -33,7 +33,7 @@ namespace Game.Views
 			BindingContext = EngineViewModel;
 
 			// Start the Battle Engine
-			EngineViewModel.Engine.StartBattle(false);
+			
 				
 			FixMonsterListAtRoundStart();
 
