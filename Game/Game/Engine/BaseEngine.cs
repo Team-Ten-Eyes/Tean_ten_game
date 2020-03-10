@@ -19,6 +19,9 @@ namespace Game.Engine
         // The Pool of items collected during the round as turns happen
         public List<ItemModel> ItemPool = new List<ItemModel>();
 
+        //the pool of potions a party can use during battle 
+        public List<PotionsModel> potionPool = new List<PotionsModel>();
+
         // List of Monsters
         public List<PlayerInfoModel> MonsterList = new List<PlayerInfoModel>();
 
