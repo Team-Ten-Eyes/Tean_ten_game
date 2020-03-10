@@ -17,7 +17,7 @@ namespace Game.Views
         ScoreModel endScore { get; set; } = null;
 
 
-        readonly GenericViewModel<ScoreModel> ViewModel;
+        GenericViewModel<ScoreModel> ViewModel;
         /// <summary>
         /// Constructor
         /// </summary>
@@ -44,7 +44,9 @@ namespace Game.Views
         /// <param name="e"></param>
         async void CloseButton_Clicked(object sender, EventArgs e)
         {
+            MessagingCenter.Send(this, "Create", ViewModel.Data);
             await Navigation.PopModalAsync();
+            //message center not pushing to scorelist DB
         }
     }
 }

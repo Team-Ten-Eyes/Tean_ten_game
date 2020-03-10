@@ -47,7 +47,7 @@ namespace Game.ViewModels
         public ObservableCollection<BaseCharacter> PartyCharacterList { get; set; } = new ObservableCollection<BaseCharacter>();
         public ObservableCollection<PlayerInfoModel> BattleMonsterList { get; set; } = new ObservableCollection<PlayerInfoModel>();
 
-
+        public ObservableCollection<PotionsModel> Potions  { get; set; } = new ObservableCollection<PotionsModel>();
         // Hold the View Model to the CharacterIndexViewModel
         public CharacterViewModel DatabaseCharacterViewModel = CharacterViewModel.Instance;
 

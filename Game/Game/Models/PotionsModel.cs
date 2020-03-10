@@ -5,7 +5,7 @@ using Game.Models;
 
 namespace Game.Models
 {
-    class PotionsModel : DefaultModel
+    public class PotionsModel : DefaultModel
     {
         //this is the potions type
         public PotionsEnum potionType {  get; set; } = PotionsEnum.Mana;

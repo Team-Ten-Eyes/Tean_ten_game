@@ -12,11 +12,23 @@ namespace Game.Helpers
         /// <summary>
         /// Returns a list of strings of the enum for Monster Type
         /// </summary>
-        public static List<string> GetListMonsterType
+        public static List<string> GetListMonsterTypeAll
         {
             get
             {
                 var myList = Enum.GetNames(typeof(MonsterTypeEnum)).ToList();
+                return myList;
+            }
+        }
+
+        /// <summary>
+        /// Returns a list of the enums types without unknown
+        /// </summary>
+        public static List<string> GetListMonsterType
+        {
+            get
+            {
+                var myList = Enum.GetNames(typeof(MonsterTypeEnum)).ToList().Where(m => m.ToString().Equals("Unknown") == false).ToList();
                 return myList;
             }
         }
