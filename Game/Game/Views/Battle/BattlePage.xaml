@@ -56,21 +56,33 @@
                                 CachingStrategy="RecycleElement"
                                 HasUnevenRows="true"
                                 Margin="5,0,5,0"
+                                ItemSelected="OnMonsterSelected"
                                 >
 
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <ViewCell>
+                                <ViewCell
+                                    
+                                    >
                                     <Frame BackgroundColor="Transparent" BorderColor="Black">
                                         <StackLayout Orientation="Vertical">
 
-
-                                            <Image 
+                                            <Grid>
+                                                <Image
+                                                    
                                                     Source="{Binding ImageURI}"
                                                     Style="{StaticResource ImageMediumStyle}"
                                                     VerticalOptions="CenterAndExpand"
+                                                    
                                                     />
-                                            <Label Text="HP"></Label>
+                                                <Image 
+                                                    Source="crosshair.png"
+                                                    Style="{StaticResource ImageMediumStyle}"
+                                                    VerticalOptions="CenterAndExpand"
+                                                    IsVisible="{Binding SelectedForBattle}"
+                                                    />
+                                            </Grid>
+                                            <Label Text="{Binding Id}"></Label>
                                             <ProgressBar 
                                                    Progress="0.5"></ProgressBar>
                                             <Label Text="MP"></Label>
