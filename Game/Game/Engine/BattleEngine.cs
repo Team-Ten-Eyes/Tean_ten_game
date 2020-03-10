@@ -1,9 +1,13 @@
 ﻿using Game.Models;
+using Game.Views;
 using Game.ViewModels;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+using System;
+using System.ComponentModel;
 namespace Game.Engine
 {
     /// <summary>
@@ -26,10 +30,6 @@ namespace Game.Engine
         {
             RoundEnum RoundCondition;
 
-            
-
-            
-
             // Start Battle
             StartBattle(false);
 
@@ -47,8 +47,8 @@ namespace Game.Engine
 
                 if (RoundCondition == RoundEnum.NewRound)
                 {
-                    //push new round page
                     NewRound();
+                    await App.Current.MainPage.Navigation.PushModalAsync(new NewRoundPage());
                     Debug.WriteLine("New Round");
                 }
 
@@ -60,6 +60,7 @@ namespace Game.Engine
 
             // Wrap up
             EndBattle();
+            await App.Current.MainPage.Navigation.PushModalAsync(new ScorePage());
 
             return true;
         }
