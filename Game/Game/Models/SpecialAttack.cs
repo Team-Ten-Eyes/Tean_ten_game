@@ -6,7 +6,7 @@ namespace Game.Models
 {
 
 
-    class SpecialAttack
+    public class SpecialAttack
     {
 
         
