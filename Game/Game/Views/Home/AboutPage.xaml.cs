@@ -23,6 +23,8 @@ namespace Game.Views
             // Turn off the Settings Frame
             DebugSettingsFrame.IsVisible = false;
 
+
+
             // Set to the curent date and time
             CurrentDateTime.Text = DateTime.Now.ToString("MM/dd/yy hh:mm:ss");
         }
@@ -80,6 +82,20 @@ namespace Game.Views
             {
                 MessagingCenter.Send(this, "WipeDataList", true);
             }
+        }
+
+        void Allow_Round_Healing( object sender, EventArgs e)
+        {
+            DisplayAlert("toggle on ","su", "ok");
+        }
+
+        async void Speed_Reversal_Basic(object sender, EventArgs e) { 
+            
+        }
+
+        async void Speed_Reversal_Certain(object sender, EventArgs e)
+        {
+
         }
     }
 }
