@@ -35,7 +35,7 @@ namespace Game.Engine
         public PlayerInfoModel CurrentDefender;
 
         //setting to turn on RoundHealing or not Default is to our default of one potion
-        public RoundHealingEnum RoundHealing = RoundHealingEnum.Healing_1_potions;
+        public RoundHealingEnum RoundHealing = RoundHealingEnum.Healing_off;
 
         // Hold the list of players (MonsterModel, and character by guid), and order by speed
         public List<PlayerInfoModel> PlayerList = new List<PlayerInfoModel>();

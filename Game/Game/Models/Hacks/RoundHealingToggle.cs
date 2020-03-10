@@ -8,7 +8,7 @@ namespace Game.Models
     public enum RoundHealingEnum
     {
         Unknown = 0,
-        Healing_6_potions= 1,
-        Healing_1_potions = 2
+        Healing_on= 1, // this popuates the potionList to have 6 potions per round
+        Healing_off = 2 //off will only give one healting potion
     }
 }
