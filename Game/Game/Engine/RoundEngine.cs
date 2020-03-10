@@ -22,10 +22,6 @@ namespace Game.Engine
             return true;
         }
 
-
-       
-
-
         /// <summary>
         /// Call to make a new set of monsters...
         /// </summary>
