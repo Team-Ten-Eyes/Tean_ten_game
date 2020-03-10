@@ -123,30 +123,46 @@ namespace Game.Engine
         /// <returns></returns>
         public bool populatePotionsList()
         {
-            for (int i =0; i<6;i++)
+            if (RoundHealing == RoundHealingEnum.Healing_on)  //if on will add six healing potions
             {
-                //creating a health potion
+                for (int i = 0; i < 6; i++)
+                {
+                    //creating a health potion
+                    PotionsModel HealthPotion = new PotionsModel();
+                    HealthPotion.Addition = (uint)(5 * BattleScore.RoundCount);
+                    HealthPotion.potionType = PotionsEnum.Health;
+                    HealthPotion.ImageURI = "Health.png";
+                    //adding to the potionsList
+                    potionPool.Add(HealthPotion);
+                }
+            }
+            else if(RoundHealing == RoundHealingEnum.Healing_off)
+            {
                 PotionsModel HealthPotion = new PotionsModel();
-                HealthPotion.Addition = (uint)(5* BattleScore.RoundCount);
+                HealthPotion.Addition = (uint)(5 * BattleScore.RoundCount);
                 HealthPotion.potionType = PotionsEnum.Health;
                 HealthPotion.ImageURI = "Health.png";
-                //adding to the potionsList
+                //only adding one potion
                 potionPool.Add(HealthPotion);
             }
-            for (int i = 0; i < 2; i++)
-            {
-                //creating a mana potions
-                PotionsModel ManaPotion = new PotionsModel();
-                ManaPotion.Addition = (uint)(5 * BattleScore.RoundCount);
-                ManaPotion.potionType = PotionsEnum.Mana;
-                ManaPotion.ImageURI = "Mana.png";
-                // adding to the potionList
-                potionPool.Add(ManaPotion);
+            for (int i = 0; i < 2; i++) //defualt is that you will always get two mana potions
+                {
+                    //creating a mana potions
+                    PotionsModel ManaPotion = new PotionsModel();
+                    ManaPotion.Addition = (uint)(5 * BattleScore.RoundCount);
+                    ManaPotion.potionType = PotionsEnum.Mana;
+                    ManaPotion.ImageURI = "Mana.png";
+                    // adding to the potionList
+                    potionPool.Add(ManaPotion);
             }
 
-            if (potionPool.Count == 8)
+
+            if (potionPool.Count == 8 && RoundHealing == RoundHealingEnum.Healing_on)
                 return true;
-           
+            else if (RoundHealing == RoundHealingEnum.Healing_on)
+                return false;
+            else if (RoundHealing == RoundHealingEnum.Healing_off && potionPool.Count == 3)
+                return true;
 
             return false;
         }
