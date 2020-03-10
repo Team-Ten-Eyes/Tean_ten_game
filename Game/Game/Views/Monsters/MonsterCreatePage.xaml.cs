@@ -3,6 +3,10 @@ using Game.ViewModels;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Collections.ObjectModel;
+using Game.Services;
+using System.Linq;
+
 namespace Game.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -23,6 +27,16 @@ namespace Game.Views
             BindingContext = this.ViewModel = data;
 
             MonsterTypePicker.SelectedItem = data.Data.Attribute.ToString();
+
+            //This is the creation of the character image selection
+            ObservableCollection<ImagePickerModel> imageList = new ObservableCollection<ImagePickerModel>();
+
+            foreach (ImagePickerModel image in DefaultData.AllMonsterImages())
+            {
+                imageList.Add(image);
+            }
+            ImageView.ItemsSource = imageList;
+
         }
 
 
@@ -62,5 +76,21 @@ namespace Game.Views
             return true;
         }
 
+
+        /// <summary>
+        /// This is a function that once an image is picked it will change the character to 
+        /// that image
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        void OnCharacterImageSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            var image = args.SelectedItem as ImagePickerModel;
+            ViewModel.Data.ImageURI = image.Url;
+
+     
+            // = image.Url;
+        }
     }
+
 }
