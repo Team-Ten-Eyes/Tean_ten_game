@@ -92,7 +92,7 @@ namespace Game.Engine
         
             NewRound();
             
-                //DO something
+            //DO something
 
             return true;
         }
@@ -110,7 +110,7 @@ namespace Game.Engine
         {
             BattleRunning = false;
 
-            BattleScore.CalculateScore();
+            BattleScore.ScoreTotal = BattleScore.CalculateScore();
 
             return true;
         }

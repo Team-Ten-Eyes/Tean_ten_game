@@ -56,9 +56,6 @@ namespace Game.Views
 
             ScoreModel endScore = AutoEngine.GetScoreObject();
 
-
-
-
             // Call to the Score Page
 
             await Navigation.PushModalAsync(new NavigationPage(new ScorePage(new GenericViewModel<ScoreModel>(endScore))));

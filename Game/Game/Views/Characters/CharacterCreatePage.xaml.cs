@@ -45,7 +45,7 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void OnSaveButtonClicked(object sender, EventArgs e)
         {
-            if (ViewModel.Data.Name.Length > 12)
+            if (ViewModel.Data.Name.Length > 12 || ViewModel.Data.Name.Length < 1)
                 await DisplayAlert("Name Too Long", "Must Be Less Than 13 Chars", "OK");
             else
             {
