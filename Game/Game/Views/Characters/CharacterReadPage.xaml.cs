@@ -1,14 +1,10 @@
 ﻿
-using System;
-using System.ComponentModel;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-
+using Game.Helpers;
 using Game.Models;
 using Game.ViewModels;
-using Game.Helpers;
+using System;
 using System.Collections.Generic;
+using Xamarin.Forms;
 
 
 namespace Game.Views
@@ -67,4 +63,4 @@ namespace Game.Views
     }
 
 }
-    
+

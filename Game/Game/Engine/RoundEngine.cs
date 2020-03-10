@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Game.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-
-using Game.Models;
+using System.Threading.Tasks;
 
 namespace Game.Engine
 {
@@ -21,6 +21,10 @@ namespace Game.Engine
             MonsterList.Clear();
             return true;
         }
+
+
+       
+
 
         /// <summary>
         /// Call to make a new set of monsters...
@@ -149,17 +153,16 @@ namespace Game.Engine
                 return RoundEnum.NewRound;
             }
 
-            if (BattleScore.AutoBattle)
-            {
-                // Decide Who gets next turn
-                // Remember who just went...
-                CurrentAttacker = GetNextPlayerTurn();
-
-            }
-
-            // Do the turn....
+            
+            // Decide Who gets next turn
+            // Remember who just went...
+            CurrentAttacker = GetNextPlayerTurn();
 
             
+
+            // Do the turn....
+                         
+
             TakeTurn(CurrentAttacker);
 
             RoundStateEnum = RoundEnum.NextTurn;

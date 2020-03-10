@@ -21,7 +21,7 @@
                 </StackLayout>
                 <ListView
                 x:Name= "PartyListView"
-                ItemsSource="{Binding partyCharacterList}"
+                ItemsSource="{Binding PartyCharacterList}"
                 IsRefreshing="{Binding LoadItemsCommand}"
                 CachingStrategy="RecycleElement"
                 ItemSelected="OnCharacterSelected"

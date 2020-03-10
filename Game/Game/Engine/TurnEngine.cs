@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Diagnostics;
-
+﻿using Game.Helpers;
 using Game.Models;
-using Game.Helpers;
 using Game.ViewModels;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+
 
 namespace Game.Engine
 {
@@ -79,9 +79,12 @@ namespace Game.Engine
                     return false;
                 }
             }
+            
 
-            // Do Attack
-            TurnAsAttack(Attacker, CurrentDefender);
+
+
+                // Do Attack
+                TurnAsAttack(Attacker, CurrentDefender);
 
             return true;
         }
@@ -124,7 +127,7 @@ namespace Game.Engine
 
             // TODO: Teams, You need to implement your own Logic can not use mine.
             var Defender = PlayerList
-                .Where(m => m.Alive && m.PlayerType==PlayerTypeEnum.Character)
+                .Where(m => m.Alive && m.PlayerType == PlayerTypeEnum.Character)
                 .OrderBy(m => m.ListOrder).FirstOrDefault();
 
             return Defender;
@@ -154,6 +157,8 @@ namespace Game.Engine
             var Defender = PlayerList
                 .Where(m => m.Alive && m.PlayerType == PlayerTypeEnum.Monster)
                 .OrderBy(m => m.CurrHealth).FirstOrDefault();
+
+
 
             return Defender;
         }
@@ -186,13 +191,13 @@ namespace Game.Engine
 
             // Hackathon
             // Hackathon Scenario 2, Bob alwasys misses
-            if (Attacker.Name.Equals("Bob"))
-            {
-                BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
-                BattleMessagesModel.TurnMessage = "Bob always Misses";
-                Debug.WriteLine(BattleMessagesModel.TurnMessage);
-                return true;
-            }
+            //if (Attacker.Name.Equals("Bob"))
+            //{
+            //    BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
+            //    BattleMessagesModel.TurnMessage = "Bob always Misses";
+            //    Debug.WriteLine(BattleMessagesModel.TurnMessage);
+            //    return true;
+            //}
 
             switch (BattleMessagesModel.HitStatus)
             {
@@ -332,7 +337,7 @@ namespace Game.Engine
 
                     DropItems(Target);
 
-                    found = CharacterList.Remove(CharacterList.Find(m=>m.Guid.Equals(Target.Guid)));
+                    found = CharacterList.Remove(CharacterList.Find(m => m.Guid.Equals(Target.Guid)));
                     found = PlayerList.Remove(PlayerList.Find(m => m.Guid.Equals(Target.Guid)));
 
                     return true;

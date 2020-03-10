@@ -1,23 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Game.Models
+﻿namespace Game.Models
 {
 
-        /// <summary>
-        /// The player in the round, Monster or Character
-        /// </summary>
-        public enum PlayerTypeEnum
-        {
-            // Not Known
-            Unknown = 0,
+    /// <summary>
+    /// The player in the round, Monster or Character
+    /// </summary>
+    public enum PlayerTypeEnum
+    {
+        // Not Known
+        Unknown = 0,
 
-            // The Character
-            Character = 1,
+        // The Character
+        Character = 1,
 
-            // The Monster
-            Monster = 2,
-        }
-    
+        // The Monster
+        Monster = 2,
+    }
+
 }

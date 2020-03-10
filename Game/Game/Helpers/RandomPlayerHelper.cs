@@ -52,7 +52,7 @@ namespace Game.Helpers
         public static string GetMonsterImage()
         {
 
-            List<String> FirstNameList = new List<String> { "troll1.png", "troll2.png", "troll3.png", "troll4.png", "troll5.png", "troll6.png" };
+            List<String> FirstNameList = new List<String> { "Fire_monster.png", "Shadow_monster.png", "Will.png" };
 
             var result = FirstNameList.ElementAt(DiceHelper.RollDice(1, FirstNameList.Count()) - 1);
 

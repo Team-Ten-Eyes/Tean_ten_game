@@ -1,12 +1,8 @@
-﻿using System;
-using System.Diagnostics;
+﻿using Game.Models;
+using Game.ViewModels;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
-using Game.Models;
-using Game.ViewModels;
-using System.Threading.Tasks;
-using System.Linq;
 
 namespace Game.Views
 {
@@ -27,7 +23,7 @@ namespace Game.Views
             InitializeComponent();
 
             // Add Players to Display
-            
+
             PartyListView.ItemsSource = EngineViewModel.PartyCharacterList;
 
 

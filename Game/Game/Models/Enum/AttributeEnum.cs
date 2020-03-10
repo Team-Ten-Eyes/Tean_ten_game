@@ -7,7 +7,7 @@
     public enum AttributeEnum
     {
         // Not specified
-        Unknown = 0,    
+        Unknown = 0,
 
         // The speed of the character, impacts movement, and initiative
         Speed = 10,

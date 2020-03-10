@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Game.Models;
 using Newtonsoft.Json.Linq;
-
-using Game.Models;
+using System;
+using System.Collections.Generic;
 
 namespace Game.Helpers
 {

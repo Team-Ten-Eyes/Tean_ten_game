@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Game.ViewModels;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Game.Models;
 
 namespace Game.Views
 {
@@ -8,15 +10,91 @@ namespace Game.Views
 	/// The Main Game Page
 	/// </summary>
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class BattlePage: ContentPage
+	public partial class BattlePage : ContentPage
 	{
+
+		public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
+
+
+
+		public HtmlWebViewSource htmlSource = new HtmlWebViewSource();
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		public BattlePage ()
+		public BattlePage()
 		{
-			InitializeComponent ();
+			InitializeComponent();
+
+			// Set up the UI to Defaults
+			BindingContext = EngineViewModel;
+
+			// Start the Battle Engine
+			EngineViewModel.Engine.StartBattle(false);
+
+
+			FixMonsterListAtRoundStart();
+
+			// Show the New Round Screen
+			//ShowModalNewRoundPage();
+
+			// Ask the Game engine to select who goes first
+			//EngineViewModel.Engine.CurrentAttacker = null;
+
+			// Game Starts with No Attacker or Defender selected
+
+			// Add Players to Display
+			//DrawGameAttackerDefenderBoard();
+
+			//HideUIElements();
+
+			//StartBattleButton.IsVisible = true;
 		}
+		
+		public void FixMonsterListAtRoundStart()
+		{
+			EngineViewModel.BattleMonsterList.Clear();
+
+			// Load the Characters into the Engine
+			foreach (var data in EngineViewModel.Engine.MonsterList)
+			{
+				EngineViewModel.BattleMonsterList.Add(new PlayerInfoModel(data));
+			}
+		}
+		//public void DrawPlayerBoxes()
+		//{
+		//	var CharacterBoxList = CharacterBox.Children.ToList();
+		//	foreach (var data in CharacterBoxList)
+		//	{
+		//		CharacterBox.Children.Remove(data);
+		//	}
+
+		//	// Draw the Characters
+		//	foreach (var data in EngineViewModel.Engine.PlayerList.Where(m => m.PlayerType == PlayerTypeEnum.Character).ToList())
+		//	{
+		//		CharacterBox.Children.Add(PlayerInfoDisplayBox(data));
+		//	}
+
+		//	var MonsterBoxList = MonsterBox.Children.ToList();
+		//	foreach (var data in MonsterBoxList)
+		//	{
+		//		MonsterBox.Children.Remove(data);
+		//	}
+
+		//	// Draw the Monsters
+		//	foreach (var data in EngineViewModel.Engine.PlayerList.Where(m => m.PlayerType == PlayerTypeEnum.Monster).ToList())
+		//	{
+		//		MonsterBox.Children.Add(PlayerInfoDisplayBox(data));
+		//	}
+
+		//	// Add one black PlayerInfoDisplayBox to hold space incase the list is empty
+		//	CharacterBox.Children.Add(PlayerInfoDisplayBox(null));
+
+		//	// Add one black PlayerInfoDisplayBox to hold space incase the list is empty
+		//	MonsterBox.Children.Add(PlayerInfoDisplayBox(null));
+
+		//}
+
 
 		/// <summary>
 		/// Attack Action
@@ -50,7 +128,7 @@ namespace Game.Views
 		{
 			await Navigation.PushModalAsync(new NewRoundPage());
 		}
-		
+
 
 		/// <summary>
 		/// Battle Over
@@ -60,7 +138,7 @@ namespace Game.Views
 		/// <param name="e"></param>
 		async void BattleOverButton_Clicked(object sender, EventArgs e)
 		{
-			
+
 			await Navigation.PushModalAsync(new ScorePage());
 		}
 
@@ -98,48 +176,10 @@ namespace Game.Views
 			await Navigation.PushAsync(new PickItemsPage());
 		}
 
-		void Mon1Targeted(object sender, EventArgs e)
-		{
-			Mon1XHair.IsVisible = true;
-			Mon2XHair.IsVisible = false;
-			Mon3XHair.IsVisible = false;
-			Mon4XHair.IsVisible = false;
-			Mon5XHair.IsVisible = false;
-		}
-		void Mon2Targeted(object sender, EventArgs e)
-		{
-			Mon1XHair.IsVisible = false;
-			Mon2XHair.IsVisible = true;
-			Mon3XHair.IsVisible = false;
-			Mon4XHair.IsVisible = false;
-			Mon5XHair.IsVisible = false;
-		}
-		void Mon3Targeted(object sender, EventArgs e)
-		{
-			Mon1XHair.IsVisible = false;
-			Mon2XHair.IsVisible = false;
-			Mon3XHair.IsVisible = true;
-			Mon4XHair.IsVisible = false;
-			Mon5XHair.IsVisible = false;
-		}
 
-		void Mon4Targeted(object sender, EventArgs e)
-		{
-			Mon1XHair.IsVisible = false;
-			Mon2XHair.IsVisible = false;
-			Mon3XHair.IsVisible = false;
-			Mon4XHair.IsVisible = true;
-			Mon5XHair.IsVisible = false;
-		}
 
-		void Mon5Targeted(object sender, EventArgs e)
-		{
-			Mon1XHair.IsVisible = false;
-			Mon2XHair.IsVisible = false;
-			Mon3XHair.IsVisible = false;
-			Mon4XHair.IsVisible = false;
-			Mon5XHair.IsVisible = true;
-		}
+
+
 
 
 	}

@@ -4,155 +4,97 @@
              x:Class="Game.Views.BattlePage">
 
     <ContentPage.Content>
-        <ScrollView >
-            <StackLayout Style="{StaticResource VerticalStack}">
-                <Label Text="Round 1!" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"></Label>
-
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height = "Auto" />
-                        <RowDefinition Height = "Auto" />
-                        <RowDefinition Height = "Auto" />
-                        <RowDefinition Height = "Auto" />
-                        <RowDefinition Height = "Auto" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width ="150" />
-                        <ColumnDefinition Width ="250" />
-                        <ColumnDefinition Width ="250" />
-                        <ColumnDefinition Width ="150" />
-                    </Grid.ColumnDefinitions>
-                    <StackLayout Orientation="Vertical" Grid.Row ="1" Grid.Column="0">
-                        <Frame BackgroundColor="Transparent" BorderColor="Transparent" x:Name="Char1Frame">
-                            <Grid>
-                                
-                                <Image Source="Jack.png" HeightRequest="100" WidthRequest="100" x:Name="Char1Pic"/>
-                                <Image Source="dead.png" IsVisible="False" HeightRequest="100" WidthRequest="100" x:Name="Char1Dead"/>
-                            </Grid>
-                        </Frame>
-                        <ProgressBar IsVisible="True" Progress="0.5" x:Name="Char1HP"/>
-                            <ProgressBar IsVisible= "True" Progress="0.5" x:Name="Char1MP"/>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout>
+                    <ListView 
+                                x:Name="PartyListView" 
+                                ItemsSource="{Binding PartyCharacterList}"
+                                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                                RefreshCommand="{Binding LoadPartyCommand}"
+                                CachingStrategy="RecycleElement"
+                                HasUnevenRows="true"
+                                Margin="5,0,5,0"
+                                >
                         
-                    </StackLayout>
-                    <StackLayout Orientation="Vertical" Grid.Row ="2" Grid.Column="0">
-                        <Frame BackgroundColor="Transparent" BorderColor="Black" x:Name="Char2Frame">
-                            <Grid>
-                                
-                                <Image Source="Michelle.png" HeightRequest="100" WidthRequest="100" x:Name="Char2Pic"/>
-                                <Image Source="dead.png" IsVisible="False" HeightRequest="100" WidthRequest="100" x:Name="Char2Dead"/>
-                            </Grid>
-                        </Frame>
-                        <ProgressBar IsVisible="True" Progress="0.5" x:Name="Char2HP"/>
-                            <ProgressBar IsVisible="True" Progress="0.5" x:Name="Char2MP"/>
-                        
-                    </StackLayout>
-                    <StackLayout Orientation="Vertical" Grid.Row ="3" Grid.Column="0">
-                        <Frame BackgroundColor="Transparent" BorderColor="Transparent" x:Name="Char3Frame">
-                            <Grid>
-                                
-                                <Image Source="Will.png" HeightRequest="100" WidthRequest="100" x:Name="Char3Pic"/>
-                                <Image Source="dead.png" IsVisible="False" HeightRequest="100" WidthRequest="100" x:Name="Char3Dead"/>
-                            </Grid>
-                        </Frame>
-                        <ProgressBar IsVisible="True" Progress="0" x:Name="Char3HP"/>
-                            <ProgressBar IsVisible="True" Progress="0" x:Name="Char3MP"/>
-                        
-                    </StackLayout>
-                    <StackLayout Orientation="Vertical" Grid.Row ="4" Grid.Column="0">
-                        <Frame BackgroundColor="Transparent" BorderColor="Transparent" x:Name="Char4Frame">
-                            <Grid>
-                                
-                                <Image Source="thumbnail_bravery.png" HeightRequest="100" WidthRequest="100" x:Name="Char4Pic"/>
-                                <Image Source="dead.png" IsVisible="True" HeightRequest="100" WidthRequest="100" x:Name="Char4Dead"/>
-                            </Grid>
-                        </Frame>
-                        <ProgressBar IsVisible="True" Progress="0.5" x:Name="Char4HP"/>
-                            <ProgressBar IsVisible="True" Progress="0.5" x:Name="Char4MP"/>
-                        
-                    </StackLayout>
-                    <StackLayout Orientation="Vertical" Grid.Row ="5" Grid.Column="0">
-                        <Frame BackgroundColor="Transparent" BorderColor="Transparent" x:Name="Char5Frame">
-                            <Grid>
-                                
-                                <Image Source="creativity.png" HeightRequest="100" WidthRequest="100" x:Name="Char5Pic"/>
-                                <Image Source="dead.png" IsVisible="False" HeightRequest="100" WidthRequest="100" x:Name="Char5Dead"/>
-                            </Grid>
-                        </Frame>
-                        <ProgressBar IsVisible="True" Progress="0.5" x:Name="Char5HP"/>
-                            <ProgressBar IsVisible="True" Progress="0.5" x:Name="Char5MP"/>
-                           
-                        
-                    </StackLayout>
-
-                    <StackLayout Orientation="Vertical" Grid.Row ="1" Grid.Column="3">
-                        <Frame BackgroundColor="Transparent" BorderColor="Transparent" x:Name="Mon1Frame"> 
-                        <Grid>
-
-                                <ImageButton Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Mon1Pic" Clicked="Mon1Targeted"/>
-                                <Image Source="dead.png" IsVisible="False" HeightRequest="100" WidthRequest="100" x:Name="Mon1Dead"/>
-                                <Image Source="crosshair.png" IsVisible="True" HeightRequest="100" WidthRequest="100" x:Name="Mon1XHair"/>
-                        </Grid>
-                        </Frame>
-                    </StackLayout>
-                    <StackLayout Orientation="Vertical" Grid.Row ="2" Grid.Column="3">
-                        <Frame BackgroundColor="Transparent" BorderColor="Transparent" x:Name="Mon2Frame">
-                            <Grid>
-
-                                <ImageButton Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Mon2Pic" Clicked="Mon2Targeted"/>
-                                <Image Source="dead.png" IsVisible="False" HeightRequest="100" WidthRequest="100" x:Name="Mon2Dead"/>
-                                <Image Source="crosshair.png" IsVisible="False" HeightRequest="100" WidthRequest="100" x:Name="Mon2XHair"/>
-                            </Grid>
-                        </Frame>
-                    </StackLayout>
-                    <StackLayout Orientation="Vertical" Grid.Row ="3" Grid.Column="3">
-                        <Frame BackgroundColor="Transparent" BorderColor="Transparent" x:Name="Mon3Frame">
-                            <Grid>
-
-                                <ImageButton Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Mon3Pic" Clicked="Mon3Targeted"/>
-                                <Image Source="dead.png" IsVisible="False" HeightRequest="100" WidthRequest="100" x:Name="Mon3Dead"/>
-                                <Image Source="crosshair.png" IsVisible="False" HeightRequest="100" WidthRequest="100" x:Name="Mon3XHair"/>
-                            </Grid>
-                        </Frame>
-                    </StackLayout>
-                    <StackLayout Orientation="Vertical" Grid.Row ="4" Grid.Column="3">
-                        <Frame BackgroundColor="Transparent" BorderColor="Transparent" x:Name="Mon4Frame">
-                            <Grid>
-
-                                <ImageButton Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Mon4Pic" Clicked="Mon4Targeted"/>
-                                <Image Source="dead.png" IsVisible="False" HeightRequest="100" WidthRequest="100" x:Name="Mon4Dead"/>
-                                <Image Source="crosshair.png" IsVisible="False" HeightRequest="100" WidthRequest="100" x:Name="Mon4XHair"/>
-                            </Grid>
-                        </Frame>
+                        <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                    <Frame BackgroundColor="Transparent" BorderColor="Black">
+                                        <StackLayout Orientation="Vertical">
 
 
-                    </StackLayout>
-                    <StackLayout Orientation="Vertical" Grid.Row ="5" Grid.Column="3">
-                        <Frame BackgroundColor="Transparent" BorderColor="Transparent" x:Name="Mon5Frame">
-                            <Grid>
+                                    <Image 
+                                                    Source="{Binding ImageURI}"
+                                                    Style="{StaticResource ImageMediumStyle}"
+                                                    VerticalOptions="CenterAndExpand"
+                                                    />
+                                        <Label Text="HP"></Label>
+                                        <ProgressBar 
+                                                   Progress="0.5"></ProgressBar>
+                                        <Label Text="MP"></Label>
+                                        <ProgressBar 
+                                                   Progress="0.5"></ProgressBar>
 
-                                <ImageButton Source="Fire_monster.png" HeightRequest="100" WidthRequest="100" x:Name="Mon5Pic" Clicked="Mon5Targeted"/>
-                                <Image Source="dead.png" IsVisible="False" HeightRequest="100" WidthRequest="100" x:Name="Mon5Dead"/>
-                                <ImageButton Source="crosshair.png" IsVisible="False" HeightRequest="100" WidthRequest="100" x:Name="Mon5XHair"/>
-                            </Grid>
-                        </Frame>
-                    </StackLayout>
+                                </StackLayout>
+                                    </Frame>
+                                </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
-                    <Label Text="Hit! -45 HP" IsVisible="True" HorizontalOptions="Start" Grid.Row ="1" Grid.Column="1" />
-                    <Label Text="TEST" IsVisible="False" HorizontalOptions="Start" Grid.Row ="2" Grid.Column="1" />
-                    <Label Text="TEST" IsVisible="False" HorizontalOptions="Start" Grid.Row ="3" Grid.Column="1" />
-                    <Label Text="TEST" IsVisible="False" HorizontalOptions="Start" Grid.Row ="4" Grid.Column="1" />
-                    <Label Text="TEST" IsVisible="False" HorizontalOptions="Start" Grid.Row ="5" Grid.Column="1" />
+            </StackLayout>
+                <StackLayout Orientation="Vertical">
 
-                    <Label Text="Miss! Try Again Buddy" IsVisible="True" HorizontalOptions="End" Grid.Row ="1" Grid.Column="2" />
-                    <Label Text="TEST" IsVisible="False" HorizontalOptions="End" Grid.Row ="2" Grid.Column="2" />
-                    <Label Text="TEST" IsVisible="False" HorizontalOptions="End" Grid.Row ="3" Grid.Column="2" />
-                    <Label Text="TEST" IsVisible="False" HorizontalOptions="End" Grid.Row ="4" Grid.Column="2" />
-                    <Label Text="TEST" IsVisible="False" HorizontalOptions="End" Grid.Row ="5" Grid.Column="2" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <ListView 
+                                x:Name="MonsterListView" 
+                                ItemsSource="{Binding BattleMonsterList}"
+                                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                                RefreshCommand="{Binding LoadMonsterCommand}"
+                                CachingStrategy="RecycleElement"
+                                HasUnevenRows="true"
+                                Margin="5,0,5,0"
+                                >
 
-                </Grid>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame BackgroundColor="Transparent" BorderColor="Black">
+                                        <StackLayout Orientation="Vertical">
 
 
-                <StackLayout Orientation="Horizontal">
+                                            <Image 
+                                                    Source="{Binding ImageURI}"
+                                                    Style="{StaticResource ImageMediumStyle}"
+                                                    VerticalOptions="CenterAndExpand"
+                                                    />
+                                            <Label Text="HP"></Label>
+                                            <ProgressBar 
+                                                   Progress="0.5"></ProgressBar>
+                                            <Label Text="MP"></Label>
+                                            <ProgressBar 
+                                                   Progress="0.5"></ProgressBar>
+
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                
+                
+                
+           
+          
+            
+            
+            
+
+
+             <StackLayout Orientation="Horizontal">
                     <Button Clicked="AttackButton_Clicked" Text="Attack" HorizontalOptions="FillAndExpand"></Button>
                     <Button Clicked="AttackButton_Clicked" Text="Special Attack" HorizontalOptions="FillAndExpand"></Button>
                     <Button Clicked="AttackButton_Clicked" Text="Pass Turn" HorizontalOptions="FillAndExpand"></Button>

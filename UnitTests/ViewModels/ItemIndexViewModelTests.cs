@@ -1,9 +1,7 @@
-﻿using NUnit.Framework;
-using Game.ViewModels;
-using Xamarin.Forms.Mocks;
-using Xamarin.Forms;
-using Game.Services;
+﻿using Game.ViewModels;
+using NUnit.Framework;
 using System.Threading.Tasks;
+using Xamarin.Forms.Mocks;
 
 namespace UnitTests.ViewModels
 {

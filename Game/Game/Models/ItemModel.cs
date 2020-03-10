@@ -38,7 +38,8 @@ namespace Game.Models
         /// Default ItemModel
         /// Establish the Default Image Path
         /// </summary>
-        public ItemModel() {
+        public ItemModel()
+        {
             ImageURI = ItemService.DefaultImageURI;
         }
 

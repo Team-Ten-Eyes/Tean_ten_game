@@ -46,7 +46,7 @@ namespace Game.Models
         public int MaxHealth { get; set; } = 1;
 
         // Total Experience Earned
-        public int Experience{ get; set; } = 0;
+        public int Experience { get; set; } = 0;
 
         // The Experience available to given up
         public int ExperienceRemaining { get; set; }

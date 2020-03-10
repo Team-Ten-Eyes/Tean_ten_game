@@ -1,10 +1,8 @@
-﻿using System;
+﻿using Game.Models;
+using Game.ViewModels;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-
-using Game.Models;
-using Game.ViewModels;
 
 namespace Game.Engine
 {
@@ -79,7 +77,7 @@ namespace Game.Engine
                 RoundCondition = RoundNextTurn();
 
                 if (RoundCondition == RoundEnum.NewRound)
-                {   
+                {
                     NewRound();
                     Debug.WriteLine("New Round");
                 }

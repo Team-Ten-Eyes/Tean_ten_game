@@ -1,12 +1,9 @@
-﻿using System;
-using NUnit.Framework;
-
-using Newtonsoft;
-using Newtonsoft.Json.Linq;
-
-using Game.Helpers;
-using System.Linq;
+﻿using Game.Helpers;
 using Game.Models;
+using Newtonsoft.Json.Linq;
+using NUnit.Framework;
+using System;
+using System.Linq;
 
 namespace UnitTests.Helpers
 {

@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Game.Models;
+using System;
 using System.Collections.Generic;
-using Game.Models;
 using System.Linq;
 namespace Game.Helpers
 {
@@ -21,7 +21,7 @@ namespace Game.Helpers
                 return myList;
             }
         }
-         
+
         /// <summary>
         /// Given the String for an enum, return its value.  That allows for the enums to be numbered 2,4,6 rather than 1,2,3
         /// </summary>

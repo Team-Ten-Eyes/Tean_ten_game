@@ -1,14 +1,6 @@
-﻿using System;
-using System.Linq;
-using System.Collections.Generic;
+﻿using Game.Models;
+using System;
 using System.Collections.ObjectModel;
-
-using Xamarin.Forms;
-
-using Game.Models;
-using Game.Views;
-using Game.Services;
-using Game.ViewModels;
 
 namespace Game.ViewModels
 {
@@ -53,6 +45,8 @@ namespace Game.ViewModels
 
         // Hold the Proposed List of Characters for the Battle to Use
         public ObservableCollection<BaseCharacter> PartyCharacterList { get; set; } = new ObservableCollection<BaseCharacter>();
+        public ObservableCollection<PlayerInfoModel> BattleMonsterList { get; set; } = new ObservableCollection<PlayerInfoModel>();
+
 
         // Hold the View Model to the CharacterIndexViewModel
         public CharacterViewModel DatabaseCharacterViewModel = CharacterViewModel.Instance;

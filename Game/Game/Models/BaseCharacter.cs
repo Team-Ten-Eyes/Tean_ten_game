@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Game.Helpers;
-
-namespace Game.Models
+﻿namespace Game.Models
 {
     public class BaseCharacter : PlayerModel<BaseCharacter>
     {

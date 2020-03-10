@@ -1,5 +1,8 @@
-﻿
-using Game.Models;
+﻿using Game.Models;
+using Game.ViewModels;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Game.Engine
 {
@@ -16,12 +19,56 @@ namespace Game.Engine
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
+        /// 
+
+
+        public async Task<bool> RunBattle()
+        {
+            RoundEnum RoundCondition;
+
+            
+
+            
+
+            // Start Battle in AutoBattle mode
+            StartBattle(false);
+
+            // Fight Loop. Continue until Game is Over...
+            do
+            {
+                // Check for excessive duration.
+                
+
+                Debug.WriteLine("Next Turn");
+
+                // Do the turn...
+                // If the round is over start a new one...
+                RoundCondition = RoundNextTurn();
+
+                if (RoundCondition == RoundEnum.NewRound)
+                {
+                    NewRound();
+                    Debug.WriteLine("New Round");
+                }
+
+            } while (RoundCondition != RoundEnum.GameOver);
+
+            Debug.WriteLine("Game Over");
+
+            // Wrap up
+            EndBattle();
+
+            return true;
+        }
+
+
         public bool PopulateCharacterList(BaseCharacter data)
         {
             CharacterList.Add(new PlayerInfoModel(data));
 
             return true;
         }
+
 
         /// <summary>
         /// Start the Battle
@@ -38,10 +85,18 @@ namespace Game.Engine
 
             BattleRunning = true;
 
+        
             NewRound();
+            
+                //DO something
 
             return true;
         }
+
+
+        
+        
+
 
         /// <summary>
         /// End the Battle
