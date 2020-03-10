@@ -24,10 +24,11 @@ namespace Game.Views
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		public BattlePage()
+		public BattlePage(bool selectedAlready = false)
 		{
 			InitializeComponent();
 
+			SelectedMonsterAlready = selectedAlready;
 			// Set up the UI to Defaults
 			BindingContext = EngineViewModel;
 
@@ -67,7 +68,10 @@ namespace Game.Views
 		  void OnMonsterSelected(object sender, SelectedItemChangedEventArgs args)
 		{
 			PlayerInfoModel data = args.SelectedItem as PlayerInfoModel;
-			if (SelectedMonsterAlready)
+
+
+
+			if (args.SelectedItem == null)
 				return;
 
 			if (data.Alive == false)
@@ -75,11 +79,26 @@ namespace Game.Views
 				return;
 			}
 
+			if (SelectedMonsterAlready)
+				return;
+
+			
+			
 			data.SelectedForBattle = true;
 			SelectedMonsterAlready = true;
 			
+
+			for(int k = 0; k < EngineViewModel.Engine.MonsterList.Count; k++)
+			{
+				if (data.Guid == EngineViewModel.Engine.MonsterList[k].Guid)
+					EngineViewModel.Engine.MonsterList[k].SelectedForBattle = true;
+
+			}
+
+
 			//// Manually deselect item.
-			MonsterListView.SelectedItem = null;
+			//MonsterListView.SelectedItem = null;
+			Navigation.PushModalAsync(new BattlePage(SelectedMonsterAlready));
 		}
 
 		
