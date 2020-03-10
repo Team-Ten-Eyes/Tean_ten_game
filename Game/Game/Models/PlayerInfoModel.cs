@@ -1,4 +1,5 @@
-﻿
+﻿using System.Collections.Generic;
+
 using Game.Helpers;
 
 namespace Game.Models
@@ -129,6 +130,47 @@ namespace Game.Models
             ExperienceRemaining = LevelTableHelper.Instance.LevelDetailsList[Level + 1].Experience - 1;
         }
 
+        
+
+        
+
+        public bool AttributesPrime()
+        {
+            int checkIfPrime = 0;
+            checkIfPrime += Speed;
+            checkIfPrime += Attack;
+            checkIfPrime += Defense;
+            checkIfPrime += MaxHealth;
+            checkIfPrime += Level;
+
+            List<int> primes = GeneratePrimesNaive(checkIfPrime);
+            return true;
+        }
+        public static List<int> GeneratePrimesNaive(int n)
+        {
+            List<int> primes = new List<int>();
+            primes.Add(2);
+            int nextPrime = 3;
+            while (primes.Count < n)
+            {
+                int sqrt = (int)System.Math.Sqrt(nextPrime);
+                bool isPrime = true;
+                for (int i = 0; (int)primes[i] <= sqrt; i++)
+                {
+                    if (nextPrime % primes[i] == 0)
+                    {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime)
+                {
+                    primes.Add(nextPrime);
+                }
+                nextPrime += 2;
+            }
+            return primes;
+        }
         public override string FormatOutput()
         {
             var myReturn = string.Empty;

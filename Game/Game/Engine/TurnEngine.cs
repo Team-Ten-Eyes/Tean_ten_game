@@ -193,6 +193,8 @@ namespace Game.Engine
             // Do the Attack
             CalculateAttackStatus(Attacker, Target);
 
+            
+
             // Hackathon
             // Hackathon Scenario 2, Bob alwasys misses
             if (Attacker.Name.Equals("Bob"))
@@ -425,6 +427,7 @@ namespace Game.Engine
 
                 }
             }
+            
             if(d20 == deathRollHack48 && CurrentAttacker.PlayerType==PlayerTypeEnum.Character)
             {
                 BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
@@ -432,7 +435,7 @@ namespace Game.Engine
                 {
                     if(PlayerList[i].Guid==CurrentAttacker.Guid)
                     {
-                        Debug.WriteLine("Hack 48 ACTIVATED!!!!!");
+                        Debug.WriteLine("The CIA regrets to inform you that your character died.");
                         PlayerList[i].Alive = false;
                         BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
                         return BattleMessagesModel.HitStatus;
