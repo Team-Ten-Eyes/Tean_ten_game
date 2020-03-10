@@ -50,7 +50,7 @@ namespace Game.Views
 
 			//StartBattleButton.IsVisible = true;
 		}
-
+		
 		public void FixMonsterListAtRoundStart()
 		{
 			EngineViewModel.BattleMonsterList.Clear();
