@@ -12,6 +12,7 @@ namespace Game.Models
     /// </summary>
     public class PlayerInfoModel : PlayerModel<PlayerInfoModel>
     {
+        public bool SelectedForBattle { get; set; }
         /// <summary>
         /// Default Constructor
         /// </summary>
@@ -47,6 +48,7 @@ namespace Game.Models
             UniqueItem = data.UniqueItem;
 
             Difficulty = data.Difficulty;
+            SelectedForBattle = false;
         }
 
         /// <summary>
@@ -55,7 +57,7 @@ namespace Game.Models
         /// <param name="data"></param>
         public PlayerInfoModel(BaseCharacter data)
         {
-
+            SelectedForBattle = false;
             PlayerType = data.PlayerType;
             Guid = data.Guid;
             Alive = data.Alive;
@@ -94,6 +96,7 @@ namespace Game.Models
         /// <param name="data"></param>
         public PlayerInfoModel(BaseMonster data)
         {
+            SelectedForBattle = false;
             PlayerType = data.PlayerType;
             Guid = data.Guid;
             Alive = data.Alive;

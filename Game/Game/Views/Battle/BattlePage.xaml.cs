@@ -13,6 +13,8 @@ namespace Game.Views
 	public partial class BattlePage : ContentPage
 	{
 
+		public bool SelectedMonsterAlready { get; set; } = false;
+
 		public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
 
 		public AttackInfo attackinfo { get; set; } = null;
@@ -30,7 +32,8 @@ namespace Game.Views
 			BindingContext = EngineViewModel;
 
 			// Start the Battle Engine
-			
+			EngineViewModel.Engine.StartBattle(false);
+				
 			FixMonsterListAtRoundStart();
 
 			// Show the New Round Screen
@@ -53,7 +56,6 @@ namespace Game.Views
 		{
 			EngineViewModel.BattleMonsterList.Clear();
 			
-
 			// Load the Characters into the Engine
 			foreach (var data in EngineViewModel.Engine.MonsterList)
 			{
@@ -62,6 +64,25 @@ namespace Game.Views
 		}
 
 
+		  void OnMonsterSelected(object sender, SelectedItemChangedEventArgs args)
+		{
+			PlayerInfoModel data = args.SelectedItem as PlayerInfoModel;
+			if (SelectedMonsterAlready)
+				return;
+
+			if (data.Alive == false)
+			{
+				return;
+			}
+
+			data.SelectedForBattle = true;
+			SelectedMonsterAlready = true;
+			
+			//// Manually deselect item.
+			MonsterListView.SelectedItem = null;
+		}
+
+		
 		
 
 
@@ -105,9 +126,10 @@ namespace Game.Views
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		void AttackButton_Clicked(object sender, EventArgs e)
+		async void AttackButton_Clicked(object sender, EventArgs e)
 		{
 			//MessagingCenter.Send(this, "Create", );
+			bool answer = await DisplayAlert("Battle", "Are you sure you want to Quit?", "Yes", "No");
 		}
 
 		/// <summary>
