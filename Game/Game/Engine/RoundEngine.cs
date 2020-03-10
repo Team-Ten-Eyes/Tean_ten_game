@@ -13,13 +13,18 @@ namespace Game.Engine
     {
         /// <summary>
         /// Clear the List between Rounds
+        /// will only clear potions and monster
         /// </summary>
         /// <returns></returns>
         private bool ClearLists()
         {
-            ItemPool.Clear();
             MonsterList.Clear();
-            return true;
+            potionPool.Clear();
+
+            if (MonsterList.Count == 0 && potionPool.Count == 0)
+                return true;
+            else
+                return false;
         }
 
         /// <summary>

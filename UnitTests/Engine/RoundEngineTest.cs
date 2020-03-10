@@ -26,6 +26,47 @@ namespace UnitTests.Engine
         {
         }
 
+        //unit test for clear list function seeing if it clears the potions list
+        [Test]
+        public void RoundEngine_ClearList_PotionsPool_Should_Pass()
+        {
+
+            //Arrange
+            //populating Potions Potion pool
+            Engine.populatePotionsList();
+
+            //adding a character to the potions pool
+            BaseMonster monster = new BaseMonster();
+            Engine.NewRound();
+
+            //Act
+            Engine.EndRound();
+            //Reset
+
+            //Assert
+            Assert.AreEqual(Engine.potionPool.Count, 0);
+
+        }
+
+        //unit test for clear list funciton seeing if it clears the monster list
+        [Test]
+        public void RoundEngine_ClearList_MonsterList_Should_Pass()
+        {
+
+
+            //adding monsters and monsters are added to new Round
+            Engine.NewRound();
+
+            //Act
+            Engine.EndRound();
+            //Reset
+
+            //Assert
+            Assert.AreEqual(Engine.MonsterList.Count, 0);
+
+        }
+
+
         [Test]
         public void RoundEngine_Constructor_Default_Should_Pass()
         {
