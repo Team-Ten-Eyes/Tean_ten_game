@@ -94,8 +94,46 @@ namespace Game.ViewModels
                 return true;
             }
             return false;
+        }
 
+        /// <summary>
+        /// Toggles Speed 20% chance
+        /// </summary>
+        /// <param name="isOn"></param>
+        /// <returns></returns>
+        public bool setSpeed_20(int isOn)
+        {
+            if (isOn == 1)
+            {
+                Engine.Speed20 = false;
+                return true;
+            }
+            else if (isOn == 2)
+            {
+                Engine.Speed20 = true;
+                return true;
+            }
+            return false;
+        }
 
+        /// <summary>
+        /// toggles speed always for testing
+        /// </summary>
+        /// <param name="isOn"></param>
+        /// <returns></returns>
+        public bool SetSpeedAlways(int isOn)
+        {
+            if (isOn == 1)
+            {
+                Engine.SpeedAlways = false;
+                return true;
+            }
+            else if (isOn == 2)
+            {
+                Engine.SpeedAlways = true;
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
