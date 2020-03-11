@@ -393,6 +393,21 @@ namespace Game.Models
             return Alive;
         }
 
+        public bool addHealth(int val)
+        {
+            if ((CurrHealth + val) > MaxHealth || val > MaxHealth)
+            {
+                CurrHealth = MaxHealth;
+                return true;
+            }
+            else
+            {
+                int newHealth = CurrHealth + val;
+                CurrHealth = newHealth;
+                return true;
+            }   
+        }
+
         #endregion BattleMethods
 
         #region LevelMethods

@@ -193,7 +193,10 @@ namespace Game.Engine
             // Do the Attack
             CalculateAttackStatus(Attacker, Target);
 
-            
+            if(Attacker.PlayerType == PlayerTypeEnum.Character && Attacker.AttributesPrime())
+            {
+                BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
+            }
 
             // Hackathon
             // Hackathon Scenario 2, Bob alwasys misses
@@ -217,6 +220,18 @@ namespace Game.Engine
 
                     //Calculate Damage
                     BattleMessagesModel.DamageAmount = Attacker.GetDamageRollValue();
+
+                    if (Attacker.PlayerType == PlayerTypeEnum.Character && Attacker.AttributesPrime())
+                    {
+                        BattleMessagesModel.DamageAmount = Attacker.GetDamageLevelBonus;
+                        var myItem = ItemIndexViewModel.Instance.GetItem(Attacker.PrimaryHand);
+                        if (myItem != null)
+                        {
+                            // Dice of the weapon.  So sword of Damage 10 is d10
+                            BattleMessagesModel.DamageAmount = myItem.Damage;
+                        }
+                        Debug.WriteLine("Prime Damage Done Boyyyy");
+                    }
 
                     // Apply the Damage
                     ApplyDamage(Target);
@@ -505,6 +520,25 @@ namespace Game.Engine
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Will have the character drink all Health Potions
+        /// </summary>
+        /// <param name="character"></param>
+        /// <returns></returns>
+        public bool DrinkAllPotions(BaseCharacter character)
+        {
+            
+            foreach (PotionsModel potion in potionPool)
+            {
+                if (potion.GetPotionType() == PotionsEnum.Health)
+                {
+                    character.addHealth(potion.Addition);
+                }
+            }
+            potionPool = potionPool.Where(x => x.GetPotionType()!= PotionsEnum.Health).ToList();
+            return true;
         }
     }
 }

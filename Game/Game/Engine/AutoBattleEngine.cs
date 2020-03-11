@@ -30,7 +30,7 @@ namespace Game.Engine
         // Save Score
         // Output Score
         #endregion Algrorithm
-
+        public bool testingHack47 { get; set; }
         // The Battle Engine
         // BattleEngine Engine = new BattleEngine();
 
@@ -53,9 +53,10 @@ namespace Game.Engine
             // Auto Battle, does all the steps that a human would do.
 
             // Prepare for Battle
-
-            CreateCharacterParty();
-
+            if (!testingHack47)
+            {
+                CreateCharacterParty();
+            }
             // Start Battle in AutoBattle mode
             StartBattle(true);
 
