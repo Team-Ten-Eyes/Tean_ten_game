@@ -37,6 +37,12 @@ namespace Game.Engine
         //setting to turn on RoundHealing or not Default is to our default of one potion
         public RoundHealingEnum RoundHealing = RoundHealingEnum.Healing_off;
 
+        //Setting to turn off speed reversal 20% chance
+        public bool Speed20 = false;
+
+        //Setting to turn off speed reversal 100% chance
+        public bool SpeedAlways = false;
+
         //a bool that would set the ability to have a boss battle
         //default is false -> no boss battle
         public bool BossBattleFunctionality = false;

@@ -101,13 +101,19 @@ namespace Game.Views
           
         }
 
-        async void Speed_Reversal_Basic(object sender, EventArgs e) { 
-            
+        async void Speed_Reversal_Basic(object sender, EventArgs e) {
+            if (RoundHealingValue.IsToggled == true)
+                EngineViewModel.setSpeed_20(2);
+            else
+                EngineViewModel.setSpeed_20(1);
         }
 
         async void Speed_Reversal_Certain(object sender, EventArgs e)
         {
-
+            if (RoundHealingValue.IsToggled == true)
+                EngineViewModel.SetSpeedAlways(2);
+            else
+                EngineViewModel.SetSpeedAlways(1);
         }
 
         /// <summary>
