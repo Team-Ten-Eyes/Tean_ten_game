@@ -996,18 +996,34 @@ namespace UnitTests.Engine
 
 
         //[Test]
-        //public void RoundEngine_Monsters_Buffed_Ten_Should_Return_True (){
-        //    //Arrange
-        //    Engine.BattleScore.RoundCount = 101;
-        //    //Act
-        //    Engine.AddMonstersToRound();
-        //    var result = Engine.MonsterList;
-        //    //Reset
-        //    Engine.EndRound();
+        public void RoundEngine_Monsters_Buffed_Ten_Should_Return_True (){
+            //Arrange
+            Engine.BattleScore.RoundCount = 101;
+            Engine.MonsterList.Clear();
 
-        //    //Assert
-        //    Assert.AreEqual(true, result.Contains());
-        //}
+            var Monster = new BaseMonster
+            {
+                Speed = 10,
+                CurrHealth = 10,
+                MaxHealth = 10,
+                Attack = 10,
+                Defense = 10,
+                Name = "A",
+            };
+
+            var MonsterPlayer = new PlayerInfoModel(Monster);
+
+            Engine.MonsterList.Add(MonsterPlayer);
+            Engine.MaxNumberPartyMonsters = 1;
+            //Act
+            Engine.AddMonstersToRound();
+            var result = Engine.MonsterList;
+            //Reset
+            Engine.EndRound();
+
+            //Assert
+            Assert.AreEqual(true, result[0].Attack == 100);
+        }
 
 
         [Test]
