@@ -11,7 +11,7 @@ namespace Game.Models
         public PotionsEnum potionType {  get; set; } = PotionsEnum.Mana;
 
         //this it the amount of health or mana the potion would give to a character
-        public uint Addition { get; set; } = 1;
+        public int Addition { get; set; } = 1;
 
         //potion image
         public string ImageURI { get; set; } = "Mana.png" ;
@@ -66,7 +66,7 @@ namespace Game.Models
         /// Helper to show the Specific potion type
         /// </summary>
         /// <returns></returns>
-        public PotionsEnum GetCharType()
+        public PotionsEnum GetPotionType()
         {
             return potionType;
         }

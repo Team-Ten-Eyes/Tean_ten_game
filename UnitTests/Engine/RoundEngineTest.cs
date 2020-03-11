@@ -50,10 +50,11 @@ namespace UnitTests.Engine
 
         //unit test to make sure all mike's are dead
         [Test]
-        public void RoundEngine_Test_Mike_List_Should_Pass() 
+        public void RoundEngine_Test_Mike_List_Should_Pass()
         {
             //Arrange
-            Engine.CharacterList.Add(new PlayerInfoModel {
+            Engine.CharacterList.Add(new PlayerInfoModel
+            {
                 Name = "Mike"
             });
 
@@ -66,7 +67,7 @@ namespace UnitTests.Engine
 
             //Asset
             Assert.AreEqual(false, result.Contains(new PlayerInfoModel { Name = "Mike" }));
-        
+
         }
 
         //unit test for clear list funciton seeing if it clears the monster list

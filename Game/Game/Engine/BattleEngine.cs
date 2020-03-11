@@ -129,7 +129,7 @@ namespace Game.Engine
                 {
                     //creating a health potion
                     PotionsModel HealthPotion = new PotionsModel();
-                    HealthPotion.Addition = (uint)(5 * BattleScore.RoundCount);
+                    HealthPotion.Addition = (5 * BattleScore.RoundCount);
                     HealthPotion.potionType = PotionsEnum.Health;
                     HealthPotion.ImageURI = "Health.png";
                     //adding to the potionsList
@@ -139,7 +139,7 @@ namespace Game.Engine
             else if(RoundHealing == RoundHealingEnum.Healing_off)
             {
                 PotionsModel HealthPotion = new PotionsModel();
-                HealthPotion.Addition = (uint)(5 * BattleScore.RoundCount);
+                HealthPotion.Addition = (5 * BattleScore.RoundCount);
                 HealthPotion.potionType = PotionsEnum.Health;
                 HealthPotion.ImageURI = "Health.png";
                 //only adding one potion
@@ -149,7 +149,7 @@ namespace Game.Engine
                 {
                     //creating a mana potions
                     PotionsModel ManaPotion = new PotionsModel();
-                    ManaPotion.Addition = (uint)(5 * BattleScore.RoundCount);
+                    ManaPotion.Addition = (5 * BattleScore.RoundCount);
                     ManaPotion.potionType = PotionsEnum.Mana;
                     ManaPotion.ImageURI = "Mana.png";
                     // adding to the potionList
