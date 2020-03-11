@@ -98,6 +98,26 @@ namespace Game.ViewModels
 
         }
 
+        /// <summary>
+        /// has the toggle to allow boss battles or not
+        /// </summary>
+        /// <param name="isOn"></param>
+        /// <returns></returns>
+        public bool SetBossBattle(bool isOn)
+        {
+            if(isOn)
+            {
+                Engine.BossBattleFunctionality = true;
+                return true;
+            }
+            else
+            {
+                Engine.BossBattleFunctionality = false;
+                return true;
+            }
+            return false;
+        }
+
 
 
         #endregion Hack messages

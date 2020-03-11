@@ -4,6 +4,7 @@ using Game.Models;
 using Game.ViewModels;
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace UnitTests.Engine
@@ -694,6 +695,34 @@ namespace UnitTests.Engine
             // Assert
             Assert.AreEqual(true, result);
             Assert.AreEqual(2, CharacterPlayer.Level);
+        }
+
+        [Test]
+        public void TurnEngine_DrinkAllPotions_Should_Pass()
+        {
+            //Arrange
+            BaseCharacter character= new BaseCharacter();
+            Engine.RoundHealing = RoundHealingEnum.Healing_on;
+            Engine.populatePotionsList();
+
+            bool is_Health_present = false;
+
+            //Act
+            Engine.DrinkAllPotions(character);
+
+            //now going through the potions list to make sure that there are no health potions
+            //Assert
+            foreach( PotionsModel potion in Engine.potionPool)
+            {
+              
+                if (potion.GetPotionType() == PotionsEnum.Health)
+
+                    is_Health_present = true;
+                
+            }
+            
+
+            Assert.AreEqual(false, is_Health_present);
         }
 
     }

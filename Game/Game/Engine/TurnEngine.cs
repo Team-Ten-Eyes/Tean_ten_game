@@ -521,5 +521,24 @@ namespace Game.Engine
 
             return result;
         }
+
+        /// <summary>
+        /// Will have the character drink all Health Potions
+        /// </summary>
+        /// <param name="character"></param>
+        /// <returns></returns>
+        public bool DrinkAllPotions(BaseCharacter character)
+        {
+            
+            foreach (PotionsModel potion in potionPool)
+            {
+                if (potion.GetPotionType() == PotionsEnum.Health)
+                {
+                    character.addHealth(potion.Addition);
+                }
+            }
+            potionPool = potionPool.Where(x => x.GetPotionType()!= PotionsEnum.Health).ToList();
+            return true;
+        }
     }
 }

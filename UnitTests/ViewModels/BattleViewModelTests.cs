@@ -66,5 +66,37 @@ namespace UnitTests.ViewModels
             Assert.AreEqual(ViewModel.Engine.RoundHealing, RoundHealingEnum.Healing_off);
 
         }
+
+        [Test]
+        public void BattleEngineViewModel_setBossBattle_to_false_Should_pass()
+        {
+            //Arrange
+            ViewModel.Engine.BossBattleFunctionality = true;
+            bool is_false = false;
+
+            //Act
+            ViewModel.SetBossBattle(is_false);
+
+            //reset
+
+            //Assert
+            Assert.AreEqual(false, ViewModel.Engine.BossBattleFunctionality);
+        }
+
+        [Test]
+        public void BattleEngineViewModel_setBossBattle_to_true_Should_pass()
+        {
+            //Arrange
+            ViewModel.Engine.BossBattleFunctionality = false;
+            bool is_true = true;
+
+            //Act
+            ViewModel.SetBossBattle(is_true);
+
+            //reset
+
+            //Assert
+            Assert.AreEqual(true, ViewModel.Engine.BossBattleFunctionality);
+        }
     }
 }

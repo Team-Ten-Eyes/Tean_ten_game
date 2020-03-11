@@ -109,5 +109,18 @@ namespace Game.Views
         {
 
         }
+
+        /// <summary>
+        /// will switch the boss battle to on
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void Allow_Boss_Battle(object sender, EventArgs e)
+        {
+            if (Boss_Battle_Value.IsToggled == true)
+                EngineViewModel.SetBossBattle(true);
+            else
+                EngineViewModel.SetBossBattle(false);
+        }
     }
 }
