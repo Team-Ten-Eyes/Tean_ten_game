@@ -245,7 +245,16 @@ namespace Game.Engine
         /// </summary>
         public List<PlayerInfoModel> OrderPlayerListByTurnOrder()
         {
+            //Situation 15
+            Random rand = new Random();
+            if (SpeedAlways == true || (Speed20 == true && rand.Next(1, 6) == 1)) {
+                PlayerList = PlayerList.OrderBy(a => a.GetSpeed())
+                    .ThenByDescending(a => a.Experience)
+                    .ThenByDescending(a => a.Name)
+                    .ThenByDescending(a => a.ListOrder)
+                    .ToList();
 
+            }
 
             PlayerList = PlayerList.OrderByDescending(a => a.GetSpeed())
                 .ThenByDescending(a => a.Experience)
