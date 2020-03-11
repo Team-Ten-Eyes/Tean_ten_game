@@ -117,7 +117,7 @@ namespace Game.Engine
                 MonsterList.Add(new PlayerInfoModel(data));
             }
 
-            
+            bool BossSwitch = false;
             if((BossSwitch && DiceHelper.RollDice(1,100) > 90) || testBossHack)
             {
                 Debug.WriteLine("BOSS MONSTER APPROACHING!!!!!");

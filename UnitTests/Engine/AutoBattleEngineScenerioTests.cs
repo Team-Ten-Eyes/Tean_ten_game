@@ -24,6 +24,9 @@ namespace Scenario
         }
 
         [Test]
+
+        
+
         public void AutoBattleEngine_Constructor_Default_Should_Pass()
         {
             // Arrange
@@ -36,6 +39,47 @@ namespace Scenario
             // Assert
             Assert.IsNotNull(result);
         }
+
+        [Test]
+        public async Task AutoBattleEngine_Character_With_Prime_Attribute_Value_Hits_Real_Hard_should_win_LOTS()
+        {
+
+            Engine.testingHack47 = true;
+
+            for (int i = 0; i < Engine.MaxNumberPartyCharacters; i++)
+            {
+                var PrimeGod = new PlayerInfoModel(
+                        new BaseCharacter
+                        {
+                            Speed = 16,
+                            Level = 7,
+                            Attack = 12,
+                            Defense = 10,
+                            MaxHealth = 50,
+
+
+                            CurrHealth = 11,
+                            Experience = 1,
+                            ExperienceRemaining = 1,
+                            Name = "God Like Mike",
+                            ListOrder = 1,
+                        });
+
+                Engine.CharacterList.Add(PrimeGod);
+
+
+            }
+            Engine.MaxNumberPartyMonsters = 1;
+
+            //Act
+            var result = await Engine.RunAutoBattle();
+
+            //Reset
+            Engine.testingHack47 = false;
+            //Assert
+            Assert.AreEqual(true, result);
+        }
+
 
         [Test]
         public async Task AutoBattleEngine_RunAutoBattle_Monsters_1_Should_Pass()
@@ -60,7 +104,8 @@ namespace Scenario
 
             Engine.CharacterList.Add(CharacterPlayerMike);
 
-
+            
+            
             // Add Monsters
 
             // Need to set the Monster count to 1, so the battle goes to Next Round Faster

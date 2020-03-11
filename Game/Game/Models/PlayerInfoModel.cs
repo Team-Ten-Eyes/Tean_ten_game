@@ -25,6 +25,10 @@ namespace Game.Models
         /// <param name="data"></param>
         public PlayerInfoModel(PlayerInfoModel data)
         {
+            Speed = data.Speed;
+            Attack = data.Attack;
+            Defense = data.Defense;
+
             SelectedForBattle = data.SelectedForBattle;
             PlayerType = data.PlayerType;
             Guid = data.Guid;
@@ -68,6 +72,9 @@ namespace Game.Models
             Name = data.Name;
             Description = data.Description;
             Speed = data.GetSpeed();
+            Attack = data.GetAttack();
+            Defense = data.GetDefense();
+            
             ImageURI = data.ImageURI;
             MaxHealth = data.GetMaxHealthTotal;
             CurrHealth = data.GetMaxHealthTotal;
@@ -144,14 +151,19 @@ namespace Game.Models
             checkIfPrime += Level;
 
             List<int> primes = GeneratePrimesNaive(checkIfPrime);
-            return true;
+            foreach(int x in primes)
+            {
+                if ((double)x / (double)checkIfPrime == 1)
+                    return true;
+            }
+            return false;
         }
         public static List<int> GeneratePrimesNaive(int n)
         {
             List<int> primes = new List<int>();
             primes.Add(2);
             int nextPrime = 3;
-            while (primes.Count < n)
+            while (primes[primes.Count - 1] < n)
             {
                 int sqrt = (int)System.Math.Sqrt(nextPrime);
                 bool isPrime = true;
