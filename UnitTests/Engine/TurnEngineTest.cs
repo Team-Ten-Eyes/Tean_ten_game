@@ -701,7 +701,7 @@ namespace UnitTests.Engine
         public void TurnEngine_DrinkAllPotions_Should_Pass()
         {
             //Arrange
-            BaseCharacter character= new BaseCharacter();
+           PlayerInfoModel character= new PlayerInfoModel();
             Engine.RoundHealing = RoundHealingEnum.Healing_on;
             Engine.populatePotionsList();
 
@@ -723,6 +723,23 @@ namespace UnitTests.Engine
             
 
             Assert.AreEqual(false, is_Health_present);
+        }
+
+        [Test]
+        public void bellowTwentyHealth_should_pass()
+        {
+            //Arrange
+            //should give you a character bellow 20 percent
+            PlayerInfoModel character = new PlayerInfoModel();
+            character.MaxHealth = 100;
+            double Bellow = (double)(character.MaxHealth * .20);
+            character.CurrHealth = (int)(Bellow - 1);
+
+
+            //Act
+            bool r = Engine.bellowTwentyHealth(character);
+            //assert
+            Assert.AreEqual(true, r);
         }
 
     }
