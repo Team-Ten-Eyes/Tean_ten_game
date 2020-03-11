@@ -75,6 +75,19 @@ namespace Game.Engine
             // INFO: Teams, AttackChoice will auto pick the target, good for auto battle
             if (BattleScore.AutoBattle)
             {
+                if (Attacker.PlayerType == PlayerTypeEnum.Character && RoundHealing == RoundHealingEnum.Healing_on)
+                {
+                    foreach (PlayerInfoModel character in CharacterList)
+                    {
+
+                        if (bellowTwentyHealth(character))
+                        {
+                            Debug.WriteLine("OH NO You have a greedy character that drank all your potions");
+                            DrinkAllPotions(character);
+                            break;
+                        }
+                    }
+                }
                 // For Attack, Choose Who
                 CurrentDefender = AttackChoice(Attacker);
 
@@ -527,7 +540,7 @@ namespace Game.Engine
         /// </summary>
         /// <param name="character"></param>
         /// <returns></returns>
-        public bool DrinkAllPotions(BaseCharacter character)
+        public bool DrinkAllPotions(PlayerInfoModel character)
         {
             
             foreach (PotionsModel potion in potionPool)
@@ -539,6 +552,20 @@ namespace Game.Engine
             }
             potionPool = potionPool.Where(x => x.GetPotionType()!= PotionsEnum.Health).ToList();
             return true;
+        }
+
+
+        /// <summary>
+        /// will return true if a character is bellow 20 percent health
+        /// </summary>
+        /// <param name="character"></param>
+        /// <returns></returns>
+        public bool bellowTwentyHealth(PlayerInfoModel character)
+        {
+            double twenty_percent_mark = (double)(character.MaxHealth * .20);
+            if (character.CurrHealth < twenty_percent_mark)
+                return true;
+            return false;
         }
     }
 }
