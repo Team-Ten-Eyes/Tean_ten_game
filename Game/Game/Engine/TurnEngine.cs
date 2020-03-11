@@ -521,8 +521,6 @@ namespace Game.Engine
                 {
                     character.addHealth(potion.Addition);
                 }
-                
- 
             }
             potionPool = potionPool.Where(x => x.GetPotionType()!= PotionsEnum.Health).ToList();
             return true;
