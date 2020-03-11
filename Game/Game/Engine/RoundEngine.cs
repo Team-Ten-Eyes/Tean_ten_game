@@ -253,6 +253,7 @@ namespace Game.Engine
                     .ThenByDescending(a => a.Name)
                     .ThenByDescending(a => a.ListOrder)
                     .ToList();
+                return PlayerList;
 
             }
 

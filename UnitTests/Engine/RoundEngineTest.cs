@@ -1010,7 +1010,46 @@ namespace UnitTests.Engine
         //}
 
 
+        [Test]
+        public void RoundEngine_Speed_Reversal_Test_Should_Return_True() {
+            // Arrange
+            var Monster = new BaseMonster
+            {
+                Speed = 20,
+                CurrHealth = 12,
+                Name = "A",
+            };
 
+            var MonsterPlayer = new PlayerInfoModel(Monster);
+            Engine.MonsterList.Clear();
+            Engine.MonsterList.Add(MonsterPlayer);
+
+            var Character = new BaseCharacter
+            {
+                Speed = 1,
+                CurrHealth = 10,
+                Name = "B",
+            };
+
+            var CharacterPlayer = new PlayerInfoModel(Character);
+            Engine.CharacterList.Clear();
+            Engine.CharacterList.Add(CharacterPlayer);
+
+            // Make the List
+            Engine.PlayerList = Engine.MakePlayerList();
+
+            // Sort the list by Current Health, so it has to be resorted.
+            Engine.PlayerList = Engine.PlayerList.OrderBy(m => m.CurrHealth).ToList();
+            Engine.SpeedAlways = true;
+
+            // Act
+            var result = Engine.OrderPlayerListByTurnOrder();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("B", result[0].Name);
+        }
 
 
         [Test]
