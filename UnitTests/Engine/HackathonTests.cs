@@ -499,5 +499,11 @@ namespace Scenario
             Assert.AreEqual(true, result[0].CurrHealth == 100);
             Assert.AreEqual(true, result[0].MaxHealth == 100);
         }
+
+        
+        public void HakathonScenario_4_potion_pool_6_Health_Potions_Should_Pass()
+        {
+
+        }
     }
 }
