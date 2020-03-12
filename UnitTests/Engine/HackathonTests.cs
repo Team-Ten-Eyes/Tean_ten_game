@@ -433,7 +433,7 @@ namespace Scenario
         }
 
         [Test]
-        public void HakathonScenario_4_potion_pool_6_Health_Potions_Should_Pass()
+        public void HakathonScenario_4_greedy_char_drinks_Health_Potions_Should_Pass()
         {
             /* 
            * Scenario Number:  
@@ -441,6 +441,8 @@ namespace Scenario
            *      
            * Description: 
            *      Every Round should have 6 new health potions added
+           *      and if you are in auto battle and have a character bellow 20%
+           *      they are really greedy and would drink all potions before an attack
            * 
            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
            *      RoundEngine.cs
@@ -454,9 +456,13 @@ namespace Scenario
            *            add a variable called potions pool
            * 
            * Test Algrorithm:
-           *      set the roundcount to 101 in the scoremodel held by BattleEngine
-           *      Add Monsters to round with base stats of 10
-           *      Validate the stats are now 100
+           *      make a character bellow 20 percent health 
+           *      make round healing on
+           *      make auto battle on
+           *      have a new round made to populate potion pool
+           *      call attack with greedy character
+           *      check the count of health potions in the pool 
+           *      Assert that the count is 0
            * 
            * Test Conditions:
            *      potion pool is full and there is a character with less than 20 percent health 
