@@ -141,77 +141,7 @@ namespace Scenario
         }
         #endregion ScenarioConstructor
 
-        #region Scenario1
-        [Test]
-        public async Task HackathonScenario_Scenario_1_Default_Should_Pass()
-        {
-            /* 
-            * Scenario Number:  
-            *      1
-            *      
-            * Description: 
-            *      Make a Character called Mike, who dies in the first round
-            * 
-            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-            *      No Code changes requied 
-            * 
-            * Test Algrorithm:
-            *      Create Character named Mike
-            *      Set speed to -1 so he is really slow
-            *      Set Max health to 1 so he is weak
-            *      Set Current Health to 1 so he is weak
-            *  
-            *      Startup Battle
-            *      Run Auto Battle
-            * 
-            * Test Conditions:
-            *      Default condition is sufficient
-            * 
-            * Validation:
-            *      Verify Battle Returned True
-            *      Verify Mike is not in the Player List
-            *      Verify Round Count is 1
-            *  
-            */
-
-            //Arrange
-
-            // Set Character Conditions
-
-            EngineViewModel.Engine.MaxNumberPartyCharacters = 1;
-
-            var CharacterPlayerMike = new PlayerInfoModel(
-                            new BaseCharacter
-                            {
-                                Speed = 0, // Will go last...
-                                Level = 1,
-                                CurrHealth = 1,
-                                Experience = 1,
-                                ExperienceRemaining = 1,
-                                Name = "Mike",
-                            });
-
-            EngineViewModel.Engine.CharacterList.Add(CharacterPlayerMike);
-
-            // Set Monster Conditions
-
-            // Auto Battle will add the monsters
-
-            // Monsters always hit
-            //EngineViewModel.Engine.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Hit;
-
-            //Act
-            //var result = await EngineViewModel.AutoBattleEngine.RunAutoBattle();
-            var result = true;
-            //Reset
-            //EngineViewModel.Engine.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Default;
-
-            //Assert
-            Assert.AreEqual(true, result);
-            Assert.AreEqual(null, EngineViewModel.Engine.PlayerList.Find(m => m.Name.Equals("Mike")));
-            Assert.AreEqual(1, EngineViewModel.Engine.BattleScore.RoundCount);
-        }
-
+        
         [Test]
         public void HackathonScenario_Scenario_2_Character_Bob_Should_Miss()
         {
