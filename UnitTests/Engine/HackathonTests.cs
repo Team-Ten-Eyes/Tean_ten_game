@@ -34,16 +34,71 @@ namespace Scenario
         [Test]
         public async Task AutoBattleEngine_Hack13_First_Round_Boss_Fight_Game_Over_At_Round_One()
         {
+            /* 
+            * Scenario Number:  
+            *      13
+            *      
+            * Description: 
+            *      Boss fight 10% of the time
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      RoundEngine ... Add Monsters To Round ... Add condition to clear monster list and add EVIL MIKE BOSS MONSTER 10% of rounds
+            *      
+            * Test Algrorithm:
+            *      Force a Boss Monster every round
+            *  
+            *      Startup Battle
+            *      Run Auto Battle
+            * 
+            *      
+            * Test Conditions:
+            *      Only one round happens and is not completed
+            * 
+            * Validation:
+            *      
+            *      Verify Round Count is 0
+            *  
+            */
+
+            Engine.testBossHack = true;
             AutoBattleEngine MyEngine = new AutoBattleEngine();
             await MyEngine.RunAutoBattle();
 
             var result = EngineViewModel.Engine.BattleScore.RoundCount;
-
+            Engine.testBossHack = false;
             Assert.AreEqual(result, 0);
         }
         [Test]
         public async Task AutoBattleEngine_Hack48_Character_To_Hit_Roll_Equal_To_Hack_48_Condition_Attacker_Dies_Game_Ends_At_Round_One()
         {
+
+            /* 
+            * Scenario Number:  
+            *      48
+            *      
+            * Description: 
+            *      Make a Character die when their to hit roll equals a special dice roll at the start of the round
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      Turn Engine ... Roll to Hit target ... added some if statements to determine if the condition is met
+            *      Turn Engine ... Turn as Attack ... Added a case to the miss condition where a dead attacker might be removed
+            * 
+            * Test Algrorithm:
+            *      Force dice rolls to equal the Hack48 roll
+            *  
+            *      Startup Battle
+            *      Run Auto Battle
+            * 
+            *      
+            * Test Conditions:
+            *      Only one round happens and is not complete
+            * 
+            * Validation:
+            *      
+            *      Verify Round Count is 1
+            *  
+            */
+
 
             AutoBattleEngine MyEngine = new AutoBattleEngine();
             MyEngine.testHack48 = true;
@@ -54,6 +109,9 @@ namespace Scenario
 
             MyEngine.testHack48 = false;
 
+
+
+
             Assert.AreEqual(result, 1);
             MyEngine.testHack48 = false;
 
@@ -61,6 +119,35 @@ namespace Scenario
         [Test]
         public async Task AutoBattleEngine_Character_With_Prime_Attribute_Value_Hits_Real_Hard_should_win_LOTS()
         {
+            /* 
+            * Scenario Number:  
+            *      47
+            *      
+            * Description: 
+            *      Characters with prime attribute totals get Critical Hits always
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      Turn Engine ... Turn As Attack ... Check if Attributes are prime and apply those changes to gaurantee a HIT
+            *      Turn Engine ... Turn As Attack ... Also added a check in Hit Case Switch Condition so that MAX damage is applied 
+            * 
+            * Test Algrorithm:
+            *      Add a bunch of PRIME GOD characters for the battle engine to use
+            *      Until they level up they should remain swingin super hard and winning rounds
+            *  
+            *      Startup Battle
+            *      Run Auto Battle
+            * 
+            *      
+            * Test Conditions:
+            *      More than one round is completed.
+            * 
+            * Validation:
+            *      
+            *      Verify Round Count is greater than 1 using a conditional operator
+            *  
+            */
+
+
             AutoBattleEngine MyEngine = new AutoBattleEngine();
             MyEngine.testingHack47 = true;
 
@@ -91,11 +178,13 @@ namespace Scenario
 
             //Act
             var result = await MyEngine.RunAutoBattle();
+            int holder = MyEngine.BattleScore.RoundCount;
 
+            bool checkMe = holder > 1 ? true : false;
             //Reset
             MyEngine.testingHack47 = false;
             //Assert
-            Assert.AreEqual(true, result);
+            Assert.AreEqual(true, checkMe);
         }
         #region ScenarioConstructor
         [Test]
@@ -179,7 +268,7 @@ namespace Scenario
             // Set Character Conditions
 
             EngineViewModel.Engine.MaxNumberPartyCharacters = 1;
-
+            
             var CharacterPlayerMike = new PlayerInfoModel(
                             new BaseCharacter
                             {
