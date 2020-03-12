@@ -295,84 +295,7 @@ namespace Scenario
             Assert.AreEqual(HitStatusEnum.Miss, EngineViewModel.Engine.BattleMessagesModel.HitStatus);
         }
 
-        [Test]
-        public void HackathonScenario_Scenario_2_Character_Not_Bob_Should_Hit()
-        {
-            /* 
-             * Scenario Number:  
-             *      2
-             *      
-             * Description: 
-             *      See Default Test
-             * 
-             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-             *      See Defualt Test
-             *                 
-             * Test Algrorithm:
-             *      Create Character named Mike
-             *      Create Monster
-             *      Call TurnAsAttack so Mike can attack Monster
-             * 
-             * Test Conditions:
-             *      Control Dice roll so natural hit
-             *      Test with Character of not named Bob
-             *  
-             *  Validation
-             *      Verify Enum is Hit
-             *      
-             */
-
-            //Arrange
-
-            // Set Character Conditions
-
-            EngineViewModel.Engine.MaxNumberPartyCharacters = 1;
-
-            var CharacterPlayer = new PlayerInfoModel(
-                            new BaseCharacter
-                            {
-                                Speed = 200,
-                                Level = 10,
-                                CurrHealth = 100,
-                                Experience = 100,
-                                ExperienceRemaining = 1,
-                                Name = "Doug",
-                            });
-
-            EngineViewModel.Engine.CharacterList.Add(CharacterPlayer);
-
-            // Set Monster Conditions
-
-            // Add a monster to attack
-            EngineViewModel.Engine.MaxNumberPartyCharacters = 1;
-
-            var MonsterPlayer = new PlayerInfoModel(
-                new BaseMonster
-                {
-                    Speed = 1,
-                    Level = 1,
-                    CurrHealth = 1,
-                    Experience = 1,
-                    ExperienceRemaining = 1,
-                    Name = "Monster",
-                });
-
-            EngineViewModel.Engine.CharacterList.Add(MonsterPlayer);
-
-            // Have dice roll 20
-            DiceHelper.EnableForcedRolls();
-            DiceHelper.SetForcedRollValue(20);
-
-            //Act
-            var result = EngineViewModel.Engine.TurnAsAttack(CharacterPlayer, MonsterPlayer);
-
-            //Reset
-            DiceHelper.DisableForcedRolls();
-
-            //Assert
-            Assert.AreEqual(true, result);
-            Assert.AreEqual(HitStatusEnum.Hit, EngineViewModel.Engine.BattleMessagesModel.HitStatus);
-        }
+        
         #endregion Scenario1
 
         [Test]
@@ -411,6 +334,7 @@ namespace Scenario
             };
 
             var MonsterPlayer = new PlayerInfoModel(Monster);
+            var saveMonster = Engine.MonsterList;
             Engine.MonsterList.Clear();
             Engine.MonsterList.Add(MonsterPlayer);
 
@@ -422,6 +346,7 @@ namespace Scenario
             };
 
             var CharacterPlayer = new PlayerInfoModel(Character);
+            var saveCharacter = Engine.CharacterList;
             Engine.CharacterList.Clear();
             Engine.CharacterList.Add(CharacterPlayer);
 
@@ -432,12 +357,16 @@ namespace Scenario
             Engine.PlayerList = Engine.PlayerList.OrderBy(m => m.CurrHealth).ToList();
             Engine.SpeedAlways = true;
 
-            // Act
+
             var result = Engine.OrderPlayerListByTurnOrder();
+
+            // Reset
+            Engine.CharacterList = saveCharacter;
+            Engine.MonsterList = saveMonster;
 
             // Assert
             Assert.AreEqual("B", result[0].Name);
-            Assert.AreEqual("A", result[0].Name);
+            Assert.AreEqual("A", result[1].Name);
         }
 
         [Test]
@@ -470,6 +399,7 @@ namespace Scenario
 
             //Arrange
             Engine.BattleScore.RoundCount = 101;
+            var saveList = Engine.MonsterList;
             Engine.MonsterList.Clear();
 
             var Monster = new BaseMonster
@@ -491,6 +421,8 @@ namespace Scenario
             var result = Engine.MonsterList;
             //Reset
             Engine.EndRound();
+            Engine.MonsterList = saveList;
+            Engine.BattleScore.RoundCount = 0;
 
             //Assert
             Assert.AreEqual(true, result[0].Attack == 100);
