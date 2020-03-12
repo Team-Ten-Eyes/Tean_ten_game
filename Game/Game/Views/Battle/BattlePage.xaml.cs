@@ -16,6 +16,7 @@ namespace Game.Views
 		public bool SelectedMonsterAlready { get; set; } = false;
 
 		public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
+		
 
 		public AttackInfo attackinfo { get; set; } = null;
 
@@ -32,9 +33,11 @@ namespace Game.Views
 			// Set up the UI to Defaults
 			BindingContext = EngineViewModel;
 
-			// Start the Battle Engine
 			
-				
+
+			// Start the Battle Engine
+
+			EngineViewModel.Engine.manualTargetPicked = null;
 			FixMonsterListAtRoundStart();
 
 			// Show the New Round Screen
@@ -101,43 +104,6 @@ namespace Game.Views
 			Navigation.PushModalAsync(new BattlePage(SelectedMonsterAlready));
 		}
 
-		
-		
-
-
-		//public void DrawPlayerBoxes()
-		//{
-		//	var CharacterBoxList = CharacterBox.Children.ToList();
-		//	foreach (var data in CharacterBoxList)
-		//	{
-		//		CharacterBox.Children.Remove(data);
-		//	}
-
-		//	// Draw the Characters
-		//	foreach (var data in EngineViewModel.Engine.PlayerList.Where(m => m.PlayerType == PlayerTypeEnum.Character).ToList())
-		//	{
-		//		CharacterBox.Children.Add(PlayerInfoDisplayBox(data));
-		//	}
-
-		//	var MonsterBoxList = MonsterBox.Children.ToList();
-		//	foreach (var data in MonsterBoxList)
-		//	{
-		//		MonsterBox.Children.Remove(data);
-		//	}
-
-		//	// Draw the Monsters
-		//	foreach (var data in EngineViewModel.Engine.PlayerList.Where(m => m.PlayerType == PlayerTypeEnum.Monster).ToList())
-		//	{
-		//		MonsterBox.Children.Add(PlayerInfoDisplayBox(data));
-		//	}
-
-		//	// Add one black PlayerInfoDisplayBox to hold space incase the list is empty
-		//	CharacterBox.Children.Add(PlayerInfoDisplayBox(null));
-
-		//	// Add one black PlayerInfoDisplayBox to hold space incase the list is empty
-		//	MonsterBox.Children.Add(PlayerInfoDisplayBox(null));
-
-		//}
 
 
 		/// <summary>
@@ -148,6 +114,18 @@ namespace Game.Views
 		async void AttackButton_Clicked(object sender, EventArgs e)
 		{
 			//MessagingCenter.Send(this, "Create", );
+
+			for(int i = 0; i < EngineViewModel.Engine.MonsterList.Count; i++)
+			{
+				if (EngineViewModel.Engine.MonsterList[i].SelectedForBattle)
+				{
+					EngineViewModel.Engine.manualTargetPicked = EngineViewModel.Engine.MonsterList[i];
+					break;
+				}
+			}
+
+			
+
 			bool answer = await DisplayAlert("Battle", "Are you sure you want to Quit?", "Yes", "No");
 		}
 

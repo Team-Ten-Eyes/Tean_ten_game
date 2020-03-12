@@ -41,11 +41,12 @@
                                 </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                </ListView>
+                    </ListView>
 
-            </StackLayout>
+                </StackLayout>
+               
                 <StackLayout Orientation="Vertical">
-
+                    <Label Text="{Binding Engine.BattleMessagesModel.TurnMessage;}"/>
                 </StackLayout>
                 <StackLayout Orientation="Vertical">
                     <ListView 
