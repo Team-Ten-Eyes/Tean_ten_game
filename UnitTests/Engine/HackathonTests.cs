@@ -511,8 +511,9 @@ namespace Scenario
            *      Every Round should have 6 new health potions added
            * 
            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-           *      BattleEngine.cs
+           *      RoundEngine.cs
            *            added a populatePotionsFunction
+           *            new round populates the potionspool
            *      TurnEngine.cs
            *            add a function called DrinkAllPotions will have a character drink all health potions even if they only need one
            *            added a fucntion called bellowTwentyHealth will return true is health bellow 20 percent 
@@ -536,13 +537,27 @@ namespace Scenario
             //Arrange
             //turning healing on 
             Engine.RoundHealing = RoundHealingEnum.Healing_on;
-
+            BaseCharacter character = new BaseCharacter();
             //Act
             //seeing if the potion list will be populated with 6th potions 
-            bool result= Engine.populatePotionsList();
+            Engine.NewRound();
+
+            bool potions_Health_6_count = false;
+            int count = 0;
+            foreach (PotionsModel potion in Engine.potionPool)
+            {
+                if (potion.GetPotionType() == PotionsEnum.Health)
+                    count++;
+            }
+
+           
+            if(count == 6)
+            {
+                potions_Health_6_count = true;
+            }
 
             //Assert
-            Assert.AreEqual(true, result);
+            Assert.AreEqual(true,potions_Health_6_count );
 
         }
 

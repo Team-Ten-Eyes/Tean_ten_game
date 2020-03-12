@@ -46,9 +46,9 @@ namespace Game.Engine
 
             // Make the PlayerList
             MakePlayerList();
-            
+
             //populate the potions for the round
-            
+            populatePotionsList();
             
 
             // Set Order for the Round
