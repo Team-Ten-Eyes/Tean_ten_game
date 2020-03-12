@@ -1122,5 +1122,72 @@ namespace UnitTests.Engine
             // Assert
             Assert.AreEqual(null, result);
         }
+
+
+        [Test]
+        public void RoundEngine_populatePotionsList_Healing_Off_Should_Pass()
+        {
+            //Arrange
+            Engine.RoundHealing = RoundHealingEnum.Healing_off;
+
+            //Act
+            var result = Engine.populatePotionsList();
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void RoundEngine_populatePotionsLIst_Healing_Off_Should_fail()
+        {
+            //Arrange
+            Engine.RoundHealing = RoundHealingEnum.Healing_off;
+
+            //Act
+            PotionsModel health = new PotionsModel();
+            Engine.potionPool.Add(health);
+            var result = Engine.populatePotionsList();
+
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void RoundEngine_populatePotionsList_Healing_On_Should_Pass()
+        {
+            //Arrange
+            Engine.RoundHealing = RoundHealingEnum.Healing_on;
+
+            //Act
+            var result = Engine.populatePotionsList();
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void RoundEngine_populatePotionsList_Healing_On_should_fail()
+        {
+            //Arrange
+            Engine.RoundHealing = RoundHealingEnum.Healing_on;
+
+            //Act
+            PotionsModel potion = new PotionsModel();
+            Engine.potionPool.Add(potion);
+
+            var result = Engine.populatePotionsList();
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(false, result);
+        }
     }
 }

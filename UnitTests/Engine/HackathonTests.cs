@@ -503,6 +503,36 @@ namespace Scenario
         [Test]
         public void HakathonScenario_4_potion_pool_6_Health_Potions_Should_Pass()
         {
+            /* 
+           * Scenario Number:  
+           *      #4
+           *      
+           * Description: 
+           *      Every Round should have 6 new health potions added
+           * 
+           * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+           *      BattleEngine.cs
+           *            added a populatePotionsFunction
+           *      TurnEngine.cs
+           *            add a function called DrinkAllPotions will have a character drink all health potions even if they only need one
+           *            added a fucntion called bellowTwentyHealth will return true is health bellow 20 percent 
+           *            edited Attack to have a character that is bellow 20 percent drink all the potions
+           *      Base Engine.cs
+           *            add a variable called potions pool
+           * 
+           * Test Algrorithm:
+           *      set the roundcount to 101 in the scoremodel held by BattleEngine
+           *      Add Monsters to round with base stats of 10
+           *      Validate the stats are now 100
+           * 
+           * Test Conditions:
+           *      potion pool is full and there is a character with less than 20 percent health 
+           *    
+           *     
+           * Validation:
+           *      Validate the potions pool only has mana potions
+           */
+
             //Arrange
             //turning healing on 
             Engine.RoundHealing = RoundHealingEnum.Healing_on;
@@ -515,5 +545,6 @@ namespace Scenario
             Assert.AreEqual(true, result);
 
         }
+
     }
 }
