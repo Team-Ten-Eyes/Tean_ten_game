@@ -25,7 +25,72 @@ namespace Scenario
         public void TearDown()
         {
         }
+        [Test]
+        public async Task AutoBattleEngine_Hack13_First_Round_Boss_Fight_Game_Over_At_Round_One()
+        {
+            AutoBattleEngine MyEngine = new AutoBattleEngine();
+            await MyEngine.RunAutoBattle();
 
+            var result = EngineViewModel.Engine.BattleScore.RoundCount;
+
+            Assert.AreEqual(result, 0);
+        }
+        [Test]
+        public async Task AutoBattleEngine_Hack48_Character_To_Hit_Roll_Equal_To_Hack_48_Condition_Attacker_Dies_Game_Ends_At_Round_One()
+        {
+
+            AutoBattleEngine MyEngine = new AutoBattleEngine();
+            MyEngine.testHack48 = true;
+            //FIRST CHARACTER 
+            await MyEngine.RunAutoBattle();
+
+            var result = MyEngine.BattleScore.RoundCount;
+
+            MyEngine.testHack48 = false;
+
+            Assert.AreEqual(result, 1);
+            MyEngine.testHack48 = false;
+
+        }
+        [Test]
+        public async Task AutoBattleEngine_Character_With_Prime_Attribute_Value_Hits_Real_Hard_should_win_LOTS()
+        {
+            AutoBattleEngine MyEngine = new AutoBattleEngine();
+            MyEngine.testingHack47 = true;
+
+            for (int i = 0; i < MyEngine.MaxNumberPartyCharacters; i++)
+            {
+                var PrimeGod = new PlayerInfoModel(
+                        new BaseCharacter
+                        {
+                            Speed = 16,
+                            Level = 7,
+                            Attack = 12,
+                            Defense = 10,
+                            MaxHealth = 50,
+
+
+                            CurrHealth = 11,
+                            Experience = 1,
+                            ExperienceRemaining = 1,
+                            Name = "God Like Mike",
+                            ListOrder = 1,
+                        });
+
+                MyEngine.CharacterList.Add(PrimeGod);
+
+
+            }
+            MyEngine.MaxNumberPartyMonsters = 1;
+
+            //Act
+            var result = await MyEngine.RunAutoBattle();
+
+            //Reset
+            MyEngine.testingHack47 = false;
+            //Assert
+            Assert.AreEqual(true, result);
+        }
         #region ScenarioConstructor
         [Test]
         public void HakathonScenario_Constructor_0_Default_Should_Pass()
