@@ -5,8 +5,8 @@
 
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout>
-                <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Vertical">
                     <ListView 
                                 x:Name="PartyListView" 
                                 ItemsSource="{Binding PartyCharacterList}"
