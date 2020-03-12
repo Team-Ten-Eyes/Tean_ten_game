@@ -531,18 +531,28 @@ namespace Scenario
            *    
            *     
            * Validation:
-           *      Validate the potions pool only has mana potions
+           *      Validate the potions pool only has mana potions. it is to show that
+           *      your character is greedy and will drink all the potions before anyone attacks
            */
 
             //Arrange
             //turning healing on 
             Engine.RoundHealing = RoundHealingEnum.Healing_on;
-            BaseCharacter character = new BaseCharacter();
+            Engine.BattleScore.AutoBattle = true;
+            PlayerInfoModel character = new PlayerInfoModel();
+            character.PlayerType = PlayerTypeEnum.Character;
+            character.MaxHealth = 100;
+            double Bellow = (double)(character.MaxHealth * .20);
+            character.CurrHealth = (int)(Bellow - 1);
+            Engine.CharacterList.Add(character);
+
             //Act
             //seeing if the potion list will be populated with 6th potions 
             Engine.NewRound();
 
-            bool potions_Health_6_count = false;
+            Engine.Attack(character);
+
+            bool potions_Health_0_count = false;
             int count = 0;
             foreach (PotionsModel potion in Engine.potionPool)
             {
@@ -551,15 +561,17 @@ namespace Scenario
             }
 
            
-            if(count == 6)
+            if(count == 0)
             {
-                potions_Health_6_count = true;
+                potions_Health_0_count = true;
             }
 
             //Assert
-            Assert.AreEqual(true,potions_Health_6_count );
+            Assert.AreEqual(true,potions_Health_0_count );
 
         }
 
+
+        
     }
 }
