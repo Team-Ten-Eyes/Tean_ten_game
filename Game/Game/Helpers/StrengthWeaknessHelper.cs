@@ -53,7 +53,7 @@ namespace Game.Helpers
                a.ToString() != MonsterTypeEnum.Unknown.ToString() &&
                a.ToString() != MonsterTypeEnum.Fear.ToString()).ToList();
                 return CunningStrengths;
-            }
+             }
 
             return monsterType;
 

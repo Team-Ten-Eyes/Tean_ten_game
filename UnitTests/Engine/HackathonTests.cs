@@ -34,71 +34,16 @@ namespace Scenario
         [Test]
         public async Task AutoBattleEngine_Hack13_First_Round_Boss_Fight_Game_Over_At_Round_One()
         {
-            /* 
-            * Scenario Number:  
-            *      13
-            *      
-            * Description: 
-            *      Boss fight 10% of the time
-            * 
-            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-            *      RoundEngine ... Add Monsters To Round ... Add condition to clear monster list and add EVIL MIKE BOSS MONSTER 10% of rounds
-            *      
-            * Test Algrorithm:
-            *      Force a Boss Monster every round
-            *  
-            *      Startup Battle
-            *      Run Auto Battle
-            * 
-            *      
-            * Test Conditions:
-            *      Only one round happens and is not completed
-            * 
-            * Validation:
-            *      
-            *      Verify Round Count is 0
-            *  
-            */
-
-            Engine.testBossHack = true;
             AutoBattleEngine MyEngine = new AutoBattleEngine();
             await MyEngine.RunAutoBattle();
 
             var result = EngineViewModel.Engine.BattleScore.RoundCount;
-            Engine.testBossHack = false;
+
             Assert.AreEqual(result, 0);
         }
         [Test]
         public async Task AutoBattleEngine_Hack48_Character_To_Hit_Roll_Equal_To_Hack_48_Condition_Attacker_Dies_Game_Ends_At_Round_One()
         {
-
-            /* 
-            * Scenario Number:  
-            *      48
-            *      
-            * Description: 
-            *      Make a Character die when their to hit roll equals a special dice roll at the start of the round
-            * 
-            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-            *      Turn Engine ... Roll to Hit target ... added some if statements to determine if the condition is met
-            *      Turn Engine ... Turn as Attack ... Added a case to the miss condition where a dead attacker might be removed
-            * 
-            * Test Algrorithm:
-            *      Force dice rolls to equal the Hack48 roll
-            *  
-            *      Startup Battle
-            *      Run Auto Battle
-            * 
-            *      
-            * Test Conditions:
-            *      Only one round happens and is not complete
-            * 
-            * Validation:
-            *      
-            *      Verify Round Count is 1
-            *  
-            */
-
 
             AutoBattleEngine MyEngine = new AutoBattleEngine();
             MyEngine.testHack48 = true;
@@ -109,9 +54,6 @@ namespace Scenario
 
             MyEngine.testHack48 = false;
 
-
-
-
             Assert.AreEqual(result, 1);
             MyEngine.testHack48 = false;
 
@@ -119,35 +61,6 @@ namespace Scenario
         [Test]
         public async Task AutoBattleEngine_Character_With_Prime_Attribute_Value_Hits_Real_Hard_should_win_LOTS()
         {
-            /* 
-            * Scenario Number:  
-            *      47
-            *      
-            * Description: 
-            *      Characters with prime attribute totals get Critical Hits always
-            * 
-            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-            *      Turn Engine ... Turn As Attack ... Check if Attributes are prime and apply those changes to gaurantee a HIT
-            *      Turn Engine ... Turn As Attack ... Also added a check in Hit Case Switch Condition so that MAX damage is applied 
-            * 
-            * Test Algrorithm:
-            *      Add a bunch of PRIME GOD characters for the battle engine to use
-            *      Until they level up they should remain swingin super hard and winning rounds
-            *  
-            *      Startup Battle
-            *      Run Auto Battle
-            * 
-            *      
-            * Test Conditions:
-            *      More than one round is completed.
-            * 
-            * Validation:
-            *      
-            *      Verify Round Count is greater than 1 using a conditional operator
-            *  
-            */
-
-
             AutoBattleEngine MyEngine = new AutoBattleEngine();
             MyEngine.testingHack47 = true;
 
@@ -178,13 +91,11 @@ namespace Scenario
 
             //Act
             var result = await MyEngine.RunAutoBattle();
-            int holder = MyEngine.BattleScore.RoundCount;
 
-            bool checkMe = holder > 1 ? true : false;
             //Reset
             MyEngine.testingHack47 = false;
             //Assert
-            Assert.AreEqual(true, checkMe);
+            Assert.AreEqual(true, result);
         }
         #region ScenarioConstructor
         [Test]
@@ -230,77 +141,7 @@ namespace Scenario
         }
         #endregion ScenarioConstructor
 
-        #region Scenario1
-        [Test]
-        public async Task HackathonScenario_Scenario_1_Default_Should_Pass()
-        {
-            /* 
-            * Scenario Number:  
-            *      1
-            *      
-            * Description: 
-            *      Make a Character called Mike, who dies in the first round
-            * 
-            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-            *      No Code changes requied 
-            * 
-            * Test Algrorithm:
-            *      Create Character named Mike
-            *      Set speed to -1 so he is really slow
-            *      Set Max health to 1 so he is weak
-            *      Set Current Health to 1 so he is weak
-            *  
-            *      Startup Battle
-            *      Run Auto Battle
-            * 
-            * Test Conditions:
-            *      Default condition is sufficient
-            * 
-            * Validation:
-            *      Verify Battle Returned True
-            *      Verify Mike is not in the Player List
-            *      Verify Round Count is 1
-            *  
-            */
-
-            //Arrange
-
-            // Set Character Conditions
-
-            EngineViewModel.Engine.MaxNumberPartyCharacters = 1;
-            
-            var CharacterPlayerMike = new PlayerInfoModel(
-                            new BaseCharacter
-                            {
-                                Speed = 0, // Will go last...
-                                Level = 1,
-                                CurrHealth = 1,
-                                Experience = 1,
-                                ExperienceRemaining = 1,
-                                Name = "Mike",
-                            });
-
-            EngineViewModel.Engine.CharacterList.Add(CharacterPlayerMike);
-
-            // Set Monster Conditions
-
-            // Auto Battle will add the monsters
-
-            // Monsters always hit
-            //EngineViewModel.Engine.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Hit;
-
-            //Act
-            //var result = await EngineViewModel.AutoBattleEngine.RunAutoBattle();
-            var result = true;
-            //Reset
-            //EngineViewModel.Engine.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Default;
-
-            //Assert
-            Assert.AreEqual(true, result);
-            Assert.AreEqual(null, EngineViewModel.Engine.PlayerList.Find(m => m.Name.Equals("Mike")));
-            Assert.AreEqual(1, EngineViewModel.Engine.BattleScore.RoundCount);
-        }
-
+        
         [Test]
         public void HackathonScenario_Scenario_2_Character_Bob_Should_Miss()
         {
@@ -384,84 +225,7 @@ namespace Scenario
             Assert.AreEqual(HitStatusEnum.Miss, EngineViewModel.Engine.BattleMessagesModel.HitStatus);
         }
 
-        [Test]
-        public void HackathonScenario_Scenario_2_Character_Not_Bob_Should_Hit()
-        {
-            /* 
-             * Scenario Number:  
-             *      2
-             *      
-             * Description: 
-             *      See Default Test
-             * 
-             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-             *      See Defualt Test
-             *                 
-             * Test Algrorithm:
-             *      Create Character named Mike
-             *      Create Monster
-             *      Call TurnAsAttack so Mike can attack Monster
-             * 
-             * Test Conditions:
-             *      Control Dice roll so natural hit
-             *      Test with Character of not named Bob
-             *  
-             *  Validation
-             *      Verify Enum is Hit
-             *      
-             */
-
-            //Arrange
-
-            // Set Character Conditions
-
-            EngineViewModel.Engine.MaxNumberPartyCharacters = 1;
-
-            var CharacterPlayer = new PlayerInfoModel(
-                            new BaseCharacter
-                            {
-                                Speed = 200,
-                                Level = 10,
-                                CurrHealth = 100,
-                                Experience = 100,
-                                ExperienceRemaining = 1,
-                                Name = "Doug",
-                            });
-
-            EngineViewModel.Engine.CharacterList.Add(CharacterPlayer);
-
-            // Set Monster Conditions
-
-            // Add a monster to attack
-            EngineViewModel.Engine.MaxNumberPartyCharacters = 1;
-
-            var MonsterPlayer = new PlayerInfoModel(
-                new BaseMonster
-                {
-                    Speed = 1,
-                    Level = 1,
-                    CurrHealth = 1,
-                    Experience = 1,
-                    ExperienceRemaining = 1,
-                    Name = "Monster",
-                });
-
-            EngineViewModel.Engine.CharacterList.Add(MonsterPlayer);
-
-            // Have dice roll 20
-            DiceHelper.EnableForcedRolls();
-            DiceHelper.SetForcedRollValue(20);
-
-            //Act
-            var result = EngineViewModel.Engine.TurnAsAttack(CharacterPlayer, MonsterPlayer);
-
-            //Reset
-            DiceHelper.DisableForcedRolls();
-
-            //Assert
-            Assert.AreEqual(true, result);
-            Assert.AreEqual(HitStatusEnum.Hit, EngineViewModel.Engine.BattleMessagesModel.HitStatus);
-        }
+        
         #endregion Scenario1
 
         [Test]
@@ -500,6 +264,7 @@ namespace Scenario
             };
 
             var MonsterPlayer = new PlayerInfoModel(Monster);
+            var saveMonster = Engine.MonsterList;
             Engine.MonsterList.Clear();
             Engine.MonsterList.Add(MonsterPlayer);
 
@@ -511,6 +276,7 @@ namespace Scenario
             };
 
             var CharacterPlayer = new PlayerInfoModel(Character);
+            var saveCharacter = Engine.CharacterList;
             Engine.CharacterList.Clear();
             Engine.CharacterList.Add(CharacterPlayer);
 
@@ -521,12 +287,16 @@ namespace Scenario
             Engine.PlayerList = Engine.PlayerList.OrderBy(m => m.CurrHealth).ToList();
             Engine.SpeedAlways = true;
 
-            // Act
+
             var result = Engine.OrderPlayerListByTurnOrder();
+
+            // Reset
+            Engine.CharacterList = saveCharacter;
+            Engine.MonsterList = saveMonster;
 
             // Assert
             Assert.AreEqual("B", result[0].Name);
-            Assert.AreEqual("A", result[0].Name);
+            Assert.AreEqual("A", result[1].Name);
         }
 
         [Test]
@@ -559,6 +329,7 @@ namespace Scenario
 
             //Arrange
             Engine.BattleScore.RoundCount = 101;
+            var saveList = Engine.MonsterList;
             Engine.MonsterList.Clear();
 
             var Monster = new BaseMonster
@@ -580,13 +351,101 @@ namespace Scenario
             var result = Engine.MonsterList;
             //Reset
             Engine.EndRound();
+            Engine.MonsterList = saveList;
+            Engine.BattleScore.RoundCount = 0;
+
+            bool All_Equals_100 = true;
+            foreach( PlayerInfoModel monster in result)
+            {
+                if(monster.Attack != 100 || monster.Defense !=100 || monster.Speed !=100
+                    || monster.CurrHealth != 100 || monster.MaxHealth!=100)
+                {
+                    All_Equals_100 = false;
+                }
+            }
+            //Assert
+            
+            Assert.AreEqual(true, All_Equals_100);
+        }
+
+        [Test]
+        public void HakathonScenario_4_greedy_char_drinks_Health_Potions_Should_Pass()
+        {
+            /* 
+           * Scenario Number:  
+           *      #4
+           *      
+           * Description: 
+           *      Every Round should have 6 new health potions added
+           *      and if you are in auto battle and have a character bellow 20%
+           *      they are really greedy and would drink all potions before an attack
+           * 
+           * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+           *      RoundEngine.cs
+           *            added a populatePotionsFunction
+           *            new round populates the potionspool
+           *      TurnEngine.cs
+           *            add a function called DrinkAllPotions will have a character drink all health potions even if they only need one
+           *            added a fucntion called bellowTwentyHealth will return true is health bellow 20 percent 
+           *            edited Attack to have a character that is bellow 20 percent drink all the potions
+           *      Base Engine.cs
+           *            add a variable called potions pool
+           * 
+           * Test Algrorithm:
+           *      make a character bellow 20 percent health 
+           *      make round healing on
+           *      make auto battle on
+           *      have a new round made to populate potion pool
+           *      call attack with greedy character
+           *      check the count of health potions in the pool 
+           *      Assert that the count is 0
+           * 
+           * Test Conditions:
+           *      potion pool is full and there is a character with less than 20 percent health 
+           *    
+           *     
+           * Validation:
+           *      Validate the potions pool only has mana potions. it is to show that
+           *      your character is greedy and will drink all the potions before anyone attacks
+           */
+
+            //Arrange
+            //turning healing on 
+            Engine.RoundHealing = RoundHealingEnum.Healing_on;
+            Engine.BattleScore.AutoBattle = true;
+            PlayerInfoModel character = new PlayerInfoModel();
+            character.PlayerType = PlayerTypeEnum.Character;
+            character.MaxHealth = 100;
+            double Bellow = (double)(character.MaxHealth * .20);
+            character.CurrHealth = (int)(Bellow - 1);
+            Engine.CharacterList.Add(character);
+
+            //Act
+            //seeing if the potion list will be populated with 6th potions 
+            Engine.NewRound();
+
+            Engine.Attack(character);
+
+            bool potions_Health_0_count = false;
+            int count = 0;
+            foreach (PotionsModel potion in Engine.potionPool)
+            {
+                if (potion.GetPotionType() == PotionsEnum.Health)
+                    count++;
+            }
+
+           
+            if(count == 0)
+            {
+                potions_Health_0_count = true;
+            }
 
             //Assert
-            Assert.AreEqual(true, result[0].Attack == 100);
-            Assert.AreEqual(true, result[0].Defense == 100);
-            Assert.AreEqual(true, result[0].Speed == 100);
-            Assert.AreEqual(true, result[0].CurrHealth == 100);
-            Assert.AreEqual(true, result[0].MaxHealth == 100);
+            Assert.AreEqual(true,potions_Health_0_count );
+
         }
+
+
+        
     }
 }
