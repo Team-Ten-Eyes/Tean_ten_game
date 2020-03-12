@@ -500,9 +500,19 @@ namespace Scenario
             Assert.AreEqual(true, result[0].MaxHealth == 100);
         }
 
-        
+        [Test]
         public void HakathonScenario_4_potion_pool_6_Health_Potions_Should_Pass()
         {
+            //Arrange
+            //turning healing on 
+            Engine.RoundHealing = RoundHealingEnum.Healing_on;
+
+            //Act
+            //seeing if the potion list will be populated with 6th potions 
+            bool result= Engine.populatePotionsList();
+
+            //Assert
+            Assert.AreEqual(true, result);
 
         }
     }
