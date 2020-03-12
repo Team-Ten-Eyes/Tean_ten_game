@@ -225,6 +225,7 @@ namespace UnitTests.Helpers
             // Act
             var result = RandomPlayerHelper.GetRandomCharacter(1);
 
+            
             // Reset
 
             // Assert
