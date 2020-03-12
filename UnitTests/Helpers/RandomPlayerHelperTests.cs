@@ -225,10 +225,12 @@ namespace UnitTests.Helpers
             // Act
             var result = RandomPlayerHelper.GetRandomCharacter(1);
 
+            
             // Reset
 
             // Assert
-            Assert.AreEqual(true, result.Name.Contains("Elf"));
+            //our default character when creating a new character is named michelle
+            Assert.AreEqual(true, result.Name.Contains("Michelle"));
         }
 
         [Test]
