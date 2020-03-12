@@ -13,10 +13,16 @@ namespace Scenario
     public class HackathonScenarioTests
     {
         readonly BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
+        BattleEngine Engine;
 
         [SetUp]
         public void Setup()
         {
+            Engine = new BattleEngine();
+
+            //Start the Engine in AutoBattle Mode
+            Engine.StartBattle(true);
+
             //EngineViewModel.Engine.BattleSettingsModel.CharacterHitEnum = HitStatusEnum.Default;
             //EngineViewModel.Engine.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Default;
         }
@@ -265,7 +271,7 @@ namespace Scenario
                                 CurrHealth = 100,
                                 Experience = 100,
                                 ExperienceRemaining = 1,
-                                Name = "Mike",
+                                Name = "Doug",
                             });
 
             EngineViewModel.Engine.CharacterList.Add(CharacterPlayer);
@@ -303,5 +309,130 @@ namespace Scenario
             Assert.AreEqual(HitStatusEnum.Hit, EngineViewModel.Engine.BattleMessagesModel.HitStatus);
         }
         #endregion Scenario1
+
+        [Test]
+        public void HakathonScenario_15_Slowest_First_Should_Pass()
+        {
+            /* 
+            * Scenario Number:  
+            *      #15
+            *      
+            * Description: 
+            *      On a 20% chance the slowest creatures and players will move first instead of fastest
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      AboutPage.Xaml
+            *      AboutPage.Xaml.cs
+            *      RoundEngine.cs
+            *      OrderPlayerListByTurnOrder()
+            * 
+            * Test Algrorithm:
+            *      Set the "AlwaysSlowest" variable to true to ensure that the slowest goes first.
+            *      Add 2 monsters
+            *      Check list order for slowest
+            * 
+            * Test Conditions:
+            *      Slowest activated - Slowest first
+            *      Slowest not activated - Slowest second
+            * 
+            * Validation:
+            *      Validate that the slowest goes first in the list. Validate the slowest is at index 1
+            */
+            var Monster = new BaseMonster
+            {
+                Speed = 20,
+                CurrHealth = 12,
+                Name = "A",
+            };
+
+            var MonsterPlayer = new PlayerInfoModel(Monster);
+            Engine.MonsterList.Clear();
+            Engine.MonsterList.Add(MonsterPlayer);
+
+            var Character = new BaseCharacter
+            {
+                Speed = 1,
+                CurrHealth = 10,
+                Name = "B",
+            };
+
+            var CharacterPlayer = new PlayerInfoModel(Character);
+            Engine.CharacterList.Clear();
+            Engine.CharacterList.Add(CharacterPlayer);
+
+            // Make the List
+            Engine.PlayerList = Engine.MakePlayerList();
+
+            // Sort the list by Current Health, so it has to be resorted.
+            Engine.PlayerList = Engine.PlayerList.OrderBy(m => m.CurrHealth).ToList();
+            Engine.SpeedAlways = true;
+
+            // Act
+            var result = Engine.OrderPlayerListByTurnOrder();
+
+            // Assert
+            Assert.AreEqual("B", result[0].Name);
+            Assert.AreEqual("A", result[0].Name);
+        }
+
+        [Test]
+        public void HakathonScenario_31_Monster_Multiplied_Should_Pass()
+        {
+            /* 
+            * Scenario Number:  
+            *      #31
+            *      
+            * Description: 
+            *      Every round past 100 the monsters stats are multiplied by 10
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      RoundEngine.cs
+            *      AddMonstersToRound()
+            * 
+            * Test Algrorithm:
+            *      set the roundcount to 101 in the scoremodel held by BattleEngine
+            *      Add Monsters to round with base stats of 10
+            *      Validate the stats are now 100
+            * 
+            * Test Conditions:
+            *      Round Count >100
+            *      
+            * 
+            * Validation:
+            *      Validate the stats of the monster added are all 100
+            */
+
+
+            //Arrange
+            Engine.BattleScore.RoundCount = 101;
+            Engine.MonsterList.Clear();
+
+            var Monster = new BaseMonster
+            {
+                Speed = 10,
+                CurrHealth = 10,
+                MaxHealth = 10,
+                Attack = 10,
+                Defense = 10,
+                Name = "A",
+            };
+
+            var MonsterPlayer = new PlayerInfoModel(Monster);
+
+            Engine.MonsterList.Add(MonsterPlayer);
+            Engine.MaxNumberPartyMonsters = 1;
+            //Act
+            Engine.AddMonstersToRound();
+            var result = Engine.MonsterList;
+            //Reset
+            Engine.EndRound();
+
+            //Assert
+            Assert.AreEqual(true, result[0].Attack == 100);
+            Assert.AreEqual(true, result[0].Defense == 100);
+            Assert.AreEqual(true, result[0].Speed == 100);
+            Assert.AreEqual(true, result[0].CurrHealth == 100);
+            Assert.AreEqual(true, result[0].MaxHealth == 100);
+        }
     }
 }
