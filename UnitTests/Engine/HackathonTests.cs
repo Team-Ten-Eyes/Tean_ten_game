@@ -97,7 +97,7 @@ namespace Scenario
             //Assert
             Assert.AreEqual(true, result);
         }
-        #region ScenarioConstructor
+#region ScenarioConstructor
         [Test]
         public void HakathonScenario_Constructor_0_Default_Should_Pass()
         {
@@ -226,7 +226,7 @@ namespace Scenario
         }
 
         
-        #endregion Scenario1
+       
 
         [Test]
         public void HakathonScenario_15_Slowest_First_Should_Pass()

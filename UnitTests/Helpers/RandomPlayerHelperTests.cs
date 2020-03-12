@@ -229,7 +229,8 @@ namespace UnitTests.Helpers
             // Reset
 
             // Assert
-            Assert.AreEqual(true, result.Name.Contains("Elf"));
+            //our default character when creating a new character is named michelle
+            Assert.AreEqual(true, result.Name.Contains("Michelle"));
         }
 
         [Test]
