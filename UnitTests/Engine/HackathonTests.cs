@@ -226,7 +226,6 @@ namespace Scenario
         }
 
         
-        #endregion Scenario1
 
         [Test]
         public void HakathonScenario_15_Slowest_First_Should_Pass()
