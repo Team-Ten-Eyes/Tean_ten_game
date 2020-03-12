@@ -253,7 +253,7 @@ namespace Game.Engine
 
                     // Check if Dead and Remove
                     RemoveIfDead(Target);
-                    
+                    RemoveIfDead(Attacker);
 
                     // If it is a character apply the experience earned
                     CalculateExperience(Attacker, Target);
@@ -466,6 +466,7 @@ namespace Game.Engine
                         Debug.WriteLine("The CIA regrets to inform you that your character died.");
                         PlayerList[i].Alive = false;
                         BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
+                        
                         return BattleMessagesModel.HitStatus;
                     }
                 }
