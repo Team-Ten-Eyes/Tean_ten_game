@@ -424,12 +424,18 @@ namespace Scenario
             Engine.MonsterList = saveList;
             Engine.BattleScore.RoundCount = 0;
 
+            bool All_Equals_100 = true;
+            foreach( PlayerInfoModel monster in result)
+            {
+                if(monster.Attack != 100 && monster.Defense !=100 && monster.Speed !=100
+                    && monster.CurrHealth == 100 && monster.MaxHealth==100)
+                {
+                    All_Equals_100 = false;
+                }
+            }
             //Assert
-            Assert.AreEqual(true, result[0].Attack == 100);
-            Assert.AreEqual(true, result[0].Defense == 100);
-            Assert.AreEqual(true, result[0].Speed == 100);
-            Assert.AreEqual(true, result[0].CurrHealth == 100);
-            Assert.AreEqual(true, result[0].MaxHealth == 100);
+            
+            Assert.AreEqual(true, All_Equals_100);
         }
 
         [Test]
