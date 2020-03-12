@@ -427,8 +427,8 @@ namespace Scenario
             bool All_Equals_100 = true;
             foreach( PlayerInfoModel monster in result)
             {
-                if(monster.Attack != 100 && monster.Defense !=100 && monster.Speed !=100
-                    && monster.CurrHealth == 100 && monster.MaxHealth==100)
+                if(monster.Attack != 100 || monster.Defense !=100 || monster.Speed !=100
+                    || monster.CurrHealth != 100 || monster.MaxHealth!=100)
                 {
                     All_Equals_100 = false;
                 }
