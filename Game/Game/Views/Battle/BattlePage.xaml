@@ -46,9 +46,11 @@
 
                     </StackLayout>
 
-                    <StackLayout Orientation="Vertical">
+                    <StackLayout Orientation="Vertical" WidthRequest="400">
                         <Label Text="{Binding Engine.BattleMessagesModel.TurnMessage;}"/>
                     </StackLayout>
+                    
+                    
                     <StackLayout Orientation="Vertical">
                         <ListView 
                                 x:Name="MonsterListView" 
