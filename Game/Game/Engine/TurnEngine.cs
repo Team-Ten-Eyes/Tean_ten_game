@@ -205,10 +205,15 @@ namespace Game.Engine
         /// <returns></returns>
         public bool TurnAsAttack(PlayerInfoModel Attacker, PlayerInfoModel Target)
         {
+
+
+
             if (Attacker == null)
             {
                 return false;
             }
+
+
 
             if (Target == null)
             {

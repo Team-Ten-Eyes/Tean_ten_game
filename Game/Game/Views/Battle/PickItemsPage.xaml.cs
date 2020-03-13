@@ -57,7 +57,7 @@ namespace Game.Views
 
             await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
            
-            await Navigation.PopAsync();
+            //await Navigation.PopAsync();
             
         }
 

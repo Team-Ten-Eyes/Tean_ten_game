@@ -29,7 +29,7 @@ namespace Game.Views
         /// <param name="e"></param>
         async void DungeonButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MonstersInTheNextBattle());
+            await Navigation.PushModalAsync(new MonstersInTheNextBattle());
         }
 
         /// <summary>

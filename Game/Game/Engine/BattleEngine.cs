@@ -8,6 +8,10 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System;
 using System.ComponentModel;
+using Game.Services;
+using System.Collections.Generic;
+
+
 namespace Game.Engine
 {
     /// <summary>
@@ -89,6 +93,7 @@ namespace Game.Engine
 
             BattleRunning = true;
 
+            fillItemPool();
         
             NewRound();
             
@@ -97,6 +102,21 @@ namespace Game.Engine
             return true;
         }
 
+
+        /// <summary>
+        /// will fill the item pool with default
+        /// </summary>
+        /// <returns></returns>
+        public bool fillItemPool()
+        {
+            ItemModel temp = new ItemModel();
+            List <ItemModel> item = Services.DefaultData.LoadData(temp);
+            foreach (ItemModel i in item)
+            {
+                ItemPool.Add(i);
+            }
+            return true;
+        }
 
         
         
