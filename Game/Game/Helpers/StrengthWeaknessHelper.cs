@@ -101,60 +101,62 @@ namespace Game.Helpers
         /// <param name="monsterType"></param>
         /// <returns></returns>
         public static List<string> getMonsterStrengths(string monsterType)
-        {
-            var characterType = Enum.GetNames(typeof(CharacterTypeEnum)).ToList();
+            {
+                var characterType = Enum.GetNames(typeof(CharacterTypeEnum)).ToList();
 
-            if (monsterType == "Depression")
-            {
-                var DStrengths = characterType.Where(a =>
-            a.ToString() != CharacterTypeEnum.Unknown.ToString() &&
-           a.ToString() != CharacterTypeEnum.Cunning.ToString()).ToList();
-                return DStrengths;
-            }
+                if (monsterType == "Depression")
+                {
+                    var DStrengths = characterType.Where(a =>
+                a.ToString() != CharacterTypeEnum.Unknown.ToString() &&
+               a.ToString() != CharacterTypeEnum.Cunning.ToString()).ToList();
+                    return DStrengths;
+                }
 
-            if (monsterType == "Paranoia")
-            {
-                var PStrengths = characterType.Where(a =>
-               a.ToString() != CharacterTypeEnum.Creativity.ToString() &&
-               a.ToString() != CharacterTypeEnum.Unknown.ToString()).ToList();
-                return PStrengths;
-            }
+                if (monsterType == "Paranoia")
+                {
+                    var PStrengths = characterType.Where(a =>
+                   a.ToString() != CharacterTypeEnum.Creativity.ToString() &&
+                   a.ToString() != CharacterTypeEnum.Unknown.ToString()).ToList();
+                    return PStrengths;
+                }
 
-            if (monsterType == "Anger")
-            {
-                var AngerStrengths = characterType.Where(a =>
-                a.ToString() == CharacterTypeEnum.Bravery.ToString()).ToList();
-                return AngerStrengths;
-            }
+                if (monsterType == "Anger")
+                {
+                    var AngerStrengths = characterType.Where(a =>
+                    a.ToString() == CharacterTypeEnum.Bravery.ToString()).ToList();
+                    return AngerStrengths;
+                }
 
-            if (monsterType == "Fear")
-            {
-                var fearStrenths = characterType.Where(a =>
-               a.ToString() == CharacterTypeEnum.Cunning.ToString()).ToList();
-                return fearStrenths;
-            }
+                if (monsterType == "Fear")
+                {
+                    var fearStrenths = characterType.Where(a =>
+                   a.ToString() == CharacterTypeEnum.Cunning.ToString()).ToList();
+                    return fearStrenths;
+                }
 
-            if (monsterType == "Anxiety")
-            {
-                var AnxietyStrengths = characterType.Where(a =>
-               a.ToString() == CharacterTypeEnum.Creativity.ToString()).ToList();
-                return AnxietyStrengths;
-            }
-            if (monsterType == "BurnOut")
-            {
-                var burnoutStrengths = characterType.Where(a =>
-               a.ToString() == CharacterTypeEnum.Creativity.ToString()).ToList();
-                return burnoutStrengths;
-            }
+                if (monsterType == "Anxiety")
+                {
+                    var AnxietyStrengths = characterType.Where(a =>
+                   a.ToString() == CharacterTypeEnum.Creativity.ToString()).ToList();
+                    return AnxietyStrengths;
+                }
+                if (monsterType == "BurnOut")
+                {
+                    var burnoutStrengths = characterType.Where(a =>
+                   a.ToString() == CharacterTypeEnum.Creativity.ToString()).ToList();
+                    return burnoutStrengths;
+                }
 
-            if (monsterType == "Stress")
-            {
-                List<string> nothing = new List<string>();
-                nothing.Add("none");
-                return nothing;
-            }
-            return characterType;
+                if (monsterType == "Stress")
+                {
+                    List<string> nothing = new List<string>();
+                    nothing.Add("none");
+                    return nothing;
+                }
+                return characterType;
 
         }
+
+        
     }
 }

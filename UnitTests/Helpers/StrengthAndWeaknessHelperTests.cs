@@ -158,8 +158,77 @@ namespace UnitTests.Helpers
             //should be the same
             Assert.AreEqual(expected, result);
         }
+
+        [Test]
+        public void getMonstersStrengths_all_expected_outcomes_should_pass()
+        {
+            //arrange
+            //chreating all monster types
+            BaseMonster monsterD = new BaseMonster();
+            monsterD.Attribute = MonsterTypeEnum.Depression;
+            BaseMonster stress = new BaseMonster();
+            stress.Attribute = MonsterTypeEnum.Stress;
+            BaseMonster anxiety = new BaseMonster();
+            anxiety.Attribute = MonsterTypeEnum.Anxiety;
+            BaseMonster Anger = new BaseMonster();
+            Anger.Attribute = MonsterTypeEnum.Anger;
+            BaseMonster fear = new BaseMonster();
+            fear.Attribute = MonsterTypeEnum.Fear;
+            BaseMonster burnOut = new BaseMonster();
+            burnOut.Attribute = MonsterTypeEnum.BurnOut;
+            BaseMonster paraniona = new BaseMonster();
+            paraniona.Attribute = MonsterTypeEnum.Paranoia;
+
+            //all the expected types
+            var characterType = Enum.GetNames(typeof(CharacterTypeEnum)).ToList();
+
+            var Dexpected = characterType.Where(a =>
+            a.ToString() != CharacterTypeEnum.Unknown.ToString() &&
+            a.ToString() != CharacterTypeEnum.Cunning.ToString()).ToList();
+
+            var PStrengths = characterType.Where(a =>
+               a.ToString() != CharacterTypeEnum.Creativity.ToString() &&
+               a.ToString() != CharacterTypeEnum.Unknown.ToString()).ToList();
+
+            var AngerStrengths = characterType.Where(a =>
+                a.ToString() == CharacterTypeEnum.Bravery.ToString()).ToList();
+
+            var fearStrenths = characterType.Where(a =>
+               a.ToString() == CharacterTypeEnum.Cunning.ToString()).ToList();
+
+            var AnxietyStrengths = characterType.Where(a =>
+              a.ToString() == CharacterTypeEnum.Creativity.ToString()).ToList();
+
+            var burnoutStrengths = characterType.Where(a =>
+               a.ToString() == CharacterTypeEnum.Creativity.ToString()).ToList();
+
+            List<string> nothing = new List<string>();
+            nothing.Add("none");
+
+            //act
+            var Dresult = StrengthWeaknessHelper.getMonsterStrengths(monsterD.Attribute.ToString());
+            var Presult = StrengthWeaknessHelper.getMonsterStrengths(paraniona.Attribute.ToString());
+            var AngerResult = StrengthWeaknessHelper.getMonsterStrengths(Anger.Attribute.ToString());
+            var Fresults = StrengthWeaknessHelper.getMonsterStrengths(fear.Attribute.ToString());
+            var AnxietyResults = StrengthWeaknessHelper.getMonsterStrengths(anxiety.Attribute.ToString());
+            var Bresults = StrengthWeaknessHelper.getMonsterStrengths(burnOut.Attribute.ToString());
+            var Sresults = StrengthWeaknessHelper.getMonsterStrengths(stress.Attribute.ToString());
+
+            //Assert
+            Assert.AreEqual(Dexpected, Dresult);
+            Assert.AreEqual(PStrengths, Presult);
+            Assert.AreEqual(AngerStrengths, AngerResult);
+            Assert.AreEqual(fearStrenths, Fresults);
+            Assert.AreEqual(AnxietyStrengths, AnxietyResults);
+            Assert.AreEqual(burnoutStrengths, Bresults);
+            Assert.AreEqual(nothing, Sresults);
+
+
+        }
+       
+
     }
 
 
-    
+
 }
