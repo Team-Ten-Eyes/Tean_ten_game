@@ -205,7 +205,7 @@ namespace Game.Engine
                 RoundStateEnum = RoundEnum.NewRound;
                 return RoundEnum.NewRound;
             }
-        
+
             // Decide Who gets next turn
             // Remember who just went...
             CurrentAttacker = GetNextPlayerTurn();

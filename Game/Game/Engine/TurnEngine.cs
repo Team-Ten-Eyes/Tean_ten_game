@@ -7,7 +7,7 @@ using System.Linq;
 
 
 namespace Game.Engine
-{
+{ 
     /* 
      * Need to decide who takes the next turn
      * Target to Attack
@@ -25,6 +25,10 @@ namespace Game.Engine
     /// </summary>
     public class TurnEngine : BaseEngine
     {
+
+
+        public PlayerInfoModel manualTargetPicked { get; set; } = null;
+        public bool targetPicked { get; set; } = false;
         ///HACKATHON STUFF
         public int deathRollHack48 {get;set;}
         public bool testHack48 { get; set; } = false;
@@ -91,10 +95,21 @@ namespace Game.Engine
                 // For Attack, Choose Who
                 CurrentDefender = AttackChoice(Attacker);
 
+                if(!BattleScore.AutoBattle && Attacker.PlayerType == PlayerTypeEnum.Character)
+                {
+                    while (!targetPicked)
+                    { //SPIN WAIT 
+                    }
+
+                    CurrentDefender = manualTargetPicked; 
+
+                }
+
                 if (CurrentDefender == null)
                 {
                     return false;
                 }
+            
             }
             
 
@@ -253,7 +268,7 @@ namespace Game.Engine
 
                     // Check if Dead and Remove
                     RemoveIfDead(Target);
-                    
+                    RemoveIfDead(Attacker);
 
                     // If it is a character apply the experience earned
                     CalculateExperience(Attacker, Target);
@@ -466,6 +481,7 @@ namespace Game.Engine
                         Debug.WriteLine("The CIA regrets to inform you that your character died.");
                         PlayerList[i].Alive = false;
                         BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
+                        
                         return BattleMessagesModel.HitStatus;
                     }
                 }

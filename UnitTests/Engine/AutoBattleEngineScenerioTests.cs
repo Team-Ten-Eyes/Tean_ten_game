@@ -289,7 +289,7 @@ namespace Scenario
 
             //Assert
             Assert.AreEqual(false, result);
-            Assert.AreEqual(true, Engine.BattleScore.RoundCount > Engine.MaxRoundCount);
+            Assert.AreEqual(true, (Engine.BattleScore.RoundCount > Engine.MaxRoundCount) || (Engine.BattleScore.TurnCount > Engine.MaxTurnCount));
         }
 
         [Test]
@@ -353,7 +353,7 @@ namespace Scenario
             //Assert
             Assert.AreEqual(false, result);
             Assert.AreEqual(true, Engine.BattleScore.TurnCount > Engine.MaxTurnCount);
-            Assert.AreEqual(true, Engine.BattleScore.RoundCount < Engine.MaxRoundCount);
+            Assert.AreEqual(true, Engine.BattleScore.RoundCount > Engine.MaxRoundCount);
         }
 
         //[Test]
