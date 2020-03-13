@@ -439,17 +439,18 @@
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="BackgroundColor" Value="{StaticResource TransparentColor}" />
-            </Style>
+            </Style>-->
 
+            <!--this was previously commented out-->
             <Style TargetType="FlexLayout"
-                   x:Name="PartyListFrame">
+                   x:Name="PartyListFrameforchar">
                 <Setter Property="Wrap" Value="Wrap" />
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Start" />
                 <Setter Property="BackgroundColor" Value="{StaticResource TransparentColor}" />
                 <Setter Property="JustifyContent" Value="Start" />
                 <Setter Property="AlignContent" Value="Start" />
-            </Style>-->
+            </Style>
 
             <!-- Grid -->
             <Style TargetType="Grid">
@@ -506,6 +507,26 @@
                 <Setter Property="FontSize" Value="Small" />
                 <Setter Property="FontAttributes" Value="None" />
                 <Setter Property="BackgroundColor" Value="{StaticResource LightBackgroundColor}" />
+            </Style>
+
+        
+
+            <!--used on the character equiped page-->
+            <Style TargetType="Label"
+                x:Key="PopupItemTextStyleCharEquiped"
+                BasedOn="{StaticResource ValueStyle}">
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+
+            <Style TargetType="Label"
+                x:Key="ValueStyleMicroWhite"
+                BasedOn="{StaticResource ValueStyle}">
+                <Setter Property="FontSize" Value="Micro" />
+                <Setter Property="LineBreakMode" Value="WordWrap" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="TextColor" Value="White"/>
             </Style>
 
         </ResourceDictionary>

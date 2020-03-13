@@ -49,8 +49,8 @@
 
                         <Frame  BorderColor="White" Padding="1">
                             <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand" Padding="2">
-                                <Label x:Name="PopupLocationLabel" Style="{StaticResource PopupEquipedTextStyle}" TextColor="White" />
-                                <Label x:Name="PopupLocationValue" Style="{StaticResource PopupEquipedTextStyle}"  TextColor="White"/>
+                                <Label x:Name="PopupLocationLabel" Style="{StaticResource PopupItemTextStyleCharEquiped}" TextColor="White" />
+                                <Label x:Name="PopupLocationValue" Style="{StaticResource PopupItemTextStyleCharEquiped}"  TextColor="White"/>
 
                                 <ListView x:Name="PopupLocationItemListView" 
                                 CachingStrategy="RecycleElement"
