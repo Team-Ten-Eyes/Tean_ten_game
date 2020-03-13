@@ -190,6 +190,7 @@ namespace Game.Engine
         /// <returns></returns>
         public RoundEnum RoundNextTurn()
         {
+
             // No characters, game is over...
             if (CharacterList.Count < 1)
             {
@@ -208,8 +209,15 @@ namespace Game.Engine
 
             // Decide Who gets next turn
             // Remember who just went...
-            CurrentAttacker = GetNextPlayerTurn();
+            if (BattleScore.AutoBattle)
+            {
+                // Decide Who gets next turn
+                // Remember who just went...
+                CurrentAttacker = GetNextPlayerTurn();
 
+                // Only Attack for now
+                //CurrentAction = ActionEnum.Attack;
+            }
             // Do the turn....
 
             TakeTurn(CurrentAttacker);
