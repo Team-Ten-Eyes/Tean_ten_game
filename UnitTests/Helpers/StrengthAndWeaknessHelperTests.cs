@@ -260,6 +260,25 @@ namespace UnitTests.Helpers
             Assert.AreEqual(false, result);
         }
 
+        [Test]
+        public void SrengthAndWeaknessHelper_monsterStrength_expected_stregth_should_pass()
+        {
+            //arrange
+            BaseCharacter character = new BaseCharacter();
+            character.Attribute = CharacterTypeEnum.Bravery;
+
+            BaseMonster monster = new BaseMonster();
+            monster.Attribute = MonsterTypeEnum.Depression;
+
+            //act
+            var result = StrengthWeaknessHelper.monsterStrength(character.Attribute.ToString(), monster.Attribute.ToString());
+
+            //Assert
+            Assert.AreEqual(true, result);
+        }
+
+
+
 
     }
 

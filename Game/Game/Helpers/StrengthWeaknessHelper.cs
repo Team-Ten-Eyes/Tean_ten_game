@@ -175,6 +175,22 @@ namespace Game.Helpers
             }
             return false;
         }
+        /// <summary>
+        /// this is a function that would return true if a monster is strong against a character
+        /// </summary>
+        /// <param name="monsterType"></param>
+        /// <param name="characterType"></param>
+        /// <returns></returns>
+        public static bool monsterStrength(string characterType, string monsterType)
+        {
+            var monsterStrength = getMonsterStrengths(monsterType);
+            foreach(string type in monsterStrength)
+            {
+                if (type == characterType)
+                    return true;
+            }
+            return false;
+        }
 
 
 
