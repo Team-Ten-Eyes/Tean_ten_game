@@ -338,7 +338,7 @@ namespace Scenario
 
             // Add Monsters
 
-            Engine.MaxNumberPartyMonsters = 6;
+            Engine.MaxNumberPartyMonsters = 5;
 
             // Controll Rolls,  Always Miss
             DiceHelper.EnableForcedRolls();
