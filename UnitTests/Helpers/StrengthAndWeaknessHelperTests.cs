@@ -243,6 +243,22 @@ namespace UnitTests.Helpers
 
         }
 
+        [Test]
+        public void SrengthAndWeaknessHelper_characterStrongAgainst_not_expected_stregth_should_pass()
+        {
+            //arrange
+            BaseCharacter character = new BaseCharacter();
+            character.Attribute = CharacterTypeEnum.Bravery;
+
+            BaseMonster monster = new BaseMonster();
+            monster.Attribute = MonsterTypeEnum.Depression;
+
+            //act
+            var result = StrengthWeaknessHelper.characterStrongAgainst(character.Attribute.ToString(), monster.Attribute.ToString());
+
+            //Assert
+            Assert.AreEqual(false, result);
+        }
 
 
     }
