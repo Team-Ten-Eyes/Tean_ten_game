@@ -103,13 +103,14 @@ namespace Game.Views
             var ItemStack = new StackLayout
             {
                 Padding = 3,
-                Style = (Style)Application.Current.Resources["ItemImageBox"],
+                Style = (Style)Application.Current.Resources["ItemImageBoxCharEquip"],
                 HorizontalOptions = LayoutOptions.Center,
                 Children = {
                     ItemButton,
                     ItemLabel
                 },
             };
+
 
             return ItemStack;
         }
@@ -159,15 +160,6 @@ namespace Game.Views
                 Name = "None",
                 Description = "None"
             };
-
-
-            //     EngineViewModel.baseItemList.Add(NoneItem);
-
-            // Add the rest of the items to the list
-            //  EngineViewModel.baseItemList.AddRange(ItemIndexViewModel.Instance.GetLocationItems(location));
-
-            // Populate the list with the items
-            //  PopupLocationItemListView.ItemsSource = EngineViewModel.baseItemList;
 
             List<ItemModel> itemList = new List<ItemModel>
             {

@@ -529,6 +529,22 @@
                 <Setter Property="TextColor" Value="White"/>
             </Style>
 
+            <Style TargetType="StackLayout"
+                x:Key="ItemImageBoxCharEquip"
+                BasedOn="{StaticResource CardImageTextBox}">
+                <Setter Property="HeightRequest" Value="100" />
+                <Setter Property="WidthRequest" Value="80" />
+            </Style>
+
+            <Style TargetType="Label"
+                x:Key="EquipedListStyle"
+                BasedOn="{StaticResource LabelBaseStyle}">
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+
+            <!--#endregion-->
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

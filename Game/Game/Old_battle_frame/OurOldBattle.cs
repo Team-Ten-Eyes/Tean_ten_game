@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Game.OLD_SHIT
+namespace Game.Old_battle_frame
 {
     class OurOldBattle
     {
