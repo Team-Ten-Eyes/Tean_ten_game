@@ -92,7 +92,7 @@ namespace UnitTests.Helpers
         }
 
         [Test]
-        public void GetCharacterWeaknesses_get_Bravery_expected_weaknesses()
+        public void SrengthAndWeaknessHelper_GetCharacterWeaknesses_get_Bravery_expected_weaknesses()
         {
             //arrange
             //creating a brave character class
@@ -115,7 +115,7 @@ namespace UnitTests.Helpers
         }
 
         [Test]
-        public void GetCharacterWeaknesses_get_Creativity_expected_weaknesses()
+        public void SrengthAndWeaknessHelper_GetCharacterWeaknesses_get_Creativity_expected_weaknesses()
         {
             //arrange
             //creating a brave character class
@@ -138,7 +138,7 @@ namespace UnitTests.Helpers
         }
 
         [Test]
-        public void GetCharacterWeaknesses_get_Cunning_expected_weaknesses()
+        public void SrengthAndWeaknessHelper_GetCharacterWeaknesses_get_Cunning_expected_weaknesses()
         {
             //arrange
             //creating a brave character class
@@ -160,7 +160,7 @@ namespace UnitTests.Helpers
         }
 
         [Test]
-        public void getMonstersStrengths_all_expected_outcomes_should_pass()
+        public void SrengthAndWeaknessHelper_getMonstersStrengths_all_expected_outcomes_should_pass()
         {
             //arrange
             //chreating all monster types
@@ -225,7 +225,80 @@ namespace UnitTests.Helpers
 
 
         }
-       
+        [Test]
+        public void SrengthAndWeaknessHelper_characterStrongAgainst_expected_stregth_should_pass()
+        {
+            //arrange
+            BaseCharacter character = new BaseCharacter();
+            character.Attribute = CharacterTypeEnum.Bravery;
+
+            BaseMonster monster = new BaseMonster();
+            monster.Attribute = MonsterTypeEnum.Anxiety;
+
+            //act
+            var result = StrengthWeaknessHelper.characterStrongAgainst(character.Attribute.ToString(), monster.Attribute.ToString());
+
+            //Assert
+            Assert.AreEqual(true, result);
+
+        }
+
+        [Test]
+        public void SrengthAndWeaknessHelper_characterStrongAgainst_not_expected_stregth_should_pass()
+        {
+            //arrange
+            BaseCharacter character = new BaseCharacter();
+            character.Attribute = CharacterTypeEnum.Bravery;
+
+            BaseMonster monster = new BaseMonster();
+            monster.Attribute = MonsterTypeEnum.Depression;
+
+            //act
+            var result = StrengthWeaknessHelper.characterStrongAgainst(character.Attribute.ToString(), monster.Attribute.ToString());
+
+            //Assert
+            Assert.AreEqual(false, result);
+        }
+
+
+
+        [Test]
+        public void SrengthAndWeaknessHelper_monsterStrength_expected_stregth_should_pass()
+        {
+            //arrange
+            BaseCharacter character = new BaseCharacter();
+            character.Attribute = CharacterTypeEnum.Bravery;
+
+            BaseMonster monster = new BaseMonster();
+            monster.Attribute = MonsterTypeEnum.Depression;
+
+            //act
+            var result = StrengthWeaknessHelper.monsterStrength(character.Attribute.ToString(), monster.Attribute.ToString());
+
+            //Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void SrengthAndWeaknessHelper_monsterStrength_not_expected_stregth_should_pass()
+        {
+            //arrange
+            BaseCharacter character = new BaseCharacter();
+            character.Attribute = CharacterTypeEnum.Cunning;
+
+            BaseMonster monster = new BaseMonster();
+            monster.Attribute = MonsterTypeEnum.Depression;
+
+            //act
+            var result = StrengthWeaknessHelper.monsterStrength(character.Attribute.ToString(), monster.Attribute.ToString());
+
+            //Assert
+            Assert.AreEqual(false, result);
+        }
+
+
+
+
 
     }
 
