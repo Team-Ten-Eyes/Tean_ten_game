@@ -264,12 +264,16 @@ namespace Game.Engine
                     if (Attacker.PlayerType == PlayerTypeEnum.Character)
                     {
                         
-                        //if (Helpers.StrengthWeaknessHelper.characterStrongAgainst(Attacker.CharEnum))) { 
-                        //}
+                        if (Helpers.StrengthWeaknessHelper.characterStrongAgainst(Attacker.CharEnum.ToString(), Target.MonstEnum.ToString())) {
+                            BattleMessagesModel.DamageAmount *= 2;
+                        }
                     }
                     else 
-                    { 
-                    
+                    {
+                        if (Helpers.StrengthWeaknessHelper.monsterStrength(Target.CharEnum.ToString(), Attacker.MonstEnum.ToString()))
+                        {
+                            BattleMessagesModel.DamageAmount *= 2;
+                        }
                     }
 
                     // Apply the Damage
