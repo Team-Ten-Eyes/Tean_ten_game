@@ -334,6 +334,7 @@ namespace Game.Views
         /// <param name="message"></param>
         public void GameMessage()
         {
+            BattleMessages.Text = "";
             // Output The Message that happened.
             BattleMessages.Text = string.Format("{0} \n{1}", EngineViewModel.Engine.BattleMessagesModel.TurnMessage, BattleMessages.Text);
 
@@ -343,6 +344,7 @@ namespace Game.Views
             {
                 BattleMessages.Text = string.Format("{0} \n{1}", EngineViewModel.Engine.BattleMessagesModel.LevelUpMessage, BattleMessages.Text);
             }
+
 
             //htmlSource.Html = EngineViewModel.Engine.BattleMessagesModel.GetHTMLFormattedTurnMessage();
             //HtmlBox.Source = HtmlBox.Source = htmlSource;
