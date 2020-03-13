@@ -251,14 +251,25 @@ namespace Game.Engine
 
                     if (Attacker.PlayerType == PlayerTypeEnum.Character && Attacker.AttributesPrime())
                     {
-                        BattleMessagesModel.DamageAmount = Attacker.GetDamageLevelBonus;
+                        BattleMessagesModel.DamageAmount += Attacker.GetDamageLevelBonus;
                         var myItem = ItemIndexViewModel.Instance.GetItem(Attacker.PrimaryHand);
                         if (myItem != null)
                         {
                             // Dice of the weapon.  So sword of Damage 10 is d10
-                            BattleMessagesModel.DamageAmount = myItem.Damage;
+                            BattleMessagesModel.DamageAmount += myItem.Damage;
                         }
                         Debug.WriteLine("Prime Damage Done Boyyyy");
+                    }
+
+                    if (Attacker.PlayerType == PlayerTypeEnum.Character)
+                    {
+                        
+                        //if (Helpers.StrengthWeaknessHelper.characterStrongAgainst(Attacker.CharEnum))) { 
+                        //}
+                    }
+                    else 
+                    { 
+                    
                     }
 
                     // Apply the Damage
