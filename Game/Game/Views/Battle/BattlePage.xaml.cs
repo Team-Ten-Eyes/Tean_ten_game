@@ -434,7 +434,7 @@ namespace Game.Views
         {
             base.OnAppearing();
 
-           // ShowBattleMode();
+           ShowBattleMode();
         }
 
         /// <summary>
