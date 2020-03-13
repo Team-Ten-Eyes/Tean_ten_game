@@ -544,6 +544,15 @@
             </Style>
 
             <!--#endregion-->
+            
+            <!--style for the new round page-->
+            <Style TargetType="Label"
+                x:Key="ValueStyleWhite"
+                BasedOn="{StaticResource LabelStyle}">
+                <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+
 
         </ResourceDictionary>
     </Application.Resources>
