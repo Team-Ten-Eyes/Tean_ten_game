@@ -43,6 +43,8 @@ namespace Game.Models
             MaxHealth = data.GetMaxHealthTotal;
             CurrHealth = data.GetMaxHealthTotal;
 
+            CharEnum = data.CharEnum;
+            MonstEnum = data.MonstEnum;
             // Set the strings for the items
             Head = data.Head;
             Feet = data.Feet;
@@ -78,6 +80,8 @@ namespace Game.Models
             ImageURI = data.ImageURI;
             MaxHealth = data.GetMaxHealthTotal;
             CurrHealth = data.GetMaxHealthTotal;
+
+            CharEnum = data.Attribute;
 
             // Set the strings for the items
             Head = data.Head;
@@ -117,6 +121,8 @@ namespace Game.Models
             ImageURI = data.ImageURI;
             MaxHealth = data.GetMaxHealthTotal;
             CurrHealth = data.GetCurrentHealthTotal;
+
+            MonstEnum = data.Attribute;
 
             // Set the strings for the items
             Head = data.Head;

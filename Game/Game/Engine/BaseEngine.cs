@@ -64,7 +64,8 @@ namespace Game.Engine
 
         // Max Number of Turns for AutoBattle
         public int MaxTurnCount = 10000;
-
+        // Hold the Battle State, Unknown is default
+        public BattleStateEnum BattleStateEnum = BattleStateEnum.Unknown;
         #endregion Properties
     }
 }
