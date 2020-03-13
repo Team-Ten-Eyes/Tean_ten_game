@@ -89,7 +89,8 @@
         /// <returns></returns>
         public string GetTurnMessage()
         {
-            return AttackerName + GetSwingResult() + TargetName;
+            string returnable = AttackerName + GetSwingResult() + TargetName;
+            return returnable;
         }
 
         /// <summary>

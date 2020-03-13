@@ -324,10 +324,10 @@ namespace Game.Views
         /// <param name="message"></param>
         public void GameMessage()
         {
+            BattleMessages.Text = "";
             // Output The Message that happened.
             BattleMessages.Text = string.Format("{0} \n{1}", EngineViewModel.Engine.BattleMessagesModel.TurnMessage, BattleMessages.Text);
 
-            Debug.WriteLine(BattleMessages.Text);
 
             if (!string.IsNullOrEmpty(EngineViewModel.Engine.BattleMessagesModel.LevelUpMessage))
             {
