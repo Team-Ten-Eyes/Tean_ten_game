@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Game.Helpers
 {
-    class StrengthWeaknessHelper
+    public class StrengthWeaknessHelper
     {
 
         /// <summary>
