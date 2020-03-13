@@ -84,7 +84,7 @@ namespace Game.Views
 
 			
 			
-			data.SelectedForBattle = true;
+			
 			SelectedMonsterAlready = true;
 			
 
