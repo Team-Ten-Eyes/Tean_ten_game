@@ -316,13 +316,13 @@ namespace Game.Views
         /// Clear the Board
         /// 
         /// </summary>
-        public void GameOver()
+        async public void GameOver()
         {
             // Save the Score to the Score View Model, by sending a message to it.
             var Score = EngineViewModel.Engine.BattleScore;
             MessagingCenter.Send(this, "AddData", Score);
 
-            ShowBattleMode();
+            await Navigation.PushModalAsync(new NavigationPage(new ScorePage(new GenericViewModel<ScoreModel>(Score))));
         }
         #endregion BasicBattleMode
 
@@ -418,7 +418,7 @@ namespace Game.Views
         /// </summary>
         public async void ShowModalRoundOverPage()
         {
-            ShowBattleMode();
+            //ShowBattleMode();
             await Navigation.PushModalAsync(new RoundOverPage());
         }
 
@@ -432,7 +432,7 @@ namespace Game.Views
         {
             base.OnAppearing();
 
-            ShowBattleMode();
+           // ShowBattleMode();
         }
 
         /// <summary>
@@ -495,6 +495,9 @@ namespace Game.Views
                 default:
                     break;
             }
+
+            
+
         }
     }
 }
