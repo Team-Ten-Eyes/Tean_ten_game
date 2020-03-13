@@ -91,7 +91,30 @@ namespace UnitTests.Helpers
             Assert.AreEqual(expected, result);
         }
 
+        [Test]
+        public void GetCharacterWeaknesses_get_Bravery_expected_weaknesses()
+        {
+            //arrange
+            //creating a brave character class
+            BaseCharacter character = new BaseCharacter();
+            character.Attribute = CharacterTypeEnum.Bravery;
 
+            //expected list
+            var monsterType = Enum.GetNames(typeof(MonsterTypeEnum)).ToList();
+            var expected = monsterType.Where(a =>
+                      a.ToString() == MonsterTypeEnum.Paranoia.ToString() &&
+                      a.ToString() == MonsterTypeEnum.Anger.ToString() &&
+                      a.ToString() == MonsterTypeEnum.Depression.ToString()).ToList();
 
+            //Act
+            var result = StrengthWeaknessHelper.GetCharacterWeaknesses(character.Attribute.ToString());
+
+            //assert
+            //should be the same
+            Assert.AreEqual(expected, result);
+        }
     }
+
+
+    
 }
