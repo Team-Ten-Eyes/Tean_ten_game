@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -44,17 +43,17 @@ namespace Game.Views
             // Set up the UI to Defaults
             BindingContext = EngineViewModel;
 
-     
-
+           
             // Start the Battle Engine
             EngineViewModel.Engine.StartBattle(false);
 
-       
-
+            
             // Ask the Game engine to select who goes first
             EngineViewModel.Engine.CurrentAttacker = null;
 
-       
+            // Add Players to Display
+            DrawGameAttackerDefenderBoard();
+
             // Set the Battle Mode
             ShowBattleMode();
         }
@@ -93,11 +92,8 @@ namespace Game.Views
 
             // Add one black PlayerInfoDisplayBox to hold space incase the list is empty
             MonsterBox.Children.Add(PlayerInfoDisplayBox(null));
+
         }
-
-
-
-
 
         /// <summary>
         /// Put the Player into a Display Box
@@ -142,7 +138,18 @@ namespace Game.Views
         /// Attacker vs Defender Mode
         /// 
         /// </summary>
-       
+        public void DrawGameAttackerDefenderBoard()
+        {
+            // Clear the current UI
+            DrawGameBoardClear();
+
+            // Show Characters across the Top
+            DrawPlayerBoxes();
+
+           
+            // Show the Attacker and Defender
+            DrawGameBoardAttackerDefenderSection();
+        }
 
         /// <summary>
         /// Draws the Game Board Attacker and Defender
@@ -209,7 +216,8 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-      
+        
+
         /// <summary>
         /// Next Attack Example
         /// 
@@ -236,7 +244,9 @@ namespace Game.Views
             // Output the Message of what happened.
             GameMessage();
 
-            
+            // Show the outcome on the Board
+            DrawGameAttackerDefenderBoard();
+
             if (RoundCondition == RoundEnum.NewRound)
             {
                 EngineViewModel.Engine.BattleStateEnum = BattleStateEnum.NewRound;
@@ -324,10 +334,10 @@ namespace Game.Views
         /// <param name="message"></param>
         public void GameMessage()
         {
-            BattleMessages.Text = "";
             // Output The Message that happened.
             BattleMessages.Text = string.Format("{0} \n{1}", EngineViewModel.Engine.BattleMessagesModel.TurnMessage, BattleMessages.Text);
 
+            Debug.WriteLine(BattleMessages.Text);
 
             if (!string.IsNullOrEmpty(EngineViewModel.Engine.BattleMessagesModel.LevelUpMessage))
             {
@@ -412,13 +422,10 @@ namespace Game.Views
             await Navigation.PushModalAsync(new RoundOverPage());
         }
 
-
-
-
         /// <summary>
         /// Show Settings
         /// </summary>
-        
+      
         #endregion PageHandelers
 
         protected override void OnAppearing()
@@ -455,10 +462,7 @@ namespace Game.Views
 
             DrawPlayerBoxes();
 
-            // Update the Mode
-
-            
-
+           
             switch (EngineViewModel.Engine.BattleStateEnum)
             {
                 case BattleStateEnum.Starting:
