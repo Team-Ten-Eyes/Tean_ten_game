@@ -67,6 +67,31 @@ namespace UnitTests.Helpers
         }
 
 
+        [Test]
+        public void SrengthAndWeaknessHelper_get_expected_strengths_Cunning_should_pass()
+        {
+            //arrange
+            //creating a Creative character class
+            BaseCharacter character = new BaseCharacter();
+            character.Attribute = CharacterTypeEnum.Cunning;
+
+            var monsterType = Enum.GetNames(typeof(MonsterTypeEnum)).ToList();
+            //getting expected strengths
+            var expected = monsterType.Where(a =>
+               a.ToString() != MonsterTypeEnum.Paranoia.ToString() &&
+               a.ToString() != MonsterTypeEnum.Insanity.ToString() &&
+               a.ToString() != MonsterTypeEnum.Unknown.ToString() &&
+               a.ToString() != MonsterTypeEnum.Fear.ToString()).ToList();
+
+            //Act
+            var result = StrengthWeaknessHelper.getCharacterStrengths(character.Attribute.ToString());
+
+            //assert
+            //should be the same
+            Assert.AreEqual(expected, result);
+        }
+
+
 
     }
 }
