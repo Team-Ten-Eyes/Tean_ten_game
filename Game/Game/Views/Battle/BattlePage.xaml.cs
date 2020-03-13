@@ -384,7 +384,7 @@ namespace Game.Views
         public async void NextRoundButton_Clicked(object sender, EventArgs e)
         {
             EngineViewModel.Engine.BattleStateEnum = BattleStateEnum.Battling;
-            ShowBattleMode();
+            //ShowBattleMode();
             await Navigation.PushModalAsync(new NewRoundPage());
         }
 
