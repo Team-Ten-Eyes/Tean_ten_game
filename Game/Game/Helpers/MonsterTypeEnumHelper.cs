@@ -7,7 +7,7 @@ namespace Game.Helpers
     /// <summary>
     /// Helper for the Class Enum Class
     /// </summary>
-    static class MonsterTypeEnumHelper
+    public static class MonsterTypeEnumHelper
     {
         /// <summary>
         /// Returns a list of strings of the enum for Monster Type
