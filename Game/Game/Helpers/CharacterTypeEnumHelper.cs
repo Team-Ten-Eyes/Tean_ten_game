@@ -7,7 +7,7 @@ namespace Game.Helpers
     /// <summary>
     /// Helper for the Class Enum Class
     /// </summary>
-    static class CharacterTypeEnumHelper
+    public static class CharacterTypeEnumHelper
     {
         /// <summary>
         /// Returns a list of strings of the enum for Char Type Attribute
@@ -36,7 +36,8 @@ namespace Game.Helpers
         }
 
         /// <summary>
-        /// Given the String for an enum, return its value.  That allows for the enums to be numbered 2,4,6 rather than 1,2,3
+        /// Given the String for an enum, return its value. 
+        /// That allows for the enums to be numbered 2,4,6 rather than 1,2,3
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>

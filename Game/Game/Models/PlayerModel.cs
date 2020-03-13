@@ -60,6 +60,11 @@ namespace Game.Models
         // The Attack score to be used when attacking
         public int Attack { get; set; } = 0;
 
+        //
+        public CharacterTypeEnum CharEnum = 0;
+        //
+        public MonsterTypeEnum MonstEnum = 0;
+
         public DifficultyEnum Difficulty { get; set; } = DifficultyEnum.Unknown;
 
         #endregion PlayerAttributes
