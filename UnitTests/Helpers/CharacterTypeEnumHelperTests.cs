@@ -33,5 +33,27 @@ namespace UnitTests.Helpers
             //Assert
             Assert.AreEqual(true, hasUnknown);
         }
+
+        [Test]
+        public void charterTypeList_should_not_have_unkown_should_pass()
+        {
+            //arrange
+            string unknown = "Unknown";
+            bool hasUnknown = false;
+
+            //act
+            var result = CharacterTypeEnumHelper.GetListCharacterType;
+
+            foreach (string type in result)
+            {
+                if (type == unknown)
+                {
+                    hasUnknown = true;
+                    break;
+                }
+            }
+            //Assert
+            Assert.AreEqual(false, hasUnknown);
+        }
     }
 }
