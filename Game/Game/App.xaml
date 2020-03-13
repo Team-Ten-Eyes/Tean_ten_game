@@ -54,7 +54,7 @@
 
             <!-- Pages -->
             <Style TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor" Value="{StaticResource ViewBackgroundColor}" />
+                <Setter Property="BarBackgroundColor" Value="#C03BFC" />
                 <Setter Property="BarTextColor" Value="{StaticResource SecondaryTextColor}" />
             </Style>
 
