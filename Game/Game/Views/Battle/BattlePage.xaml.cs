@@ -201,11 +201,5 @@ namespace Game.Views
 			await Navigation.PushAsync(new PickItemsPage());
 		}
 
-
-
-
-
-
-
 	}
 }

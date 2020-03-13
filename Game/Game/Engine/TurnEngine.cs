@@ -77,7 +77,8 @@ namespace Game.Engine
         public bool Attack(PlayerInfoModel Attacker)
         {
             // INFO: Teams, AttackChoice will auto pick the target, good for auto battle
-            
+            if (BattleScore.AutoBattle)
+            {
                 if (Attacker.PlayerType == PlayerTypeEnum.Character && RoundHealing == RoundHealingEnum.Healing_on)
                 {
                     foreach (PlayerInfoModel character in CharacterList)
@@ -94,13 +95,13 @@ namespace Game.Engine
                 // For Attack, Choose Who
                 CurrentDefender = AttackChoice(Attacker);
 
-                if(!BattleScore.AutoBattle && Attacker.PlayerType == PlayerTypeEnum.Character)
+                if (!BattleScore.AutoBattle && Attacker.PlayerType == PlayerTypeEnum.Character)
                 {
                     while (!targetPicked)
                     { //SPIN WAIT 
                     }
 
-                    CurrentDefender = manualTargetPicked; 
+                    CurrentDefender = manualTargetPicked;
 
                 }
 
@@ -108,7 +109,7 @@ namespace Game.Engine
                 {
                     return false;
                 }
-            
+            }
             
             
 
