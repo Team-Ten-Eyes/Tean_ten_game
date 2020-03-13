@@ -33,7 +33,7 @@ namespace Game.Views
 			// Set up the UI to Defaults
 			BindingContext = EngineViewModel;
 
-			
+
 
 			// Start the Battle Engine
 
@@ -124,9 +124,11 @@ namespace Game.Views
 				}
 			}
 
-			
+			System.Threading.Thread.Sleep(1500);
 
-			bool answer = await DisplayAlert("Battle", "Are you sure you want to Quit?", "Yes", "No");
+			SelectedMonsterAlready = false;
+
+			await Navigation.PushModalAsync(new BattlePage(SelectedMonsterAlready));
 		}
 
 		/// <summary>

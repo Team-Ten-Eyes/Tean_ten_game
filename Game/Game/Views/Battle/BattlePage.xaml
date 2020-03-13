@@ -5,46 +5,47 @@
 
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Orientation="Horizontal">
+            <StackLayout>
+                <StackLayout Orientation="Horizontal">
                 <StackLayout Orientation="Vertical">
                     <ListView 
-                                x:Name="PartyListView" 
-                                ItemsSource="{Binding PartyCharacterList}"
-                                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                                RefreshCommand="{Binding LoadPartyCommand}"
-                                CachingStrategy="RecycleElement"
-                                HasUnevenRows="true"
-                                Margin="5,0,5,0"
-                                >
-                        
+                                    x:Name="PartyListView" 
+                                    ItemsSource="{Binding PartyCharacterList}"
+                                    IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                                    RefreshCommand="{Binding LoadPartyCommand}"
+                                    CachingStrategy="RecycleElement"
+                                    HasUnevenRows="true"
+                                    Margin="5,0,5,0"
+                                    >
+
                         <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
+                            <DataTemplate>
+                                <ViewCell>
                                     <Frame BackgroundColor="Transparent" BorderColor="Black">
                                         <StackLayout Orientation="Vertical">
 
 
-                                    <Image 
-                                                    Source="{Binding ImageURI}"
-                                                    Style="{StaticResource ImageMediumStyle}"
-                                                    VerticalOptions="CenterAndExpand"
-                                                    />
-                                        <Label Text="HP"></Label>
-                                        <ProgressBar 
-                                                   Progress="0.5"></ProgressBar>
-                                        <Label Text="MP"></Label>
-                                        <ProgressBar 
-                                                   Progress="0.5"></ProgressBar>
+                                            <Image 
+                                                        Source="{Binding ImageURI}"
+                                                        Style="{StaticResource ImageMediumStyle}"
+                                                        VerticalOptions="CenterAndExpand"
+                                                        />
+                                            <Label Text="HP"></Label>
+                                            <ProgressBar 
+                                                       Progress="0.5"></ProgressBar>
+                                            <Label Text="MP"></Label>
+                                            <ProgressBar 
+                                                       Progress="0.5"></ProgressBar>
 
-                                </StackLayout>
+                                        </StackLayout>
                                     </Frame>
                                 </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
                     </ListView>
 
                 </StackLayout>
-               
+
                 <StackLayout Orientation="Vertical">
                     <Label Text="{Binding Engine.BattleMessagesModel.TurnMessage;}"/>
                 </StackLayout>
@@ -64,33 +65,31 @@
 
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <ViewCell
-                                    
-                                    >
+                                <ViewCell>
                                     <Frame BackgroundColor="Transparent" BorderColor="Black">
                                         <StackLayout Orientation="Vertical">
 
                                             <Grid>
                                                 <Image
                                                     
-                                                    Source="{Binding ImageURI}"
-                                                    Style="{StaticResource ImageMediumStyle}"
-                                                    VerticalOptions="CenterAndExpand"
+                                                        Source="{Binding ImageURI}"
+                                                        Style="{StaticResource ImageMediumStyle}"
+                                                        VerticalOptions="CenterAndExpand"
                                                     
-                                                    />
+                                                        />
                                                 <Image 
-                                                    Source="crosshair.png"
-                                                    Style="{StaticResource ImageMediumStyle}"
-                                                    VerticalOptions="CenterAndExpand"
-                                                    IsVisible="{Binding SelectedForBattle}"
-                                                    />
+                                                        Source="crosshair.png"
+                                                        Style="{StaticResource ImageMediumStyle}"
+                                                        VerticalOptions="CenterAndExpand"
+                                                        IsVisible="{Binding SelectedForBattle}"
+                                                        />
                                             </Grid>
                                             <Label Text="{Binding Id}"></Label>
                                             <ProgressBar 
-                                                   Progress="0.5"></ProgressBar>
+                                                       Progress="0.5"></ProgressBar>
                                             <Label Text="{Binding SelectedForBattle}"></Label>
                                             <ProgressBar 
-                                                   Progress="0.5"></ProgressBar>
+                                                       Progress="0.5"></ProgressBar>
 
                                         </StackLayout>
                                     </Frame>
@@ -99,27 +98,23 @@
                         </ListView.ItemTemplate>
                     </ListView>
                 </StackLayout>
-                
-                
-                
-           
-          
-            
-            
-            
+            </StackLayout>
 
-
-             <StackLayout Orientation="Horizontal">
+            <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal">
                     <Button Clicked="AttackButton_Clicked" Text="Attack" HorizontalOptions="FillAndExpand"></Button>
                     <Button Clicked="AttackButton_Clicked" Text="Special Attack" HorizontalOptions="FillAndExpand"></Button>
                     <Button Clicked="AttackButton_Clicked" Text="Pass Turn" HorizontalOptions="FillAndExpand"></Button>
                 </StackLayout>
-                
+
                 <StackLayout Orientation="Horizontal">
                     <Button Clicked="AttackButton_Clicked" Text="Potions" HorizontalOptions="FillAndExpand" ></Button>
                     <Button Clicked="AttackButton_Clicked" Text="Autobattle" HorizontalOptions="FillAndExpand"></Button>
                 </StackLayout>
-
+            </StackLayout>
+            
+            
+            <StackLayout>
                 <Label Text="OFFICIAL END OF PAGE" />
 
                 <Button Clicked="AttackButton_Clicked" Text="Attack"></Button>
@@ -135,7 +130,7 @@
                 <Button Clicked="QuitButton_Clicked" Text="Quit"></Button>
 
                 <Button Clicked="Item_Pick_Page" Text="Character Item Pick Page"></Button>
-
+            </StackLayout>
 
             </StackLayout>
         </ScrollView>
