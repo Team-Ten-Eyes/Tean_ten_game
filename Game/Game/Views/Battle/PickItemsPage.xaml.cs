@@ -53,10 +53,12 @@ namespace Game.Views
         async void Go_to_battle(object sender, EventArgs e)
         {
 
-            EngineViewModel.Engine.StartBattle(false);
+           
 
             await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
+           
             await Navigation.PopAsync();
+            EngineViewModel.Engine.RunBattle();
         }
 
         /// <summary>
