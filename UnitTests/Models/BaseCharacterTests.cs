@@ -31,5 +31,22 @@ namespace UnitTests.Models
             //Assert
             Assert.IsNotNull(result);
         }
+
+        [Test]
+        public void BaseCharacter_New_item_Should_copy()
+        {
+            //ArDefense
+            var dataNew = new BaseCharacter();
+            dataNew.Attack = 2;
+            dataNew.Id = "oldID";
+
+            //Act
+            var result = new BaseCharacter(dataNew);
+
+            //Reset
+
+            //Assert
+            Assert.AreNotEqual("oldID", result.Id);
+        }
     }
 }
