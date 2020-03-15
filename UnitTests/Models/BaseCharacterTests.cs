@@ -113,5 +113,25 @@ namespace UnitTests.Models
 
             Assert.AreEqual(CharacterTypeEnum.Bravery, result.Attribute);
         }
+
+        [Test]
+        public void BaseCharacter_update_default_should_pass()
+        {
+            //ArDefense
+            var dataOriginal = new BaseCharacter();
+            dataOriginal.Attack = 1;
+
+            var dataNew = new BaseCharacter();
+            dataNew.Attack = 2;
+
+            // Act
+            var result = dataOriginal.Update(dataNew);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(2, dataOriginal.Attack);
+        }
     }
 }
