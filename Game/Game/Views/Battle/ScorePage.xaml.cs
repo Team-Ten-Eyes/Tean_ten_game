@@ -47,7 +47,7 @@ namespace Game.Views
             
 
             MessagingCenter.Send(this, "AddData", ViewModel.Data);
-            await Navigation.PopModalAsync();
+            await Navigation.PushAsync(new GamePage());
             //message center not pushing to scorelist DB
         }
     }
