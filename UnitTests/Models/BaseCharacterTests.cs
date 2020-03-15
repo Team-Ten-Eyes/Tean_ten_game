@@ -133,5 +133,23 @@ namespace UnitTests.Models
             Assert.AreEqual(true, result);
             Assert.AreEqual(2, dataOriginal.Attack);
         }
+
+        [Test]
+        public void BaseCharacter_Update_InValid_Null_Should_Fail()
+        {
+            // ArDefense
+            var dataOriginal = new BaseCharacter();
+            dataOriginal.Attack = 2;
+
+            // Act
+            var result = dataOriginal.Update(null);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(false, result);
+            Assert.AreEqual(2, dataOriginal.Attack);
+        }
+
     }
 }
