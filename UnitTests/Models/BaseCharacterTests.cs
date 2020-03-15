@@ -48,5 +48,23 @@ namespace UnitTests.Models
             //Assert
             Assert.AreNotEqual("oldID", result.Id);
         }
+
+        [Test]
+        public void BaseCharacter_Get_Default_Should_Pass()
+        {
+            //ArDefense
+            //Act
+            var result = new BaseCharacter();
+
+            //Reset
+
+            //Assert
+            Assert.IsNotNull(result.Attack);
+            Assert.IsNotNull(result.Defense);
+            Assert.IsNotNull(result.Speed);
+            Assert.IsNotNull(result.CurrHealth);
+            Assert.IsNotNull(result.Mana);
+            Assert.IsNotNull(result.Attribute);
+        }
     }
 }
