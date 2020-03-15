@@ -17,7 +17,7 @@
             Attribute = MonsterTypeEnum.Anxiety;
             PlayerType = PlayerTypeEnum.Monster;
             Guid = Id;
-            Name = "MIKE DEMON";
+            Name = "MIKE";
             Description = "Issa Kraken";
             Attack = 1;
             Difficulty = DifficultyEnum.Average;
