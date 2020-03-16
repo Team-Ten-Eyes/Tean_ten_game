@@ -318,7 +318,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual(true, result.Contains("MIKE DEMON"));
+            Assert.AreEqual(true, result.Contains("MIKE"));
         }
 
         [Test]
