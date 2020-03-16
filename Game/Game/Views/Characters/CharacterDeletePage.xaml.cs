@@ -11,6 +11,9 @@ namespace Game.Views
     {
         GenericViewModel<BaseCharacter> viewModel;
 
+        // Empty Constructor for UTs
+        public CharacterDeletePage(bool UnitTest) { }
+
         /// <summary>
         /// Default constructor for the Char Delete Page
         /// </summary>

@@ -14,6 +14,10 @@ namespace Game.Views
     {
         GenericViewModel<BaseCharacter> ViewModel { get; set; }
 
+
+        // Empty Constructor for UTs
+        public CharacterCreatePage(bool UnitTest) { }
+
         /// <summary>
         /// Base constructor for the create page
         /// </summary>
@@ -26,6 +30,7 @@ namespace Game.Views
             BindingContext = this.ViewModel = data;
 
             CharacterTypePicker.SelectedItem = data.Data.Attribute.ToString();
+
 
             //This is the creation of the character image selection
             ObservableCollection<ImagePickerModel> imageList = new ObservableCollection<ImagePickerModel>();

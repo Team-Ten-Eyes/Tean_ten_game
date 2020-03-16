@@ -12,6 +12,9 @@ namespace Game.Views
 
         readonly GenericViewModel<BaseCharacter> ViewModel;
 
+        // Empty Constructor for UTs
+        public CharacterUpdatePage(bool UnitTest) { }
+
         /// <summary>
         /// Base constructor for Char Update Page
         /// </summary>
