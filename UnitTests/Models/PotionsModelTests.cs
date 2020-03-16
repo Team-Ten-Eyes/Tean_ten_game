@@ -38,5 +38,18 @@ namespace UnitTests.Models
             Assert.AreEqual(updatePotion.potionType, origonal.potionType);
             Assert.AreEqual(updatePotion.Addition, origonal.Addition);
         }
+
+        [Test]
+        public void potionModel_getType_expected_type_for_default_should_pass()
+        {
+            //Arrange
+            var update = new PotionsModel();
+
+            //Act
+            var result = update.GetPotionType();
+
+            //Assert
+            Assert.AreEqual(PotionsEnum.Health, result);
+        }
     }
 }
