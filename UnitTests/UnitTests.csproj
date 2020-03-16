@@ -26,4 +26,8 @@
     <ProjectReference Include="..\Game\Game\Game.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\Enums\" />
+  </ItemGroup>
+
 </Project>
