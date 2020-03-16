@@ -11,6 +11,10 @@ namespace Game.Views
     {
 
         readonly GenericViewModel<BaseMonster> ViewModel;
+
+        // Empty Constructor for UTs
+        public MonsterUpdatePage(bool UnitTest) { }
+
         public MonsterUpdatePage(GenericViewModel<BaseMonster> data)
         {
             InitializeComponent();

@@ -11,6 +11,10 @@ namespace Game.Views
     {
         GenericViewModel<BaseMonster> viewModel;
 
+
+        // Empty Constructor for UTs
+        public MonsterDeletePage(bool UnitTest) { }
+
         /// <summary>
         /// Base Constructor for Monster Delete Page
         /// </summary>

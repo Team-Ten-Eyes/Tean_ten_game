@@ -14,6 +14,9 @@ namespace Game.Views
     {
         GenericViewModel<BaseMonster> ViewModel { get; set; }
 
+        // Empty Constructor for UTs
+        public MonsterCreatePage(bool UnitTest) { }
+
         /// <summary>
         /// Base Constructor for the Monster Create Page
         /// </summary>
