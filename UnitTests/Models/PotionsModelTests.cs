@@ -19,5 +19,24 @@ namespace UnitTests.Models
             Assert.AreEqual(PotionsEnum.Health, result.potionType);
             Assert.AreEqual("Health.png", result.ImageURI);
         }
+
+        [Test]
+        public void potionModel_testing_update_function_should_pass()
+        {
+            //Arrange
+            PotionsModel origonal = new PotionsModel();
+            PotionsModel updatePotion= new PotionsModel();
+            updatePotion.ImageURI = "Mana.png";
+            updatePotion.potionType = PotionsEnum.Mana;
+            updatePotion.Addition = 5;
+
+            //Act
+            origonal.Update(updatePotion);
+
+            //Assert
+            Assert.AreEqual(updatePotion.ImageURI, origonal.ImageURI);
+            Assert.AreEqual(updatePotion.potionType, origonal.potionType);
+            Assert.AreEqual(updatePotion.Addition, origonal.Addition);
+        }
     }
 }
