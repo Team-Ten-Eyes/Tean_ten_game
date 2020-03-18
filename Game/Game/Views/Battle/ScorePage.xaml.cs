@@ -23,6 +23,7 @@ namespace Game.Views
         /// </summary>
         public ScorePage()
         {
+            BindingContext = new ScoreModel();
 
             InitializeComponent();
         }
@@ -46,7 +47,7 @@ namespace Game.Views
         {
             
 
-            MessagingCenter.Send(this, "AddData", ViewModel.Data);
+            MessagingCenter.Send(this, "Create", ViewModel.Data);
             await Navigation.PushAsync(new GamePage());
             //message center not pushing to scorelist DB
         }
