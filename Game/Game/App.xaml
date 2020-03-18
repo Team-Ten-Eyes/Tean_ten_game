@@ -22,8 +22,6 @@
                 Dark
                 -->
 
-
-
             <Color x:Key="pickCharacterPageColor">#FFFFFF</Color>
             <Color x:Key="PageBackgroundColor">#7FD9BF</Color>
             <Color x:Key="ViewBackgroundColor">#F2EBDC</Color>
@@ -39,7 +37,6 @@
             <Color x:Key="TriciaryTextColor">#733612</Color>
 
             <Color x:Key="TransparentColor">Transparent</Color>
-
 
             <Color x:Key="BlockingColor">
                 <x:Arguments>

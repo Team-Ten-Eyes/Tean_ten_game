@@ -85,6 +85,7 @@ namespace Game.Views
             foreach (var data in EngineViewModel.Engine.PlayerList.Where(m => m.PlayerType == PlayerTypeEnum.Monster).ToList())
             {
                 MonsterBox.Children.Add(PlayerInfoDisplayBox(data));
+                
             }
 
             // Add one black PlayerInfoDisplayBox to hold space incase the list is empty
@@ -92,7 +93,7 @@ namespace Game.Views
 
             // Add one black PlayerInfoDisplayBox to hold space incase the list is empty
             MonsterBox.Children.Add(PlayerInfoDisplayBox(null));
-
+        
         }
 
         /// <summary>
@@ -110,26 +111,48 @@ namespace Game.Views
                 };
             }
 
+            var IButton = new ImageButton
+            {
+               
+                Source = "crosshair.png",
+                IsVisible = true,
+                
+            };
+
             // Hookup the image
             var PlayerImage = new Image
             {
                 Style = (Style)Application.Current.Resources["PlayerBattleMediumStyle"],
+                
                 Source = data.ImageURI
             };
+
+            var DumbStack = new Grid
+            {
+                
+                Children = {
+
+                    IButton,
+                    PlayerImage
+                },
+
+            };
+
 
             // Put the Image Button and Text inside a layout
             var PlayerStack = new StackLayout
             {
                 Style = (Style)Application.Current.Resources["PlayerBattleDisplayBox"],
+
                 Children = {
-                    PlayerImage,
+                  
+                    DumbStack,
                 },
             };
 
             return PlayerStack;
         }
 
-        
         #region BasicBattleMode
 
         /// <summary>
@@ -146,7 +169,6 @@ namespace Game.Views
             // Show Characters across the Top
             DrawPlayerBoxes();
 
-           
             // Show the Attacker and Defender
             DrawGameBoardAttackerDefenderSection();
         }

@@ -12,7 +12,7 @@
             <Label x:Name="BattleModeValue" Text="" Style="{StaticResource ValueStyleMicro}" />
         </StackLayout>
     </NavigationPage.TitleView>
-
+    
     <ContentPage.Content>
         <AbsoluteLayout
                 IsVisible="True"
@@ -38,7 +38,8 @@
                         <StackLayout x:Name="CharacterBox" Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand"/>
 
                         <Label Text="Monsters" Style="{StaticResource CenterMessageStyle}" HorizontalOptions="CenterAndExpand"/>
-                        <StackLayout x:Name="MonsterBox" Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand"/>
+                        <StackLayout x:Name="MonsterBox" Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand" />
+                        
                     </StackLayout>
                 </StackLayout>
 
@@ -52,14 +53,14 @@
 
                 <!--The Bottom of the Battle UI  Holds the Player to Player boxes, Buttons, and the Messages-->
                 <StackLayout x:Name="BattleBottomBox" Style="{StaticResource BattleUIBottomBox}">
-
                     <Frame x:Name="BattlePlayerInfomationBox"
                                 Style="{StaticResource PlayerBattleOuterFrame}"
                                 IsVisible="False">
 
                         <StackLayout x:Name="BattlePlayerBox" Style="{StaticResource PlayerBattleOuterBox}">
 
-                            <StackLayout x:Name="AttackerBox" Style="{StaticResource PlayerBattleInfoBox}" HorizontalOptions="Start">
+                            <StackLayout x:Name="AttackerBox" Style="{StaticResource PlayerBattleInfoBox}" HorizontalOptions="Start" >
+                                
                                 <Image x:Name="AttackerImage" Source="knight.png" Style="{StaticResource ImageBattleMediumStyle}"/>
                                 <Label x:Name="AttackerName" Text="" Style="{StaticResource ValueStyleBattleMicro}"/>
                                 <Label x:Name="AttackerHealth" Text="" Style="{StaticResource ValueStyleBattleMicro}"/>
