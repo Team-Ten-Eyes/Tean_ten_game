@@ -64,7 +64,7 @@ namespace Game.Engine
 
             // Wrap up
             EndBattle();
-            await App.Current.MainPage.Navigation.PushModalAsync(new ScorePage());
+            await App.Current.MainPage.Navigation.PushModalAsync(new ScorePage(new GenericViewModel<ScoreModel>(BattleScore)));
 
             return true;
         }
