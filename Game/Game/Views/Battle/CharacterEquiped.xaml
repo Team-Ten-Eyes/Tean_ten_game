@@ -10,7 +10,7 @@
     <ContentPage.Content>
         <ScrollView VerticalScrollBarVisibility="Never">
             <StackLayout>
-                <Label Text="character equiped page"
+                <Label Text="Character Equip Page"
                        VerticalOptions="Start" 
                        HorizontalOptions="Start" 
                        FontSize="Medium"
