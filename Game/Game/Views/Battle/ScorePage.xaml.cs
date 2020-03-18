@@ -45,8 +45,6 @@ namespace Game.Views
         /// <param name="e"></param>
         async void CloseButton_Clicked(object sender, EventArgs e)
         {
-            
-
             MessagingCenter.Send(this, "Create", ViewModel.Data);
             await Navigation.PushAsync(new GamePage());
             //message center not pushing to scorelist DB
