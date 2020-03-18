@@ -4,6 +4,7 @@ using Game.ViewModels;
 using NUnit.Framework;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 
 namespace UnitTests.Helpers
@@ -127,7 +128,7 @@ namespace UnitTests.Helpers
             DiceHelper.DisableForcedRolls();
 
             // Assert
-            Assert.AreEqual("Doug", result);
+            Assert.AreEqual("Michelle", result);
         }
 
         [Test]
@@ -286,7 +287,7 @@ namespace UnitTests.Helpers
 
             // Act
             var result = RandomPlayerHelper.GetRandomCharacter(1);
-
+            Debug.WriteLine(result.CurrHealth);
             // Reset
             DiceHelper.DisableForcedRolls();
 
