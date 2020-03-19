@@ -112,8 +112,6 @@ namespace Game.Views
             return ItemStack;
         }
 
-
-
         /// <summary>
         /// The row selected from the list
         /// </summary>
@@ -127,6 +125,9 @@ namespace Game.Views
                 return;
             }
 
+
+
+            EngineViewModel.Engine.SwapCharacterItem(BindingContext as PlayerInfoModel, data.Location, data);
             ViewModel.AddItem(PopupLocationEnum, data.Id);
 
             AddItemsToDisplay();
@@ -167,12 +168,23 @@ namespace Game.Views
             itemList.AddRange(ItemIndexViewModel.Instance.GetLocationItems(location));
 
             // Populate the list with the items
+            for(int i = 0; i < EngineViewModel.Engine.ItemPool.Count(); i++)
+            {
+                if (EngineViewModel.Engine.ItemPool[i].Location == location)
+                    itemList.Add(EngineViewModel.Engine.ItemPool[i]);
+
+            }
             PopupLocationItemListView.ItemsSource = itemList;
 
             // Remember the location for this popup
             PopupLocationEnum = location;
 
             return true;
+        }
+
+        public void GoBackButton(object sender, EventArgs e)
+        {
+            Navigation.PopModalAsync();
         }
 
         /// <summary>
