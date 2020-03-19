@@ -68,14 +68,14 @@ namespace Game.Views
         /// <param name="args"></param>
         async void OnCharacterSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            BaseCharacter data = args.SelectedItem as BaseCharacter;
+            PlayerInfoModel data = args.SelectedItem as PlayerInfoModel;
             if (data == null)
             {
                 return;
             }
 
             // Open the Read Page
-            await Navigation.PushAsync(new CharacterEquiped(new GenericViewModel<BaseCharacter>(data)));
+            await Navigation.PushModalAsync(new BattleEquip(data));
 
             //// Manually deselect item.
             PartyListView.SelectedItem = null;
