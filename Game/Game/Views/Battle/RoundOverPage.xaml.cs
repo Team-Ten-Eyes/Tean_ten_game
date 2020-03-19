@@ -1,7 +1,13 @@
-﻿using Game.ViewModels;
-using System;
+﻿using System;
+using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+
+using Game.Models;
+using Game.ViewModels;
+using System.Threading.Tasks;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Game.Views
 {
@@ -11,6 +17,8 @@ namespace Game.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RoundOverPage : ContentPage
     {
+
+
 
         //TODO: Add Item Descriptor Popup
 
@@ -47,6 +55,11 @@ namespace Game.Views
         public void On_items_selected(object sender, SelectedItemChangedEventArgs args)
         {
             DisplayAlert("Attack!!!", "Attack !!!", "OK");
+        }
+
+        public void ClearItems(object sender, EventArgs e)
+        {
+            EngineViewModel.Engine.ItemPool.Clear();
         }
     }
 }

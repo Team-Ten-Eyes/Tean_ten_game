@@ -62,10 +62,12 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+                <StackLayout Orientation="Horizontal">
+                    <Button Clicked="PickItems_Clicked" Text="Equip Items To Party" HorizontalOptions="CenterAndExpand"></Button>
+                    <Button Clicked="ClearItems" Text="Clear Item Pool" HorizontalOptions="CenterAndExpand" />
+                </StackLayout>
 
-            <Button Clicked="PickItems_Clicked" Text="Equip Items To Party"></Button>
-
-            <Button Clicked="NextRoundButton_Clicked" Text="Skip Item Collection/Next Round"></Button>
+                
 
         </StackLayout>
         </ScrollView>
