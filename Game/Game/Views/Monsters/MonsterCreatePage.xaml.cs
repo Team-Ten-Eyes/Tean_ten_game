@@ -39,8 +39,8 @@ namespace Game.Views
                 imageList.Add(image);
             }
             ImageView.ItemsSource = imageList;
-            
 
+            MonsterImage.Source = ViewModel.Data.ImageURI;
         }
 
 
@@ -91,9 +91,9 @@ namespace Game.Views
         {
             var image = args.SelectedItem as ImagePickerModel;
             ViewModel.Data.ImageURI = image.Url;
-           
 
-            // = image.Url;
+            MonsterImage.Source = ViewModel.Data.ImageURI;
+       
         }
     }
 

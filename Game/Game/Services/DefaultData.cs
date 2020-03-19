@@ -234,7 +234,6 @@ namespace Game.Services
         {
             var imageList = new List<ImagePickerModel>()
             {
-                new ImagePickerModel {Url = "Wraith.png"},
                 new ImagePickerModel {Url = "Shadow_monster.png"},
                 new ImagePickerModel {Url = "Insanty.png"},
                 new ImagePickerModel {Url = "Fire_monster.png"},
