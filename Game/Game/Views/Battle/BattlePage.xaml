@@ -27,15 +27,13 @@
                         AbsoluteLayout.LayoutFlags="All">
 
                 <!--The Top of the Battle UI Holds the List of Players-->
-                <StackLayout VerticalOptions="Start" x:Name="TopPlayerDisplay">
-                    <StackLayout Style="{StaticResource VerticalStack}"
+                <StackLayout VerticalOptions="Start" x:Name="TopPlayerDisplay" Style="{StaticResource HorizontalStack}">
+                    <StackLayout Style="{StaticResource HorizontalStack}"
                         x:Name="GamePlayersTopDisplay" 
                         IsVisible="true" 
                         VerticalOptions="Start" 
                         HorizontalOptions="CenterAndExpand">
 
-
-                        
                             <StackLayout Orientation = "Vertical" >
                                 <ListView
                                     x:Name="PartyListView" 
@@ -44,8 +42,7 @@
                                     RefreshCommand="{Binding LoadPartyCommand}"
                                     CachingStrategy="RecycleElement"
                                     HasUnevenRows="true"
-                                    Margin="5,0,5,0"
-                                    >
+                                    Margin="5,0,5,0" >
 
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
@@ -68,6 +65,7 @@
                                 </ListView>
 
                             </StackLayout>
+                        
 
 
 
@@ -118,11 +116,11 @@
                                 </ListView>
                             </StackLayout>
 
-                            <Label Text="Characters" Style="{StaticResource CenterMessageStyle}" HorizontalOptions="CenterAndExpand"/>
-                        <StackLayout x:Name="CharacterBox" Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand"/>
+                            
+                        <StackLayout x:Name="CharacterBox" Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand" IsVisible="False"/>
 
-                        <Label Text="Monsters" Style="{StaticResource CenterMessageStyle}" HorizontalOptions="CenterAndExpand"/>
-                        <StackLayout x:Name="MonsterBox" Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand" />
+                        
+                        <StackLayout x:Name="MonsterBox" Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand" IsVisible="False"/>
                         
                     </StackLayout>
                 </StackLayout>
