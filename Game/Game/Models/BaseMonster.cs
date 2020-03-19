@@ -22,7 +22,7 @@
             Attack = 1;
             Difficulty = DifficultyEnum.Average;
             UniqueItem = null;
-            ImageURI = "EVIL_MIKE.png";
+            ImageURI = "Shadow_monster.png";
             Experience = 0;
             ExperienceRemaining = Helpers.LevelTableHelper.Instance.LevelDetailsList[Level + 1].Experience - 1;
         }
