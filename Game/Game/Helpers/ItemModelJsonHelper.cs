@@ -1,7 +1,9 @@
-﻿using Game.Models;
-using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
+
+using Game.Models;
+using System.Diagnostics;
 
 namespace Game.Helpers
 {
@@ -44,7 +46,7 @@ namespace Game.Helpers
             }
             catch (Exception Ex)
             {
-                Console.WriteLine(Ex.ToString());
+                Debug.WriteLine(Ex.ToString());
                 return null;
             }
         }

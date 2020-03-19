@@ -32,7 +32,7 @@ namespace Game.Views
 
 
 
-
+            
             // Set to the curent date and time
             CurrentDateTime.Text = DateTime.Now.ToString("MM/dd/yy hh:mm:ss");
         }
