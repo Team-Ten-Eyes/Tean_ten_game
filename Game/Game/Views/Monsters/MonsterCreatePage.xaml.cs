@@ -39,6 +39,7 @@ namespace Game.Views
                 imageList.Add(image);
             }
             ImageView.ItemsSource = imageList;
+            
 
         }
 
@@ -90,8 +91,8 @@ namespace Game.Views
         {
             var image = args.SelectedItem as ImagePickerModel;
             ViewModel.Data.ImageURI = image.Url;
+           
 
-     
             // = image.Url;
         }
     }

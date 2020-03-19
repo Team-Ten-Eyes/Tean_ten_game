@@ -21,7 +21,7 @@ namespace Game.Views
         /// Base Constructor for the Monster Create Page
         /// </summary>
         /// <param name="data"></param>
-        public CharacterCreatePage(GenericViewModel<BaseCharacter> data)
+        public CharacterCreatePage(GenericViewModel<BaseCharacter> data) 
         {
             InitializeComponent();
 
@@ -40,6 +40,7 @@ namespace Game.Views
             }
             ImageView.ItemsSource = imageList;
 
+            charImage.Source = ViewModel.Data.ImageURI;
         }
 
 
@@ -91,9 +92,12 @@ namespace Game.Views
             var image = args.SelectedItem as ImagePickerModel;
             ViewModel.Data.ImageURI = image.Url;
 
+            charImage.Source = ViewModel.Data.ImageURI;
 
             // = image.Url;
         }
     }
+
+
 
 }
