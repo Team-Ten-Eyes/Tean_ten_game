@@ -9,7 +9,6 @@
              xmlns:local_enum="clr-namespace:Game.Models"
              x:Class="Game.Views.CharacterCreatePage"
             >
-
     <ContentPage.Resources>
         <ResourceDictionary>
             <local_helpers:StringEnumConverter x:Key="StringEnum"/>
@@ -17,33 +16,32 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
-
-                <Label Text="Create Character"
+        <StackLayout>
+            <Label Text="Create Monster"
                 VerticalOptions="Start" 
-                HorizontalOptions="Start"
+                HorizontalOptions="Start" 
                    FontAttributes="Bold"
                    FontSize="Header"/>
-                <Picker
+            <Picker
                         ItemsSource="{x:Static local_helpers:CharacterTypeEnumHelper.GetListCharacterType}" 
                         SelectedItem="{Binding Data.Attribute, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
                         x:Name="CharacterTypePicker"/>
-                <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="Center" 
+
+            <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="Center" 
                    WidthRequest="250" HeightRequest="250"/>
 
-                <!--this is the image picker list-->
-                <Grid RowSpacing="1"
+            <!--this is the image picker list-->
+            <Grid RowSpacing="1"
                     ColumnSpacing="2"
                     HorizontalOptions="Start"
                       Padding="90,-80,-80,-80">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="70"/>
-                    </Grid.ColumnDefinitions>
-                    <ListView x:Name="ImageView"   
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                </Grid.ColumnDefinitions>
+                <ListView x:Name="ImageView"   
                               Grid.Row ="0" 
                               Grid.Column="0" 
                               Rotation="270" 
@@ -66,22 +64,19 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                </Grid>
+            </Grid>
 
 
-              <!--character name here-->
-                <Label Text="Name" FontSize="Medium" />
-                <Entry Text="{Binding Data.Name}" d:Text="Character Name" FontSize="Small"/>
-
-                <StackLayout Orientation="Horizontal">
-                    <Button Text="Save Changes"
-                Clicked="OnSaveButtonClicked"
-                HorizontalOptions="CenterAndExpand" />
-                    <Button Text="Cancel"
+            <Label Text="Name" FontSize="Medium" HorizontalOptions="Start"/>
+            <Entry Text="{Binding Data.Name}" d:Text="Monster Name" FontSize="Small"/>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Save Changes"
+                    Clicked="OnSaveButtonClicked"
+                    HorizontalOptions="CenterAndExpand" />
+                <Button Text="Cancel"
                     Clicked="CancelButtonClicked"
-                    HorizontalOptions="CenterAndExpand"/>
-                </StackLayout>
+                    HorizontalOptions="CenterAndExpand" />
             </StackLayout>
-        </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

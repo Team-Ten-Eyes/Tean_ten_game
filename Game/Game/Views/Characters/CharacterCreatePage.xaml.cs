@@ -1,11 +1,11 @@
 ﻿using Game.Models;
-using Game.Services;
 using Game.ViewModels;
 using System;
-using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
+using System.Collections.ObjectModel;
+using Game.Services;
+using System.Linq;
 
 namespace Game.Views
 {
@@ -14,13 +14,13 @@ namespace Game.Views
     {
         GenericViewModel<BaseCharacter> ViewModel { get; set; }
 
-
         // Empty Constructor for UTs
         public CharacterCreatePage(bool UnitTest) { }
 
         /// <summary>
-        /// Base constructor for the create page
+        /// Base Constructor for the Monster Create Page
         /// </summary>
+        /// <param name="data"></param>
         public CharacterCreatePage(GenericViewModel<BaseCharacter> data)
         {
             InitializeComponent();
@@ -31,7 +31,6 @@ namespace Game.Views
 
             CharacterTypePicker.SelectedItem = data.Data.Attribute.ToString();
 
-
             //This is the creation of the character image selection
             ObservableCollection<ImagePickerModel> imageList = new ObservableCollection<ImagePickerModel>();
 
@@ -41,17 +40,17 @@ namespace Game.Views
             }
             ImageView.ItemsSource = imageList;
 
-
         }
 
+
         /// <summary>
-        /// Save current data binding when the save button is clicked
+        /// Save by calling for Create
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         public async void OnSaveButtonClicked(object sender, EventArgs e)
         {
-            if (ViewModel.Data.Name.Length > 12 || ViewModel.Data.Name.Length < 1)
+            if (ViewModel.Data.Name.Length > 12)
                 await DisplayAlert("Name Too Long", "Must Be Less Than 13 Chars", "OK");
             else
             {
@@ -59,16 +58,9 @@ namespace Game.Views
                 await Navigation.PopModalAsync();
             }
         }
-        /// <summary>
-        /// Override of back button for android
-        /// </summary>
-        protected override bool OnBackButtonPressed()
-        {
-            return true;
-        }
 
         /// <summary>
-        /// the cancel button with back out of the create page and 
+        /// the cancle button with back out of the create page and 
         /// Direct the user back to the list page
         /// </summary>
         /// <param name="sender"></param>
@@ -77,6 +69,16 @@ namespace Game.Views
         {
             await Navigation.PopModalAsync();
         }
+
+        /// <summary>
+        /// this suppresses the back button on android becuase it is a modal page
+        /// </summary>
+        /// <returns></returns>
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
+        }
+
 
         /// <summary>
         /// This is a function that once an image is picked it will change the character to 
@@ -88,7 +90,10 @@ namespace Game.Views
         {
             var image = args.SelectedItem as ImagePickerModel;
             ViewModel.Data.ImageURI = image.Url;
-            //Source = image.Url;
+
+
+            // = image.Url;
         }
     }
+
 }
