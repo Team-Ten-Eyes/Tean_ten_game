@@ -15,103 +15,100 @@ namespace Game.Old_battle_frame
 //    <ContentPage.Content>
 //        <ScrollView>
 //            <StackLayout Orientation = "Vertical" >
-//                < StackLayout Orientation="Horizontal">
-//                    <StackLayout Orientation = "Vertical" >
-//                        < ListView
-//                                    x:Name="PartyListView" 
-//                                    ItemsSource="{Binding PartyCharacterList}"
-//                                    IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-//                                    RefreshCommand="{Binding LoadPartyCommand}"
-//                                    CachingStrategy="RecycleElement"
-//                                    HasUnevenRows="true"
-//                                    Margin="5,0,5,0"
-//                                    >
+                //< StackLayout Orientation = "Horizontal" >
+                //    < StackLayout Orientation = "Vertical" >
+                //        < ListView
+                //                    x:Name="PartyListView" 
+                //                    ItemsSource="{Binding PartyCharacterList}"
+                //                    IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                //                    RefreshCommand="{Binding LoadPartyCommand}"
+                //                    CachingStrategy="RecycleElement"
+                //                    HasUnevenRows="true"
+                //                    Margin="5,0,5,0"
+                //                    >
 
-//                            <ListView.ItemTemplate>
-//                                <DataTemplate>
-//                                    <ViewCell>
-//                                        <Frame BackgroundColor = "Transparent" BorderColor="Black">
-//                                            <StackLayout Orientation = "Vertical" >
-
-
-//                                                < Image
-//                                                        Source="{Binding ImageURI}"
-//                                                        Style="{StaticResource ImageMediumStyle}"
-//                                                        VerticalOptions="CenterAndExpand"
-//                                                        />
-//                                                <Label Text = "HP" ></ Label >
-//                                                < ProgressBar
-//                                                       Progress="0.5"></ProgressBar>
-//                                                <Label Text = "MP" ></ Label >
-//                                                < ProgressBar
-//                                                       Progress="0.5"></ProgressBar>
-
-//                                            </StackLayout>
-//                                        </Frame>
-//                                    </ViewCell>
-//                                </DataTemplate>
-//                            </ListView.ItemTemplate>
-//                        </ListView>
-
-//                    </StackLayout>
-
-//                    <StackLayout Orientation = "Vertical" WidthRequest="400">
-//                        <Label Text = "{Binding Engine.BattleMessagesModel.TurnMessage;}" />
-//                    </ StackLayout >
+                //            <ListView.ItemTemplate>
+                //                <DataTemplate>
+                //                    <ViewCell>
+                //                        <Frame BackgroundColor = "Transparent" BorderColor="Black">
+                //                            <StackLayout Orientation = "Vertical" >
 
 
-//                    < StackLayout Orientation="Vertical">
-//                        <ListView
-//                                x:Name="MonsterListView" 
-//                                ItemsSource="{Binding BattleMonsterList}"
-//                                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-//                                RefreshCommand="{Binding LoadMonsterCommand}"
-//                                CachingStrategy="RecycleElement"
-//                                HasUnevenRows="true"
-//                                Margin="5,0,5,0"
-//                                SelectionMode="Single"
+                //                                < Image
+                //                                        Source="{Binding ImageURI}"
+                //                                        Style="{StaticResource ImageMediumStyle}"
+                //                                        VerticalOptions="CenterAndExpand"
+                //                                        />
+                //                                <Label Text = "HP" ></ Label >
+                //                                < ProgressBar
+                //                                       Progress="0.5"></ProgressBar>
+                //                                <Label Text = "MP" ></ Label >
+                //                                < ProgressBar
+                //                                       Progress="0.5"></ProgressBar>
+
+                //                            </StackLayout>
+                //                        </Frame>
+                //                    </ViewCell>
+                //                </DataTemplate>
+                //            </ListView.ItemTemplate>
+                //        </ListView>
+
+                //    </StackLayout>
+
+                 
+
+                //    < StackLayout Orientation = "Vertical" >
+                //        < ListView
+                //                x:Name="MonsterListView" 
+                //                ItemsSource="{Binding BattleMonsterList}"
+                //                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                //                RefreshCommand="{Binding LoadMonsterCommand}"
+                //                CachingStrategy="RecycleElement"
+                //                HasUnevenRows="true"
+                //                Margin="5,0,5,0"
+                //                SelectionMode="Single"
                                 
-//                                ItemSelected="OnMonsterSelected"
-//                                >
+                //                ItemSelected="OnMonsterSelected"
+                //                >
 
-//                            <ListView.ItemTemplate>
-//                                <DataTemplate>
-//                                    <ViewCell
+                //            <ListView.ItemTemplate>
+                //                <DataTemplate>
+                //                    <ViewCell
                                     
-//                                    >
-//                                        <Frame BackgroundColor = "Transparent" BorderColor="Black">
-//                                            <StackLayout Orientation = "Vertical" >
+                //                    >
+                //                        <Frame BackgroundColor = "Transparent" BorderColor="Black">
+                //                            <StackLayout Orientation = "Vertical" >
 
-//                                                < Grid >
-//                                                    < Image
+                //                                < Grid >
+                //                                    < Image
 
 
-//                                                    Source="{Binding ImageURI}"
-//                                                    Style="{StaticResource ImageMediumStyle}"
-//                                                    VerticalOptions="CenterAndExpand"
+                //                                    Source="{Binding ImageURI}"
+                //                                    Style="{StaticResource ImageMediumStyle}"
+                //                                    VerticalOptions="CenterAndExpand"
                                                     
-//                                                    />
-//                                                    <Image
-//                                                    Source = "crosshair.png"
-//                                                    Style="{StaticResource ImageMediumStyle}"
-//                                                    VerticalOptions="CenterAndExpand"
-//                                                    IsVisible="{Binding SelectedForBattle}"
-//                                                    />
-//                                                </Grid>
-//                                                <Label Text = "{Binding Id}" ></ Label >
-//                                                < ProgressBar
-//                                                   Progress="0.5"></ProgressBar>
-//                                                <Label Text = "{Binding SelectedForBattle}" ></ Label >
-//                                                < ProgressBar
-//                                                   Progress="0.5"></ProgressBar>
+                //                                    />
+                //                                    <Image
+                //                                    Source = "crosshair.png"
+                //                                    Style="{StaticResource ImageMediumStyle}"
+                //                                    VerticalOptions="CenterAndExpand"
+                //                                    IsVisible="{Binding SelectedForBattle}"
+                //                                    />
+                //                                </Grid>
+                //                                <Label Text = "{Binding Id}" ></ Label >
+                //                                < ProgressBar
+                //                                   Progress="0.5"></ProgressBar>
+                //                                <Label Text = "{Binding SelectedForBattle}" ></ Label >
+                //                                < ProgressBar
+                //                                   Progress="0.5"></ProgressBar>
 
-//                                            </StackLayout>
-//                                        </Frame>
-//                                    </ViewCell>
-//                                </DataTemplate>
-//                            </ListView.ItemTemplate>
-//                        </ListView>
-//                    </StackLayout>
+                //                            </StackLayout>
+                //                        </Frame>
+                //                    </ViewCell>
+                //                </DataTemplate>
+                //            </ListView.ItemTemplate>
+                //        </ListView>
+                //    </StackLayout>
 
 
 //                </StackLayout>

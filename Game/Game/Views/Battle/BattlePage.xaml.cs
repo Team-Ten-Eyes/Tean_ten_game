@@ -20,7 +20,7 @@ namespace Game.Views
     {
         // This uses the Instance so it can be shared with other Battle Pages as needed
         public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
-
+        public bool MonstahSelected = false;
         // HTML Formatting for message output box
         public HtmlWebViewSource htmlSource = new HtmlWebViewSource();
 
@@ -58,6 +58,36 @@ namespace Game.Views
             ShowBattleMode();
         }
 
+        void OnMonsterSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            PlayerInfoModel data = args.SelectedItem as PlayerInfoModel;
+            if (args.SelectedItem == null)
+                return;
+            if (data.Alive == false)
+            {
+                return;
+            }
+            if (MonstahSelected)
+                return;
+            data.SelectedForBattle = true;
+
+          
+            for (int k = 0; k < EngineViewModel.Engine.MonsterList.Count; k++)
+            {
+                if (data.Guid == EngineViewModel.Engine.PlayerList[k].Guid)
+                {
+                    EngineViewModel.Engine.PlayerList[k].SelectedForBattle = true;
+                    //EngineViewModel.Engine.CurrentDefender = EngineViewModel.Engine.MonsterList[k];
+                    MonstahSelected = true;
+                }
+
+            }
+            //// Manually deselect item.
+            //MonsterListView.SelectedItem = null;
+            DrawGameAttackerDefenderBoard();
+
+
+        }
         /// <summary>
         /// Dray the Player Boxes
         /// </summary>
@@ -68,24 +98,28 @@ namespace Game.Views
             {
                 CharacterBox.Children.Remove(data);
             }
-
+            EngineViewModel.PartyCharacterList.Clear();
             // Draw the Characters
             foreach (var data in EngineViewModel.Engine.PlayerList.Where(m => m.PlayerType == PlayerTypeEnum.Character).ToList())
             {
                 CharacterBox.Children.Add(PlayerInfoDisplayBox(data));
+                EngineViewModel.PartyCharacterList.Add(data);
             }
+            
 
             var MonsterBoxList = MonsterBox.Children.ToList();
             foreach (var data in MonsterBoxList)
             {
                 MonsterBox.Children.Remove(data);
+             
             }
+            EngineViewModel.BattleMonsterList.Clear();
 
             // Draw the Monsters
             foreach (var data in EngineViewModel.Engine.PlayerList.Where(m => m.PlayerType == PlayerTypeEnum.Monster).ToList())
             {
                 MonsterBox.Children.Add(PlayerInfoDisplayBox(data));
-                
+                EngineViewModel.BattleMonsterList.Add(data);
             }
 
             // Add one black PlayerInfoDisplayBox to hold space incase the list is empty
@@ -311,15 +345,36 @@ namespace Game.Views
             switch (EngineViewModel.Engine.CurrentAttacker.PlayerType)
             {
                 case PlayerTypeEnum.Character:
+
+
+                    EngineViewModel.Engine.CurrentDefender = EngineViewModel.Engine.AttackChoice(EngineViewModel.Engine.CurrentAttacker);
+
                     // User would select who to attack
+                    if (MonstahSelected)
+                    {
+                        
+                        for (int i = 0; i < EngineViewModel.Engine.PlayerList.Count(); i++)
+                        {
+                            if (EngineViewModel.Engine.PlayerList[i].SelectedForBattle)
+                            {
+                                EngineViewModel.Engine.CurrentDefender = EngineViewModel.Engine.PlayerList[i];
+
+                            }
+                            EngineViewModel.Engine.PlayerList[i].SelectedForBattle = false;
+                        }
+                        
+                        MonstahSelected = false;
+                        
+
+                    }
 
                     // for now just auto selecting
-                    EngineViewModel.Engine.CurrentDefender = EngineViewModel.Engine.AttackChoice(EngineViewModel.Engine.CurrentAttacker);
+                    
                     break;
 
                 case PlayerTypeEnum.Monster:
                 default:
-
+                   
                     // Monsters turn, so auto pick a Character to Attack
                     EngineViewModel.Engine.CurrentDefender = EngineViewModel.Engine.AttackChoice(EngineViewModel.Engine.CurrentAttacker);
                     break;

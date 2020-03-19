@@ -48,7 +48,7 @@ namespace Game.ViewModels
         public Engine.BattleEngine Engine = new Engine.BattleEngine();
 
         // Hold the Proposed List of Characters for the Battle to Use
-        public ObservableCollection<BaseCharacter> PartyCharacterList { get; set; } = new ObservableCollection<BaseCharacter>();
+        public ObservableCollection<PlayerInfoModel> PartyCharacterList { get; set; } = new ObservableCollection<PlayerInfoModel>();
         public ObservableCollection<PlayerInfoModel> BattleMonsterList { get; set; } = new ObservableCollection<PlayerInfoModel>();
 
         public ObservableCollection<PotionsModel> Potions { get; set; } = new ObservableCollection<PotionsModel>();

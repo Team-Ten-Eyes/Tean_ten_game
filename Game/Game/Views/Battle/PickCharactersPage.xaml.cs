@@ -66,7 +66,7 @@ namespace Game.Views
             // Don't add more than the party max
             if (EngineViewModel.PartyCharacterList.Count() < EngineViewModel.Engine.MaxNumberPartyCharacters)
             {
-                EngineViewModel.PartyCharacterList.Add(data);
+                EngineViewModel.PartyCharacterList.Add(new PlayerInfoModel(data));
             }
 
             UpdateNextButtonState();
@@ -89,7 +89,7 @@ namespace Game.Views
             PartyListView.SelectedItem = null;
 
             // Remove the character from the list
-            EngineViewModel.PartyCharacterList.Remove(data);
+            EngineViewModel.PartyCharacterList.Remove(new PlayerInfoModel(data));
 
             UpdateNextButtonState();
         }
