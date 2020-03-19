@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Game.Views.BattleEquip"
+             BackgroundImageSource="characterPickPage.png">
+
+    <ContentPage.Content>
+        <ScrollView VerticalScrollBarVisibility="Never">
+            <StackLayout>
+                <Label Text="Character Equip Page"
+                       VerticalOptions="Start" 
+                       HorizontalOptions="Start" 
+                       FontSize="Medium"
+                       TextColor="White"
+                       />
+
+
+                <Image Source="{Binding Data.ImageURI}" WidthRequest="200" HeightRequest="200" 
+                       HorizontalOptions="Start"/>
+
+                <Label Text="Equiped Items" HorizontalOptions="Start" FontSize="Medium" TextDecorations="Underline" TextColor="White"/>
+
+
+                <FlexLayout 
+                        Padding="5"
+                        Wrap="Wrap"
+                        JustifyContent="SpaceAround"
+                        AlignContent="SpaceAround"
+                        x:Name="ItemBox" />
+
+
+
+                <!--The Item Popup-->
+                <StackLayout x:Name="PopupItemSelector" 
+                 BackgroundColor="#635173" 
+                 IsVisible="false" 
+                 AbsoluteLayout.LayoutBounds=".5, .5,.5,.5" 
+                 AbsoluteLayout.LayoutFlags="All">
+
+                    <StackLayout 
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand"
+                    WidthRequest="300"
+                    HeightRequest="300"
+                    >
+
+                        <Frame  BorderColor="White" Padding="1">
+                            <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand" Padding="2">
+                                <Label x:Name="PopupLocationLabel" Style="{StaticResource PopupItemTextStyleCharEquiped}" TextColor="White" />
+                                <Label x:Name="PopupLocationValue" Style="{StaticResource PopupItemTextStyleCharEquiped}"  TextColor="White"/>
+
+                                <ListView x:Name="PopupLocationItemListView" 
+                                CachingStrategy="RecycleElement"
+                                ItemSelected="OnPopupItemSelected"
+                                HasUnevenRows="true"
+                                Margin="5,0,5,0"
+                                RowHeight="80"
+                               
+                                >
+
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <Grid ColumnSpacing="5" RowSpacing="1">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="auto"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto"/>
+                                                        <RowDefinition Height="auto"/>
+                                                        <RowDefinition Height="auto"/>
+                                                    </Grid.RowDefinitions>
+
+                                                    <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                            Source="{Binding ImageURI}"
+                                            Style="{StaticResource ImageSmallStyle}"
+                                            VerticalOptions="CenterAndExpand"/>
+
+                                                    <Label Grid.Column="1" Grid.Row="0"
+                                            Text="{Binding Name}" 
+                                            Style="{StaticResource EquipedListStyle}"
+                                                           />
+
+                                                    <StackLayout Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+                                                        <Label Text="{Binding Attribute}" Style="{StaticResource EquipedListStyle}"
+                                                              />
+                                                        <Label Text="{Binding Value}" Style="{StaticResource EquipedListStyle}"
+                                                               />
+                                                    </StackLayout>
+
+                                                    <Label Grid.Column="1" Grid.Row="2"
+                                                           Text="{Binding Description}" 
+                                                           Style="{StaticResource EquipedListStyle}"
+                                                           FontSize="Micro"
+                                                           TextColor="White"
+                                                           />
+                                                </Grid>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+
+                                <Button x:Name="PopupCloseButton" 
+                                        Clicked="ClosePopup_Clicked" 
+                                        Text="Close"
+                                        BackgroundColor="White"
+                                        TextColor="#C03BFC"
+                                        FontAttributes="Bold"/>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView >
+    </ContentPage.Content>
+</ContentPage>
