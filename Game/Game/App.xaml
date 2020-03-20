@@ -128,7 +128,7 @@
                 x:Key="ValueStyleBattleMicro"
                 BasedOn="{StaticResource ValueStyleMicro}">
                 <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="LineBreakMode" Value="NoWrap" />
+                <Setter Property="LineBreakMode" Value="WordWrap" />
             </Style>
 
             <Style TargetType="Label"
