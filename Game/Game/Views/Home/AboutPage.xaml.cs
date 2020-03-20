@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using Xamarin.Forms;
 using Game.ViewModels;
+using System.Threading.Tasks;
 
 namespace Game.Views
 {
@@ -88,8 +89,13 @@ namespace Game.Views
 
             if (answer)
             {
-                MessagingCenter.Send(this, "WipeDataList", true);
+                RunWipeData();
             }
+        }
+
+        public void RunWipeData()
+        {
+            Task.Run(async () => { await DataSetsHelper.WipeDataInSequence(); });
         }
 
         public void Allow_Round_Healing( object sender, EventArgs e)
