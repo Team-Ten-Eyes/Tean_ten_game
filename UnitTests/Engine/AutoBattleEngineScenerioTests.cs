@@ -23,10 +23,19 @@ namespace Scenario
         {
         }
 
-        [Test]
-
         
 
+        [Test]
+        public async Task AutoBattleEngine_Hack13_First_Round_Boss_Fight_Game_Over_At_Round_One()
+        {
+            AutoBattleEngine MyEngine = new AutoBattleEngine();
+            MyEngine.testBossHack = true;
+            await MyEngine.RunAutoBattle();
+
+            var result = MyEngine.BattleScore.RoundCount;
+
+            Assert.AreEqual(result, 1);
+        }
         public void AutoBattleEngine_Constructor_Default_Should_Pass()
         {
             // Arrange

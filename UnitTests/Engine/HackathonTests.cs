@@ -38,9 +38,9 @@ namespace Scenario
             MyEngine.testBossHack = true;
             await MyEngine.RunAutoBattle();
 
-            var result = EngineViewModel.Engine.BattleScore.RoundCount;
+            var result = MyEngine.BattleScore.RoundCount;
 
-            Assert.AreEqual(result, 0);
+            Assert.AreEqual(result,1);
         }
         [Test]
         public async Task AutoBattleEngine_Hack48_Character_To_Hit_Roll_Equal_To_Hack_48_Condition_Attacker_Dies_Game_Ends_At_Round_One()
