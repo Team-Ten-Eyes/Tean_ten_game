@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
+using Game.Helpers;
 using Game.Models;
 using Game.ViewModels;
 using System.Threading.Tasks;
@@ -43,11 +43,55 @@ namespace Game.Views
             // Set up the UI to Defaults
             BindingContext = EngineViewModel;
 
-           
-            // Start the Battle Engine
-            EngineViewModel.Engine.StartBattle(false);
+            if (EngineViewModel.Engine.BattleScore.RoundCount < 1)
+            {
+                // Start the Battle Engine
+                EngineViewModel.Engine.StartBattle(false);
+            }
+            else
+            {
+                EngineViewModel.Engine.EndRound();
 
-            
+                // Populate New Monsters...
+                EngineViewModel.Engine.AddMonstersToRound();
+                EngineViewModel.Engine.populatePotionsList();
+                var ListOrder = 0;
+
+                
+                foreach (var data in EngineViewModel.Engine.MonsterList)
+                {
+                    if (data.Alive)
+                    {
+                        EngineViewModel.Engine.PlayerList.Add(
+                            new PlayerInfoModel(data)
+                            {
+                            // Remember the order
+                            ListOrder = ListOrder
+                            });
+
+                        ListOrder++;
+                    }
+                }
+
+                // Set Order for the Round
+                EngineViewModel.Engine.OrderPlayerListByTurnOrder();
+
+                for (int i = 0; i < EngineViewModel.Engine.PlayerList.Count; i++)
+                {
+                    if (EngineViewModel.Engine.PlayerList[i].PlayerType == PlayerTypeEnum.Character && EngineViewModel.Engine.PlayerList[i].Name == "Mike")
+                    {
+                        Debug.WriteLine("Mike Has Died");
+                        EngineViewModel.Engine.PlayerList[i].Alive = false;
+                    }
+                }
+
+                // Update Score for the RoundCount
+                EngineViewModel.Engine.BattleScore.RoundCount++;
+                //Roll for Hack 48 condition
+                EngineViewModel.Engine.deathRollHack48 = DiceHelper.RollDice(1, 20);
+
+            }
+
             // Ask the Game engine to select who goes first
             EngineViewModel.Engine.CurrentAttacker = null;
 
