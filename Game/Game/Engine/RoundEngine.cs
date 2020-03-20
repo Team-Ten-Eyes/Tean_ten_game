@@ -134,8 +134,16 @@ namespace Game.Engine
                 if (scaleFactor > 20)
                     scaleFactor = 20;
 
+
+
                 var data = new BaseMonster();
                 data.LevelUpToValue(scaleFactor);
+
+                data.Attack = 5000;
+                data.Defense = 5000;
+                data.Speed = 10000;
+                data.MaxHealth = data.CurrHealth = 1000;
+                
                 MonsterList.Add(new PlayerInfoModel(data));
             }
 
