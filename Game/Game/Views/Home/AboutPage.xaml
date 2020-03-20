@@ -137,6 +137,36 @@
 
                 </StackLayout>
             </StackLayout>
+            
+            <!--meet the creators block-->
+            <StackLayout>
+                <Label Text="Meet the creators" FontSize="Medium" TextColor="Black"/>
+                
+            <StackLayout Orientation="Horizontal">
+                <Image Source="Michelle.PNG" WidthRequest="200" HeightRequest="200"/>
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Michelle" FontSize="Medium" FontAttributes="Bold"/>
+                        <Label Text="Meet Michelle! She is a senoir at Seattle University working on this project. She real likes the ocean and you will see her around campus wearing the same jacket!" LineBreakMode="WordWrap"/>
+                    </StackLayout>
+                </StackLayout>
+                
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="Jack.PNG" WidthRequest="200" HeightRequest="200"/>
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Jack" FontSize="Medium" FontAttributes="Bold"/>
+                        <Label Text="Meet Jack! Jack is also a senoir at Seattle Univeristy working on this project! He is really in Bio especially genetics! Watch him zooming by on his bike but watch out dont get in his way!" LineBreakMode="WordWrap"/>
+                    </StackLayout>
+               </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="Will.PNG" WidthRequest="200" HeightRequest="200"/>
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Will" FontSize="Medium" FontAttributes="Bold"/>
+                        <Label Text="Meet Will! Just like Jack and Michelle, Will is also a senoir at Seattle University working on this project. Brainy guy, with also a talent for growing shrimp! catch Will helping the school at IT!" LineBreakMode="WordWrap"/> 
+                    </StackLayout>
+                </StackLayout>
+                    
+        </StackLayout>
         </StackLayout>
     </ScrollView>
 </ContentPage>
