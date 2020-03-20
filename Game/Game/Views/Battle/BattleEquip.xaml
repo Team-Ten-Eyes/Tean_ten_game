@@ -114,6 +114,10 @@
                         </Frame>
                     </StackLayout>
                 </StackLayout>
+
+
+                <Button Text="Go Back Silly Adventurer" Clicked="GoBackButton"/>
+
             </StackLayout>
         </ScrollView >
     </ContentPage.Content>
