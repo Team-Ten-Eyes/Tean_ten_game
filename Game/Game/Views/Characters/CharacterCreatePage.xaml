@@ -17,7 +17,7 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Create Monster"
+            <Label Text="Create Character"
                 VerticalOptions="Start" 
                 HorizontalOptions="Start" 
                    FontAttributes="Bold"
