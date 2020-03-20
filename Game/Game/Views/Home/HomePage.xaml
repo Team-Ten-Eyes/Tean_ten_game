@@ -22,9 +22,7 @@
                            HeightRequest="400"
                            WidthRequest="500"
                                Style="{StaticResource ImageLargeStyle}"/>
-                        <!--<Image
-                         Source="game_demon.png"
-                         Style="{StaticResource ImageLargeStyle}"/>-->
+                
 
                     </StackLayout>
                 </StackLayout>
@@ -48,7 +46,11 @@
 
                 <Button
                     Text="Enter"
-                    Clicked="GameButton_Clicked"/>
+                    Clicked="GameButton_Clicked"
+                    BackgroundColor="White"
+                    WidthRequest="100"
+                    HeightRequest="50"
+                    TextColor="#C03BFC"/>
 
             </StackLayout>
         </ScrollView>

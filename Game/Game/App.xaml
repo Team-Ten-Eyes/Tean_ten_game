@@ -430,14 +430,6 @@
                 <Setter Property="BorderColor" Value="{StaticResource SecondaryBackgroundColor}" />
             </Style>
 
-            <!--<Style TargetType="FlexLayout"
-                   x:Name="FlexBoxStyle">
-                <Setter Property="Wrap" Value="Wrap" />
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="BackgroundColor" Value="{StaticResource TransparentColor}" />
-            </Style>-->
-
             <!--this was previously commented out-->
             <Style TargetType="FlexLayout"
                    x:Name="PartyListFrameforchar">
@@ -550,6 +542,7 @@
                 <Setter Property="TextColor" Value="White"/>
             </Style>
 
+         
 
         </ResourceDictionary>
     </Application.Resources>

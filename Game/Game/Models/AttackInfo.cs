@@ -8,11 +8,11 @@ namespace Game.Models
     {
 
         public GenericViewModel<PlayerInfoModel> target { get; set; }
-        public GenericViewModel<SpecialAttack> attack { get; set; } = null;
-        public AttackInfo(GenericViewModel<PlayerInfoModel> target, GenericViewModel<SpecialAttack> attack = null)
+  
+        public AttackInfo(GenericViewModel<PlayerInfoModel> target)
         {
             this.target = target;
-            this.attack = attack;
+          
         }
 
     }
