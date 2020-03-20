@@ -43,10 +43,10 @@ namespace Scenario
         [Test]
         public async Task AutoBattleEngine_Character_With_Prime_Attribute_Value_Hits_Real_Hard_should_win_LOTS()
         {
+            AutoBattleEngine MyEngine = new AutoBattleEngine();
+            MyEngine.testingHack47 = true;
 
-            Engine.testingHack47 = true;
-
-            for (int i = 0; i < Engine.MaxNumberPartyCharacters; i++)
+            for (int i = 0; i < MyEngine.MaxNumberPartyCharacters; i++)
             {
                 var PrimeGod = new PlayerInfoModel(
                         new BaseCharacter
@@ -65,20 +65,28 @@ namespace Scenario
                             ListOrder = 1,
                         });
 
-                Engine.CharacterList.Add(PrimeGod);
+                MyEngine.CharacterList.Add(PrimeGod);
 
 
             }
-            Engine.MaxNumberPartyMonsters = 1;
+            MyEngine.MaxNumberPartyMonsters = 1;
+            await MyEngine.RunAutoBattle();
 
-            //Act
-            var result = await Engine.RunAutoBattle();
+            bool result = false;
+            if (MyEngine.BattleScore.RoundCount > 3)
+            {
+                result = true;
+            }
 
             //Reset
-            Engine.testingHack47 = false;
+            MyEngine = null;
             //Assert
             Assert.AreEqual(true, result);
+
         }
+
+
+
 
 
         [Test]
@@ -89,6 +97,7 @@ namespace Scenario
             // Add Characters
 
             Engine.MaxNumberPartyCharacters = 1;
+
 
             var CharacterPlayerMike = new PlayerInfoModel(
                             new BaseCharacter
@@ -174,6 +183,8 @@ namespace Scenario
         [Test]
         public async Task AutoBattleEngine_Hack48_Character_To_Hit_Roll_Equal_To_Hack_48_Condition_Attacker_Dies_Game_Ends_At_Round_One()
         {
+
+
             Engine.testHack48 = true;
             //FIRST CHARACTER 
             await Engine.RunAutoBattle();
