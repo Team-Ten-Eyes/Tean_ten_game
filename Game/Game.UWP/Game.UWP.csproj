@@ -113,6 +113,7 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24.png" />
     <Content Include="Assets\Square44x44Logo.targetsize-32.png" />
     <Content Include="cave_pj.png" />
+    <Content Include="EVIL_MIKE.png" />
     <Content Include="Health.png" />
     <Content Include="Mana.png" />
     <Content Include="MIKE_EVIL.png" />

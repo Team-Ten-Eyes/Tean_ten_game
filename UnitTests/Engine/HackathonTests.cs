@@ -35,11 +35,12 @@ namespace Scenario
         public async Task AutoBattleEngine_Hack13_First_Round_Boss_Fight_Game_Over_At_Round_One()
         {
             AutoBattleEngine MyEngine = new AutoBattleEngine();
+            MyEngine.testBossHack = true;
             await MyEngine.RunAutoBattle();
 
-            var result = EngineViewModel.Engine.BattleScore.RoundCount;
+            var result = MyEngine.BattleScore.RoundCount;
 
-            Assert.AreEqual(result, 0);
+            Assert.AreEqual(result,1);
         }
         [Test]
         public async Task AutoBattleEngine_Hack48_Character_To_Hit_Roll_Equal_To_Hack_48_Condition_Attacker_Dies_Game_Ends_At_Round_One()
@@ -52,10 +53,10 @@ namespace Scenario
 
             var result = MyEngine.BattleScore.RoundCount;
 
-            MyEngine.testHack48 = false;
-
+            
+            MyEngine = null;
             Assert.AreEqual(result, 1);
-            MyEngine.testHack48 = false;
+            
 
         }
         [Test]
@@ -88,14 +89,19 @@ namespace Scenario
 
             }
             MyEngine.MaxNumberPartyMonsters = 1;
+            await MyEngine.RunAutoBattle();
 
-            //Act
-            var result = await MyEngine.RunAutoBattle();
+            bool result = false;
+            if (MyEngine.BattleScore.RoundCount > 3)
+            {
+                result = true;
+            }
 
             //Reset
-            MyEngine.testingHack47 = false;
+            MyEngine = null;
             //Assert
             Assert.AreEqual(true, result);
+        
         }
 #region ScenarioConstructor
         [Test]

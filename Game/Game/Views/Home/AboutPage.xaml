@@ -67,7 +67,17 @@
                         Text="Wipe"
                         Clicked="WipeDataList_Clicked"
                         />
+                    
 
+                </StackLayout>
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Button
+                                Text="Get"
+                                Clicked="GetItemsGet_Command"/>
+
+                    <Button
+                                Text="Post"
+                                Clicked="GetItemsPost_Command"/>
                 </StackLayout>
             </StackLayout>
 
