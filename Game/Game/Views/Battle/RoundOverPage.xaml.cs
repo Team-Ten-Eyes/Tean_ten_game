@@ -30,26 +30,10 @@ namespace Game.Views
         public RoundOverPage()
         {
             InitializeComponent();
-
-            DrawItemLists();
-        }
-
-        /// <summary>
-        /// Draw the List of Items
-        /// 
-        /// The Ones Dropped
-        /// 
-        /// The Ones Selected
-        /// 
-        /// </summary>
-        public void DrawItemLists()
-        {
+      
             DrawDroppedItems();
-            DrawSelectedItems();
-
-            // Only need to update the selected, the Dropped is set in the constructor
-            TotalSelected.Text = BattleEngineViewModel.Instance.Engine.BattleScore.ItemModelSelectList.Count().ToString();
         }
+
 
         /// <summary>
         /// Add the Dropped Items to the Display
@@ -70,23 +54,7 @@ namespace Game.Views
         }
 
 
-        /// <summary>
-        /// Add the Dropped Items to the Display
-        /// </summary>
-        public void DrawSelectedItems()
-        {
-            // Clear and Populate the Dropped Items
-            var FlexList = ItemListSelectedFrame.Children.ToList();
-            foreach (var data in FlexList)
-            {
-                ItemListSelectedFrame.Children.Remove(data);
-            }
-
-            foreach (var data in BattleEngineViewModel.Instance.Engine.BattleScore.ItemModelSelectList)
-            {
-                ItemListSelectedFrame.Children.Add(GetItemToDisplay(data));
-            }
-        }
+        
 
 
         /// <summary>
