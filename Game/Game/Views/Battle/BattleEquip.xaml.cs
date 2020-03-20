@@ -33,6 +33,8 @@ namespace Game.Views
         {
             InitializeComponent();
             BindingContext = ViewModel = data;
+
+            characterImage.Source = data.ImageURI;
             AddItemsToDisplay();
         }
 
