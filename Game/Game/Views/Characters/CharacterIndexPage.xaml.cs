@@ -24,7 +24,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        async void OnCharacterSelected(object sender, SelectedItemChangedEventArgs args)
+        public async void OnCharacterSelected(object sender, SelectedItemChangedEventArgs args)
         {
             BaseCharacter data = args.SelectedItem as BaseCharacter;
             if (data == null)
@@ -45,7 +45,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void AddCharacter_Clicked(object sender, EventArgs e)
+        public async void AddCharacter_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new CharacterCreatePage(new GenericViewModel<BaseCharacter>())));
         }

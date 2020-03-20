@@ -12,7 +12,7 @@ namespace Game.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterCreatePage : ContentPage
     {
-        GenericViewModel<BaseCharacter> ViewModel { get; set; }
+        public GenericViewModel<BaseCharacter> ViewModel { get; set; }
 
         // Empty Constructor for UTs
         public CharacterCreatePage(bool UnitTest) { }
@@ -66,7 +66,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void CancelButtonClicked(object sender, EventArgs e)
+        public async void CancelButtonClicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
         }
@@ -87,7 +87,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        void OnCharacterImageSelected(object sender, SelectedItemChangedEventArgs args)
+        public void OnCharacterImageSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var image = args.SelectedItem as ImagePickerModel;
             ViewModel.Data.ImageURI = image.Url;

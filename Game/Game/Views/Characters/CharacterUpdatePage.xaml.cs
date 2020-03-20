@@ -10,7 +10,7 @@ namespace Game.Views
     public partial class CharacterUpdatePage : ContentPage
     {
 
-        readonly GenericViewModel<BaseCharacter> ViewModel;
+        public readonly GenericViewModel<BaseCharacter> ViewModel;
 
         // Empty Constructor for UTs
         public CharacterUpdatePage(bool UnitTest) { }
@@ -55,7 +55,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void CancelButtonClicked(object sender, EventArgs e)
+        public async void CancelButtonClicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
         }

@@ -12,7 +12,7 @@ namespace Game.Views
 
     public partial class CharacterReadPage : ContentPage
     {
-        readonly GenericViewModel<BaseCharacter> ViewModel;
+        public readonly GenericViewModel<BaseCharacter> ViewModel;
         /// <summary>
         /// Constructor called with a view model
         /// This is the primary way to open the page
@@ -42,7 +42,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Update_Clicked(object sender, EventArgs e)
+        public async void Update_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new CharacterUpdatePage(new GenericViewModel<BaseCharacter>(ViewModel.Data))));
             await Navigation.PopAsync();
@@ -55,7 +55,7 @@ namespace Game.Views
         // </summary>
         // <param name = "sender" ></ param >
         // < param name="e"></param>
-        async void Delete_Clicked(object sender, EventArgs e)
+        public async void Delete_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new CharacterDeletePage(new GenericViewModel<BaseCharacter>(ViewModel.Data))));
             await Navigation.PopAsync();
