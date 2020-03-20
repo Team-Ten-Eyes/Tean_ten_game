@@ -84,6 +84,21 @@ namespace Game.Services
                     Defense=10,
                     Speed=3
                 },
+                new BaseCharacter
+                {
+                    Name="God",
+                    ImageURI = "will.png",
+                    CurrHealth=150,
+                    MaxHealth=150,
+                    Mana=20,
+                    MaxMana=20,
+                    Level=19,
+                    Experience=5,
+                    Attribute=CharacterTypeEnum.Bravery,
+                    Attack=200,
+                    Defense=200,
+                    Speed=200
+                },
                   new BaseCharacter
                 {
                    Name="Conniving",
@@ -179,7 +194,7 @@ namespace Game.Services
                 },
                  new BaseMonster {
                     Name="Stress2",
-                    ImageURI = "Fire_monster.png",
+                    ImageURI = "MIKE_EVIL.png",
                     Level=12,
                     CurrHealth=20,
                     MaxHealth=20,

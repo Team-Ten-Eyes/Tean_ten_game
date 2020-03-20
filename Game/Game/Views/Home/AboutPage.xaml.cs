@@ -1,7 +1,14 @@
-﻿using System;
-using System.ComponentModel;
-using Xamarin.Forms;
+﻿using Game.Helpers;
+using Game.Models;
+using Game.Services;
 using Game.ViewModels;
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Threading.Tasks;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace Game.Views
 {
@@ -88,8 +95,13 @@ namespace Game.Views
 
             if (answer)
             {
-                MessagingCenter.Send(this, "WipeDataList", true);
+                RunWipeData();
             }
+        }
+
+        public void RunWipeData()
+        {
+            Task.Run(async () => { await DataSetsHelper.WipeDataInSequence(); });
         }
 
         public void Allow_Round_Healing( object sender, EventArgs e)
@@ -127,6 +139,112 @@ namespace Game.Views
                 EngineViewModel.SetBossBattle(true);
             else
                 EngineViewModel.SetBossBattle(false);
+        }
+
+
+        //SERVER CALLS BLOCK
+        /// <summary>
+        /// Call the server call for Get Items using HTTP Get
+        /// </summary>
+        /// <returns></returns>
+        public async Task<string> GetItemsGet()
+        {
+            // Call to the ItemModel Service and have it Get the Items
+            // The ServerItemValue Code stands for the batch of items to get
+            // as the group to request.  1, 2, 3, 100 (All), or if not specified All
+
+            int ServerItemValue = 100;
+
+            var result = "No Results";
+
+            var dataList = await ItemService.GetItemsFromServerGetAsync(ServerItemValue);
+
+            if (dataList == null)
+            {
+                return result;
+            }
+
+            if (dataList.Count == 0)
+            {
+                return result;
+            }
+
+            // Reset the output
+            result = "";
+
+            foreach (var ItemModel in dataList)
+            {
+                // Add them line by one, use \n to force new line for output display.
+                // Build up the output string by adding formatted ItemModel Output
+                result += ItemModel.FormatOutput() + "\n";
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Example of how to call for Items using Http Post
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void GetItemsPost_Command(object sender, EventArgs e)
+        {
+            var result = await GetItemsPost();
+            await DisplayServerResults(result);
+        }
+
+        /// <summary>
+        /// Show the Results of the server call
+        /// </summary>
+        /// <param name="result"></param>
+        /// <returns></returns>
+        private async Task DisplayServerResults(string result)
+        {
+            await DisplayAlert("Returned List", result, "OK");
+        }
+
+        /// <summary>
+        /// Get Items using the HTTP Post command
+        /// </summary>
+        /// <returns></returns>
+        public async Task<string> GetItemsPost()
+        {
+            var result = "No Results";
+            var dataList = new List<ItemModel>();
+
+            var number = 100;
+            var level = 6;  // Max Value of 6
+            var attribute = AttributeEnum.Unknown;  // Any Attribute
+            var location = ItemLocationEnum.Unknown;    // Any Location
+            var random = true;  // Random between 1 and Level
+            var updateDataBase = true;  // Add them to the DB
+            var category = 0;   // What category to filter down to, 0 is all
+
+            // will return shoes value 10 of speed.
+            // Example  result = await ItemsController.Instance.GetItemsFromGame(1, 10, AttributeEnum.Speed, ItemLocationEnum.Feet, false, true);
+            dataList = await ItemService.GetItemsFromServerPostAsync(number, level, attribute, location, category, random, updateDataBase);
+
+            // Null not possible, returns empty instead
+            //if (dataList == null)
+            //{
+            //    return result;
+            //}
+
+            if (dataList.Count == 0)
+            {
+                return result;
+            }
+
+            // Reset the output
+            result = "";
+
+            foreach (var ItemModel in dataList)
+            {
+                // Add them line by one, use \n to force new line for output display.
+                result += ItemModel.FormatOutput() + "\n";
+            }
+
+            return result;
         }
     }
 }
