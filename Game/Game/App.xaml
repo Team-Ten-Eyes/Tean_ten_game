@@ -12,15 +12,7 @@
 
             <!--Colors -->
 
-            <!--
-                Light
-                    #BF895A
-                    #D9C6B0
-                    #733612
-                    #8C3D20
-                    #400D01
-                Dark
-                -->
+          
 
             <Color x:Key="pickCharacterPageColor">#FFFFFF</Color>
             <Color x:Key="PageBackgroundColor">#7FD9BF</Color>

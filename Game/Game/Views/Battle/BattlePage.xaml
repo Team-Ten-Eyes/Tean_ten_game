@@ -190,17 +190,7 @@
                                     Style="{StaticResource LabelStyle}"
                                     FontSize="Micro"/>
 
-                            <!--<WebView
-                        x:Name="HtmlBox"
-                        WidthRequest="100"
-                        MinimumWidthRequest="100"
-                        HeightRequest="100"
-                        MinimumHeightRequest="100"
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="Start"
-                        BackgroundColor="Transparent"
-                        IsVisible="false"
-                        />-->
+                       
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
