@@ -36,6 +36,7 @@ namespace Scenario
 
             Assert.AreEqual(result, 1);
         }
+        [Test]
         public void AutoBattleEngine_Constructor_Default_Should_Pass()
         {
             // Arrange
