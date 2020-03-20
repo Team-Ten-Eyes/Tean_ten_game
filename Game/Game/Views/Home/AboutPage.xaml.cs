@@ -4,6 +4,10 @@ using Xamarin.Forms;
 using Game.ViewModels;
 using System.Threading.Tasks;
 
+using Game.Helpers;
+using Game.Models;
+using Game.Services;
+
 namespace Game.Views
 {
     /// <summary>
