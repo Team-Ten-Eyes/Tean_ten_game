@@ -47,6 +47,7 @@ namespace Game.Views
         {
             MessagingCenter.Send(this, "Create", ViewModel.Data);
             await Navigation.PushAsync(new GamePage());
+            BattleEngineViewModel.Instance.Engine.BattleScore.RoundCount = 0;
             //message center not pushing to scorelist DB
         }
     }

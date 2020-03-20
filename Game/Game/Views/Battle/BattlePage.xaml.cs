@@ -97,7 +97,8 @@ namespace Game.Views
 
             // Add Players to Display
             DrawGameAttackerDefenderBoard();
-
+            BattlePlayerBoxVersus.Text = "Click a monster to attack it next!";
+            BattlePlayerBox.IsVisible = true;
             // Set the Battle Mode
             ShowBattleMode();
         }
@@ -188,7 +189,7 @@ namespace Game.Views
                     ImageURI = ""
                 };
             }
-
+            
             var IButton = new ImageButton
             {
                
@@ -589,7 +590,6 @@ namespace Game.Views
             switch (EngineViewModel.Engine.BattleStateEnum)
             {
                 case BattleStateEnum.Starting:
-                    //GameUIDisplay.IsVisible = false;
                     StartBattleButton.IsVisible = true;
                     break;
 
